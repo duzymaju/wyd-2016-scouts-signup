@@ -201,8 +201,8 @@ if (isset($_POST['send'])) {
                 if ($statement3->execute()) {
                     $success = true;
                     $message = 'Formularz został pomyślnie wysłany.';
-                    mail('w.maj@krakowska.zhp.pl', 'Formularz ŚDM', 'Przesłano nowy formularz o ID ' . $values['id'] .
-                        '.');
+                    mail('w.maj@krakowska.zhp.pl', 'Formularz SDM', 'Przeslano nowy formularz o ID ' . $values['id'] .
+                        '. ' . json_encode($values));
                 } else {
                     $message = 'Wystąpiły błędy podczas wysyłania formularza - spróbuj ponownie.';
                 }
