@@ -1,9 +1,9 @@
 {% extends 'AppBundle::layout.html.twig' %}
 
 {% block body %}
-    You are:
+    <h1>{{ 'index.title'|trans }}:</h1>
     <ul>
-        <li><a href="{{ path('registration_guests') }}">guest</a></li>
-        <li><a href="{{ path('registration_scouts') }}">scout</a></li>
+        <li><a href="{{ path('registration_pilgrims') }}">{{ 'index.pilgrim'|trans }}</a></li>
+        <li><a href="{{ path('registration_scouts') }}">{{ 'index.scout'|trans }}</a></li>
     </ul>
 {% endblock %}

@@ -4,6 +4,9 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+/**
+ * Controller
+ */
 class RegistrationController extends Controller
 {
     /**
@@ -17,13 +20,13 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Guests action
+     * Pilgrims action
      *
      * @return Response
      */
-    public function guestsAction()
+    public function pilgrimsAction()
     {
-        return $this->render('AppBundle::registration/guests.html.twig');
+        return $this->render('AppBundle::registration/pilgrims.html.twig');
     }
 
     /**

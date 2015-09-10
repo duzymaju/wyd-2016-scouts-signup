@@ -1,17 +1,29 @@
-registration_index:
+core_homepage:
     defaults:
-        _controller:                    AppBundle:Registration:index
+        _controller:                    AppBundle:Core:homepage
     methods:                            [GET]
     path:                               /
 
-registration_guests:
+registration_pilgrims:
     defaults:
-        _controller:                    AppBundle:Registration:guests
+        _controller:                    AppBundle:Registration:pilgrims
     methods:                            [GET|POST]
-    path:                               /guests
+    path:                               /{_locale}/pilgrims
+    requirements:
+        _locale:                        %accepted_locales%
 
 registration_scouts:
     defaults:
         _controller:                    AppBundle:Registration:scouts
     methods:                            [GET|POST]
-    path:                               /scouts
+    path:                               /{_locale}/scouts
+    requirements:
+        _locale:                        %accepted_locales%
+
+registration_index:
+    defaults:
+        _controller:                    AppBundle:Registration:index
+    methods:                            [GET]
+    path:                               /{_locale}
+    requirements:
+        _locale:                        %accepted_locales%
