@@ -1,0 +1,9 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block body %}
+    You are:
+    <ul>
+        <li><a href="{{ path('registration_guests') }}">guest</a></li>
+        <li><a href="{{ path('registration_scouts') }}">scout</a></li>
+    </ul>
+{% endblock %}

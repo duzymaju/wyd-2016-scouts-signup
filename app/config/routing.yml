@@ -1,3 +1,17 @@
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+registration_index:
+    defaults:
+        _controller:                    AppBundle:Registration:index
+    methods:                            [GET]
+    path:                               /
+
+registration_guests:
+    defaults:
+        _controller:                    AppBundle:Registration:guests
+    methods:                            [GET|POST]
+    path:                               /guests
+
+registration_scouts:
+    defaults:
+        _controller:                    AppBundle:Registration:scouts
+    methods:                            [GET|POST]
+    path:                               /scouts
