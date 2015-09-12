@@ -7,6 +7,6 @@ use Wyd2016Bundle\Model\PilgrimApplication as Model;
 /**
  * Entity
  */
-class PilgrimApplication extends Model
+class PilgrimApplication extends Model implements EntityInterface
 {
 }

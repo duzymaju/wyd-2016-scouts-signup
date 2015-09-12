@@ -7,6 +7,6 @@ use Wyd2016Bundle\Model\ScoutApplication as Model;
 /**
  * Entity
  */
-class ScoutApplication extends Model
+class ScoutApplication extends Model implements EntityInterface
 {
 }

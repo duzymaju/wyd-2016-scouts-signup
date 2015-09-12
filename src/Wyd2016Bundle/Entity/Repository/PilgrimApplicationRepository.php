@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityRepository;
 /**
  * Repository
  */
-class PilgrimApplicationRepository extends EntityRepository
+class PilgrimApplicationRepository extends EntityRepository implements BaseRepositoryInterface
 {
+    use BaseRepositoryTrait;
 }

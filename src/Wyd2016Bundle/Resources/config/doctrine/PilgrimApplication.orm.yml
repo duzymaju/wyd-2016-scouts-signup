@@ -1,6 +1,7 @@
 Wyd2016Bundle\Entity\PilgrimApplication:
     options:
         collate:                        utf8_general_ci
+    repositoryClass:                    Wyd2016Bundle\Entity\Repository\PilgrimApplicationRepository
     table:                              pilgrim_application
     type:                               entity
 

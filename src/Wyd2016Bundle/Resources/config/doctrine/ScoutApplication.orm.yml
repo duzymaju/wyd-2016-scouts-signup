@@ -1,6 +1,7 @@
 Wyd2016Bundle\Entity\ScoutApplication:
     options:
         collate:                        utf8_general_ci
+    repositoryClass:                    Wyd2016Bundle\Entity\Repository\ScoutApplicationRepository
     table:                              scout_application
     type:                               entity
 

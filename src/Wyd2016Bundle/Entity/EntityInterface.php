@@ -5,7 +5,7 @@ namespace Wyd2016Bundle\Entity;
 /**
  * Entity
  */
-class EntityInterface
+interface EntityInterface
 {
     // nothing to do
 }

@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityRepository;
 /**
  * Repository
  */
-class ScoutApplicationRepository extends EntityRepository
+class ScoutApplicationRepository extends EntityRepository implements BaseRepositoryInterface
 {
+    use BaseRepositoryTrait;
 }

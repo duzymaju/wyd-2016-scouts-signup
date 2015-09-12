@@ -7,7 +7,7 @@ use Wyd2016Bundle\Entity\EntityInterface;
 /**
  * Repository
  */
-class BaseRepositoryTrait
+trait BaseRepositoryTrait
 {
     /**
      * Insert
