@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\PilgrimApplication;
+use AppBundle\Entity\ScoutApplication;
 use AppBundle\Form\Type\PilgrimApplicationType;
 use AppBundle\Form\Type\ScoutApplicationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -32,7 +34,7 @@ class RegistrationController extends Controller
      */
     public function pilgrimsAction(Request $request)
     {
-        $form = $this->createForm(new PilgrimApplicationType(), null, array(
+        $form = $this->createForm(new PilgrimApplicationType(), new PilgrimApplication(), array(
             'action' => $this->generateUrl('registration_pilgrims'),
             'method' => 'POST',
         ));
@@ -60,7 +62,7 @@ class RegistrationController extends Controller
      */
     public function scoutsAction(Request $request)
     {
-        $form = $this->createForm(new ScoutApplicationType(), null, array(
+        $form = $this->createForm(new ScoutApplicationType(), new ScoutApplication(), array(
             'action' => $this->generateUrl('registration_pilgrims'),
             'method' => 'POST',
         ));
