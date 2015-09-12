@@ -1,0 +1,22 @@
+{% extends 'Wyd2016Bundle::layout.html.twig' %}
+
+{% set pageTitle = 'success.title'|trans %}
+
+{% block body %}
+    <h1>{{ 'success.next_steps'|trans }}:</h1>
+    <ul>
+        <li>
+            <a href="{{ path('registration_pilgrims') }}">{{ 'success.register_pilgrim'|trans }}</a>
+        </li>
+        <li>
+            <a href="{{ path('registration_scouts') }}">{{ 'success.register_scout'|trans }}</a>
+        </li>
+        <li>
+            <a href="#" target="_blank">{{ 'success.scouts_page'|trans }}</a>
+        </li>
+        <li>
+            <a href="http://www.krakow2016.com{{ app.request.locale != 'pl' ? '/' ~ app.request.locale : '' }}"
+                target="_blank">{{ 'success.official_page'|trans }}</a>
+        </li>
+    </ul>
+{% endblock %}

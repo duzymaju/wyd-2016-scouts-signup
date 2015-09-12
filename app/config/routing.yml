@@ -1,12 +1,12 @@
 core_homepage:
     defaults:
-        _controller:                    AppBundle:Core:homepage
+        _controller:                    Wyd2016Bundle:Core:homepage
     methods:                            [GET]
     path:                               /
 
 registration_pilgrims:
     defaults:
-        _controller:                    AppBundle:Registration:pilgrims
+        _controller:                    Wyd2016Bundle:Registration:pilgrims
     methods:                            [GET|POST]
     path:                               /{_locale}/pilgrims
     requirements:
@@ -14,7 +14,7 @@ registration_pilgrims:
 
 registration_scouts:
     defaults:
-        _controller:                    AppBundle:Registration:scouts
+        _controller:                    Wyd2016Bundle:Registration:scouts
     methods:                            [GET|POST]
     path:                               /{_locale}/scouts
     requirements:
@@ -22,7 +22,7 @@ registration_scouts:
 
 registration_success:
     defaults:
-        _controller:                    AppBundle:Registration:success
+        _controller:                    Wyd2016Bundle:Registration:success
     methods:                            [GET]
     path:                               /{_locale}/success
     requirements:
@@ -30,7 +30,7 @@ registration_success:
 
 registration_index:
     defaults:
-        _controller:                    AppBundle:Registration:index
+        _controller:                    Wyd2016Bundle:Registration:index
     methods:                            [GET]
     path:                               /{_locale}
     requirements:

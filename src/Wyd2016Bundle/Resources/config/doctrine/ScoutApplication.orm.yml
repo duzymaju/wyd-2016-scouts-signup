@@ -1,0 +1,55 @@
+Wyd2016Bundle\Entity\ScoutApplication:
+    options:
+        collate:                        utf8_general_ci
+    table:                              scout_application
+    type:                               entity
+
+    id:
+        id:
+            generator:
+                strategy:               AUTO
+            type:                       integer
+    fields:
+        firstName:
+            length:                     50
+            name:                       first_name
+            type:                       string
+        lastName:
+            length:                     50
+            name:                       last_name
+            type:                       string
+        gradeId:
+            name:                       grade_id
+            type:                       smallint
+        regionId:
+            name:                       region_id
+            type:                       smallint
+        pesel:
+            type:                       bigint
+            unique:                     true
+        address:
+            length:                     255
+            type:                       string
+        serviceId:
+            name:                       service_id
+            type:                       smallint
+        permissions:
+            length:                     255
+            type:                       string
+        languages:
+            length:                     255
+            type:                       string
+        profession:
+            length:                     255
+            type:                       string
+        phone:
+            length:                     15
+            type:                       string
+        mail:
+            length:                     40
+            type:                       string
+            unique:                     true
+        serviceTime:
+            length:                     255
+            name:                       service_time
+            type:                       string

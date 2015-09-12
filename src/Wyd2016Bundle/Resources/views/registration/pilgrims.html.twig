@@ -1,0 +1,9 @@
+{% extends 'Wyd2016Bundle::layout.html.twig' %}
+
+{% set pageTitle = 'pilgrims.form.title'|trans %}
+
+{% block body %}
+    <h1>{{ 'pilgrims.form.title'|trans }}</h1>
+    {{ form_start(form) }}
+    {{ form_end(form) }}
+{% endblock %}

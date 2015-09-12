@@ -1,9 +1,0 @@
-{% extends 'AppBundle::layout.html.twig' %}
-
-{% block body %}
-    <h1>{{ 'index.title'|trans }}:</h1>
-    <ul>
-        <li><a href="{{ path('registration_pilgrims') }}">{{ 'index.pilgrim'|trans }}</a></li>
-        <li><a href="{{ path('registration_scouts') }}">{{ 'index.scout'|trans }}</a></li>
-    </ul>
-{% endblock %}

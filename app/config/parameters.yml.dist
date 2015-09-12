@@ -1,7 +1,7 @@
 parameters:
     database_host:                      127.0.0.1
     database_port:                      ~
-    database_name:                      wyd
+    database_name:                      wyd2016
     database_password:                  ~
     database_user:                      root
     mailer_host:                        127.0.0.1
