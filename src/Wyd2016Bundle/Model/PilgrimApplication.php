@@ -11,6 +11,12 @@ class PilgrimApplication
 {
     use IdTrait;
 
+    /** @const integer */
+    const STATUS_CONFIRMED = 1;
+
+    /** @const integer */
+    const STATUS_NOT_CONFIRMED = 0;
+
     /** @var integer */
     protected $status;
 

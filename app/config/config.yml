@@ -5,6 +5,8 @@ imports:
         resource:                       security.yml
     -
         resource:                       services.yml
+    -
+        resource:                       "@Wyd2016Bundle/Resources/config/repositories.yml"
 
 parameters:
     locale:                             en
