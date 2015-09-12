@@ -22,6 +22,7 @@
         "incenteev/composer-parameter-handler": "~2.0"
     },
     "require-dev": {
+        "doctrine/doctrine-migrations-bundle": "^1.0@dev",
         "sensio/generator-bundle": "~2.3"
     },
     "scripts": {
