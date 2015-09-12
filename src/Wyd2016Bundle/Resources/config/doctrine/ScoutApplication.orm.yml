@@ -10,6 +10,13 @@ Wyd2016Bundle\Entity\ScoutApplication:
                 strategy:               AUTO
             type:                       integer
     fields:
+        status:
+            type:                       smallint
+        activationHash:
+            length:                     32
+            name:                       activation_hash
+            type:                       string
+            unique:                     true
         firstName:
             length:                     50
             name:                       first_name
@@ -53,3 +60,7 @@ Wyd2016Bundle\Entity\ScoutApplication:
             length:                     255
             name:                       service_time
             type:                       string
+
+    indexes:
+        sa_index_1:
+            columns:                    status

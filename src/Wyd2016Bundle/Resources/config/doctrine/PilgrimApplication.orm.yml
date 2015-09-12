@@ -10,6 +10,13 @@ Wyd2016Bundle\Entity\PilgrimApplication:
                 strategy:               AUTO
             type:                       integer
     fields:
+        status:
+            type:                       smallint
+        activationHash:
+            length:                     32
+            name:                       activation_hash
+            type:                       string
+            unique:                     true
         firstName:
             length:                     50
             name:                       first_name
@@ -40,3 +47,7 @@ Wyd2016Bundle\Entity\PilgrimApplication:
         dateTo:
             name:                       date_to
             type:                       date
+
+    indexes:
+        sa_index_1:
+            columns:                    status

@@ -9,6 +9,12 @@ class ScoutApplication
 {
     use IdTrait;
 
+    /** @var integer */
+    protected $status;
+
+    /** @var string */
+    protected $activationHash;
+
     /** @var string */
     protected $firstName;
 
@@ -47,6 +53,54 @@ class ScoutApplication
     
     /** @var string */
     protected $serviceTime;
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status status
+     *
+     * @return self
+     */
+    function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get activation hash
+     *
+     * @return string
+     */
+    function getActivationHash()
+    {
+        return $this->activationHash;
+    }
+
+    /**
+     * Set activation hash
+     *
+     * @param string $activationHash activation hash
+     *
+     * @return self
+     */
+    function setActivationHash($activationHash)
+    {
+        $this->activationHash = $activationHash;
+
+        return $this;
+    }
 
     /**
      * Get first name
