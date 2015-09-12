@@ -20,6 +20,14 @@ registration_scouts:
     requirements:
         _locale:                        %accepted_locales%
 
+registration_success:
+    defaults:
+        _controller:                    AppBundle:Registration:success
+    methods:                            [GET]
+    path:                               /{_locale}/success
+    requirements:
+        _locale:                        %accepted_locales%
+
 registration_index:
     defaults:
         _controller:                    AppBundle:Registration:index
