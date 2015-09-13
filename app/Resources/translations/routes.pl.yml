@@ -1,0 +1,17 @@
+# Desc: /
+registration_index: /
+
+# Desc: /pilgrim/{hash}
+registration_pilgrim_confirm: '/pielgrzym/{hash}'
+
+# Desc: /pilgrim
+registration_pilgrim_form: /pielgrzym
+
+# Desc: /scout/{hash}
+registration_scout_confirm: '/harcerz/{hash}'
+
+# Desc: /scout
+registration_scout_form: /harcerz
+
+# Desc: /success
+registration_success: /sukces
