@@ -47,7 +47,7 @@ class RegistrationController extends Controller
 
         $response = $this->registrationProcedure($request, $formType, new PilgrimApplication(),
             $this->get('wyd2016bundle.pilgrim_application.repository'), 'registration_pilgrim_form',
-            'registration_pilgrim_confirm', 'Wyd2016Bundle::registration/pilgrims.html.twig',
+            'registration_pilgrim_confirm', 'Wyd2016Bundle::registration/pilgrim_form.html.twig',
             'Wyd2016Bundle::registration/pilgrim_email.html.twig', PilgrimApplication::STATUS_NOT_CONFIRMED);
 
         return $response;
@@ -66,7 +66,7 @@ class RegistrationController extends Controller
 
         $response = $this->registrationProcedure($request, $formType, new ScoutApplication(),
             $this->get('wyd2016bundle.scout_application.repository'), 'registration_scout_form',
-            'registration_scout_confirm', 'Wyd2016Bundle::registration/scouts.html.twig',
+            'registration_scout_confirm', 'Wyd2016Bundle::registration/scout_form.html.twig',
             'Wyd2016Bundle::registration/scout_email.html.twig', ScoutApplication::STATUS_NOT_CONFIRMED);
 
         return $response;
