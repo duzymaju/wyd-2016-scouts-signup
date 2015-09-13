@@ -32,18 +32,18 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Pilgrims action
+     * Pilgrim form action
      *
      * @param Request $request request
      *
      * @return Response
      */
-    public function pilgrimsAction(Request $request)
+    public function pilgrimFormAction(Request $request)
     {
         $formType = new PilgrimApplicationType($this->get('translator'), $request->getLocale());
 
         $response = $this->registrationProcedure($request, $formType, new PilgrimApplication(),
-            $this->get('wyd2016bundle.pilgrim_application.repository'), 'registration_pilgrims',
+            $this->get('wyd2016bundle.pilgrim_application.repository'), 'registration_pilgrim_form',
             'registration_pilgrim_confirm', 'Wyd2016Bundle::registration/pilgrims.html.twig',
             'Wyd2016Bundle::registration/pilgrim_email.html.twig', PilgrimApplication::STATUS_NOT_CONFIRMED);
 
@@ -51,18 +51,18 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Scouts action
+     * Scout form action
      *
      * @param Request $request request
      *
      * @return Response
      */
-    public function scoutsAction(Request $request)
+    public function scoutFormAction(Request $request)
     {
         $formType = new ScoutApplicationType($this->get('translator'));
 
         $response = $this->registrationProcedure($request, $formType, new ScoutApplication(),
-            $this->get('wyd2016bundle.scout_application.repository'), 'registration_scouts',
+            $this->get('wyd2016bundle.scout_application.repository'), 'registration_scout_form',
             'registration_scout_confirm', 'Wyd2016Bundle::registration/scouts.html.twig',
             'Wyd2016Bundle::registration/scout_email.html.twig', ScoutApplication::STATUS_NOT_CONFIRMED);
 

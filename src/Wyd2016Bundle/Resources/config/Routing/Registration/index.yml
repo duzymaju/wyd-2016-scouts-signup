@@ -1,0 +1,7 @@
+registration_index:
+    defaults:
+        _controller:                    Wyd2016Bundle:Registration:index
+    methods:                            [GET]
+    path:                               /{_locale}
+    requirements:
+        _locale:                        %accepted_locales%

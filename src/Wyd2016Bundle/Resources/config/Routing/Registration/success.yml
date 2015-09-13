@@ -1,0 +1,7 @@
+registration_success:
+    defaults:
+        _controller:                    Wyd2016Bundle:Registration:success
+    methods:                            [GET]
+    path:                               /{_locale}/success
+    requirements:
+        _locale:                        %accepted_locales%

@@ -1,0 +1,7 @@
+registration_scout_form:
+    defaults:
+        _controller:                    Wyd2016Bundle:Registration:scoutForm
+    methods:                            [GET|POST]
+    path:                               /{_locale}/scout
+    requirements:
+        _locale:                        %accepted_locales%
