@@ -2,7 +2,6 @@ registration_scout_confirm:
     defaults:
         _controller:                    Wyd2016Bundle:Registration:scoutConfirm
     methods:                            [GET]
-    path:                               /{_locale}/scout/{hash}
+    path:                               /scout/{hash}
     requirements:
-        _locale:                        %accepted_locales%
         hash:                           "[0-9a-f]{32}$"

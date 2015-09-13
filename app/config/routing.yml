@@ -18,3 +18,5 @@ _registration_index:
 
 _core_homepage:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Core/homepage.yml"
+    options:
+        i18n:                           false

@@ -1,16 +1,17 @@
 imports:
-    -
-        resource:                       parameters.yml
-    -
-        resource:                       security.yml
-    -
-        resource:                       services.yml
-    -
-        resource:                       "@Wyd2016Bundle/Resources/config/repositories.yml"
+    - resource:                         parameters.yml
+    - resource:                         security.yml
+
+    - resource:                         bundles/jms_i18n_routing.yml
+    - resource:                         bundles/jms_translation.yml
+
+    - resource:                         @Wyd2016Bundle/Resources/config/repositories.yml
 
 parameters:
     locale:                             en
-    accepted_locales:                   en|pl
+    locales:
+        -                               en
+        -                               pl
 
 framework:
     #esi:             ~
@@ -34,10 +35,6 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
-
-twig:
-    debug:                              "%kernel.debug%"
-    strict_variables:                   "%kernel.debug%"
 
 assetic:
     debug:          "%kernel.debug%"

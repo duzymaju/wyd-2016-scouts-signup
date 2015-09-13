@@ -2,6 +2,4 @@ registration_pilgrim_form:
     defaults:
         _controller:                    Wyd2016Bundle:Registration:pilgrimForm
     methods:                            [GET|POST]
-    path:                               /{_locale}/pilgrim
-    requirements:
-        _locale:                        %accepted_locales%
+    path:                               /pilgrim
