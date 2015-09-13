@@ -16,3 +16,17 @@
         </li>
     </ul>
 {% endmacro %}
+
+{% macro flashBagMessages(type = 'message') %}
+    {{ _self.messages(app.session.flashbag.get(type), type) }}
+{% endmacro %}
+
+{% macro messages(messages, type = 'message') %}
+    {% if messages is defined and messages|length > 0 %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="message{{ type == 'message' ? '' : ' message-' ~ type }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}

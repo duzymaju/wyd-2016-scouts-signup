@@ -3,6 +3,7 @@
 {% set pageTitle = 'pilgrims.form.title'|trans %}
 
 {% block body %}
+    {{ macro.flashBagMessages('error') }}
     <h1>{{ 'pilgrims.form.title'|trans }}</h1>
     {{ form_start(form) }}
     {{ form_end(form) }}

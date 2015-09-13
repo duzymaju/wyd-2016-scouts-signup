@@ -4,6 +4,6 @@
 {% set pageTitle = 'success.title'|trans %}
 
 {% block body %}
-    <p>{{ 'success.message'|trans }}</p>
+    {{ macro.flashBagMessages('success') }}
     {{ macro.nextStepsBox() }}
 {% endblock %}

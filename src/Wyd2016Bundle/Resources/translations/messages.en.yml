@@ -12,6 +12,8 @@ form.address:                           Address
 form.country:                           Country
 form.date_from:                         Date of arrival
 form.date_to:                           Date of departure
+form.exception.database:                An error occured during data saving - please try again.
+form.exception.email:                   An error occured during e-mail sending - check if an e-mail address is correct.
 form.first_name:                        First name
 form.grade:                             Grade
 form.grade.guide:                       guide

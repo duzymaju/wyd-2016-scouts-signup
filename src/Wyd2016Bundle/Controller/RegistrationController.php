@@ -3,6 +3,7 @@
 namespace Wyd2016Bundle\Controller;
 
 use DateTime;
+use Doctrine\ORM\ORMException;
 use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormTypeInterface;
@@ -13,6 +14,8 @@ use Wyd2016Bundle\Entity\EntityInterface;
 use Wyd2016Bundle\Entity\PilgrimApplication;
 use Wyd2016Bundle\Entity\Repository\BaseRepositoryInterface;
 use Wyd2016Bundle\Entity\ScoutApplication;
+use Wyd2016Bundle\Exception\ExceptionInterface;
+use Wyd2016Bundle\Exception\RegistrationException;
 use Wyd2016Bundle\Form\Type\PilgrimApplicationType;
 use Wyd2016Bundle\Form\Type\ScoutApplicationType;
 
@@ -127,11 +130,12 @@ class RegistrationController extends Controller
     protected function registrationProcedure(Request $request, FormTypeInterface $type, EntityInterface $entity,
         BaseRepositoryInterface $repository, $formRoute, $confirmRoute, $formView, $emailView, $status)
     {
+        $translator = $this->get('translator');
+
         $form = $this->createForm($type, $entity, array(
             'action' => $this->generateUrl($formRoute),
             'method' => 'POST',
         ));
-
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -139,9 +143,6 @@ class RegistrationController extends Controller
             $entity->setStatus($status)
                 ->setActivationHash($hash)
                 ->setCreatedAt(new DateTime());
-            $repository->insert($entity, true);
-
-            $translator = $this->get('translator');
 
             $message = Swift_Message::newInstance()
                 ->setSubject($translator->trans('email.title'))
@@ -152,11 +153,26 @@ class RegistrationController extends Controller
                         'hash' => $hash,
                     ), UrlGeneratorInterface::ABSOLUTE_URL),
                 )), 'text/html');
-            $this->get('mailer')
-                ->send($message);
 
-            $response = $this->redirect($this->generateUrl('registration_success'));
-        } else {
+            try {
+                $mailer = $this->get('mailer');
+                if (!$mailer->send($message)) {
+                    throw new RegistrationException('form.exception.email');
+                }
+
+                try {
+                    $repository->insert($entity, true);
+                } catch (ORMException $e) {
+                    throw new RegistrationException('form.exception.database', 0, $e);
+                }
+
+                $this->addMessage($translator->trans('success.message'), 'success');
+                $response = $this->redirect($this->generateUrl('registration_success'));
+            } catch (ExceptionInterface $e) {
+                $this->addMessage($translator->trans($e->getMessage()), 'error');
+            }
+        }
+        if (!isset($response)) {
             $response = $this->render($formView, array(
                 'form' => $form->createView(),
             ));
@@ -209,5 +225,22 @@ class RegistrationController extends Controller
         )));
 
         return $activationHash;
+    }
+
+    /**
+     * Add message
+     *
+     * @param string $message message
+     * @param string $type    type
+     *
+     * @return self
+     */
+    protected function addMessage($message, $type = 'message')
+    {
+        $this->get('session')
+            ->getFlashBag()
+            ->add($type, $message);
+
+        return $this;
     }
 }
