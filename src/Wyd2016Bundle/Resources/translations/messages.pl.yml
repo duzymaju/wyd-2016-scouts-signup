@@ -3,6 +3,8 @@ confirmation.success:                   Twoja rejestracja została prawidłowo p
 confirmation.title:                     Potwierdzenie rejestracji
 
 email.link:                             Kliknij tutaj aby potwierdzić rejestrację
+email.pligrim.text:                     "Dziękujemy za rejestrację pobytu w miejscu przygotowywanym przez Związek Harcerstwa Polskiego podczas ŚDM Kraków 2016. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
+email.scout.text:                       "Dziękujemy za rejestrację jako harcerski wolontariusz na ŚDM Kraków 2016. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
 email.title:                            Rejestracja na ŚDM Kraków 2016
 
 form.accomodation:                      Zakwaterowanie

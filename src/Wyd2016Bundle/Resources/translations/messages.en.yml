@@ -3,6 +3,8 @@ confirmation.success:                   Your registration was successfully confi
 confirmation.title:                     Registration confirmation
 
 email.link:                             Click here to confirm registration
+email.pligrim.text:                     "Thank you for registration your stay in a place prepaired by Polish Scouting Organization during WYD Krakow 2016. To confirm your registration process please click the link below:"
+email.scout.text:                       "Thank you for registration as a scout volunteer during WYD Krakow 2016. To confirm your registration process please click the link below:"
 email.title:                            Registration to WYD Krakow 2016
 
 form.accomodation:                      Accomodation
@@ -55,5 +57,5 @@ pilgrims.form.title:                    Form for pilgrims
 
 scouts.form.title:                      Form for scouts
 
-success.message:                        Your data were successfuly saved. To complete your registration pleace receive e-mail message we've send to you and click confirmation link.
+success.message:                        Your data were successfuly saved. To complete your registration please receive e-mail message we've send to you and click confirmation link.
 success.title:                          Thank you for registration
