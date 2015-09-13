@@ -48,9 +48,22 @@ trait BaseRepositoryTrait
         $this->getEntityManager()
             ->remove($entity);
         if ($flush) {
-            $this->getEntityManager()
-                ->flush();
+            $this->flush();
         }
+        
+        return $this;
+    }
+
+    /**
+     * Flush
+     *
+     * @return self
+     */
+    public function flush()
+    {
+        $this->getEntityManager()
+            ->flush();
+
         return $this;
     }
     
@@ -67,8 +80,7 @@ trait BaseRepositoryTrait
         $this->getEntityManager()
             ->persist($entity);
         if ($flush) {
-            $this->getEntityManager()
-                ->flush();
+            $this->flush();
         }
         return $this;
     }

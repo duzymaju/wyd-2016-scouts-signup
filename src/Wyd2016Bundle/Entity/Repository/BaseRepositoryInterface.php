@@ -38,4 +38,11 @@ interface BaseRepositoryInterface
      * @return self
      */
     public function delete(EntityInterface $entity, $flush = false);
+
+    /**
+     * Flush
+     *
+     * @return self
+     */
+    public function flush();
 }
