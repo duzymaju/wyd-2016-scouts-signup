@@ -80,12 +80,12 @@ class PilgrimApplicationType extends AbstractType
             ),
             'label' => $this->translator->trans('form.accomodation'),
         ))
-        ->add('dateFrom', 'date', $dateOptions, array(
+        ->add('dateFrom', 'date', array_merge($dateOptions, array(
             'label' => $this->translator->trans('form.date_from'),
-        ))
-        ->add('dateTo', 'date', $dateOptions, array(
+        )))
+        ->add('dateTo', 'date', array_merge($dateOptions, array(
             'label' => $this->translator->trans('form.date_to'),
-        ))
+        )))
         ->add('save', 'submit', array(
             'label' => $this->translator->trans('form.save'),
         ));
