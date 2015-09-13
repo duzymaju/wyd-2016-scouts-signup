@@ -2,6 +2,9 @@ confirmation.error:                     Twoja rejestracja została już potwierd
 confirmation.success:                   Twoja rejestracja została prawidłowo potwierdzona
 confirmation.title:                     Potwierdzenie rejestracji
 
+email.link:                             Kliknij tutaj aby potwierdzić rejestrację
+email.title:                            Rejestracja na ŚDM Kraków 2016
+
 form.accomodation:                      Zakwaterowanie
 form.accomodation.school:               szkoła
 form.accomodation.tent:                 namiot

@@ -2,6 +2,9 @@ confirmation.error:                     Your registration is already confirmed o
 confirmation.success:                   Your registration was successfully confirmed
 confirmation.title:                     Registration confirmation
 
+email.link:                             Click here to confirm registration
+email.title:                            Registration to WYD Krakow 2016
+
 form.accomodation:                      Accomodation
 form.accomodation.school:               school
 form.accomodation.tent:                 tent
