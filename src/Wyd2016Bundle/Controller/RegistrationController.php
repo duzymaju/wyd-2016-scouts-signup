@@ -130,8 +130,6 @@ class RegistrationController extends Controller
     protected function registrationProcedure(Request $request, FormTypeInterface $type, EntityInterface $entity,
         BaseRepositoryInterface $repository, $formRoute, $confirmRoute, $formView, $emailView, $status)
     {
-        $translator = $this->get('translator');
-
         $form = $this->createForm($type, $entity, array(
             'action' => $this->generateUrl($formRoute),
             'method' => 'POST',
@@ -143,6 +141,8 @@ class RegistrationController extends Controller
             $entity->setStatus($status)
                 ->setActivationHash($hash)
                 ->setCreatedAt(new DateTime());
+
+            $translator = $this->get('translator');
 
             $message = Swift_Message::newInstance()
                 ->setSubject($translator->trans('email.title'))
@@ -166,10 +166,10 @@ class RegistrationController extends Controller
                     throw new RegistrationException('form.exception.database', 0, $e);
                 }
 
-                $this->addMessage($translator->trans('success.message'), 'success');
+                $this->addMessage('success.message', 'success');
                 $response = $this->redirect($this->generateUrl('registration_success'));
             } catch (ExceptionInterface $e) {
-                $this->addMessage($translator->trans($e->getMessage()), 'error');
+                $this->addMessage($e->getMessage(), 'error');
             }
         }
         if (!isset($response)) {
