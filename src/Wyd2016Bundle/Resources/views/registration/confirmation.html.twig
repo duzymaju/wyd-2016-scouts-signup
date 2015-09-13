@@ -4,6 +4,7 @@
 {% set pageTitle = 'confirmation.title'|trans %}
 
 {% block body %}
-    <p>{{ success ? 'confirmation.success'|trans : 'confirmation.error'|trans }}</p>
+    {{ macro.flashBagMessages('success', true) }}
+    {{ macro.flashBagMessages('error', true) }}
     {{ macro.nextStepsBox() }}
 {% endblock %}

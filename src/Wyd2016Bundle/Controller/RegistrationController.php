@@ -198,16 +198,14 @@ class RegistrationController extends Controller
         ));
 
         if (!isset($entity) || $entity->isConfirmed()) {
-            $success = false;
+            $this->addMessage('confirmation.error', 'error');
         } else {
             $entity->setStatus($status);
             $repository->update($entity, true);
-            $success = true;
+            $this->addMessage('confirmation.success', 'success');
         }
 
-        return $this->render('Wyd2016Bundle::registration/confirmation.html.twig', array(
-            'success' => $success,
-        ));
+        return $this->render('Wyd2016Bundle::registration/confirmation.html.twig');
     }
 
     /**
