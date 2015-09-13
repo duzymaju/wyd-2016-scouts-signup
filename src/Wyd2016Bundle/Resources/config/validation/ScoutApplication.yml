@@ -1,0 +1,47 @@
+Wyd2016Bundle\Entity\ScoutApplication:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: pesel
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: mail
+    properties:
+        firstName:
+            - Length:
+                min:                    2
+                max:                    50
+        lastName:
+            - Length:
+                min:                    2
+                max:                    50
+        pesel:
+            - Wyd2016Bundle\Validator\Constraints\ContainsPesel: ~
+        address:
+            - Length:
+                min:                    10
+                max:                    255
+        permissions:
+            - Length:
+                min:                    2
+                max:                    255
+        languages:
+            - Length:
+                min:                    2
+                max:                    255
+        profession:
+            - Length:
+                min:                    2
+                max:                    255
+        phone:
+            - Length:
+                min:                    8
+                max:                    15
+            - Regex:
+                pattern:                "/^[0-9 \+\-\(\)]{8,15}$/"
+        mail:
+            - Email:                    ~
+            - Length:
+                min:                    3
+                max:                    40
+        serviceTime:
+            - Length:
+                min:                    2
+                max:                    255
+    

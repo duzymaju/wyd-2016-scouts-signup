@@ -2,6 +2,38 @@ confirmation.error:                     Twoja rejestracja została już potwierd
 confirmation.success:                   Twoja rejestracja została prawidłowo potwierdzona
 confirmation.title:                     Potwierdzenie rejestracji
 
+form.accomodation:                      Zakwaterowanie
+form.accomodation.school:               szkoła
+form.accomodation.tent:                 namiot
+form.address:                           Adres zamieszkania
+form.country:                           Państwo
+form.date_from:                         Data przyjazdu
+form.date_to:                           Data wyjazdu
+form.first_name:                        Imię
+form.grade:                             Stopień
+form.grade.guide:                       przewodnik
+form.grade.no:                          brak
+form.grade.scoutmaster:                 harcmistrz
+form.grade.sub_scoutmaster:             podharcmistrz
+form.languages:                         Języki obce
+form.last_name:                         Nazwisko
+form.mail:                              Adres e-mail
+form.permissions:                       Uprawnienia
+form.pesel:                             PESEL
+form.phone:                             Nr telefonu
+form.profession:                        Zawód
+form.region:                            Chorągiew
+form.save:                              Zapisz
+form.service:                           Służba
+form.service.information:               informacyjna
+form.service.kitchen:                   kuchenna
+form.service.medical:                   medyczna
+form.service.office:                    biuro miasteczka
+form.service.program:                   programowa
+form.service.quartermaster:             kwatermistrzowska
+form.service.security:                  porządkowa
+form.service_time:                      Czas służby
+
 index.pilgrim:                          pielgrzymem
 index.scout:                            harcerzem
 index.title:                            Jesteś

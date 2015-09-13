@@ -4,12 +4,26 @@ namespace Wyd2016Bundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Translation\TranslatorInterface;
 
 /*
  * Form Type
  */
 class ScoutApplicationType extends AbstractType
 {
+    /** @var TranslatorInterface */
+    protected $translator;
+
+    /**
+     * Constructor
+     *
+     * @param TranslatorInterface $translator translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * Build form
      *
@@ -18,9 +32,85 @@ class ScoutApplicationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('first_name', 'text')
-            ->add('last_name', 'text')
-            ->add('save', 'submit');
+        unset($options);
+
+        $builder->add('firstName', 'text', array(
+            'label' => $this->translator->trans('form.first_name'),
+        ))
+        ->add('lastName', 'text', array(
+            'label' => $this->translator->trans('form.last_name'),
+        ))
+        ->add('gradeId', 'choice', array(
+            'choices' => array(
+                0 => $this->translator->trans('form.grade.no'),
+                1 => $this->translator->trans('form.grade.guide'),
+                2 => $this->translator->trans('form.grade.sub_scoutmaster'),
+                3 => $this->translator->trans('form.grade.scoutmaster'),
+            ),
+            'label' => $this->translator->trans('form.grade'),
+        ))
+        ->add('regionId', 'choice', array(
+            'choices' => array(
+                // nothing to translate
+                1 => 'Białostocka',
+                2 => 'Dolnośląska',
+                3 => 'Gdańska',
+                4 => 'Kielecka',
+                5 => 'Krakowska',
+                6 => 'Kujawsko-Pomorska',
+                7 => 'Lubelska',
+                8 => 'Łódzka',
+                9 => 'Mazowiecka',
+                10 => 'Opolska',
+                11 => 'Podkarpacka',
+                12 => 'Stołeczna',
+                13 => 'Śląska',
+                14 => 'Warmińsko-Mazurska',
+                15 => 'Wielkopolska',
+                16 => 'Zachodniopomorska',
+                17 => 'Ziemi Lubuskiej',
+            ),
+            'label' => $this->translator->trans('form.region'),
+        ))
+        ->add('pesel', 'text', array(
+            'label' => $this->translator->trans('form.pesel'),
+        ))
+        ->add('address', 'text', array(
+            'label' => $this->translator->trans('form.address'),
+        ))
+        ->add('serviceId', 'choice', array(
+            'choices' => array(
+                1 => $this->translator->trans('form.service.medical'),
+                2 => $this->translator->trans('form.service.security'),
+                3 => $this->translator->trans('form.service.quartermaster'),
+                4 => $this->translator->trans('form.service.information'),
+                5 => $this->translator->trans('form.service.program'),
+                6 => $this->translator->trans('form.service.office'),
+                7 => $this->translator->trans('form.service.kitchen'),
+            ),
+            'label' => $this->translator->trans('form.service'),
+        ))
+        ->add('permissions', 'text', array(
+            'label' => $this->translator->trans('form.permissions'),
+        ))
+        ->add('languages', 'text', array(
+            'label' => $this->translator->trans('form.languages'),
+        ))
+        ->add('profession', 'text', array(
+            'label' => $this->translator->trans('form.profession'),
+        ))
+        ->add('phone', 'text', array(
+            'label' => $this->translator->trans('form.phone'),
+        ))
+        ->add('mail', 'email', array(
+            'label' => $this->translator->trans('form.mail'),
+        ))
+        ->add('serviceTime', 'text', array(
+            'label' => $this->translator->trans('form.service_time'),
+        ))
+        ->add('save', 'submit', array(
+            'label' => $this->translator->trans('form.save'),
+        ));
     }
 
     /**

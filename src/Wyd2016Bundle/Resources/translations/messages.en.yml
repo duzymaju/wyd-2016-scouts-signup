@@ -2,6 +2,38 @@ confirmation.error:                     Your registration is already confirmed o
 confirmation.success:                   Your registration was successfully confirmed
 confirmation.title:                     Registration confirmation
 
+form.accomodation:                      Accomodation
+form.accomodation.school:               school
+form.accomodation.tent:                 tent
+form.address:                           Address
+form.country:                           Country
+form.date_from:                         Date of arrival
+form.date_to:                           Date of departure
+form.first_name:                        First name
+form.grade:                             Grade
+form.grade.guide:                       guide
+form.grade.no:                          no
+form.grade.scoutmaster:                 scoutmaster
+form.grade.sub_scoutmaster:             sub-scoutmaster
+form.languages:                         Foreign languages
+form.last_name:                         Last name
+form.mail:                              E-mail address
+form.permissions:                       Permissions
+form.pesel:                             PESEL
+form.phone:                             Phone no
+form.profession:                        Profession
+form.region:                            Region
+form.save:                              Save
+form.service:                           Service
+form.service.information:               information
+form.service.kitchen:                   kitchen
+form.service.medical:                   medical
+form.service.office:                    office
+form.service.program:                   program
+form.service.quartermaster:             quartermaster
+form.service.security:                  security
+form.service_time:                      Service time
+
 index.pilgrim:                          pilgrim
 index.scout:                            scout
 index.title:                            You are
