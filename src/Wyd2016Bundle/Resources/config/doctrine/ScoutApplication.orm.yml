@@ -55,7 +55,7 @@ Wyd2016Bundle\Entity\ScoutApplication:
         phone:
             length:                     15
             type:                       string
-        mail:
+        email:
             length:                     40
             type:                       string
             unique:                     true

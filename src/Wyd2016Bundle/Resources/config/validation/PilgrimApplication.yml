@@ -1,6 +1,6 @@
 Wyd2016Bundle\Entity\PilgrimApplication:
     constraints:
-        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: mail
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
     properties:
         firstName:
             - Length:
@@ -20,7 +20,7 @@ Wyd2016Bundle\Entity\PilgrimApplication:
                 max:                    15
             - Regex:
                 pattern:                "/^[0-9 \+\-\(\)]{8,15}$/"
-        mail:
+        email:
             - Email:                    ~
             - Length:
                 min:                    3

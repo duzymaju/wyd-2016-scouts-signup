@@ -146,7 +146,7 @@ class RegistrationController extends Controller
             $message = Swift_Message::newInstance()
                 ->setSubject($translator->trans('email.title'))
                 ->setFrom($this->getParameter('mailer_user'))
-                ->setTo($entity->getMail())
+                ->setTo($entity->getEmail())
                 ->setBody($this->renderView($emailView, array(
                     'confirmationUrl' => $this->generateUrl($confirmRoute, array(
                         'hash' => $hash,
@@ -205,7 +205,7 @@ class RegistrationController extends Controller
     {
         $activationHash = md5(implode('-', array(
             $entity->getId(),
-            $entity->getMail(),
+            $entity->getEmail(),
         )));
 
         return $activationHash;

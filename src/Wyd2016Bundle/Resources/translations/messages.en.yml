@@ -20,7 +20,7 @@ form.grade.scoutmaster:                 scoutmaster
 form.grade.sub_scoutmaster:             sub-scoutmaster
 form.languages:                         Foreign languages
 form.last_name:                         Last name
-form.mail:                              E-mail address
+form.email:                             E-mail address
 form.permissions:                       Permissions
 form.pesel:                             PESEL
 form.phone:                             Phone no

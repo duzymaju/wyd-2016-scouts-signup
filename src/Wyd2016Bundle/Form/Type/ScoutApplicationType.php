@@ -102,8 +102,8 @@ class ScoutApplicationType extends AbstractType
         ->add('phone', 'text', array(
             'label' => $this->translator->trans('form.phone'),
         ))
-        ->add('mail', 'email', array(
-            'label' => $this->translator->trans('form.mail'),
+        ->add('email', 'email', array(
+            'label' => $this->translator->trans('form.email'),
         ))
         ->add('serviceTime', 'text', array(
             'label' => $this->translator->trans('form.service_time'),

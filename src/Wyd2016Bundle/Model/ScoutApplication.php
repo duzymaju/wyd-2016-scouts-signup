@@ -57,7 +57,7 @@ class ScoutApplication
     protected $phone;
 
     /** @var string */
-    protected $mail;
+    protected $email;
     
     /** @var string */
     protected $serviceTime;
@@ -388,25 +388,25 @@ class ScoutApplication
     }
 
     /**
-     * Get mail
+     * Get e-mail
      *
      * @return string
      */
-    function getMail()
+    function getEmail()
     {
-        return $this->mail;
+        return $this->email;
     }
 
     /**
-     * Set mail
+     * Set e-mail
      *
-     * @param string $mail mail
+     * @param string $email e-mail
      *
      * @return self
      */
-    function setMail($mail)
+    function setEmail($email)
     {
-        $this->mail = $mail;
+        $this->email = $email;
 
         return $this;
     }

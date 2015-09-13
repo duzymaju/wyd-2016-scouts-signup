@@ -20,7 +20,7 @@ form.grade.scoutmaster:                 harcmistrz
 form.grade.sub_scoutmaster:             podharcmistrz
 form.languages:                         Języki obce
 form.last_name:                         Nazwisko
-form.mail:                              Adres e-mail
+form.email:                             Adres e-mail
 form.permissions:                       Uprawnienia
 form.pesel:                             PESEL
 form.phone:                             Nr telefonu

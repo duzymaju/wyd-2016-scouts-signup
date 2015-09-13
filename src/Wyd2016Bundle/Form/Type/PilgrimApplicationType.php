@@ -68,8 +68,8 @@ class PilgrimApplicationType extends AbstractType
         ->add('phone', 'text', array(
             'label' => $this->translator->trans('form.phone'),
         ))
-        ->add('mail', 'email', array(
-            'label' => $this->translator->trans('form.mail'),
+        ->add('email', 'email', array(
+            'label' => $this->translator->trans('form.email'),
         ))
         ->add('accomodationId', 'choice', array(
             'choices' => array(
