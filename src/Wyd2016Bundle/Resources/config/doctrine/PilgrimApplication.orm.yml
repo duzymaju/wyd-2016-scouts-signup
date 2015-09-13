@@ -16,6 +16,8 @@ Wyd2016Bundle\Entity\PilgrimApplication:
         activationHash:
             length:                     32
             name:                       activation_hash
+            options:
+                fixed:                  true
             type:                       string
             unique:                     true
         firstName:
@@ -26,9 +28,11 @@ Wyd2016Bundle\Entity\PilgrimApplication:
             length:                     50
             name:                       last_name
             type:                       string
-        countryId:
-            name:                       country_id
-            type:                       smallint
+        country:
+            length:                     2
+            options:
+                fixed:                  true
+            type:                       string
         address:
             length:                     255
             type:                       string
@@ -47,6 +51,9 @@ Wyd2016Bundle\Entity\PilgrimApplication:
             type:                       date
         dateTo:
             name:                       date_to
+            type:                       date
+        createdAt:
+            name:                       created_at
             type:                       date
 
     indexes:

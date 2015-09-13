@@ -16,6 +16,8 @@ Wyd2016Bundle\Entity\ScoutApplication:
         activationHash:
             length:                     32
             name:                       activation_hash
+            options:
+                fixed:                  true
             type:                       string
             unique:                     true
         firstName:
@@ -61,6 +63,9 @@ Wyd2016Bundle\Entity\ScoutApplication:
             length:                     255
             name:                       service_time
             type:                       string
+        createdAt:
+            name:                       created_at
+            type:                       date
 
     indexes:
         sa_index_1:

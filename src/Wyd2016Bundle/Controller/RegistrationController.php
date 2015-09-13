@@ -2,6 +2,7 @@
 
 namespace Wyd2016Bundle\Controller;
 
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -37,10 +38,11 @@ class RegistrationController extends Controller
      */
     public function pilgrimsAction(Request $request)
     {
-        $response = $this->registrationProcedure($request, new PilgrimApplicationType(),
-            $this->get('wyd2016bundle.pilgrim_application.repository'), new PilgrimApplication(),
-            'registration_pilgrims', 'Wyd2016Bundle::registration/pilgrims.html.twig',
-            PilgrimApplication::STATUS_NOT_CONFIRMED);
+        $formType = new PilgrimApplicationType($this->get('translator'), $request->getLocale());
+
+        $response = $this->registrationProcedure($request, $formType, new PilgrimApplication(),
+            $this->get('wyd2016bundle.pilgrim_application.repository'), 'registration_pilgrims',
+            'Wyd2016Bundle::registration/pilgrims.html.twig', PilgrimApplication::STATUS_NOT_CONFIRMED);
 
         return $response;
     }
@@ -54,10 +56,11 @@ class RegistrationController extends Controller
      */
     public function scoutsAction(Request $request)
     {
-        $response = $this->registrationProcedure($request, new ScoutApplicationType(),
-            $this->get('wyd2016bundle.scout_application.repository'), new ScoutApplication(),
-            'registration_scouts', 'Wyd2016Bundle::registration/scouts.html.twig',
-            ScoutApplication::STATUS_NOT_CONFIRMED);
+        $formType = new ScoutApplicationType($this->get('translator'));
+
+        $response = $this->registrationProcedure($request, $formType, new ScoutApplication(),
+            $this->get('wyd2016bundle.scout_application.repository'), 'registration_scouts',
+            'Wyd2016Bundle::registration/scouts.html.twig', ScoutApplication::STATUS_NOT_CONFIRMED);
 
         return $response;
     }
@@ -73,20 +76,50 @@ class RegistrationController extends Controller
     }
 
     /**
+     * Pilgrim confirm action
+     * 
+     * @param string $hash hash
+     *
+     * @return Response
+     */
+    public function pilgrimConfirmAction($hash)
+    {
+        $response = $this->confirmationProcedure($this->get('wyd2016bundle.pilgrim_application.repository'), $hash,
+            PilgrimApplication::STATUS_CONFIRMED);
+
+        return $response;
+    }
+
+    /**
+     * Scout confirm action
+     *
+     * @param string $hash hash
+     *
+     * @return Response
+     */
+    public function scoutConfirmAction($hash)
+    {
+        $response = $this->confirmationProcedure($this->get('wyd2016bundle.scout_application.repository'), $hash,
+            ScoutApplication::STATUS_CONFIRMED);
+
+        return $response;
+    }
+
+    /**
      * Registration procedure
      *
      * @param Request                 $request      request
      * @param FormTypeInterface       $type         type
-     * @param BaseRepositoryInterface $repository   repository
      * @param EntityInterface         $entity       entity
+     * @param BaseRepositoryInterface $repository   repository
      * @param string                  $formRoute    form route
      * @param string                  $view         view
      * @param integer                 $status       status
      *
      * @return Response
      */
-    protected function registrationProcedure(Request $request, FormTypeInterface $type,
-        BaseRepositoryInterface $repository, EntityInterface $entity, $formRoute, $view, $status)
+    protected function registrationProcedure(Request $request, FormTypeInterface $type, EntityInterface $entity,
+        BaseRepositoryInterface $repository, $formRoute, $view, $status)
     {
         $form = $this->createForm($type, $entity, array(
             'action' => $this->generateUrl($formRoute),
@@ -97,7 +130,8 @@ class RegistrationController extends Controller
 
         if ($form->isValid()) {
             $entity->setStatus($status)
-                ->setActivationHash($this->generateActivationHash($entity));
+                ->setActivationHash($this->generateActivationHash($entity))
+                ->setCreatedAt(new DateTime());
             $repository->insert($entity, true);
 
             $response = $this->redirect($this->generateUrl('registration_success'));
@@ -108,6 +142,35 @@ class RegistrationController extends Controller
         }
 
         return $response;
+    }
+
+    /**
+     * Confirmation procedure
+     *
+     * @param BaseRepositoryInterface $repository repository
+     * @param string                  $hash       hash
+     * @param integer                 $status     status
+     *
+     * @return Response
+     */
+    protected function confirmationProcedure(BaseRepositoryInterface $repository, $hash, $status)
+    {
+        /** @var PilgrimApplication|ScoutApplication $entity */
+        $entity = $repository->findOneBy(array(
+            'activationHash' => $hash,
+        ));
+
+        if (!isset($entity) || $entity->isConfirmed()) {
+            $success = false;
+        } else {
+            $entity->setStatus($status);
+            $repository->update($entity, true);
+            $success = true;
+        }
+
+        return $this->render('Wyd2016Bundle::registration/confirmation.html.twig', array(
+            'success' => $success,
+        ));
     }
 
     /**

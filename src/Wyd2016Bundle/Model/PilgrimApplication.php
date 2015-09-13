@@ -12,6 +12,12 @@ class PilgrimApplication
     use IdTrait;
 
     /** @const integer */
+    const ACCOMODATION_SCHOOL = 1;
+
+    /** @const integer */
+    const ACCOMODATION_TENT = 2;
+
+    /** @const integer */
     const STATUS_CONFIRMED = 1;
 
     /** @const integer */
@@ -29,8 +35,8 @@ class PilgrimApplication
     /** @var string */
     protected $lastName;
 
-    /** @var integer */
-    protected $countryId;
+    /** @var string */
+    protected $country;
 
     /** @var string */
     protected $address;
@@ -49,6 +55,9 @@ class PilgrimApplication
 
     /** @var DateTime */
     protected $dateTo;
+
+    /** @var DateTime */
+    protected $createdAt;
 
     /**
      * Get status
@@ -72,6 +81,16 @@ class PilgrimApplication
         $this->status = $status;
 
         return $this;
+    }
+
+    /**
+     * Is confirmed
+     * 
+     * @return boolean
+     */
+    public function isConfirmed()
+    {
+        return $this->status === self::STATUS_CONFIRMED;
     }
 
     /**
@@ -147,25 +166,25 @@ class PilgrimApplication
     }
 
     /**
-     * Get country ID
+     * Get country
      *
-     * @return integer
+     * @return string
      */
-    function getCountryId()
+    function getCountry()
     {
-        return $this->countryId;
+        return $this->country;
     }
 
     /**
-     * Set country ID
+     * Set country
      *
-     * @param integer $countryId country ID
+     * @param integer $country country
      *
      * @return self
      */
-    function setCountryId($countryId)
+    function setCountry($country)
     {
-        $this->countryId = $countryId;
+        $this->country = $country;
 
         return $this;
     }
@@ -310,6 +329,30 @@ class PilgrimApplication
     function setDateTo(DateTime $dateTo)
     {
         $this->dateTo = $dateTo;
+
+        return $this;
+    }
+
+    /**
+     * Get created at
+     *
+     * @return DateTime
+     */
+    function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set created at
+     *
+     * @param DateTime $createdAt created at
+     *
+     * @return self
+     */
+    function setCreatedAt(DateTime $createdAt)
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

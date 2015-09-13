@@ -1,16 +1,22 @@
+confirmation.error:                     Twoja rejestracja została już potwierdzona lub posiadasz nieprawidłowy link potwierdzenia
+confirmation.success:                   Twoja rejestracja została prawidłowo potwierdzona
+confirmation.title:                     Potwierdzenie rejestracji
+
 index.pilgrim:                          pielgrzymem
 index.scout:                            harcerzem
 index.title:                            Jesteś
 
 layout.title:                           ŚDM Kraków 2016
 
+next_steps.official_page:               Oficjalna strona Światowych Dni Młodzieży Kraków 2016
+next_steps.register_pilgrim:            Zarejestruj kolejnego pielgrzyma
+next_steps.register_scout:              Zarejestruj kolejnego harcerza
+next_steps.scouts_page:                 Strona przygotowań do ŚDM Kraków 2016 przez Związek Harcerstwa Polskiego
+next_steps.title:                       Kolejne kroki
+
 pilgrims.form.title:                    Formularz dla pielgrzymów
 
 scouts.form.title:                      Formularz dla harcerzy
 
-success.next_steps:                     Kolejne kroki
-success.official_page:                  Oficjalna strona Światowych Dni Młodzieży Kraków 2016
-success.register_pilgrim:               Zarejestruj kolejnego pielgrzyma
-success.register_scout:                 Zarejestruj kolejnego harcerza
-success.scouts_page:                    Strona przygotowań do ŚDM Kraków 2016 przez Związek Harcerstwa Polskiego
+success.message:                        Twoje dane zostały pomyślnie zapisane. Aby dokończyć rejestrację odbierz wiadomość e-mail, którą Ci wysłaliśmy i kliknij w link potwierdzenia.
 success.title:                          Dziękujemy za rejestrację

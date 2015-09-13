@@ -1,0 +1,18 @@
+{% macro nextStepsBox() %}
+    <h1>{{ 'next_steps.title'|trans }}:</h1>
+    <ul>
+        <li>
+            <a href="{{ path('registration_pilgrims') }}">{{ 'next_steps.register_pilgrim'|trans }}</a>
+        </li>
+        <li>
+            <a href="{{ path('registration_scouts') }}">{{ 'next_steps.register_scout'|trans }}</a>
+        </li>
+        <li>
+            <a href="#" target="_blank">{{ 'next_steps.scouts_page'|trans }}</a>
+        </li>
+        <li>
+            <a href="http://www.krakow2016.com{{ app.request.locale != 'pl' ? '/' ~ app.request.locale : '' }}"
+                target="_blank">{{ 'next_steps.official_page'|trans }}</a>
+        </li>
+    </ul>
+{% endmacro %}

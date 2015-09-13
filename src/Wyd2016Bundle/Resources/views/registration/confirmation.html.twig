@@ -1,9 +1,9 @@
 {% extends 'Wyd2016Bundle::layout.html.twig' %}
 {% import "Wyd2016Bundle:registration:_macro.html.twig" as macro %}
 
-{% set pageTitle = 'success.title'|trans %}
+{% set pageTitle = 'confirmation.title'|trans %}
 
 {% block body %}
-    <p>{{ 'success.message'|trans }}</p>
+    <p>{{ success ? 'confirmation.success'|trans : 'confirmation.error'|trans }}</p>
     {{ macro.nextStepsBox() }}
 {% endblock %}

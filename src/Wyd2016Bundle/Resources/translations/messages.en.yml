@@ -1,16 +1,22 @@
+confirmation.error:                     Your registration is already confirmed or you have wrong confirmation link
+confirmation.success:                   Your registration was successfully confirmed
+confirmation.title:                     Registration confirmation
+
 index.pilgrim:                          pilgrim
 index.scout:                            scout
 index.title:                            You are
 
 layout.title:                           WYD Krakow 2016
 
+next_steps.official_page:               Official page of World Youth Day Krakow 2016
+next_steps.register_pilgrim:            Register another pilgrim
+next_steps.register_scout:              Register another scout
+next_steps.scouts_page:                 Page of preparation to WYD Krakow 2016 make by Polish Scouting Organization
+next_steps.title:                       Next steps
+
 pilgrims.form.title:                    Form for pilgrims
 
 scouts.form.title:                      Form for scouts
 
-success.next_steps:                     Next steps
-success.official_page:                  Official page of World Youth Day Krakow 2016
-success.register_pilgrim:               Register another pilgrim
-success.register_scout:                 Register another scout
-success.scouts_page:                    Page of preparation to WYD Krakow 2016 make by Polish Scouting Organization
+success.message:                        Your data were successfuly saved. To complete your registration pleace receive e-mail message we've send to you and click confirmation link.
 success.title:                          Thank you for registration

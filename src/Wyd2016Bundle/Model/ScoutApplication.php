@@ -2,6 +2,8 @@
 
 namespace Wyd2016Bundle\Model;
 
+use DateTime;
+
 /**
  * Model
  */
@@ -60,6 +62,9 @@ class ScoutApplication
     /** @var string */
     protected $serviceTime;
 
+    /** @var DateTime */
+    protected $createdAt;
+
     /**
      * Get status
      *
@@ -82,6 +87,16 @@ class ScoutApplication
         $this->status = $status;
 
         return $this;
+    }
+
+    /**
+     * Is confirmed
+     *
+     * @return boolean
+     */
+    public function isConfirmed()
+    {
+        return $this->status === self::STATUS_CONFIRMED;
     }
 
     /**
@@ -416,6 +431,30 @@ class ScoutApplication
     function setServiceTime($serviceTime)
     {
         $this->serviceTime = $serviceTime;
+
+        return $this;
+    }
+
+    /**
+     * Get created at
+     *
+     * @return DateTime
+     */
+    function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set created at
+     *
+     * @param DateTime $createdAt created at
+     *
+     * @return self
+     */
+    function setCreatedAt(DateTime $createdAt)
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
