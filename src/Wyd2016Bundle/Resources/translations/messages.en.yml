@@ -28,7 +28,7 @@ form.email:                             E-mail address
 form.permissions:                       Permissions
 form.pesel:                             PESEL
 form.phone:                             Phone no
-form.profession:                        Profession
+form.profession:                        Profession/Skills
 form.region:                            Region
 form.save:                              Save
 form.service:                           Service

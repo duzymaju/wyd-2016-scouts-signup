@@ -28,17 +28,17 @@ form.email:                             Adres e-mail
 form.permissions:                       Uprawnienia
 form.pesel:                             PESEL
 form.phone:                             Nr telefonu
-form.profession:                        Zawód
+form.profession:                        Zawód/Umiejętności
 form.region:                            Chorągiew
 form.save:                              Zapisz
 form.service:                           Służba
 form.service.information:               informacyjna
-form.service.kitchen:                   kuchenna
+form.service.kitchen:                   aprowizacyjna
 form.service.medical:                   medyczna
 form.service.office:                    biuro miasteczka
 form.service.program:                   programowa
 form.service.quartermaster:             kwatermistrzowska
-form.service.security:                  porządkowa
+form.service.security:                  zabezpieczenia
 form.service_time:                      Czas służby
 
 index.pilgrim:                          pielgrzymem
