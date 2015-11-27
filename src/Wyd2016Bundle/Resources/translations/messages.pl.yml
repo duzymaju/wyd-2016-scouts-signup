@@ -4,7 +4,7 @@ confirmation.title:                     Potwierdzenie rejestracji
 
 email.link:                             Kliknij tutaj aby potwierdzić rejestrację
 email.pligrim.text:                     "Dziękujemy za rejestrację pobytu w miejscu przygotowywanym przez Związek Harcerstwa Polskiego podczas ŚDM Kraków 2016. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
-email.scout.text:                       "Dziękujemy za rejestrację jako harcerski wolontariusz na ŚDM Kraków 2016. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
+email.scout.text:                       "Dziękujemy za rejestrację jako wolontariusz na ŚDM Kraków 2016. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
 email.title:                            Rejestracja na ŚDM Kraków 2016
 
 form.accomodation:                      Zakwaterowanie
@@ -42,20 +42,20 @@ form.service.security:                  porządkowa
 form.service_time:                      Czas służby
 
 index.pilgrim:                          pielgrzymem
-index.scout:                            harcerzem
+index.scout:                            wolontariuszem
 index.title:                            Jesteś
 
 layout.title:                           ŚDM Kraków 2016
 
 next_steps.official_page:               Oficjalna strona Światowych Dni Młodzieży Kraków 2016
 next_steps.register_pilgrim:            Zarejestruj kolejnego pielgrzyma
-next_steps.register_scout:              Zarejestruj kolejnego harcerza
+next_steps.register_scout:              Zarejestruj kolejnego wolontariusza
 next_steps.scouts_page:                 Strona przygotowań do ŚDM Kraków 2016 przez Związek Harcerstwa Polskiego
 next_steps.title:                       Kolejne kroki
 
 pilgrims.form.title:                    Formularz dla pielgrzymów
 
-scouts.form.title:                      Formularz dla harcerzy
+scouts.form.title:                      Formularz dla wolontariusz
 
 success.message:                        Twoje dane zostały pomyślnie zapisane. Aby dokończyć rejestrację odbierz wiadomość e-mail, którą Ci wysłaliśmy i kliknij w link potwierdzenia.
 success.title:                          Dziękujemy za rejestrację
