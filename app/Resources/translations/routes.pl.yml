@@ -13,5 +13,8 @@ registration_scout_confirm: '/harcerz/{hash}'
 # Desc: /scout
 registration_scout_form: /harcerz
 
+# Desc: /rules
+registration_rules: /regulamin
+
 # Desc: /success
 registration_success: /sukces

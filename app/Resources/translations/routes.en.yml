@@ -13,5 +13,8 @@ registration_scout_confirm: '/scout/{hash}'
 # Desc: /scout
 registration_scout_form: /scout
 
+# Desc: /rules
+registration_rules: /rules
+
 # Desc: /success
 registration_success: /success

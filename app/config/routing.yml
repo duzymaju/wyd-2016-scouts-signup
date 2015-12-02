@@ -10,6 +10,9 @@ _registration_pilgrim_form:
 _registration_scout_form:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/scout_form.yml"
 
+_registration_rules:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/rules.yml"
+
 _registration_success:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/success.yml"
 
