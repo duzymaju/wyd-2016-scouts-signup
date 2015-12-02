@@ -6,5 +6,80 @@
     {{ macro.flashBagMessages('error', true) }}
     <h1>{{ 'scouts.form.title'|trans }}</h1>
     {{ form_start(form) }}
+    <dl>
+        <dt>{{ form_label(form.firstName) }}</dt>
+        <dd>
+            {{ form_widget(form.firstName) }}
+            {{ form_errors(form.firstName) }}
+        </dd>
+        <dt>{{ form_label(form.lastName) }}</dt>
+        <dd>
+            {{ form_widget(form.lastName) }}
+            {{ form_errors(form.lastName) }}
+        </dd>
+        <dt>{{ form_label(form.gradeId) }}</dt>
+        <dd>
+            {{ form_widget(form.gradeId) }}
+            {{ form_errors(form.gradeId) }}
+        </dd>
+        <dt>{{ form_label(form.regionId) }}</dt>
+        <dd>
+            {{ form_widget(form.regionId) }}
+            {{ form_errors(form.regionId) }}
+        </dd>
+        <dt>{{ form_label(form.pesel) }}</dt>
+        <dd>
+            {{ form_widget(form.pesel) }}
+            {{ form_errors(form.pesel) }}
+        </dd>
+        <dt>{{ form_label(form.address) }}</dt>
+        <dd>
+            {{ form_widget(form.address) }}
+            {{ form_errors(form.address) }}
+        </dd>
+        <dt>{{ form_label(form.serviceId) }}</dt>
+        <dd>
+            {{ form_widget(form.serviceId) }}
+            {{ form_errors(form.serviceId) }}
+        </dd>
+        <dt>{{ form_label(form.permissions) }}</dt>
+        <dd>
+            {{ form_widget(form.permissions) }}
+            {{ form_errors(form.permissions) }}
+        </dd>
+        <dt>{{ form_label(form.languages) }}</dt>
+        <dd>
+            {{ form_widget(form.languages) }}
+            {{ form_errors(form.languages) }}
+        </dd>
+        <dt>{{ form_label(form.profession) }}</dt>
+        <dd>
+            {{ form_widget(form.profession) }}
+            {{ form_errors(form.profession) }}
+        </dd>
+        <dt>{{ form_label(form.phone) }}</dt>
+        <dd>
+            {{ form_widget(form.phone) }}
+            {{ form_errors(form.phone) }}
+        </dd>
+        <dt>{{ form_label(form.email) }}</dt>
+        <dd>
+            {{ form_widget(form.email) }}
+            {{ form_errors(form.email) }}
+        </dd>
+        <dt>{{ form_label(form.dateFrom) }}</dt>
+        <dd>
+            {{ form_widget(form.dateFrom) }}
+            {{ form_errors(form.dateFrom) }}
+        </dd>
+        <dt>{{ form_label(form.dateTo) }}</dt>
+        <dd>
+            {{ form_widget(form.dateTo) }}
+            {{ form_errors(form.dateTo) }}
+        </dd>
+        <dd>
+            {{ form_widget(form.save) }}
+        </dd>
+    </dl>
     {{ form_end(form) }}
 {% endblock %}

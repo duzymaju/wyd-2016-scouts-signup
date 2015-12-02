@@ -34,6 +34,16 @@ class ScoutApplicationType extends AbstractType
     {
         unset($options);
 
+        $dateOptions = array(
+            'days' => range(17, 31),
+            'months' => array(
+                7,
+            ),
+            'years' => array(
+                2016,
+            ),
+        );
+
         $builder->add('firstName', 'text', array(
             'label' => $this->translator->trans('form.first_name'),
         ))
@@ -105,8 +115,12 @@ class ScoutApplicationType extends AbstractType
         ->add('email', 'email', array(
             'label' => $this->translator->trans('form.email'),
         ))
-        ->add('serviceTime', 'text', array(
-            'label' => $this->translator->trans('form.service_time'),
+        ->add('dateFrom', 'date', array_merge($dateOptions, array(
+            'label' => $this->translator->trans('form.date_from'),
+        )))
+        ->add('dateTo', 'date', array_merge($dateOptions, array(
+            'label' => $this->translator->trans('form.date_to'),
+        )))
         ))
         ->add('save', 'submit', array(
             'label' => $this->translator->trans('form.save'),

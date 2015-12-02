@@ -39,7 +39,6 @@ form.service.office:                    office
 form.service.program:                   program
 form.service.quartermaster:             quartermaster
 form.service.security:                  security
-form.service_time:                      Service time
 
 index.pilgrim:                          pilgrim
 index.scout:                            volunteer

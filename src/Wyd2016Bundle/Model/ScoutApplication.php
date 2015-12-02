@@ -58,9 +58,12 @@ class ScoutApplication
 
     /** @var string */
     protected $email;
-    
-    /** @var string */
-    protected $serviceTime;
+
+    /** @var DateTime */
+    protected $dateFrom;
+
+    /** @var DateTime */
+    protected $dateTo;
 
     /** @var DateTime */
     protected $createdAt;
@@ -412,25 +415,49 @@ class ScoutApplication
     }
 
     /**
-     * Get service time
+     * Get date from
      *
-     * @return string
+     * @return DateTime
      */
-    function getServiceTime()
+    function getDateFrom()
     {
-        return $this->serviceTime;
+        return $this->dateFrom;
     }
 
     /**
-     * Set service time
+     * Set date from
      *
-     * @param string $serviceTime service time
+     * @param DateTime $dateFrom date from
      *
      * @return self
      */
-    function setServiceTime($serviceTime)
+    function setDateFrom(DateTime $dateFrom)
     {
-        $this->serviceTime = $serviceTime;
+        $this->dateFrom = $dateFrom;
+
+        return $this;
+    }
+
+    /**
+     * Get date to
+     *
+     * @return DateTime
+     */
+    function getDateTo()
+    {
+        return $this->dateTo;
+    }
+
+    /**
+     * Set date to
+     *
+     * @param DateTime $dateTo date to
+     *
+     * @return self
+     */
+    function setDateTo(DateTime $dateTo)
+    {
+        $this->dateTo = $dateTo;
 
         return $this;
     }

@@ -40,8 +40,8 @@ Wyd2016Bundle\Entity\ScoutApplication:
             - Length:
                 min:                    3
                 max:                    40
-        serviceTime:
-            - Length:
-                min:                    2
-                max:                    255
+        dateFrom:
+            - Date:                     ~
+        dateTo:
+            - Date:                     ~
     

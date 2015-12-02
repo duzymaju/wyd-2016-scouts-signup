@@ -59,10 +59,12 @@ Wyd2016Bundle\Entity\ScoutApplication:
             length:                     40
             type:                       string
             unique:                     true
-        serviceTime:
-            length:                     255
-            name:                       service_time
-            type:                       string
+        dateFrom:
+            name:                       date_from
+            type:                       date
+        dateTo:
+            name:                       date_to
+            type:                       date
         createdAt:
             name:                       created_at
             type:                       date
