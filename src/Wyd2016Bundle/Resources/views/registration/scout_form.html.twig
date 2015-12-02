@@ -78,6 +78,16 @@
             {{ form_errors(form.dateTo) }}
         </dd>
         <dd>
+            {{ form_widget(form.personalData) }}
+            {{ form_label(form.personalData) }}
+            {{ form_errors(form.personalData) }}
+        </dd>
+        <dd>
+            {{ form_widget(form.rules) }}
+            <label for="{{ form.rules.vars.id }}">{{ 'form.rules.acceptance'|trans }} <a href="{{ path('registration_rules') }}" target="_blank">{{ 'form.rules.name'|trans }}</a></label>
+            {{ form_errors(form.rules) }}
+        </dd>
+        <dd>
             {{ form_widget(form.save) }}
         </dd>
     </dl>

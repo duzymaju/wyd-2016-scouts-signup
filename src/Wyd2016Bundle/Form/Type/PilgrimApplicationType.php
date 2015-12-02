@@ -86,6 +86,13 @@ class PilgrimApplicationType extends AbstractType
         ->add('dateTo', 'date', array_merge($dateOptions, array(
             'label' => $this->translator->trans('form.date_to'),
         )))
+        ->add('personalData', 'checkbox', array(
+            'label' => $this->translator->trans('form.personal_data'),
+            'mapped' => false,
+        ))
+        ->add('rules', 'checkbox', array(
+            'mapped' => false,
+        ))
         ->add('save', 'submit', array(
             'label' => $this->translator->trans('form.save'),
         ));

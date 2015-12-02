@@ -26,10 +26,13 @@ form.languages:                         Foreign languages
 form.last_name:                         Last name
 form.email:                             E-mail address
 form.permissions:                       Permissions
+form.personal_data:                     "I hereby give consent for the above personal data to be processed by Polish Scouting Organization to prepare my participation in WYD Krakow 2016, in accordance with the Personal Data Protection Act dated Aug 29 1997 (uniform text: Journal of Laws of the Republic of Poland 2014, item 1182)."
 form.pesel:                             PESEL
 form.phone:                             Phone no
 form.profession:                        Profession/Skills
 form.region:                            Region
+form.rules.acceptance:                  I accept
+form.rules.name:                        the rules of participation
 form.save:                              Save
 form.service:                           Service
 form.service.information:               information

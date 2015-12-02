@@ -6,5 +6,65 @@
     {{ macro.flashBagMessages('error', true) }}
     <h1>{{ 'pilgrims.form.title'|trans }}</h1>
     {{ form_start(form) }}
+    <dl>
+        <dt>{{ form_label(form.firstName) }}</dt>
+        <dd>
+            {{ form_widget(form.firstName) }}
+            {{ form_errors(form.firstName) }}
+        </dd>
+        <dt>{{ form_label(form.lastName) }}</dt>
+        <dd>
+            {{ form_widget(form.lastName) }}
+            {{ form_errors(form.lastName) }}
+        </dd>
+        <dt>{{ form_label(form.country) }}</dt>
+        <dd>
+            {{ form_widget(form.country) }}
+            {{ form_errors(form.country) }}
+        </dd>
+        <dt>{{ form_label(form.address) }}</dt>
+        <dd>
+            {{ form_widget(form.address) }}
+            {{ form_errors(form.address) }}
+        </dd>
+        <dt>{{ form_label(form.phone) }}</dt>
+        <dd>
+            {{ form_widget(form.phone) }}
+            {{ form_errors(form.phone) }}
+        </dd>
+        <dt>{{ form_label(form.email) }}</dt>
+        <dd>
+            {{ form_widget(form.email) }}
+            {{ form_errors(form.email) }}
+        </dd>
+        <dt>{{ form_label(form.accomodationId) }}</dt>
+        <dd>
+            {{ form_widget(form.accomodationId) }}
+            {{ form_errors(form.accomodationId) }}
+        </dd>
+        <dt>{{ form_label(form.dateFrom) }}</dt>
+        <dd>
+            {{ form_widget(form.dateFrom) }}
+            {{ form_errors(form.dateFrom) }}
+        </dd>
+        <dt>{{ form_label(form.dateTo) }}</dt>
+        <dd>
+            {{ form_widget(form.dateTo) }}
+            {{ form_errors(form.dateTo) }}
+        </dd>
+        <dd>
+            {{ form_widget(form.personalData) }}
+            {{ form_label(form.personalData) }}
+            {{ form_errors(form.personalData) }}
+        </dd>
+        <dd>
+            {{ form_widget(form.rules) }}
+            <label for="{{ form.rules.vars.id }}">{{ 'form.rules.acceptance'|trans }} <a href="{{ path('registration_rules') }}" target="_blank">{{ 'form.rules.name'|trans }}</a></label>
+            {{ form_errors(form.rules) }}
+        </dd>
+        <dd>
+            {{ form_widget(form.save) }}
+        </dd>
+    </dl>
     {{ form_end(form) }}
 {% endblock %}
