@@ -80,13 +80,13 @@ class ScoutApplicationType extends AbstractType
         ))
         ->add('serviceId', 'choice', array(
             'choices' => array(
+                7 => $this->translator->trans('form.service.kitchen'),
+                6 => $this->translator->trans('form.service.office'),
+                4 => $this->translator->trans('form.service.information'),
+                3 => $this->translator->trans('form.service.quartermaster'),
+                5 => $this->translator->trans('form.service.program'),
                 1 => $this->translator->trans('form.service.medical'),
                 2 => $this->translator->trans('form.service.security'),
-                3 => $this->translator->trans('form.service.quartermaster'),
-                4 => $this->translator->trans('form.service.information'),
-                5 => $this->translator->trans('form.service.program'),
-                6 => $this->translator->trans('form.service.office'),
-                7 => $this->translator->trans('form.service.kitchen'),
             ),
             'label' => $this->translator->trans('form.service'),
         ))
