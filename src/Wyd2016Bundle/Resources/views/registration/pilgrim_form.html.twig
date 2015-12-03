@@ -6,7 +6,7 @@
     {{ macro.flashBagMessages('error', true) }}
     <h1>{{ 'pilgrims.form.title'|trans }}</h1>
     {{ form_start(form) }}
-    <dl>
+    <dl class="registration-form registration-form-pilgrim">
         <dt>{{ form_label(form.firstName) }}</dt>
         <dd>
             {{ form_widget(form.firstName) }}
@@ -44,12 +44,12 @@
         </dd>
         <dt>{{ form_label(form.dateFrom) }}</dt>
         <dd>
-            {{ form_widget(form.dateFrom) }}
+            {{ form_widget(form.dateFrom) }} <div class="info" title="???"></div>
             {{ form_errors(form.dateFrom) }}
         </dd>
         <dt>{{ form_label(form.dateTo) }}</dt>
         <dd>
-            {{ form_widget(form.dateTo) }}
+            {{ form_widget(form.dateTo) }} <div class="info" title="???"></div>
             {{ form_errors(form.dateTo) }}
         </dd>
         <dd>

@@ -17,3 +17,20 @@ a:focus,
 a:hover {
     text-decoration: underline;
 }
+
+.registration-form .info {
+    background: lightblue;
+    border-radius: 10px;
+    cursor: help;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    width: 20px;
+}
+.registration-form .info:before {
+    content: '?';
+}
+.registration-form dd > div {
+    display: inline-block;
+}
