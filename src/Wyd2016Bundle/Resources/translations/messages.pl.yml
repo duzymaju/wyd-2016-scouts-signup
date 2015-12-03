@@ -7,10 +7,8 @@ email.pligrim.text:                     "Dziękujemy za rejestrację pobytu w mi
 email.scout.text:                       "Dziękujemy za rejestrację jako wolontariusz na ŚDM Kraków 2016. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
 email.title:                            Rejestracja na ŚDM Kraków 2016
 
-form.accomodation:                      Zakwaterowanie
-form.accomodation.school:               szkoła
-form.accomodation.tent:                 namiot
 form.address:                           Adres zamieszkania
+form.birth_date:                        Data urodzenia
 form.country:                           Państwo
 form.date_from:                         Data przyjazdu
 form.date_to:                           Data wyjazdu

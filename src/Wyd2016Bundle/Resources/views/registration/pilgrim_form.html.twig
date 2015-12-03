@@ -17,6 +17,11 @@
             {{ form_widget(form.lastName) }}
             {{ form_errors(form.lastName) }}
         </dd>
+        <dt>{{ form_label(form.birthDate) }}</dt>
+        <dd>
+            {{ form_widget(form.birthDate) }}
+            {{ form_errors(form.birthDate) }}
+        </dd>
         <dt>{{ form_label(form.country) }}</dt>
         <dd>
             {{ form_widget(form.country) }}
@@ -36,11 +41,6 @@
         <dd>
             {{ form_widget(form.email) }}
             {{ form_errors(form.email) }}
-        </dd>
-        <dt>{{ form_label(form.accomodationId) }}</dt>
-        <dd>
-            {{ form_widget(form.accomodationId) }}
-            {{ form_errors(form.accomodationId) }}
         </dd>
         <dt>{{ form_label(form.dateFrom) }}</dt>
         <dd>

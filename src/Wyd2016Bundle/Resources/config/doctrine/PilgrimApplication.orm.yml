@@ -28,6 +28,9 @@ Wyd2016Bundle\Entity\PilgrimApplication:
             length:                     50
             name:                       last_name
             type:                       string
+        birthDate:
+            name:                       birth_date
+            type:                       date
         country:
             length:                     2
             options:
@@ -43,9 +46,6 @@ Wyd2016Bundle\Entity\PilgrimApplication:
             length:                     40
             type:                       string
             unique:                     true
-        accomodationId:
-            name:                       accomodation_id
-            type:                       smallint
         dateFrom:
             name:                       date_from
             type:                       date

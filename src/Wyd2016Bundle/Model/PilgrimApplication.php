@@ -12,12 +12,6 @@ class PilgrimApplication
     use IdTrait;
 
     /** @const integer */
-    const ACCOMODATION_SCHOOL = 1;
-
-    /** @const integer */
-    const ACCOMODATION_TENT = 2;
-
-    /** @const integer */
     const STATUS_CONFIRMED = 1;
 
     /** @const integer */
@@ -35,6 +29,9 @@ class PilgrimApplication
     /** @var string */
     protected $lastName;
 
+    /** @var DateTime */
+    protected $birthDate;
+
     /** @var string */
     protected $country;
 
@@ -46,9 +43,6 @@ class PilgrimApplication
 
     /** @var string */
     protected $email;
-
-    /** @var integer */
-    protected $accomodationId;
 
     /** @var DateTime */
     protected $dateFrom;
@@ -166,6 +160,30 @@ class PilgrimApplication
     }
 
     /**
+     * Get birth date
+     *
+     * @return DateTime
+     */
+    function getBirthDate()
+    {
+        return $this->birthDate;
+    }
+
+    /**
+     * Set birth date
+     *
+     * @param DateTime $birthDate birth date
+     *
+     * @return self
+     */
+    function setBirthDate(DateTime $birthDate)
+    {
+        $this->birthDate = $birthDate;
+
+        return $this;
+    }
+
+    /**
      * Get country
      *
      * @return string
@@ -257,30 +275,6 @@ class PilgrimApplication
     function setEmail($email)
     {
         $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get accomodation ID
-     *
-     * @return integer
-     */
-    function getAccomodationId()
-    {
-        return $this->accomodationId;
-    }
-
-    /**
-     * Set accomodation ID
-     *
-     * @param integer $accomodationId accomodation ID
-     *
-     * @return self
-     */
-    function setAccomodationId($accomodationId)
-    {
-        $this->accomodationId = $accomodationId;
 
         return $this;
     }

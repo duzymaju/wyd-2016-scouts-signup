@@ -5,7 +5,6 @@ namespace Wyd2016Bundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
-use Wyd2016Bundle\Model\PilgrimApplication;
 
 /*
  * Form Type
@@ -40,6 +39,7 @@ class PilgrimApplicationType extends AbstractType
     {
         unset($options);
 
+        $currentYear = (integer) date('Y');
         $dateOptions = array(
             'days' => range(17, 31),
             'months' => array(
@@ -56,6 +56,10 @@ class PilgrimApplicationType extends AbstractType
         ->add('lastName', 'text', array(
             'label' => $this->translator->trans('form.last_name'),
         ))
+        ->add('birthDate', 'date', array(
+            'label' => $this->translator->trans('form.birth_date'),
+            'years' => range($currentYear, $currentYear - 100),
+        ))
         ->add('country', 'country', array(
             'label' => $this->translator->trans('form.country'),
             'preferred_choices' => array(
@@ -70,15 +74,6 @@ class PilgrimApplicationType extends AbstractType
         ))
         ->add('email', 'email', array(
             'label' => $this->translator->trans('form.email'),
-        ))
-        ->add('accomodationId', 'choice', array(
-            'choices' => array(
-                PilgrimApplication::ACCOMODATION_SCHOOL =>
-                    $this->translator->trans('form.accomodation.school'),
-                PilgrimApplication::ACCOMODATION_TENT =>
-                    $this->translator->trans('form.accomodation.tent'),
-            ),
-            'label' => $this->translator->trans('form.accomodation'),
         ))
         ->add('dateFrom', 'date', array_merge($dateOptions, array(
             'label' => $this->translator->trans('form.date_from'),
