@@ -18,7 +18,7 @@ class Version20151202225849 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE scout_application ADD date_from DATE NOT NULL, ADD date_to DATE NOT NULL, DROP service_time');
+        $this->addSql('ALTER TABLE scout_application ADD date_from DATE NOT NULL AFTER email, ADD date_to DATE NOT NULL AFTER date_from, DROP service_time');
     }
 
     /**
@@ -29,6 +29,6 @@ class Version20151202225849 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE scout_application ADD service_time VARCHAR(255) NOT NULL, DROP date_from, DROP date_to');
+        $this->addSql('ALTER TABLE scout_application ADD service_time VARCHAR(255) NOT NULL AFTER email, DROP date_from, DROP date_to');
     }
 }
