@@ -1,4 +1,4 @@
-AddHandler application/x-httpd-php55 php
+#AddHandler application/x-httpd-php55 php
 DirectoryIndex app.php
 
 <IfModule mod_rewrite.c>
