@@ -2,8 +2,8 @@
 
 {% block body %}
     <h1>{{ 'index.title'|trans }}:</h1>
-    <ul>
-        <li><a href="{{ path('registration_pilgrim_form') }}">{{ 'index.pilgrim'|trans }}</a></li>
-        <li><a href="{{ path('registration_scout_form') }}">{{ 'index.scout'|trans }}</a></li>
-    </ul>
+    <div class="btn-group-vertical btn-group-lg">
+        <a href="{{ path('registration_pilgrim_form') }}" class="btn btn-default">{{ 'index.pilgrim'|trans }}</a>
+        <a href="{{ path('registration_scout_form') }}" class="btn btn-default">{{ 'index.scout'|trans }}</a>
+    </div>
 {% endblock %}

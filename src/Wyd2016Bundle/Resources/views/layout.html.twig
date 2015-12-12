@@ -8,7 +8,24 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="container-fluid">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="{{ path('registration_index') }}" style="line-height:44px;padding:3px 15px">
+                            <img alt="{{ 'layout.title'|trans }}" src="/img/logo.png">
+                        </a>
+                    </div>
+                    <div id="bs-example-navbar-collapse-5" class="collapse navbar-collapse">
+                        <p class="navbar-text navbar-right" style="margin-right:15px">
+                            <a class="navbar-link" href="{{ path('registration_index', {_locale: 'pl'}) }}">PL</a>
+                            <a class="navbar-link" href="{{ path('registration_index', {_locale: 'en'}) }}">EN</a>
+                        </p>
+                    </div>
+                </div>
+            </nav>
+            {% block body %}{% endblock %}
+        </div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
