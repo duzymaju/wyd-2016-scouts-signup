@@ -1,14 +1,14 @@
 _registration_pilgrim_confirm:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/pilgrim_confirm.yml"
 
-_registration_scout_confirm:
-    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/scout_confirm.yml"
+_registration_volunteer_confirm:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/volunteer_confirm.yml"
 
 _registration_pilgrim_form:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/pilgrim_form.yml"
 
-_registration_scout_form:
-    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/scout_form.yml"
+_registration_volunteer_form:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/volunteer_form.yml"
 
 _registration_rules:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/rules.yml"

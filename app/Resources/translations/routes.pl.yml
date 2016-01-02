@@ -7,14 +7,14 @@ registration_pilgrim_confirm: '/pielgrzym/{hash}'
 # Desc: /pilgrim
 registration_pilgrim_form: /pielgrzym
 
-# Desc: /scout/{hash}
-registration_scout_confirm: '/harcerz/{hash}'
-
-# Desc: /scout
-registration_scout_form: /harcerz
-
 # Desc: /rules
 registration_rules: /regulamin
 
 # Desc: /success
 registration_success: /sukces
+
+# Desc: /volunteer/{hash}
+registration_volunteer_confirm: '/wolontariusz/{hash}'
+
+# Desc: /volunteer
+registration_volunteer_form: /wolontariusz

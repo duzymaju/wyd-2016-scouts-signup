@@ -1,0 +1,5 @@
+registration_volunteer_form:
+    defaults:
+        _controller:                    Wyd2016Bundle:Registration:volunteerForm
+    methods:                            [GET|POST]
+    path:                               /volunteer

@@ -4,8 +4,8 @@ confirmation.title:                     Registration confirmation
 
 email.link:                             Click here to confirm registration
 email.pligrim.text:                     "Thank you for registration your stay in a place prepaired by Polish Scouting Organization during WYD Krakow 2016. To confirm your registration process please click the link below:"
-email.scout.text:                       "Thank you for registration as a volunteer during WYD Krakow 2016. To confirm your registration process please click the link below:"
 email.title:                            Registration to WYD Krakow 2016
+email.volunteer.text:                   "Thank you for registration as a volunteer during WYD Krakow 2016. To confirm your registration process please click the link below:"
 
 form.address:                           Address
 form.birth_date:                        Birth date
@@ -42,23 +42,23 @@ form.service.quartermaster:             quartermaster
 form.service.security:                  security
 
 index.pilgrim:                          pilgrim
-index.scout:                            volunteer
 index.title:                            You are
+index.volunteer:                        volunteer
 
 layout.title:                           WYD Krakow 2016
 
 next_steps.official_page:               Official page of World Youth Day Krakow 2016
 next_steps.register_pilgrim:            Register another pilgrim
-next_steps.register_scout:              Register another volunteer
-next_steps.scouts_page:                 Page of preparation to WYD Krakow 2016 make by Polish Scouting Organization
+next_steps.register_volunteer:          Register another volunteer
 next_steps.title:                       Next steps
+next_steps.volunteers_page:             Page of preparation to WYD Krakow 2016 make by Polish Scouting Organization
 
 pilgrims.form.title:                    Form for pilgrims
 
 rules.content:                          rules content
 rules.title:                            Rules of participation
 
-scouts.form.title:                      Form for volunteers
-
 success.message:                        Your data were successfuly saved. To complete your registration please receive e-mail message we've send to you and click confirmation link.
 success.title:                          Thank you for registration
+
+volunteer.form.title:                   Form for volunteers

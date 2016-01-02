@@ -54,20 +54,20 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Scout form action
+     * Volunteer form action
      *
      * @param Request $request request
      *
      * @return Response
      */
-    public function scoutFormAction(Request $request)
+    public function volunteerFormAction(Request $request)
     {
         $formType = new VolunteerApplicationType($this->get('translator'));
 
         $response = $this->registrationProcedure($request, $formType, new Volunteer(),
-            $this->get('wyd2016bundle.volunteer.repository'), 'registration_scout_form',
-            'registration_scout_confirm', 'Wyd2016Bundle::registration/scout_form.html.twig',
-            'Wyd2016Bundle::registration/scout_email.html.twig', Volunteer::STATUS_NOT_CONFIRMED);
+            $this->get('wyd2016bundle.volunteer.repository'), 'registration_volunteer_form',
+            'registration_volunteer_confirm', 'Wyd2016Bundle::registration/volunteer_form.html.twig',
+            'Wyd2016Bundle::registration/volunteer_email.html.twig', Volunteer::STATUS_NOT_CONFIRMED);
 
         return $response;
     }
@@ -108,13 +108,13 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Scout confirm action
+     * Volunteer confirm action
      *
      * @param string $hash hash
      *
      * @return Response
      */
-    public function scoutConfirmAction($hash)
+    public function volunteerConfirmAction($hash)
     {
         $response = $this->confirmationProcedure($this->get('wyd2016bundle.volunteer.repository'), $hash,
             Volunteer::STATUS_CONFIRMED);

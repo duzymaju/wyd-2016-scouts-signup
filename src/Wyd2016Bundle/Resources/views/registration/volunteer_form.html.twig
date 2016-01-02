@@ -1,12 +1,12 @@
 {% extends 'Wyd2016Bundle:registration:template.html.twig' %}
 {% import "Wyd2016Bundle:registration:_macro.html.twig" as macro %}
 
-{% set pageTitle = 'scouts.form.title'|trans %}
+{% set pageTitle = 'volunteer.form.title'|trans %}
 
 {% block body %}
     {{ macro.flashBagMessages('error', true) }}
-    <h1>{{ 'scouts.form.title'|trans }}</h1>
-    {{ form_start(form, {'attr': {'class': 'registration-form registration-form-scout'}}) }}
+    <h1>{{ 'volunteer.form.title'|trans }}</h1>
+    {{ form_start(form, {'attr': {'class': 'registration-form registration-form-volunteer'}}) }}
         <div class="form-group">
             {{ form_label(form.firstName) }}
             {{ form_widget(form.firstName, {'attr': {'class': 'form-control'}}) }}
