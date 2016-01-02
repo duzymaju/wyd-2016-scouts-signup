@@ -8,6 +8,12 @@ services:
         class:                          Wyd2016Bundle\Entity\Repository\PilgrimRepository
         factory:                        [@wyd2016bundle.alias.manager_service, getRepository]
 
+    wyd2016bundle.troop.repository:
+        arguments:
+            -                           Wyd2016Bundle\Entity\Troop
+        class:                          Wyd2016Bundle\Entity\Repository\TroopRepository
+        factory:                        [@wyd2016bundle.alias.manager_service, getRepository]
+
     wyd2016bundle.volunteer.repository:
         arguments:
             -                           Wyd2016Bundle\Entity\Volunteer

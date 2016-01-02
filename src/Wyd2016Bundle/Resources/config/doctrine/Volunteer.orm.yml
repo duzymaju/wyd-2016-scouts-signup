@@ -69,6 +69,13 @@ Wyd2016Bundle\Entity\Volunteer:
             name:                       created_at
             type:                       date
 
+    manyToOne:
+        troop:
+            cascade:
+                -                       persist
+            inversedBy:                 volunteers
+            targetEntity:               Wyd2016Bundle\Entity\Troop
+
     indexes:
         sa_index_1:
             columns:                    status

@@ -24,6 +24,9 @@ class Volunteer implements StatusInterface
     /** @var integer */
     protected $regionId;
 
+    /** @var Troop */
+    protected $troop;
+
     /** @var string */
     protected $pesel;
 
@@ -146,6 +149,30 @@ class Volunteer implements StatusInterface
     function setRegionId($regionId)
     {
         $this->regionId = $regionId;
+
+        return $this;
+    }
+
+    /**
+     * Get troop
+     *
+     * @return Troop
+     */
+    function getTroop()
+    {
+        return $this->troop;
+    }
+
+    /**
+     * Set troop
+     *
+     * @param Troop $troop troop
+     *
+     * @return self
+     */
+    function setTroop(Troop $troop)
+    {
+        $this->troop = $troop;
 
         return $this;
     }
