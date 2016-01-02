@@ -14,16 +14,19 @@ class Volunteer implements StatusInterface
     use RecordTrait;
     use StatusTrait;
 
-    /** @var integer */
+    /** @var integer|null */
     protected $gradeId;
 
-    /** @var integer */
+    /** @var integer|null */
     protected $regionId;
 
-    /** @var Troop */
+    /** @var integer|null */
+    protected $districtId;
+
+    /** @var Troop|null */
     protected $troop;
 
-    /** @var string */
+    /** @var string|null */
     protected $pesel;
 
     /** @var integer */
@@ -47,7 +50,7 @@ class Volunteer implements StatusInterface
     /**
      * Get grade ID
      *
-     * @return integer
+     * @return integer|null
      */
     function getGradeId()
     {
@@ -57,11 +60,11 @@ class Volunteer implements StatusInterface
     /**
      * Set grade ID
      *
-     * @param integer $gradeId grade ID
+     * @param integer|null $gradeId grade ID
      *
      * @return self
      */
-    function setGradeId($gradeId)
+    function setGradeId($gradeId = null)
     {
         $this->gradeId = $gradeId;
 
@@ -71,7 +74,7 @@ class Volunteer implements StatusInterface
     /**
      * Get region ID
      *
-     * @return integer
+     * @return integer|null
      */
     function getRegionId()
     {
@@ -81,11 +84,11 @@ class Volunteer implements StatusInterface
     /**
      * Set region ID
      *
-     * @param integer $regionId region ID
+     * @param integer|null $regionId region ID
      *
      * @return self
      */
-    function setRegionId($regionId)
+    function setRegionId($regionId = null)
     {
         $this->regionId = $regionId;
 
@@ -93,9 +96,33 @@ class Volunteer implements StatusInterface
     }
 
     /**
+     * Get district ID
+     *
+     * @return integer|null
+     */
+    function getDistrictId()
+    {
+        return $this->districtId;
+    }
+
+    /**
+     * Set district ID
+     *
+     * @param integer|null $districtId district ID
+     *
+     * @return self
+     */
+    function setDistrictId($districtId = null)
+    {
+        $this->districtId = $districtId;
+
+        return $this;
+    }
+
+    /**
      * Get troop
      *
-     * @return Troop
+     * @return Troop|null
      */
     function getTroop()
     {
@@ -105,11 +132,11 @@ class Volunteer implements StatusInterface
     /**
      * Set troop
      *
-     * @param Troop $troop troop
+     * @param Troop|null $troop troop
      *
      * @return self
      */
-    function setTroop(Troop $troop)
+    function setTroop(Troop $troop = null)
     {
         $this->troop = $troop;
 
@@ -119,7 +146,7 @@ class Volunteer implements StatusInterface
     /**
      * Get PESEL
      *
-     * @return string
+     * @return string|null
      */
     function getPesel()
     {
@@ -129,11 +156,11 @@ class Volunteer implements StatusInterface
     /**
      * Set PESEL
      *
-     * @param string $pesel PESEL
+     * @param string|null $pesel PESEL
      *
      * @return self
      */
-    function setPesel($pesel)
+    function setPesel($pesel = null)
     {
         $this->pesel = $pesel;
 

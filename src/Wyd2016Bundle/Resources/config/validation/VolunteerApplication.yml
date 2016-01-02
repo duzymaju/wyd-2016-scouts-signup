@@ -1,6 +1,8 @@
 Wyd2016Bundle\Entity\Volunteer:
     constraints:
-        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: pesel
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields:                     pesel
+            ignoreNull:                 true
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
     properties:
         firstName:
@@ -11,23 +13,9 @@ Wyd2016Bundle\Entity\Volunteer:
             - Length:
                 min:                    2
                 max:                    50
-        pesel:
-            - Wyd2016Bundle\Validator\Constraints\ContainsPesel: ~
         address:
             - Length:
                 min:                    10
-                max:                    255
-        permissions:
-            - Length:
-                min:                    2
-                max:                    255
-        languages:
-            - Length:
-                min:                    2
-                max:                    255
-        profession:
-            - Length:
-                min:                    2
                 max:                    255
         phone:
             - Length:
@@ -40,6 +28,20 @@ Wyd2016Bundle\Entity\Volunteer:
             - Length:
                 min:                    3
                 max:                    40
+        pesel:
+            - Wyd2016Bundle\Validator\Constraints\ContainsPesel: ~
+        permissions:
+            - Length:
+                min:                    2
+                max:                    255
+        languages:
+            - Length:
+                min:                    2
+                max:                    255
+        profession:
+            - Length:
+                min:                    2
+                max:                    255
         dateFrom:
             - Date:                     ~
         dateTo:

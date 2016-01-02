@@ -18,16 +18,6 @@
             {{ form_errors(form.lastName) }}
         </div>
         <div class="form-group">
-            {{ form_label(form.birthDate) }}
-            {{ form_widget(form.birthDate, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.birthDate) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form.country) }}
-            {{ form_widget(form.country, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.country) }}
-        </div>
-        <div class="form-group">
             {{ form_label(form.address) }}
             {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
             {{ form_errors(form.address) }}
@@ -41,6 +31,16 @@
             {{ form_label(form.email) }}
             {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
             {{ form_errors(form.email) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.country) }}
+            {{ form_widget(form.country, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.country) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.birthDate) }}
+            {{ form_widget(form.birthDate, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.birthDate) }}
         </div>
         <div class="form-group">
             {{ form_label(form.dateFrom) }}

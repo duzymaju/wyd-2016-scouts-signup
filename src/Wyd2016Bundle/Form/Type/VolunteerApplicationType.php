@@ -34,6 +34,7 @@ class VolunteerApplicationType extends AbstractType
     {
         unset($options);
 
+        $currentYear = (integer) date('Y');
         $dateOptions = array(
             'days' => range(17, 31),
             'months' => array(
@@ -49,6 +50,26 @@ class VolunteerApplicationType extends AbstractType
         ))
         ->add('lastName', 'text', array(
             'label' => $this->translator->trans('form.last_name'),
+        ))
+        ->add('address', 'text', array(
+            'label' => $this->translator->trans('form.address'),
+        ))
+        ->add('phone', 'text', array(
+            'label' => $this->translator->trans('form.phone'),
+        ))
+        ->add('email', 'email', array(
+            'label' => $this->translator->trans('form.email'),
+        ))
+        ->add('country', 'country', array(
+            'label' => $this->translator->trans('form.country'),
+            'preferred_choices' => array(
+                strtoupper($this->locale),
+            ),
+        ))
+        ->add('birthDate', 'date', array(
+            'label' => $this->translator->trans('form.birth_date'),
+            'widget' => 'single_text',
+            'years' => range($currentYear, $currentYear - 100),
         ))
         ->add('gradeId', 'choice', array(
             'choices' => array(
@@ -85,9 +106,6 @@ class VolunteerApplicationType extends AbstractType
         ->add('pesel', 'text', array(
             'label' => $this->translator->trans('form.pesel'),
         ))
-        ->add('address', 'text', array(
-            'label' => $this->translator->trans('form.address'),
-        ))
         ->add('serviceId', 'choice', array(
             'choices' => array(
                 7 => $this->translator->trans('form.service.kitchen'),
@@ -108,12 +126,6 @@ class VolunteerApplicationType extends AbstractType
         ))
         ->add('profession', 'text', array(
             'label' => $this->translator->trans('form.profession'),
-        ))
-        ->add('phone', 'text', array(
-            'label' => $this->translator->trans('form.phone'),
-        ))
-        ->add('email', 'email', array(
-            'label' => $this->translator->trans('form.email'),
         ))
         ->add('dateFrom', 'date', array_merge($dateOptions, array(
             'label' => $this->translator->trans('form.date_from'),
