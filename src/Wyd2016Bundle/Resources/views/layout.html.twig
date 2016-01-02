@@ -18,8 +18,15 @@
                     </div>
                     <div id="bs-example-navbar-collapse-5" class="collapse navbar-collapse">
                         <p class="navbar-text navbar-right" style="margin-right:15px">
-                            <a class="navbar-link" href="{{ path('registration_index', {_locale: 'pl'}) }}">PL</a>
-                            <a class="navbar-link" href="{{ path('registration_index', {_locale: 'en'}) }}">EN</a>
+                            {% for locale in locales %}
+                                {% if locale == app.request.locale %}
+                                    <span class="navbar-link">{{ locale|upper }}</span>
+                                {% else %}
+                                    <a href="{{ path('registration_index', {_locale: locale}) }}" class="navbar-link">
+                                        {{ locale|upper }}
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
                         </p>
                     </div>
                 </div>

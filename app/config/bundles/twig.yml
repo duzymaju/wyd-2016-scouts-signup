@@ -1,7 +1,7 @@
 twig:
     debug:                              "%kernel.debug%"
     globals:
-#        no globals by now
+        locales:                        "%locales%"
     strict_variables:                   "%kernel.debug%"
 
 services:
@@ -10,7 +10,7 @@ services:
         tags:
             - name:                     twig.extension
 
-    twig.text_extension:
+    twig.extension.text:
         class:                          Twig_Extensions_Extension_Text
         tags:
             - name:                     twig.extension
