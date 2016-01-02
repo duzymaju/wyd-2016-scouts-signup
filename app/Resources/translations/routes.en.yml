@@ -1,8 +1,8 @@
 # Desc: /
 registration_index: /
 
-# Desc: /pilgrim/{hash}
-registration_pilgrim_confirm: '/pilgrim/{hash}'
+# Desc: /pilgrim/{hash}/confirm
+registration_pilgrim_confirm: '/pilgrim/{hash}/confirm'
 
 # Desc: /pilgrim
 registration_pilgrim_form: /pilgrim
@@ -13,8 +13,8 @@ registration_rules: /rules
 # Desc: /success
 registration_success: /success
 
-# Desc: /volunteer/{hash}
-registration_volunteer_confirm: '/volunteer/{hash}'
+# Desc: /volunteer/{hash}/confirm
+registration_volunteer_confirm: '/volunteer/{hash}/confirm'
 
 # Desc: /volunteer
 registration_volunteer_form: /volunteer

@@ -2,6 +2,6 @@ registration_pilgrim_confirm:
     defaults:
         _controller:                    Wyd2016Bundle:Registration:pilgrimConfirm
     methods:                            [GET]
-    path:                               /pilgrim/{hash}
+    path:                               /pilgrim/{hash}/confirm
     requirements:
         hash:                           "[0-9a-f]{32}$"

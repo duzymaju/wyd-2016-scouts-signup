@@ -2,6 +2,6 @@ registration_volunteer_confirm:
     defaults:
         _controller:                    Wyd2016Bundle:Registration:volunteerConfirm
     methods:                            [GET]
-    path:                               /volunteer/{hash}
+    path:                               /volunteer/{hash}/confirm
     requirements:
         hash:                           "[0-9a-f]{32}$"
