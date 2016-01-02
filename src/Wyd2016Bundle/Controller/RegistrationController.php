@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Wyd2016Bundle\Entity\EntityInterface;
-use Wyd2016Bundle\Entity\PilgrimApplication;
+use Wyd2016Bundle\Entity\Pilgrim;
 use Wyd2016Bundle\Entity\Repository\BaseRepositoryInterface;
-use Wyd2016Bundle\Entity\ScoutApplication;
+use Wyd2016Bundle\Entity\Volunteer;
 use Wyd2016Bundle\Exception\ExceptionInterface;
 use Wyd2016Bundle\Exception\RegistrationException;
 use Wyd2016Bundle\Form\Type\PilgrimApplicationType;
-use Wyd2016Bundle\Form\Type\ScoutApplicationType;
+use Wyd2016Bundle\Form\Type\VolunteerApplicationType;
 
 /**
  * Controller
@@ -45,10 +45,10 @@ class RegistrationController extends Controller
     {
         $formType = new PilgrimApplicationType($this->get('translator'), $request->getLocale());
 
-        $response = $this->registrationProcedure($request, $formType, new PilgrimApplication(),
-            $this->get('wyd2016bundle.pilgrim_application.repository'), 'registration_pilgrim_form',
+        $response = $this->registrationProcedure($request, $formType, new Pilgrim(),
+            $this->get('wyd2016bundle.pilgrim.repository'), 'registration_pilgrim_form',
             'registration_pilgrim_confirm', 'Wyd2016Bundle::registration/pilgrim_form.html.twig',
-            'Wyd2016Bundle::registration/pilgrim_email.html.twig', PilgrimApplication::STATUS_NOT_CONFIRMED);
+            'Wyd2016Bundle::registration/pilgrim_email.html.twig', Pilgrim::STATUS_NOT_CONFIRMED);
 
         return $response;
     }
@@ -62,12 +62,12 @@ class RegistrationController extends Controller
      */
     public function scoutFormAction(Request $request)
     {
-        $formType = new ScoutApplicationType($this->get('translator'));
+        $formType = new VolunteerApplicationType($this->get('translator'));
 
-        $response = $this->registrationProcedure($request, $formType, new ScoutApplication(),
-            $this->get('wyd2016bundle.scout_application.repository'), 'registration_scout_form',
+        $response = $this->registrationProcedure($request, $formType, new Volunteer(),
+            $this->get('wyd2016bundle.volunteer.repository'), 'registration_scout_form',
             'registration_scout_confirm', 'Wyd2016Bundle::registration/scout_form.html.twig',
-            'Wyd2016Bundle::registration/scout_email.html.twig', ScoutApplication::STATUS_NOT_CONFIRMED);
+            'Wyd2016Bundle::registration/scout_email.html.twig', Volunteer::STATUS_NOT_CONFIRMED);
 
         return $response;
     }
@@ -101,8 +101,8 @@ class RegistrationController extends Controller
      */
     public function pilgrimConfirmAction($hash)
     {
-        $response = $this->confirmationProcedure($this->get('wyd2016bundle.pilgrim_application.repository'), $hash,
-            PilgrimApplication::STATUS_CONFIRMED);
+        $response = $this->confirmationProcedure($this->get('wyd2016bundle.pilgrim.repository'), $hash,
+            Pilgrim::STATUS_CONFIRMED);
 
         return $response;
     }
@@ -116,8 +116,8 @@ class RegistrationController extends Controller
      */
     public function scoutConfirmAction($hash)
     {
-        $response = $this->confirmationProcedure($this->get('wyd2016bundle.scout_application.repository'), $hash,
-            ScoutApplication::STATUS_CONFIRMED);
+        $response = $this->confirmationProcedure($this->get('wyd2016bundle.volunteer.repository'), $hash,
+            Volunteer::STATUS_CONFIRMED);
 
         return $response;
     }
@@ -202,7 +202,7 @@ class RegistrationController extends Controller
      */
     protected function confirmationProcedure(BaseRepositoryInterface $repository, $hash, $status)
     {
-        /** @var PilgrimApplication|ScoutApplication $entity */
+        /** @var Pilgrim|Volunteer $entity */
         $entity = $repository->findOneBy(array(
             'activationHash' => $hash,
         ));
@@ -221,7 +221,7 @@ class RegistrationController extends Controller
     /**
      * Generate activation hash
      *
-     * @param PilgrimApplication|ScoutApplication $entity entity
+     * @param Pilgrim|Volunteer $entity entity
      *
      * @return string
      */

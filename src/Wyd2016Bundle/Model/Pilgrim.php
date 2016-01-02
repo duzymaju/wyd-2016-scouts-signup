@@ -7,7 +7,7 @@ use DateTime;
 /**
  * Model
  */
-class ScoutApplication
+class Pilgrim
 {
     use IdTrait;
 
@@ -29,30 +29,15 @@ class ScoutApplication
     /** @var string */
     protected $lastName;
 
-    /** @var integer */
-    protected $gradeId;
-
-    /** @var integer */
-    protected $regionId;
+    /** @var DateTime */
+    protected $birthDate;
 
     /** @var string */
-    protected $pesel;
+    protected $country;
 
     /** @var string */
     protected $address;
 
-    /** @var integer */
-    protected $serviceId;
-
-    /** @var string */
-    protected $permissions;
-
-    /** @var string */
-    protected $languages;
-
-    /** @var string */
-    protected $profession;
-    
     /** @var string */
     protected $phone;
 
@@ -94,7 +79,7 @@ class ScoutApplication
 
     /**
      * Is confirmed
-     *
+     * 
      * @return boolean
      */
     public function isConfirmed()
@@ -175,73 +160,49 @@ class ScoutApplication
     }
 
     /**
-     * Get grade ID
+     * Get birth date
      *
-     * @return integer
+     * @return DateTime
      */
-    function getGradeId()
+    function getBirthDate()
     {
-        return $this->gradeId;
+        return $this->birthDate;
     }
 
     /**
-     * Set grade ID
+     * Set birth date
      *
-     * @param integer $gradeId grade ID
+     * @param DateTime $birthDate birth date
      *
      * @return self
      */
-    function setGradeId($gradeId)
+    function setBirthDate(DateTime $birthDate)
     {
-        $this->gradeId = $gradeId;
+        $this->birthDate = $birthDate;
 
         return $this;
     }
 
     /**
-     * Get region ID
-     *
-     * @return integer
-     */
-    function getRegionId()
-    {
-        return $this->regionId;
-    }
-
-    /**
-     * Set region ID
-     *
-     * @param integer $regionId region ID
-     *
-     * @return self
-     */
-    function setRegionId($regionId)
-    {
-        $this->regionId = $regionId;
-
-        return $this;
-    }
-
-    /**
-     * Get PESEL
+     * Get country
      *
      * @return string
      */
-    function getPesel()
+    function getCountry()
     {
-        return $this->pesel;
+        return $this->country;
     }
 
     /**
-     * Set PESEL
+     * Set country
      *
-     * @param string $pesel PESEL
+     * @param integer $country country
      *
      * @return self
      */
-    function setPesel($pesel)
+    function setCountry($country)
     {
-        $this->pesel = $pesel;
+        $this->country = $country;
 
         return $this;
     }
@@ -266,102 +227,6 @@ class ScoutApplication
     function setAddress($address)
     {
         $this->address = $address;
-
-        return $this;
-    }
-
-    /**
-     * Get service ID
-     *
-     * @return integer
-     */
-    function getServiceId()
-    {
-        return $this->serviceId;
-    }
-
-    /**
-     * Set service ID
-     *
-     * @param integer $serviceId service ID
-     *
-     * @return self
-     */
-    function setServiceId($serviceId)
-    {
-        $this->serviceId = $serviceId;
-
-        return $this;
-    }
-
-    /**
-     * Get permissions
-     *
-     * @return string
-     */
-    function getPermissions()
-    {
-        return $this->permissions;
-    }
-
-    /**
-     * Set permissions
-     *
-     * @param string $permissions permissions
-     *
-     * @return self
-     */
-    function setPermissions($permissions)
-    {
-        $this->permissions = $permissions;
-
-        return $this;
-    }
-
-    /**
-     * Get languages
-     *
-     * @return string
-     */
-    function getLanguages()
-    {
-        return $this->languages;
-    }
-
-    /**
-     * Set languages
-     *
-     * @param string $languages languages
-     *
-     * @return self
-     */
-    function setLanguages($languages)
-    {
-        $this->languages = $languages;
-
-        return $this;
-    }
-
-    /**
-     * Get profession
-     *
-     * @return string
-     */
-    function getProfession()
-    {
-        return $this->profession;
-    }
-
-    /**
-     * Set profession
-     *
-     * @param string $profession profession
-     *
-     * @return self
-     */
-    function setProfession($profession)
-    {
-        $this->profession = $profession;
 
         return $this;
     }
@@ -450,7 +315,7 @@ class ScoutApplication
 
     /**
      * Set date to
-     *
+     * 
      * @param DateTime $dateTo date to
      *
      * @return self

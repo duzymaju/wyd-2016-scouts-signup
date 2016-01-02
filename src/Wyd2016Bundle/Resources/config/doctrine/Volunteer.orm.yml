@@ -1,8 +1,8 @@
-Wyd2016Bundle\Entity\PilgrimApplication:
+Wyd2016Bundle\Entity\Volunteer:
     options:
         collate:                        utf8_general_ci
-    repositoryClass:                    Wyd2016Bundle\Entity\Repository\PilgrimApplicationRepository
-    table:                              pilgrim_application
+    repositoryClass:                    Wyd2016Bundle\Entity\Repository\VolunteerRepository
+    table:                              volunteer
     type:                               entity
 
     id:
@@ -28,15 +28,28 @@ Wyd2016Bundle\Entity\PilgrimApplication:
             length:                     50
             name:                       last_name
             type:                       string
-        birthDate:
-            name:                       birth_date
-            type:                       date
-        country:
-            length:                     2
-            options:
-                fixed:                  true
-            type:                       string
+        gradeId:
+            name:                       grade_id
+            type:                       smallint
+        regionId:
+            name:                       region_id
+            type:                       smallint
+        pesel:
+            type:                       bigint
+            unique:                     true
         address:
+            length:                     255
+            type:                       string
+        serviceId:
+            name:                       service_id
+            type:                       smallint
+        permissions:
+            length:                     255
+            type:                       string
+        languages:
+            length:                     255
+            type:                       string
+        profession:
             length:                     255
             type:                       string
         phone:

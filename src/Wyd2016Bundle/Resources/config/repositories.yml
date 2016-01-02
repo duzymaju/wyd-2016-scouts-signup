@@ -2,14 +2,14 @@ services:
     wyd2016bundle.alias.manager_service:
         alias:                          doctrine
 
-    wyd2016bundle.pilgrim_application.repository:
+    wyd2016bundle.pilgrim.repository:
         arguments:
-            -                           Wyd2016Bundle\Entity\PilgrimApplication
-        class:                          Wyd2016Bundle\Entity\Repository\PilgrimApplicationRepository
+            -                           Wyd2016Bundle\Entity\Pilgrim
+        class:                          Wyd2016Bundle\Entity\Repository\PilgrimRepository
         factory:                        [@wyd2016bundle.alias.manager_service, getRepository]
 
-    wyd2016bundle.scout_application.repository:
+    wyd2016bundle.volunteer.repository:
         arguments:
-            -                           Wyd2016Bundle\Entity\ScoutApplication
-        class:                          Wyd2016Bundle\Entity\Repository\ScoutApplicationRepository
+            -                           Wyd2016Bundle\Entity\Volunteer
+        class:                          Wyd2016Bundle\Entity\Repository\VolunteerRepository
         factory:                        [@wyd2016bundle.alias.manager_service, getRepository]

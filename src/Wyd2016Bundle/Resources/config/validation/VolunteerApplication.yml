@@ -1,4 +1,4 @@
-Wyd2016Bundle\Entity\ScoutApplication:
+Wyd2016Bundle\Entity\Volunteer:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: pesel
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email

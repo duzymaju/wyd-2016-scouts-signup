@@ -7,7 +7,7 @@ use DateTime;
 /**
  * Model
  */
-class PilgrimApplication
+class Volunteer
 {
     use IdTrait;
 
@@ -29,15 +29,30 @@ class PilgrimApplication
     /** @var string */
     protected $lastName;
 
-    /** @var DateTime */
-    protected $birthDate;
+    /** @var integer */
+    protected $gradeId;
+
+    /** @var integer */
+    protected $regionId;
 
     /** @var string */
-    protected $country;
+    protected $pesel;
 
     /** @var string */
     protected $address;
 
+    /** @var integer */
+    protected $serviceId;
+
+    /** @var string */
+    protected $permissions;
+
+    /** @var string */
+    protected $languages;
+
+    /** @var string */
+    protected $profession;
+    
     /** @var string */
     protected $phone;
 
@@ -79,7 +94,7 @@ class PilgrimApplication
 
     /**
      * Is confirmed
-     * 
+     *
      * @return boolean
      */
     public function isConfirmed()
@@ -160,49 +175,73 @@ class PilgrimApplication
     }
 
     /**
-     * Get birth date
+     * Get grade ID
      *
-     * @return DateTime
+     * @return integer
      */
-    function getBirthDate()
+    function getGradeId()
     {
-        return $this->birthDate;
+        return $this->gradeId;
     }
 
     /**
-     * Set birth date
+     * Set grade ID
      *
-     * @param DateTime $birthDate birth date
+     * @param integer $gradeId grade ID
      *
      * @return self
      */
-    function setBirthDate(DateTime $birthDate)
+    function setGradeId($gradeId)
     {
-        $this->birthDate = $birthDate;
+        $this->gradeId = $gradeId;
 
         return $this;
     }
 
     /**
-     * Get country
+     * Get region ID
      *
-     * @return string
+     * @return integer
      */
-    function getCountry()
+    function getRegionId()
     {
-        return $this->country;
+        return $this->regionId;
     }
 
     /**
-     * Set country
+     * Set region ID
      *
-     * @param integer $country country
+     * @param integer $regionId region ID
      *
      * @return self
      */
-    function setCountry($country)
+    function setRegionId($regionId)
     {
-        $this->country = $country;
+        $this->regionId = $regionId;
+
+        return $this;
+    }
+
+    /**
+     * Get PESEL
+     *
+     * @return string
+     */
+    function getPesel()
+    {
+        return $this->pesel;
+    }
+
+    /**
+     * Set PESEL
+     *
+     * @param string $pesel PESEL
+     *
+     * @return self
+     */
+    function setPesel($pesel)
+    {
+        $this->pesel = $pesel;
 
         return $this;
     }
@@ -227,6 +266,102 @@ class PilgrimApplication
     function setAddress($address)
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get service ID
+     *
+     * @return integer
+     */
+    function getServiceId()
+    {
+        return $this->serviceId;
+    }
+
+    /**
+     * Set service ID
+     *
+     * @param integer $serviceId service ID
+     *
+     * @return self
+     */
+    function setServiceId($serviceId)
+    {
+        $this->serviceId = $serviceId;
+
+        return $this;
+    }
+
+    /**
+     * Get permissions
+     *
+     * @return string
+     */
+    function getPermissions()
+    {
+        return $this->permissions;
+    }
+
+    /**
+     * Set permissions
+     *
+     * @param string $permissions permissions
+     *
+     * @return self
+     */
+    function setPermissions($permissions)
+    {
+        $this->permissions = $permissions;
+
+        return $this;
+    }
+
+    /**
+     * Get languages
+     *
+     * @return string
+     */
+    function getLanguages()
+    {
+        return $this->languages;
+    }
+
+    /**
+     * Set languages
+     *
+     * @param string $languages languages
+     *
+     * @return self
+     */
+    function setLanguages($languages)
+    {
+        $this->languages = $languages;
+
+        return $this;
+    }
+
+    /**
+     * Get profession
+     *
+     * @return string
+     */
+    function getProfession()
+    {
+        return $this->profession;
+    }
+
+    /**
+     * Set profession
+     *
+     * @param string $profession profession
+     *
+     * @return self
+     */
+    function setProfession($profession)
+    {
+        $this->profession = $profession;
 
         return $this;
     }
@@ -315,7 +450,7 @@ class PilgrimApplication
 
     /**
      * Set date to
-     * 
+     *
      * @param DateTime $dateTo date to
      *
      * @return self

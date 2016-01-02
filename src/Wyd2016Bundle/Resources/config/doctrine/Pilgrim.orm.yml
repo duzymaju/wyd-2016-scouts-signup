@@ -1,8 +1,8 @@
-Wyd2016Bundle\Entity\ScoutApplication:
+Wyd2016Bundle\Entity\Pilgrim:
     options:
         collate:                        utf8_general_ci
-    repositoryClass:                    Wyd2016Bundle\Entity\Repository\ScoutApplicationRepository
-    table:                              scout_application
+    repositoryClass:                    Wyd2016Bundle\Entity\Repository\PilgrimRepository
+    table:                              pilgrim
     type:                               entity
 
     id:
@@ -28,28 +28,15 @@ Wyd2016Bundle\Entity\ScoutApplication:
             length:                     50
             name:                       last_name
             type:                       string
-        gradeId:
-            name:                       grade_id
-            type:                       smallint
-        regionId:
-            name:                       region_id
-            type:                       smallint
-        pesel:
-            type:                       bigint
-            unique:                     true
+        birthDate:
+            name:                       birth_date
+            type:                       date
+        country:
+            length:                     2
+            options:
+                fixed:                  true
+            type:                       string
         address:
-            length:                     255
-            type:                       string
-        serviceId:
-            name:                       service_id
-            type:                       smallint
-        permissions:
-            length:                     255
-            type:                       string
-        languages:
-            length:                     255
-            type:                       string
-        profession:
             length:                     255
             type:                       string
         phone:
