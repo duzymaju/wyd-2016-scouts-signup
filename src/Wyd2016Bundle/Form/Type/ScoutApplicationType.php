@@ -117,9 +117,11 @@ class ScoutApplicationType extends AbstractType
         ))
         ->add('dateFrom', 'date', array_merge($dateOptions, array(
             'label' => $this->translator->trans('form.date_from'),
+            'widget' => 'single_text',
         )))
         ->add('dateTo', 'date', array_merge($dateOptions, array(
             'label' => $this->translator->trans('form.date_to'),
+            'widget' => 'single_text',
         )))
         ->add('personalData', 'checkbox', array(
             'label' => $this->translator->trans('form.personal_data'),

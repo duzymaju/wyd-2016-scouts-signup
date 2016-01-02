@@ -58,6 +58,7 @@ class PilgrimApplicationType extends AbstractType
         ))
         ->add('birthDate', 'date', array(
             'label' => $this->translator->trans('form.birth_date'),
+            'widget' => 'single_text',
             'years' => range($currentYear, $currentYear - 100),
         ))
         ->add('country', 'country', array(
@@ -77,9 +78,11 @@ class PilgrimApplicationType extends AbstractType
         ))
         ->add('dateFrom', 'date', array_merge($dateOptions, array(
             'label' => $this->translator->trans('form.date_from'),
+            'widget' => 'single_text',
         )))
         ->add('dateTo', 'date', array_merge($dateOptions, array(
             'label' => $this->translator->trans('form.date_to'),
+            'widget' => 'single_text',
         )))
         ->add('personalData', 'checkbox', array(
             'label' => $this->translator->trans('form.personal_data'),
