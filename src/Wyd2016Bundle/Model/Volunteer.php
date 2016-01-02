@@ -30,7 +30,10 @@ class Volunteer implements StatusInterface
     protected $pesel;
 
     /** @var integer */
-    protected $serviceId;
+    protected $serviceMainId;
+
+    /** @var integer|null */
+    protected $serviceExtraId;
 
     /** @var string */
     protected $permissions;
@@ -168,25 +171,49 @@ class Volunteer implements StatusInterface
     }
 
     /**
-     * Get service ID
+     * Get service main ID
      *
      * @return integer
      */
-    function getServiceId()
+    function getServiceMainId()
     {
-        return $this->serviceId;
+        return $this->serviceMainId;
     }
 
     /**
-     * Set service ID
+     * Set service main ID
      *
-     * @param integer $serviceId service ID
+     * @param integer $serviceMainId service main ID
      *
      * @return self
      */
-    function setServiceId($serviceId)
+    function setServiceMainId($serviceMainId)
     {
-        $this->serviceId = $serviceId;
+        $this->serviceMainId = $serviceMainId;
+
+        return $this;
+    }
+
+    /**
+     * Get service extra ID
+     *
+     * @return integer|null
+     */
+    function getServiceExtraId()
+    {
+        return $this->serviceExtraId;
+    }
+
+    /**
+     * Set service extra ID
+     *
+     * @param integer|null $serviceExtraId service extra ID
+     *
+     * @return self
+     */
+    function setServiceExtraId($serviceExtraId = null)
+    {
+        $this->serviceExtraId = $serviceExtraId;
 
         return $this;
     }

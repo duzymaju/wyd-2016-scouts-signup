@@ -53,14 +53,24 @@
             {{ form_errors(form.regionId) }}
         </div>
         <div class="form-group">
+            {{ form_label(form.districtId) }}
+            {{ form_widget(form.districtId, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.districtId) }}
+        </div>
+        <div class="form-group">
             {{ form_label(form.pesel) }}
             {{ form_widget(form.pesel, {'attr': {'class': 'form-control'}}) }}
             {{ form_errors(form.pesel) }}
         </div>
         <div class="form-group">
-            {{ form_label(form.serviceId) }}
-            {{ form_widget(form.serviceId, {'attr': {'class': 'form-control'}}) }} <div class="info" title="???"></div>
-            {{ form_errors(form.serviceId) }}
+            {{ form_label(form.serviceMainId) }}
+            {{ form_widget(form.serviceMainId, {'attr': {'class': 'form-control'}}) }} <div class="info" title="???"></div>
+            {{ form_errors(form.serviceMainId) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.serviceExtraId) }}
+            {{ form_widget(form.serviceExtraId, {'attr': {'class': 'form-control'}}) }} <div class="info" title="???"></div>
+            {{ form_errors(form.serviceExtraId) }}
         </div>
         <div class="form-group">
             {{ form_label(form.permissions) }}
@@ -86,6 +96,11 @@
             {{ form_label(form.dateTo) }}
             {{ form_widget(form.dateTo, {'attr': {'class': 'form-control'}}) }} <div class="info" title="???"></div>
             {{ form_errors(form.dateTo) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.comments) }}
+            {{ form_widget(form.comments, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.comments) }}
         </div>
         <div class="form-group">
             {{ form_widget(form.personalData) }}

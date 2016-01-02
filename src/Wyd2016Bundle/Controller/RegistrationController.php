@@ -62,7 +62,7 @@ class RegistrationController extends Controller
      */
     public function volunteerFormAction(Request $request)
     {
-        $formType = new VolunteerApplicationType($this->get('translator'));
+        $formType = new VolunteerApplicationType($this->get('translator'), $request->getLocale());
 
         $response = $this->registrationProcedure($request, $formType, new Volunteer(),
             $this->get('wyd2016bundle.volunteer.repository'), 'registration_volunteer_form',

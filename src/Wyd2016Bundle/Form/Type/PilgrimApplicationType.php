@@ -39,7 +39,6 @@ class PilgrimApplicationType extends AbstractType
     {
         unset($options);
 
-        $currentYear = (integer) date('Y');
         $dateOptions = array(
             'days' => range(17, 31),
             'months' => array(
@@ -74,7 +73,6 @@ class PilgrimApplicationType extends AbstractType
         ->add('birthDate', 'date', array(
             'label' => $this->translator->trans('form.birth_date'),
             'widget' => 'single_text',
-            'years' => range($currentYear, $currentYear - 100),
         ))
         ->add('dateFrom', 'date', array_merge($dateOptions, array(
             'label' => $this->translator->trans('form.date_from'),
@@ -84,6 +82,10 @@ class PilgrimApplicationType extends AbstractType
             'label' => $this->translator->trans('form.date_to'),
             'widget' => 'single_text',
         )))
+        ->add('comments', 'text', array(
+            'label' => $this->translator->trans('form.comments'),
+            'required' => false,
+        ))
         ->add('personalData', 'checkbox', array(
             'label' => $this->translator->trans('form.personal_data'),
             'mapped' => false,

@@ -14,14 +14,19 @@ class VolunteerApplicationType extends AbstractType
     /** @var TranslatorInterface */
     protected $translator;
 
+    /** @var string */
+    protected $locale;
+
     /**
      * Constructor
      *
      * @param TranslatorInterface $translator translator
+     * @param string              $locale     locale
      */
-    public function __construct(TranslatorInterface $translator)
+    public function __construct(TranslatorInterface $translator, $locale)
     {
         $this->translator = $translator;
+        $this->locale = $locale;
     }
 
     /**
@@ -34,7 +39,6 @@ class VolunteerApplicationType extends AbstractType
     {
         unset($options);
 
-        $currentYear = (integer) date('Y');
         $dateOptions = array(
             'days' => range(17, 31),
             'months' => array(
@@ -43,6 +47,16 @@ class VolunteerApplicationType extends AbstractType
             'years' => array(
                 2016,
             ),
+        );
+
+        $services = array(
+            7 => $this->translator->trans('form.service.kitchen'),
+            6 => $this->translator->trans('form.service.office'),
+            4 => $this->translator->trans('form.service.information'),
+            3 => $this->translator->trans('form.service.quartermaster'),
+            5 => $this->translator->trans('form.service.program'),
+            1 => $this->translator->trans('form.service.medical'),
+            2 => $this->translator->trans('form.service.security'),
         );
 
         $builder->add('firstName', 'text', array(
@@ -68,8 +82,8 @@ class VolunteerApplicationType extends AbstractType
         ))
         ->add('birthDate', 'date', array(
             'label' => $this->translator->trans('form.birth_date'),
+            'required' => false,
             'widget' => 'single_text',
-            'years' => range($currentYear, $currentYear - 100),
         ))
         ->add('gradeId', 'choice', array(
             'choices' => array(
@@ -79,6 +93,7 @@ class VolunteerApplicationType extends AbstractType
                 3 => $this->translator->trans('form.grade.scoutmaster'),
             ),
             'label' => $this->translator->trans('form.grade'),
+            'required' => false,
         ))
         ->add('regionId', 'choice', array(
             'choices' => array(
@@ -102,21 +117,27 @@ class VolunteerApplicationType extends AbstractType
                 17 => 'Ziemi Lubuskiej',
             ),
             'label' => $this->translator->trans('form.region'),
+            'required' => false,
+        ))
+        ->add('districtId', 'choice', array(
+            'choices' => array(
+                // nothing to translate
+                1 => '[lista hufców]',
+            ),
+            'label' => $this->translator->trans('form.district'),
+            'required' => false,
         ))
         ->add('pesel', 'text', array(
             'label' => $this->translator->trans('form.pesel'),
+            'required' => false,
         ))
-        ->add('serviceId', 'choice', array(
-            'choices' => array(
-                7 => $this->translator->trans('form.service.kitchen'),
-                6 => $this->translator->trans('form.service.office'),
-                4 => $this->translator->trans('form.service.information'),
-                3 => $this->translator->trans('form.service.quartermaster'),
-                5 => $this->translator->trans('form.service.program'),
-                1 => $this->translator->trans('form.service.medical'),
-                2 => $this->translator->trans('form.service.security'),
-            ),
-            'label' => $this->translator->trans('form.service'),
+        ->add('serviceMainId', 'choice', array(
+            'choices' => $services,
+            'label' => $this->translator->trans('form.serviceMain'),
+        ))
+        ->add('serviceExtraId', 'choice', array(
+            'choices' => $services,
+            'label' => $this->translator->trans('form.serviceExtra'),
         ))
         ->add('permissions', 'text', array(
             'label' => $this->translator->trans('form.permissions'),
@@ -135,6 +156,10 @@ class VolunteerApplicationType extends AbstractType
             'label' => $this->translator->trans('form.date_to'),
             'widget' => 'single_text',
         )))
+        ->add('comments', 'text', array(
+            'label' => $this->translator->trans('form.comments'),
+            'required' => false,
+        ))
         ->add('personalData', 'checkbox', array(
             'label' => $this->translator->trans('form.personal_data'),
             'mapped' => false,

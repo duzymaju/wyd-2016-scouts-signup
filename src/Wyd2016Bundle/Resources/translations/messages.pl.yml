@@ -9,9 +9,11 @@ email.volunteer.text:                   "Dziękujemy za rejestrację jako wolont
 
 form.address:                           Adres zamieszkania
 form.birth_date:                        Data urodzenia
+form.comments:                          Uwagi
 form.country:                           Państwo
 form.date_from:                         Data przyjazdu
 form.date_to:                           Data wyjazdu
+form.district:                          Hufiec
 form.exception.database:                Wystąpił błąd podczas zapisu danych - prosimy spróbować ponownie.
 form.exception.email:                   Wystąpił błąd podczas wysyłania wiadomości e-mail - sprawdź poprawność podanego adresu e-mail.
 form.first_name:                        Imię
@@ -32,7 +34,6 @@ form.region:                            Chorągiew
 form.rules.acceptance:                  Akceptuję
 form.rules.name:                        regulamin uczestnictwa
 form.save:                              Zapisz
-form.service:                           Służba
 form.service.information:               informacyjna
 form.service.kitchen:                   aprowizacyjna
 form.service.medical:                   medyczna
@@ -40,6 +41,8 @@ form.service.office:                    biuro miasteczka
 form.service.program:                   programowa
 form.service.quartermaster:             kwatermistrzowska
 form.service.security:                  zabezpieczenia
+form.serviceExtra:                      Preferowana służba alternatywna
+form.serviceMain:                       Preferowana służba
 
 index.pilgrim:                          pielgrzymem
 index.title:                            Jesteś

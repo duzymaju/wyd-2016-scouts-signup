@@ -61,8 +61,12 @@ Wyd2016Bundle\Entity\Volunteer:
         pesel:
             nullable:                   true
             type:                       bigint
-        serviceId:
-            name:                       service_id
+        serviceMainId:
+            name:                       service_main_id
+            type:                       smallint
+        serviceExtraId:
+            name:                       service_extra_id
+            nullable:                   true
             type:                       smallint
         permissions:
             length:                     255

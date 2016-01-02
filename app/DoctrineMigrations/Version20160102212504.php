@@ -20,10 +20,7 @@ class Version20160102212504 extends AbstractMigration
 
         $this->addSql('ALTER TABLE pilgrim ADD comments VARCHAR(255) DEFAULT NULL AFTER date_to');
         $this->addSql('ALTER TABLE troop ADD comments VARCHAR(255) DEFAULT NULL AFTER date_to');
-        $this->addSql('ALTER TABLE volunteer ADD birth_date DATE NOT NULL AFTER last_name, ADD country CHAR(2) NOT NULL AFTER birth_date, ADD comments VARCHAR(255) DEFAULT NULL AFTER date_to');
-        $this->addSql('ALTER TABLE volunteer MODIFY address VARCHAR(255) NOT NULL AFTER country');
-        $this->addSql('ALTER TABLE volunteer MODIFY phone VARCHAR(15) NOT NULL AFTER address');
-        $this->addSql('ALTER TABLE volunteer MODIFY email VARCHAR(40) NOT NULL AFTER phone');
+        $this->addSql('ALTER TABLE volunteer ADD birth_date DATE NOT NULL AFTER last_name, ADD country CHAR(2) NOT NULL AFTER birth_date, ADD comments VARCHAR(255) DEFAULT NULL AFTER date_to, MODIFY address VARCHAR(255) NOT NULL AFTER country, MODIFY phone VARCHAR(15) NOT NULL AFTER address, MODIFY email VARCHAR(40) NOT NULL AFTER phone');
     }
 
     /**
@@ -36,9 +33,6 @@ class Version20160102212504 extends AbstractMigration
 
         $this->addSql('ALTER TABLE pilgrim DROP comments');
         $this->addSql('ALTER TABLE troop DROP comments');
-        $this->addSql('ALTER TABLE volunteer DROP birth_date, DROP country, DROP comments');
-        $this->addSql('ALTER TABLE volunteer MODIFY address VARCHAR(255) NOT NULL AFTER pesel');
-        $this->addSql('ALTER TABLE volunteer MODIFY phone VARCHAR(15) NOT NULL AFTER profession');
-        $this->addSql('ALTER TABLE volunteer MODIFY email VARCHAR(40) NOT NULL AFTER phone');
+        $this->addSql('ALTER TABLE volunteer DROP birth_date, DROP country, DROP comments, MODIFY address VARCHAR(255) NOT NULL AFTER pesel, MODIFY phone VARCHAR(15) NOT NULL AFTER profession, MODIFY email VARCHAR(40) NOT NULL AFTER phone');
     }
 }

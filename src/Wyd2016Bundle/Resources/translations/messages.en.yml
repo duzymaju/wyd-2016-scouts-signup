@@ -9,9 +9,11 @@ email.volunteer.text:                   "Thank you for registration as a volunte
 
 form.address:                           Address
 form.birth_date:                        Birth date
+form.comments:                          Comments
 form.country:                           Country
 form.date_from:                         Date of arrival
 form.date_to:                           Date of departure
+form.district:                          District
 form.exception.database:                An error occured during data saving - please try again.
 form.exception.email:                   An error occured during e-mail sending - check if an e-mail address is correct.
 form.first_name:                        First name
@@ -32,7 +34,6 @@ form.region:                            Region
 form.rules.acceptance:                  I accept
 form.rules.name:                        the rules of participation
 form.save:                              Save
-form.service:                           Service
 form.service.information:               information
 form.service.kitchen:                   kitchen
 form.service.medical:                   medical
@@ -40,6 +41,8 @@ form.service.office:                    office
 form.service.program:                   program
 form.service.quartermaster:             quartermaster
 form.service.security:                  security
+form.serviceExtra:                      Preferred alternative service
+form.serviceMain:                       Preferred service
 
 index.pilgrim:                          pilgrim
 index.title:                            You are
