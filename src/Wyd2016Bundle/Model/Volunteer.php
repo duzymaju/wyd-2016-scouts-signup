@@ -10,13 +10,9 @@ use DateTime;
 class Volunteer implements StatusInterface
 {
     use IdTrait;
+    use PersonTrait;
+    use RecordTrait;
     use StatusTrait;
-
-    /** @var string */
-    protected $firstName;
-
-    /** @var string */
-    protected $lastName;
 
     /** @var integer */
     protected $gradeId;
@@ -30,9 +26,6 @@ class Volunteer implements StatusInterface
     /** @var string */
     protected $pesel;
 
-    /** @var string */
-    protected $address;
-
     /** @var integer */
     protected $serviceId;
 
@@ -44,66 +37,12 @@ class Volunteer implements StatusInterface
 
     /** @var string */
     protected $profession;
-    
-    /** @var string */
-    protected $phone;
-
-    /** @var string */
-    protected $email;
 
     /** @var DateTime */
     protected $dateFrom;
 
     /** @var DateTime */
     protected $dateTo;
-
-    /**
-     * Get first name
-     *
-     * @return string
-     */
-    function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * Set first name
-     *
-     * @param string $firstName first name
-     *
-     * @return self
-     */
-    function setFirstName($firstName)
-    {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * Get last name
-     *
-     * @return string
-     */
-    function getLastName()
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * Set last name
-     *
-     * @param string $lastName last name
-     *
-     * @return self
-     */
-    function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
-
-        return $this;
-    }
 
     /**
      * Get grade ID
@@ -202,30 +141,6 @@ class Volunteer implements StatusInterface
     }
 
     /**
-     * Get address
-     *
-     * @return string
-     */
-    function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * Set address
-     *
-     * @param string $address address
-     *
-     * @return self
-     */
-    function setAddress($address)
-    {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    /**
      * Get service ID
      *
      * @return integer
@@ -317,54 +232,6 @@ class Volunteer implements StatusInterface
     function setProfession($profession)
     {
         $this->profession = $profession;
-
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return string
-     */
-    function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
-     * Set phone
-     *
-     * @param string $phone phone
-     *
-     * @return self
-     */
-    function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get e-mail
-     *
-     * @return string
-     */
-    function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set e-mail
-     *
-     * @param string $email e-mail
-     *
-     * @return self
-     */
-    function setEmail($email)
-    {
-        $this->email = $email;
 
         return $this;
     }

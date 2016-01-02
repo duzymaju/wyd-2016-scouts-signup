@@ -12,6 +12,7 @@ use Doctrine\Common\Collections\Collection;
 class Troop implements StatusInterface
 {
     use IdTrait;
+    use RecordTrait;
     use StatusTrait;
 
     /** @var string */

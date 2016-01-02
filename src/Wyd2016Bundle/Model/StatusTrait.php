@@ -13,9 +13,6 @@ trait StatusTrait
     /** @var string */
     protected $activationHash;
 
-    /** @var DateTime */
-    protected $createdAt;
-
     /**
      * Get status
      *
@@ -47,7 +44,17 @@ trait StatusTrait
      */
     public function isConfirmed()
     {
-        return $this->status === self::STATUS_CONFIRMED;
+        return $this->status >= self::STATUS_CONFIRMED;
+    }
+
+    /**
+     * Is payed
+     *
+     * @return boolean
+     */
+    public function isPayed()
+    {
+        return $this->status >= self::STATUS_PAYED;
     }
 
     /**
@@ -70,30 +77,6 @@ trait StatusTrait
     function setActivationHash($activationHash)
     {
         $this->activationHash = $activationHash;
-
-        return $this;
-    }
-
-    /**
-     * Get created at
-     *
-     * @return DateTime
-     */
-    function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set created at
-     *
-     * @param DateTime $createdAt created at
-     *
-     * @return self
-     */
-    function setCreatedAt(DateTime $createdAt)
-    {
-        $this->createdAt = $createdAt;
 
         return $this;
     }

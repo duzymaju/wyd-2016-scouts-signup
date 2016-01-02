@@ -52,6 +52,10 @@ Wyd2016Bundle\Entity\Pilgrim:
         dateTo:
             name:                       date_to
             type:                       date
+        comments:
+            length:                     255
+            nullable:                   true
+            type:                       string
         createdAt:
             name:                       created_at
             type:                       date

@@ -11,5 +11,8 @@ interface StatusInterface
     const STATUS_CONFIRMED = 1;
 
     /** @const integer */
+    const STATUS_PAYED = 2;
+
+    /** @const integer */
     const STATUS_NOT_CONFIRMED = 0;
 }
