@@ -57,5 +57,5 @@ Wyd2016Bundle\Entity\Pilgrim:
             type:                       date
 
     indexes:
-        sa_index_1:
+        p_index_1:
             columns:                    status

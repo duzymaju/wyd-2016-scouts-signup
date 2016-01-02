@@ -77,5 +77,5 @@ Wyd2016Bundle\Entity\Volunteer:
             targetEntity:               Wyd2016Bundle\Entity\Troop
 
     indexes:
-        sa_index_1:
+        v_index_1:
             columns:                    status
