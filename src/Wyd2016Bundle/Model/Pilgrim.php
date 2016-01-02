@@ -7,21 +7,10 @@ use DateTime;
 /**
  * Model
  */
-class Pilgrim
+class Pilgrim implements StatusInterface
 {
     use IdTrait;
-
-    /** @const integer */
-    const STATUS_CONFIRMED = 1;
-
-    /** @const integer */
-    const STATUS_NOT_CONFIRMED = 0;
-
-    /** @var integer */
-    protected $status;
-
-    /** @var string */
-    protected $activationHash;
+    use StatusTrait;
 
     /** @var string */
     protected $firstName;
@@ -49,67 +38,6 @@ class Pilgrim
 
     /** @var DateTime */
     protected $dateTo;
-
-    /** @var DateTime */
-    protected $createdAt;
-
-    /**
-     * Get status
-     *
-     * @return string
-     */
-    function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * Set status
-     *
-     * @param string $status status
-     *
-     * @return self
-     */
-    function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Is confirmed
-     * 
-     * @return boolean
-     */
-    public function isConfirmed()
-    {
-        return $this->status === self::STATUS_CONFIRMED;
-    }
-
-    /**
-     * Get activation hash
-     *
-     * @return string
-     */
-    function getActivationHash()
-    {
-        return $this->activationHash;
-    }
-
-    /**
-     * Set activation hash
-     *
-     * @param string $activationHash activation hash
-     *
-     * @return self
-     */
-    function setActivationHash($activationHash)
-    {
-        $this->activationHash = $activationHash;
-
-        return $this;
-    }
 
     /**
      * Get first name
@@ -323,30 +251,6 @@ class Pilgrim
     function setDateTo(DateTime $dateTo)
     {
         $this->dateTo = $dateTo;
-
-        return $this;
-    }
-
-    /**
-     * Get created at
-     *
-     * @return DateTime
-     */
-    function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set created at
-     *
-     * @param DateTime $createdAt created at
-     *
-     * @return self
-     */
-    function setCreatedAt(DateTime $createdAt)
-    {
-        $this->createdAt = $createdAt;
 
         return $this;
     }
