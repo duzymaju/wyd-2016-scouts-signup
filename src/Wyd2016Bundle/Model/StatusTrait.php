@@ -18,7 +18,7 @@ trait StatusTrait
      *
      * @return string
      */
-    function getStatus()
+    public function getStatus()
     {
         return $this->status;
     }
@@ -30,7 +30,7 @@ trait StatusTrait
      *
      * @return self
      */
-    function setStatus($status)
+    public function setStatus($status)
     {
         $this->status = $status;
 
@@ -62,7 +62,7 @@ trait StatusTrait
      *
      * @return string
      */
-    function getActivationHash()
+    public function getActivationHash()
     {
         return $this->activationHash;
     }
@@ -74,7 +74,7 @@ trait StatusTrait
      *
      * @return self
      */
-    function setActivationHash($activationHash)
+    public function setActivationHash($activationHash)
     {
         $this->activationHash = $activationHash;
 

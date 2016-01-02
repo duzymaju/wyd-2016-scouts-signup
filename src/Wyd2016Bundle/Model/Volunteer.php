@@ -55,7 +55,7 @@ class Volunteer implements StatusInterface
      *
      * @return integer|null
      */
-    function getGradeId()
+    public function getGradeId()
     {
         return $this->gradeId;
     }
@@ -67,7 +67,7 @@ class Volunteer implements StatusInterface
      *
      * @return self
      */
-    function setGradeId($gradeId = null)
+    public function setGradeId($gradeId = null)
     {
         $this->gradeId = $gradeId;
 
@@ -79,7 +79,7 @@ class Volunteer implements StatusInterface
      *
      * @return integer|null
      */
-    function getRegionId()
+    public function getRegionId()
     {
         return $this->regionId;
     }
@@ -91,7 +91,7 @@ class Volunteer implements StatusInterface
      *
      * @return self
      */
-    function setRegionId($regionId = null)
+    public function setRegionId($regionId = null)
     {
         $this->regionId = $regionId;
 
@@ -103,7 +103,7 @@ class Volunteer implements StatusInterface
      *
      * @return integer|null
      */
-    function getDistrictId()
+    public function getDistrictId()
     {
         return $this->districtId;
     }
@@ -115,7 +115,7 @@ class Volunteer implements StatusInterface
      *
      * @return self
      */
-    function setDistrictId($districtId = null)
+    public function setDistrictId($districtId = null)
     {
         $this->districtId = $districtId;
 
@@ -127,7 +127,7 @@ class Volunteer implements StatusInterface
      *
      * @return Troop|null
      */
-    function getTroop()
+    public function getTroop()
     {
         return $this->troop;
     }
@@ -139,7 +139,7 @@ class Volunteer implements StatusInterface
      *
      * @return self
      */
-    function setTroop(Troop $troop = null)
+    public function setTroop(Troop $troop = null)
     {
         $this->troop = $troop;
 
@@ -151,7 +151,7 @@ class Volunteer implements StatusInterface
      *
      * @return string|null
      */
-    function getPesel()
+    public function getPesel()
     {
         return $this->pesel;
     }
@@ -163,7 +163,7 @@ class Volunteer implements StatusInterface
      *
      * @return self
      */
-    function setPesel($pesel = null)
+    public function setPesel($pesel = null)
     {
         $this->pesel = $pesel;
 
@@ -175,7 +175,7 @@ class Volunteer implements StatusInterface
      *
      * @return integer
      */
-    function getServiceMainId()
+    public function getServiceMainId()
     {
         return $this->serviceMainId;
     }
@@ -187,7 +187,7 @@ class Volunteer implements StatusInterface
      *
      * @return self
      */
-    function setServiceMainId($serviceMainId)
+    public function setServiceMainId($serviceMainId)
     {
         $this->serviceMainId = $serviceMainId;
 
@@ -199,7 +199,7 @@ class Volunteer implements StatusInterface
      *
      * @return integer|null
      */
-    function getServiceExtraId()
+    public function getServiceExtraId()
     {
         return $this->serviceExtraId;
     }
@@ -211,7 +211,7 @@ class Volunteer implements StatusInterface
      *
      * @return self
      */
-    function setServiceExtraId($serviceExtraId = null)
+    public function setServiceExtraId($serviceExtraId = null)
     {
         $this->serviceExtraId = $serviceExtraId;
 
@@ -223,7 +223,7 @@ class Volunteer implements StatusInterface
      *
      * @return string
      */
-    function getPermissions()
+    public function getPermissions()
     {
         return $this->permissions;
     }
@@ -235,7 +235,7 @@ class Volunteer implements StatusInterface
      *
      * @return self
      */
-    function setPermissions($permissions)
+    public function setPermissions($permissions)
     {
         $this->permissions = $permissions;
 
@@ -247,7 +247,7 @@ class Volunteer implements StatusInterface
      *
      * @return string
      */
-    function getLanguages()
+    public function getLanguages()
     {
         return $this->languages;
     }
@@ -259,7 +259,7 @@ class Volunteer implements StatusInterface
      *
      * @return self
      */
-    function setLanguages($languages)
+    public function setLanguages($languages)
     {
         $this->languages = $languages;
 
@@ -271,7 +271,7 @@ class Volunteer implements StatusInterface
      *
      * @return string
      */
-    function getProfession()
+    public function getProfession()
     {
         return $this->profession;
     }
@@ -283,7 +283,7 @@ class Volunteer implements StatusInterface
      *
      * @return self
      */
-    function setProfession($profession)
+    public function setProfession($profession)
     {
         $this->profession = $profession;
 
@@ -295,7 +295,7 @@ class Volunteer implements StatusInterface
      *
      * @return DateTime
      */
-    function getDateFrom()
+    public function getDateFrom()
     {
         return $this->dateFrom;
     }
@@ -307,7 +307,7 @@ class Volunteer implements StatusInterface
      *
      * @return self
      */
-    function setDateFrom(DateTime $dateFrom)
+    public function setDateFrom(DateTime $dateFrom)
     {
         $this->dateFrom = $dateFrom;
 
@@ -319,7 +319,7 @@ class Volunteer implements StatusInterface
      *
      * @return DateTime
      */
-    function getDateTo()
+    public function getDateTo()
     {
         return $this->dateTo;
     }
@@ -331,7 +331,7 @@ class Volunteer implements StatusInterface
      *
      * @return self
      */
-    function setDateTo(DateTime $dateTo)
+    public function setDateTo(DateTime $dateTo)
     {
         $this->dateTo = $dateTo;
 

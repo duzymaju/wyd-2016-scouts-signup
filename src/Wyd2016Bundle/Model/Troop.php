@@ -43,7 +43,7 @@ class Troop implements StatusInterface
      *
      * @return string
      */
-    function getName()
+    public function getName()
     {
         return $this->name;
     }
@@ -55,7 +55,7 @@ class Troop implements StatusInterface
      *
      * @return self
      */
-    function setName($name)
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -67,7 +67,7 @@ class Troop implements StatusInterface
      *
      * @return Volunteer
      */
-    function getLeader()
+    public function getLeader()
     {
         return $this->leader;
     }
@@ -79,7 +79,7 @@ class Troop implements StatusInterface
      *
      * @return self
      */
-    function setLeader(Volunteer $leader)
+    public function setLeader(Volunteer $leader)
     {
         $this->leader = $leader;
 
@@ -91,7 +91,7 @@ class Troop implements StatusInterface
      *
      * @return ArrayCollection
      */
-    function getMembers()
+    public function getMembers()
     {
         return $this->members;
     }
@@ -103,7 +103,7 @@ class Troop implements StatusInterface
      *
      * @return self
      */
-    function addMember(Volunteer $member)
+    public function addMember(Volunteer $member)
     {
         if (!$this->members->contains($member)) {
             $this->members->add($member);
@@ -119,7 +119,7 @@ class Troop implements StatusInterface
      *
      * @return self
      */
-    function removeMember(Volunteer $member)
+    public function removeMember(Volunteer $member)
     {
         if ($this->members->contains($member)) {
             $this->members->removeElement($member);
@@ -135,7 +135,7 @@ class Troop implements StatusInterface
      *
      * @return self
      */
-    function setMembers(ArrayCollection $members)
+    public function setMembers(ArrayCollection $members)
     {
         $this->members = $members;
 
@@ -147,7 +147,7 @@ class Troop implements StatusInterface
      *
      * @return DateTime
      */
-    function getDateFrom()
+    public function getDateFrom()
     {
         return $this->dateFrom;
     }
@@ -159,7 +159,7 @@ class Troop implements StatusInterface
      *
      * @return self
      */
-    function setDateFrom(DateTime $dateFrom)
+    public function setDateFrom(DateTime $dateFrom)
     {
         $this->dateFrom = $dateFrom;
 
@@ -171,7 +171,7 @@ class Troop implements StatusInterface
      *
      * @return DateTime
      */
-    function getDateTo()
+    public function getDateTo()
     {
         return $this->dateTo;
     }
@@ -183,7 +183,7 @@ class Troop implements StatusInterface
      *
      * @return self
      */
-    function setDateTo(DateTime $dateTo)
+    public function setDateTo(DateTime $dateTo)
     {
         $this->dateTo = $dateTo;
 

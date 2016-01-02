@@ -25,7 +25,7 @@ class Pilgrim implements StatusInterface
      *
      * @return DateTime
      */
-    function getDateFrom()
+    public function getDateFrom()
     {
         return $this->dateFrom;
     }
@@ -37,7 +37,7 @@ class Pilgrim implements StatusInterface
      *
      * @return self
      */
-    function setDateFrom(DateTime $dateFrom)
+    public function setDateFrom(DateTime $dateFrom)
     {
         $this->dateFrom = $dateFrom;
 
@@ -49,7 +49,7 @@ class Pilgrim implements StatusInterface
      *
      * @return DateTime
      */
-    function getDateTo()
+    public function getDateTo()
     {
         return $this->dateTo;
     }
@@ -61,7 +61,7 @@ class Pilgrim implements StatusInterface
      *
      * @return self
      */
-    function setDateTo(DateTime $dateTo)
+    public function setDateTo(DateTime $dateTo)
     {
         $this->dateTo = $dateTo;
 

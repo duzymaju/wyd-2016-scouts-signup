@@ -18,7 +18,7 @@ trait RecordTrait
      *
      * @return string|null
      */
-    function getComments()
+    public function getComments()
     {
         return $this->comments;
     }
@@ -30,7 +30,7 @@ trait RecordTrait
      *
      * @return self
      */
-    function setComments($comments = null)
+    public function setComments($comments = null)
     {
         $this->comments = $comments;
 
@@ -42,7 +42,7 @@ trait RecordTrait
      *
      * @return DateTime
      */
-    function getCreatedAt()
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
@@ -54,7 +54,7 @@ trait RecordTrait
      *
      * @return self
      */
-    function setCreatedAt(DateTime $createdAt)
+    public function setCreatedAt(DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
 

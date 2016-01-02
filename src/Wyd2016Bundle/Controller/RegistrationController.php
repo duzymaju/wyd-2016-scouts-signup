@@ -45,7 +45,7 @@ class RegistrationController extends Controller
     {
         $formType = new PilgrimApplicationType($this->get('translator'), $request->getLocale());
 
-        $response = $this->registrationProcedure($request, $formType, new Pilgrim(),
+        $response = $this->standardRegistrationProcedure($request, $formType, new Pilgrim(),
             $this->get('wyd2016bundle.pilgrim.repository'), 'registration_pilgrim_form',
             'registration_pilgrim_confirm', 'Wyd2016Bundle::registration/pilgrim_form.html.twig',
             'Wyd2016Bundle::registration/pilgrim_email.html.twig', Pilgrim::STATUS_NOT_CONFIRMED);
@@ -64,7 +64,7 @@ class RegistrationController extends Controller
     {
         $formType = new VolunteerApplicationType($this->get('translator'), $request->getLocale());
 
-        $response = $this->registrationProcedure($request, $formType, new Volunteer(),
+        $response = $this->standardRegistrationProcedure($request, $formType, new Volunteer(),
             $this->get('wyd2016bundle.volunteer.repository'), 'registration_volunteer_form',
             'registration_volunteer_confirm', 'Wyd2016Bundle::registration/volunteer_form.html.twig',
             'Wyd2016Bundle::registration/volunteer_email.html.twig', Volunteer::STATUS_NOT_CONFIRMED);
@@ -123,7 +123,7 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Registration procedure
+     * Standard registration procedure
      *
      * @param Request                 $request      request
      * @param FormTypeInterface       $type         type
@@ -137,7 +137,7 @@ class RegistrationController extends Controller
      *
      * @return Response
      */
-    protected function registrationProcedure(Request $request, FormTypeInterface $type, EntityInterface $entity,
+    protected function standardRegistrationProcedure(Request $request, FormTypeInterface $type, EntityInterface $entity,
         BaseRepositoryInterface $repository, $formRoute, $confirmRoute, $formView, $emailView, $status)
     {
         $form = $this->createForm($type, $entity, array(
@@ -152,23 +152,8 @@ class RegistrationController extends Controller
                 ->setActivationHash($hash)
                 ->setCreatedAt(new DateTime());
 
-            $translator = $this->get('translator');
-
-            $message = Swift_Message::newInstance()
-                ->setSubject($translator->trans('email.title'))
-                ->setFrom($this->getParameter('mailer_user'))
-                ->setTo($entity->getEmail())
-                ->setBody($this->renderView($emailView, array(
-                    'confirmationUrl' => $this->generateUrl($confirmRoute, array(
-                        'hash' => $hash,
-                    ), UrlGeneratorInterface::ABSOLUTE_URL),
-                )), 'text/html');
-
             try {
-                $mailer = $this->get('mailer');
-                if (!$mailer->send($message)) {
-                    throw new RegistrationException('form.exception.email');
-                }
+                $this->mailSendingProcedure($entity->getEmail(), $confirmRoute, $emailView, $hash);
 
                 try {
                     $repository->insert($entity, true);
@@ -189,6 +174,36 @@ class RegistrationController extends Controller
         }
 
         return $response;
+    }
+
+    /**
+     * Mail sending procedure
+     *
+     * @param string $email        e-mail
+     * @param string $confirmRoute confirm route
+     * @param string $emailView    email view
+     * @param string $hash         hash
+     *
+     * @throws RegistrationException
+     */
+    protected function mailSendingProcedure($email, $confirmRoute, $emailView, $hash)
+    {
+        $translator = $this->get('translator');
+
+        $message = Swift_Message::newInstance()
+            ->setSubject($translator->trans('email.title'))
+            ->setFrom($this->getParameter('mailer_user'))
+            ->setTo($email)
+            ->setBody($this->renderView($emailView, array(
+                'confirmationUrl' => $this->generateUrl($confirmRoute, array(
+                    'hash' => $hash,
+                ), UrlGeneratorInterface::ABSOLUTE_URL),
+            )), 'text/html');
+
+        $mailer = $this->get('mailer');
+        if (!$mailer->send($message)) {
+            throw new RegistrationException('form.exception.email');
+        }
     }
 
     /**

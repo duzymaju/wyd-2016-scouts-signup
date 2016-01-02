@@ -33,7 +33,7 @@ trait PersonTrait
      *
      * @return string
      */
-    function getFirstName()
+    public function getFirstName()
     {
         return $this->firstName;
     }
@@ -45,7 +45,7 @@ trait PersonTrait
      *
      * @return self
      */
-    function setFirstName($firstName)
+    public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
 
@@ -57,7 +57,7 @@ trait PersonTrait
      *
      * @return string
      */
-    function getLastName()
+    public function getLastName()
     {
         return $this->lastName;
     }
@@ -69,7 +69,7 @@ trait PersonTrait
      *
      * @return self
      */
-    function setLastName($lastName)
+    public function setLastName($lastName)
     {
         $this->lastName = $lastName;
 
@@ -81,7 +81,7 @@ trait PersonTrait
      *
      * @return DateTime
      */
-    function getBirthDate()
+    public function getBirthDate()
     {
         return $this->birthDate;
     }
@@ -93,7 +93,7 @@ trait PersonTrait
      *
      * @return self
      */
-    function setBirthDate(DateTime $birthDate)
+    public function setBirthDate(DateTime $birthDate)
     {
         $this->birthDate = $birthDate;
 
@@ -105,7 +105,7 @@ trait PersonTrait
      *
      * @return string
      */
-    function getCountry()
+    public function getCountry()
     {
         return $this->country;
     }
@@ -117,7 +117,7 @@ trait PersonTrait
      *
      * @return self
      */
-    function setCountry($country)
+    public function setCountry($country)
     {
         $this->country = $country;
 
@@ -129,7 +129,7 @@ trait PersonTrait
      *
      * @return string
      */
-    function getAddress()
+    public function getAddress()
     {
         return $this->address;
     }
@@ -141,7 +141,7 @@ trait PersonTrait
      *
      * @return self
      */
-    function setAddress($address)
+    public function setAddress($address)
     {
         $this->address = $address;
 
@@ -153,7 +153,7 @@ trait PersonTrait
      *
      * @return string
      */
-    function getPhone()
+    public function getPhone()
     {
         return $this->phone;
     }
@@ -165,7 +165,7 @@ trait PersonTrait
      *
      * @return self
      */
-    function setPhone($phone)
+    public function setPhone($phone)
     {
         $this->phone = $phone;
 
@@ -177,7 +177,7 @@ trait PersonTrait
      *
      * @return string
      */
-    function getEmail()
+    public function getEmail()
     {
         return $this->email;
     }
@@ -189,7 +189,7 @@ trait PersonTrait
      *
      * @return self
      */
-    function setEmail($email)
+    public function setEmail($email)
     {
         $this->email = $email;
 
