@@ -1,11 +1,14 @@
-;(function ($, document) {
+;(function ($, document, undefinedType) {
 
     var fieldsChange = function () {
         var form = $('.registration-form'),
-            country = form.find('[id$="_country"]').first(),
+            allElements = form.find('[data-specific-locale]');
+        if (allElements.length === 0) {
+            return;
+        }
+        var country = form.find('[id$="_country"]').first(),
             locales = [],
             otherLocale = 'other',
-            allElements = form.find('[data-specific-locale]'),
             elements = {};
 
         allElements.each(function () {
@@ -25,8 +28,10 @@
                 key = $.inArray(locale, locales) !== -1 ? locale : otherLocale;
             allElements.hide()
                 .children('.form-control').prop('required', false);
-            elements[key].show()
-                .children('.form-control').prop('required', true);
+            if (typeof elements[key] !== undefinedType) {
+                elements[key].show()
+                    .children('.form-control').prop('required', true);
+            }
         };
 
         country.on('change', changeLocale);
@@ -39,4 +44,4 @@
         $('.registration-form [data-toggle="tooltip"]').tooltip();
     });
 
-})(jQuery, document);
+})(jQuery, document, 'undefined');
