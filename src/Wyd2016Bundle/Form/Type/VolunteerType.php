@@ -9,7 +9,7 @@ use Symfony\Component\Translation\TranslatorInterface;
 /*
  * Form Type
  */
-class VolunteerApplicationType extends AbstractType
+class VolunteerType extends AbstractType
 {
     /** @var TranslatorInterface */
     protected $translator;
@@ -176,6 +176,6 @@ class VolunteerApplicationType extends AbstractType
      */
     public function getName()
     {
-        return 'volunteer_application';
+        return 'volunteer';
     }
 }

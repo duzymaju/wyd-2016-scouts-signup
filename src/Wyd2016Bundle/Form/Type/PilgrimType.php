@@ -9,7 +9,7 @@ use Symfony\Component\Translation\TranslatorInterface;
 /*
  * Form Type
  */
-class PilgrimApplicationType extends AbstractType
+class PilgrimType extends AbstractType
 {
     /** @var TranslatorInterface */
     protected $translator;
@@ -105,6 +105,6 @@ class PilgrimApplicationType extends AbstractType
      */
     public function getName()
     {
-        return 'pilgrim_application';
+        return 'pilgrim';
     }
 }

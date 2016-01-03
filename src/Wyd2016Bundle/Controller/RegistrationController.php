@@ -19,9 +19,9 @@ use Wyd2016Bundle\Entity\Troop;
 use Wyd2016Bundle\Entity\Volunteer;
 use Wyd2016Bundle\Exception\ExceptionInterface;
 use Wyd2016Bundle\Exception\RegistrationException;
-use Wyd2016Bundle\Form\Type\PilgrimApplicationType;
+use Wyd2016Bundle\Form\Type\PilgrimType;
 use Wyd2016Bundle\Form\Type\TroopType;
-use Wyd2016Bundle\Form\Type\VolunteerApplicationType;
+use Wyd2016Bundle\Form\Type\VolunteerType;
 
 /**
  * Controller
@@ -47,7 +47,7 @@ class RegistrationController extends Controller
      */
     public function pilgrimFormAction(Request $request)
     {
-        $formType = new PilgrimApplicationType($this->get('translator'), $request->getLocale());
+        $formType = new PilgrimType($this->get('translator'), $request->getLocale());
 
         $response = $this->standardRegistrationProcedure($request, $formType, new Pilgrim(),
             $this->get('wyd2016bundle.pilgrim.repository'), 'registration_pilgrim_form',
@@ -147,7 +147,7 @@ class RegistrationController extends Controller
      */
     public function volunteerFormAction(Request $request)
     {
-        $formType = new VolunteerApplicationType($this->get('translator'), $request->getLocale());
+        $formType = new VolunteerType($this->get('translator'), $request->getLocale());
 
         $response = $this->standardRegistrationProcedure($request, $formType, new Volunteer(),
             $this->get('wyd2016bundle.volunteer.repository'), 'registration_volunteer_form',

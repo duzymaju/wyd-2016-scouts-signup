@@ -21,6 +21,10 @@ class ContainsPeselValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint)
     {
+        if (empty($value)) {
+            return;
+        }
+
         try {
             if (!preg_match('#^[0-9]{11}$#', $value)) {
                 throw new UnexpectedValueException($constraint->message);
