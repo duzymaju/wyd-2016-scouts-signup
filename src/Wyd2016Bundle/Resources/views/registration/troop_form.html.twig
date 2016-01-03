@@ -7,110 +7,30 @@
     {{ macro.flashBagMessages('error', true) }}
     <h1>{{ 'troop.form.title'|trans }}</h1>
     {{ form_start(form, {'attr': {'class': 'registration-form registration-form-troop'}}) }}
-        <div class="form-group">
-            {{ form_label(form.name) }}
-            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.name) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form.country) }}
-            {{ form_widget(form.country, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.country) }}
-        </div>
-        <div class="form-group" data-specific-locale="PL">
-            {{ form_label(form.regionId) }}
-            {{ form_widget(form.regionId, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.regionId) }}
-        </div>
-        <div class="form-group" data-specific-locale="PL">
-            {{ form_label(form.districtId) }}
-            {{ form_widget(form.districtId, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.districtId) }}
-        </div>
-        <div class="form-group form-info">
-            {{ form_label(form.serviceMainId) }}
-            {{ form_widget(form.serviceMainId, {'attr': {'class': 'form-control'}}) }} {{ macro.formInfo('???') }}
-            {{ form_errors(form.serviceMainId) }}
-        </div>
-        <div class="form-group form-info">
-            {{ form_label(form.serviceExtraId) }}
-            {{ form_widget(form.serviceExtraId, {'attr': {'class': 'form-control'}}) }} {{ macro.formInfo('???') }}
-            {{ form_errors(form.serviceExtraId) }}
-        </div>
-        <div class="form-group form-info">
-            {{ form_label(form.permissions) }}
-            {{ form_widget(form.permissions, {'attr': {'class': 'form-control'}}) }} {{ macro.formInfo('???') }}
-            {{ form_errors(form.permissions) }}
-        </div>
-        <div class="form-group form-info">
-            {{ form_label(form.languages) }}
-            {{ form_widget(form.languages, {'attr': {'class': 'form-control'}}) }} {{ macro.formInfo('???') }}
-            {{ form_errors(form.languages) }}
-        </div>
-        <div class="form-group form-info">
-            {{ form_label(form.profession) }}
-            {{ form_widget(form.profession, {'attr': {'class': 'form-control'}}) }} {{ macro.formInfo('???') }}
-            {{ form_errors(form.profession) }}
-        </div>
-        <div class="form-group form-info">
-            {{ form_label(form.dateFrom) }}
-            {{ form_widget(form.dateFrom, {'attr': {'class': 'form-control'}}) }} {{ macro.formInfo('???') }}
-            {{ form_errors(form.dateFrom) }}
-        </div>
-        <div class="form-group form-info">
-            {{ form_label(form.dateTo) }}
-            {{ form_widget(form.dateTo, {'attr': {'class': 'form-control'}}) }} {{ macro.formInfo('???') }}
-            {{ form_errors(form.dateTo) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form.comments) }}
-            {{ form_widget(form.comments, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.comments) }}
-        </div>
+        {{ macro.formRow(form.name) }}
+        {{ macro.formRow(form.country) }}
+        {{ macro.formRow(form.regionId, {locale: 'PL'}) }}
+        {{ macro.formRow(form.districtId, {locale: 'PL'}) }}
+        {{ macro.formRow(form.serviceMainId, {info: '???'}) }}
+        {{ macro.formRow(form.serviceExtraId, {info: '???'}) }}
+        {{ macro.formRow(form.permissions, {info: '???'}) }}
+        {{ macro.formRow(form.languages, {info: '???'}) }}
+        {{ macro.formRow(form.profession, {info: '???'}) }}
+        {{ macro.formRow(form.dateFrom, {info: '???'}) }}
+        {{ macro.formRow(form.dateTo, {info: '???'}) }}
+        {{ macro.formRow(form.comments) }}
         <div class="row">
             {% for member in form.members %}
                 <div class="col-sm-6">
                     <h2>{{ form.vars.data.leader is same as (member.vars.data) ? 'troop.form.leader'|trans : 'troop.form.member'|trans({'%no%': loop.index}) }}</h2>
-                    <div class="form-group">
-                        {{ form_label(member.firstName) }}
-                        {{ form_widget(member.firstName, {'attr': {'class': 'form-control'}}) }}
-                        {{ form_errors(member.firstName) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(member.lastName) }}
-                        {{ form_widget(member.lastName, {'attr': {'class': 'form-control'}}) }}
-                        {{ form_errors(member.lastName) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(member.address) }}
-                        {{ form_widget(member.address, {'attr': {'class': 'form-control'}}) }}
-                        {{ form_errors(member.address) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(member.phone) }}
-                        {{ form_widget(member.phone, {'attr': {'class': 'form-control'}}) }}
-                        {{ form_errors(member.phone) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(member.email) }}
-                        {{ form_widget(member.email, {'attr': {'class': 'form-control'}}) }}
-                        {{ form_errors(member.email) }}
-                    </div>
-                    <div class="form-group" data-specific-locale="">
-                        {{ form_label(member.birthDate) }}
-                        {{ form_widget(member.birthDate, {'attr': {'class': 'form-control'}}) }}
-                        {{ form_errors(member.birthDate) }}
-                    </div>
-                    <div class="form-group" data-specific-locale="PL">
-                        {{ form_label(member.pesel) }}
-                        {{ form_widget(member.pesel, {'attr': {'class': 'form-control'}}) }}
-                        {{ form_errors(member.pesel) }}
-                    </div>
-                    <div class="form-group" data-specific-locale="PL">
-                        {{ form_label(member.gradeId) }}
-                        {{ form_widget(member.gradeId, {'attr': {'class': 'form-control'}}) }}
-                        {{ form_errors(member.gradeId) }}
-                    </div>
+                    {{ macro.formRow(member.firstName) }}
+                    {{ macro.formRow(member.lastName) }}
+                    {{ macro.formRow(member.address) }}
+                    {{ macro.formRow(member.phone) }}
+                    {{ macro.formRow(member.email) }}
+                    {{ macro.formRow(member.birthDate, {locale: ''}) }}
+                    {{ macro.formRow(member.pesel, {locale: 'PL'}) }}
+                    {{ macro.formRow(member.gradeId, {locale: 'PL'}) }}
                 </div>
             {% endfor %}
         </div>
