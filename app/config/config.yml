@@ -12,6 +12,7 @@ imports:
     - resource:                         bundles/twig.yml
 
     - resource:                         @Wyd2016Bundle/Resources/config/repositories.yml
+    - resource:                         @Wyd2016Bundle/Resources/config/services.yml
 
 parameters:
     assets_version:                     15091301

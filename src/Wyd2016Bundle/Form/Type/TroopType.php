@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Translation\TranslatorInterface;
+use Wyd2016Bundle\Form\RegistrationLists;
 
 /*
  * Form Type
@@ -18,16 +19,21 @@ class TroopType extends AbstractType
     /** @var string */
     protected $locale;
 
+    /** @var RegistrationLists */
+    protected $registrationLists;
+
     /**
      * Constructor
      *
-     * @param TranslatorInterface $translator translator
-     * @param string              $locale     locale
+     * @param TranslatorInterface $translator        translator
+     * @param string              $locale            locale
+     * @param RegistrationLists   $registrationLists registration lists
      */
-    public function __construct(TranslatorInterface $translator, $locale)
+    public function __construct(TranslatorInterface $translator, $locale, RegistrationLists $registrationLists)
     {
         $this->translator = $translator;
         $this->locale = $locale;
+        $this->registrationLists = $registrationLists;
     }
 
     /**
@@ -40,26 +46,6 @@ class TroopType extends AbstractType
     {
         unset($options);
 
-        $dateOptions = array(
-            'days' => range(17, 31),
-            'months' => array(
-                7,
-            ),
-            'years' => array(
-                2016,
-            ),
-        );
-
-        $services = array(
-            7 => $this->translator->trans('form.service.kitchen'),
-            6 => $this->translator->trans('form.service.office'),
-            4 => $this->translator->trans('form.service.information'),
-            3 => $this->translator->trans('form.service.quartermaster'),
-            5 => $this->translator->trans('form.service.program'),
-            1 => $this->translator->trans('form.service.medical'),
-            2 => $this->translator->trans('form.service.security'),
-        );
-
         $builder->add('name', 'text', array(
             'label' => $this->translator->trans('form.troopName'),
         ))
@@ -71,44 +57,22 @@ class TroopType extends AbstractType
             ),
         ))
         ->add('regionId', 'choice', array(
-            'choices' => array(
-                // nothing to translate
-                1 => 'Białostocka',
-                2 => 'Dolnośląska',
-                3 => 'Gdańska',
-                4 => 'Kielecka',
-                5 => 'Krakowska',
-                6 => 'Kujawsko-Pomorska',
-                7 => 'Lubelska',
-                8 => 'Łódzka',
-                9 => 'Mazowiecka',
-                10 => 'Opolska',
-                11 => 'Podkarpacka',
-                12 => 'Stołeczna',
-                13 => 'Śląska',
-                14 => 'Warmińsko-Mazurska',
-                15 => 'Wielkopolska',
-                16 => 'Zachodniopomorska',
-                17 => 'Ziemi Lubuskiej',
-            ),
+            'choices' => $this->registrationLists->getRegions(),
             'label' => $this->translator->trans('form.region'),
             'mapped' => false,
         ))
         ->add('districtId', 'choice', array(
-            'choices' => array(
-                // nothing to translate
-                1 => '[lista hufców]',
-            ),
+            'choices' => $this->registrationLists->getDistricts(),
             'label' => $this->translator->trans('form.district'),
             'mapped' => false,
         ))
         ->add('serviceMainId', 'choice', array(
-            'choices' => $services,
+            'choices' => $this->registrationLists->getServices(),
             'label' => $this->translator->trans('form.serviceMain'),
             'mapped' => false,
         ))
         ->add('serviceExtraId', 'choice', array(
-            'choices' => $services,
+            'choices' => $this->registrationLists->getServices(),
             'label' => $this->translator->trans('form.serviceExtra'),
             'mapped' => false,
         ))
@@ -125,19 +89,19 @@ class TroopType extends AbstractType
             'mapped' => false,
         ))
         ->add('members', 'collection', array(
-            'type' => new TroopMemberType($this->translator),
+            'type' => new TroopMemberType($this->translator, $this->registrationLists),
             'allow_add' => true,
             'allow_delete' => true,
             'by_reference' => false
         ))
-        ->add('dateFrom', 'date', array_merge($dateOptions, array(
+        ->add('dateFrom', 'date', array(
             'label' => $this->translator->trans('form.date_from'),
             'widget' => 'single_text',
-        )))
-        ->add('dateTo', 'date', array_merge($dateOptions, array(
+        ))
+        ->add('dateTo', 'date', array(
             'label' => $this->translator->trans('form.date_to'),
             'widget' => 'single_text',
-        )))
+        ))
         ->add('comments', 'text', array(
             'label' => $this->translator->trans('form.comments'),
             'required' => false,

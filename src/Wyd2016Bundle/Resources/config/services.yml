@@ -1,0 +1,5 @@
+services:
+    wyd2016bundle.registration.lists:
+        arguments:
+            -                           @translator
+        class:                          Wyd2016Bundle\Form\RegistrationLists

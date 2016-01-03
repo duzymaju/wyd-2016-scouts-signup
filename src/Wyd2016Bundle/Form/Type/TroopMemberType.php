@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Translation\TranslatorInterface;
+use Wyd2016Bundle\Form\RegistrationLists;
 
 /*
  * Form Type
@@ -15,14 +16,19 @@ class TroopMemberType extends AbstractType
     /** @var TranslatorInterface */
     protected $translator;
 
+    /** @var RegistrationLists */
+    protected $registrationLists;
+
     /**
      * Constructor
      *
-     * @param TranslatorInterface $translator translator
+     * @param TranslatorInterface $translator        translator
+     * @param RegistrationLists   $registrationLists registration lists
      */
-    public function __construct(TranslatorInterface $translator)
+    public function __construct(TranslatorInterface $translator, RegistrationLists $registrationLists)
     {
         $this->translator = $translator;
+        $this->registrationLists = $registrationLists;
     }
 
     /**
@@ -60,12 +66,7 @@ class TroopMemberType extends AbstractType
             'required' => false,
         ))
         ->add('gradeId', 'choice', array(
-            'choices' => array(
-                0 => $this->translator->trans('form.grade.no'),
-                1 => $this->translator->trans('form.grade.guide'),
-                2 => $this->translator->trans('form.grade.sub_scoutmaster'),
-                3 => $this->translator->trans('form.grade.scoutmaster'),
-            ),
+            'choices' => $this->registrationLists->getGrades(),
             'label' => $this->translator->trans('form.grade'),
         ));
     }

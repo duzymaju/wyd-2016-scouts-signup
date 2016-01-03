@@ -66,7 +66,8 @@ class RegistrationController extends Controller
      */
     public function troopFormAction(Request $request)
     {
-        $formType = new TroopType($this->get('translator'), $request->getLocale());
+        $formType = new TroopType($this->get('translator'), $request->getLocale(),
+            $this->get('wyd2016bundle.registration.lists'));
 
         $troop = new Troop();
         $leader = new Volunteer();
@@ -147,7 +148,8 @@ class RegistrationController extends Controller
      */
     public function volunteerFormAction(Request $request)
     {
-        $formType = new VolunteerType($this->get('translator'), $request->getLocale());
+        $formType = new VolunteerType($this->get('translator'), $request->getLocale(),
+            $this->get('wyd2016bundle.registration.lists'));
 
         $response = $this->standardRegistrationProcedure($request, $formType, new Volunteer(),
             $this->get('wyd2016bundle.volunteer.repository'), 'registration_volunteer_form',
