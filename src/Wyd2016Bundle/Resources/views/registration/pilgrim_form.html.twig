@@ -42,14 +42,14 @@
             {{ form_widget(form.birthDate, {'attr': {'class': 'form-control'}}) }}
             {{ form_errors(form.birthDate) }}
         </div>
-        <div class="form-group">
+        <div class="form-group form-info">
             {{ form_label(form.dateFrom) }}
-            {{ form_widget(form.dateFrom, {'attr': {'class': 'form-control'}}) }} <div class="info" title="???"></div>
+            {{ form_widget(form.dateFrom, {'attr': {'class': 'form-control'}}) }} {{ macro.formInfo('???') }}
             {{ form_errors(form.dateFrom) }}
         </div>
-        <div class="form-group">
+        <div class="form-group form-info">
             {{ form_label(form.dateTo) }}
-            {{ form_widget(form.dateTo, {'attr': {'class': 'form-control'}}) }} <div class="info" title="???"></div>
+            {{ form_widget(form.dateTo, {'attr': {'class': 'form-control'}}) }} {{ macro.formInfo('???') }}
             {{ form_errors(form.dateTo) }}
         </div>
         <div class="form-group">
@@ -57,12 +57,12 @@
             {{ form_widget(form.comments, {'attr': {'class': 'form-control'}}) }}
             {{ form_errors(form.comments) }}
         </div>
-        <div class="form-group">
+        <div class="form-group form-checkbox">
             {{ form_widget(form.personalData) }}
             {{ form_label(form.personalData) }}
             {{ form_errors(form.personalData) }}
         </div>
-        <div class="form-group">
+        <div class="form-group form-checkbox">
             {{ form_widget(form.rules) }}
             <label for="{{ form.rules.vars.id }}">{{ 'form.rules.acceptance'|trans }} <a href="{{ path('registration_rules') }}" target="_blank">{{ 'form.rules.name'|trans }}</a></label>
             {{ form_errors(form.rules) }}

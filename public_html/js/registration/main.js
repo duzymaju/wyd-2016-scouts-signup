@@ -1,7 +1,7 @@
 ;(function ($, document) {
 
     var fieldsChange = function () {
-        var form = $('form.registration-form-volunteer, form.registration-form-troop'),
+        var form = $('.registration-form'),
             country = form.find('[id$="_country"]').first(),
             locales = [],
             otherLocale = 'other',
@@ -35,6 +35,8 @@
 
     $(document).ready(function() {
         fieldsChange();
+
+        $('.registration-form [data-toggle="tooltip"]').tooltip();
     });
 
 })(jQuery, document);

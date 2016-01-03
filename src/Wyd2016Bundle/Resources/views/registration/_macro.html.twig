@@ -10,7 +10,7 @@
         <a href="{{ path('registration_troop_form') }}" class="btn btn-default">
             {{ 'next_steps.register_troop'|trans }}
         </a>
-        <a href="#" target="_blank" class="btn btn-default">
+        <a href="http://sdm.zhp.pl" target="_blank" class="btn btn-default">
             {{ 'next_steps.volunteers_page'|trans }}
         </a>
         <a href="http://www.krakow2016.com{{ app.request.locale != 'pl' ? '/' ~ app.request.locale : '' }}"
@@ -32,4 +32,8 @@
             </div>
         {% endfor %}
     {% endif %}
+{% endmacro %}
+
+{% macro formInfo(text, tooltipPlacement = 'left') %}
+    <div class="info" data-toggle="tooltip" data-placement="{{ tooltipPlacement }}" title="{{ text }}"></div>
 {% endmacro %}

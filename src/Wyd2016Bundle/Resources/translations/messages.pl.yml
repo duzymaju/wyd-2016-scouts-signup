@@ -49,14 +49,14 @@ form.serviceMain:                       Preferowana służba
 index.pilgrim:                          pielgrzymem
 index.title:                            Jesteś
 index.troop:                            patrolem wolontariuszy
-index.volunteer:                        pojedynczym wolontariuszem
+index.volunteer:                        pełnoletnim wolontariuszem
 
 layout.title:                           ŚDM Kraków 2016
 
 next_steps.official_page:               Oficjalna strona Światowych Dni Młodzieży Kraków 2016
 next_steps.register_pilgrim:            Zarejestruj kolejnego pielgrzyma
 next_steps.register_troop:              Zarejestruj kolejny patrol wolontariuszy
-next_steps.register_volunteer:          Zarejestruj kolejnego wolontariusza
+next_steps.register_volunteer:          Zarejestruj kolejnego pełnoletniego wolontariusza
 next_steps.title:                       Kolejne kroki
 next_steps.volunteers_page:             Strona przygotowań do ŚDM Kraków 2016 przez Związek Harcerstwa Polskiego
 
@@ -69,7 +69,7 @@ success.message:                        Twoje dane zostały pomyślnie zapisane.
 success.title:                          Dziękujemy za rejestrację
 
 troop.form.title:                       Formularz dla patroli wolontariuszy
-troop.form.leader:                      Lider patrolu
+troop.form.leader:                      Lider patrolu (pełnoletni)
 troop.form.member:                      %no%. członek patrolu
 
-volunteer.form.title:                   Formularz dla wolontariuszy
+volunteer.form.title:                   Formularz dla pełnoletnich wolontariuszy

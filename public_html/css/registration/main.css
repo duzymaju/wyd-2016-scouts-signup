@@ -1,36 +1,41 @@
-* {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
 body {
-    background: #fff;
-    color: #000;
-    font: normal 14px/1.5 'Arial', sans-serif;
     margin: 70px 0 0;
 }
-a {
-    color: #00f;
-    text-decoration: none;
-}
-a:focus,
-a:hover {
-    text-decoration: underline;
-}
 
-.registration-form .info {
+.registration-form .form-control {
+    display: inline-block;
+}
+.registration-form .form-info .form-control {
+    width: calc(100% - 35px);
+}
+.registration-form .form-info .info {
     background: lightblue;
     border-radius: 10px;
     cursor: help;
     display: inline-block;
     height: 20px;
     line-height: 20px;
+    margin: 0 5px;
     text-align: center;
     width: 20px;
 }
-.registration-form .info:before {
+.registration-form .form-info .info:before {
     content: '?';
 }
 .registration-form dd > div {
     display: inline-block;
+}
+.registration-form .form-checkbox {
+    overflow: hidden;
+}
+.registration-form .form-checkbox input {
+    float: left;
+    height: 20px;
+    margin: 0;
+    width: 20px;
+}
+.registration-form .form-checkbox label {
+    float: left;
+    margin-left: 5px;
+    width: calc(100% - 25px);
 }

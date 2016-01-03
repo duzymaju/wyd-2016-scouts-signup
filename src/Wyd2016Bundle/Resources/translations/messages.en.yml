@@ -49,14 +49,14 @@ form.serviceMain:                       Preferred service
 index.pilgrim:                          pilgrim
 index.title:                            You are
 index.troop:                            a troop of volunteers
-index.volunteer:                        single volunteer
+index.volunteer:                        adult volunteer
 
 layout.title:                           WYD Krakow 2016
 
 next_steps.official_page:               Official page of World Youth Day Krakow 2016
 next_steps.register_pilgrim:            Register another pilgrim
 next_steps.register_troop:              Register another troop of volunteers
-next_steps.register_volunteer:          Register another volunteer
+next_steps.register_volunteer:          Register another adult volunteer
 next_steps.title:                       Next steps
 next_steps.volunteers_page:             Page of preparation to WYD Krakow 2016 make by Polish Scouting Organization
 
@@ -69,7 +69,7 @@ success.message:                        Your data were successfuly saved. To com
 success.title:                          Thank you for registration
 
 troop.form.title:                       Form for troops of volunteers
-troop.form.leader:                      Troop leader
+troop.form.leader:                      Troop leader (adult)
 troop.form.member:                      %no% troop member
 
-volunteer.form.title:                   Form for volunteers
+volunteer.form.title:                   Form for adult volunteers
