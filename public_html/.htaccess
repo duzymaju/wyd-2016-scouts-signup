@@ -12,7 +12,7 @@ DirectoryIndex app.php
     RewriteCond         %{HTTP_HOST}                ^www\.(.*) [NC]
     RewriteRule         ^(.*)$                      //%1/$1 [L,NC,R=301]
 
-    # cache-friendly file names: /static/dddddddd/file.ext
+    # cache-friendly file names: /static/yymmddnn/file.ext
     RewriteCond         %{REQUEST_FILENAME}         !-f
     RewriteCond         %{REQUEST_FILENAME}         !-d
     RewriteCond         %{THE_REQUEST}              ^(GET|HEAD)\ (.*)/static/[0-9]{8}/(.*)\ HTTP/ [NC]

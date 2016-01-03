@@ -5,6 +5,7 @@ confirmation.title:                     Potwierdzenie rejestracji
 email.link:                             Kliknij tutaj aby potwierdzić rejestrację
 email.pligrim.text:                     "Dziękujemy za rejestrację pobytu w miejscu przygotowywanym przez Związek Harcerstwa Polskiego podczas ŚDM Kraków 2016. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
 email.title:                            Rejestracja na ŚDM Kraków 2016
+email.troop.text:                       "Dziękujemy za rejestrację patrolu wolontariuszy na ŚDM Kraków 2016. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
 email.volunteer.text:                   "Dziękujemy za rejestrację jako wolontariusz na ŚDM Kraków 2016. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
 
 form.address:                           Adres zamieszkania
@@ -25,6 +26,7 @@ form.grade.sub_scoutmaster:             podharcmistrz
 form.languages:                         Języki obce
 form.last_name:                         Nazwisko
 form.email:                             Adres e-mail
+form.troopName:                         Nazwa patrolu
 form.permissions:                       Uprawnienia
 form.personal_data:                     Wyrażam zgodę na przetwarzanie powyższych danych osobowych przez Związek Harcerstwa Polskiego w celu organizacji mojego udziału w ŚDM Kraków 2016, zgodnie z ustawą z dn. 29 sierpnia 1997 roku o Ochronie Danych Osobowych (Dz. U. 2014, poz. 1882).
 form.pesel:                             PESEL
@@ -46,12 +48,14 @@ form.serviceMain:                       Preferowana służba
 
 index.pilgrim:                          pielgrzymem
 index.title:                            Jesteś
-index.volunteer:                        wolontariuszem
+index.troop:                            patrolem wolontariuszy
+index.volunteer:                        pojedynczym wolontariuszem
 
 layout.title:                           ŚDM Kraków 2016
 
 next_steps.official_page:               Oficjalna strona Światowych Dni Młodzieży Kraków 2016
 next_steps.register_pilgrim:            Zarejestruj kolejnego pielgrzyma
+next_steps.register_troop:              Zarejestruj kolejny patrol wolontariuszy
 next_steps.register_volunteer:          Zarejestruj kolejnego wolontariusza
 next_steps.title:                       Kolejne kroki
 next_steps.volunteers_page:             Strona przygotowań do ŚDM Kraków 2016 przez Związek Harcerstwa Polskiego
@@ -63,5 +67,9 @@ rules.title:                            Regulamin uczestnictwa
 
 success.message:                        Twoje dane zostały pomyślnie zapisane. Aby dokończyć rejestrację odbierz wiadomość e-mail, którą Ci wysłaliśmy i kliknij w link potwierdzenia.
 success.title:                          Dziękujemy za rejestrację
+
+troop.form.title:                       Formularz dla patroli wolontariuszy
+troop.form.leader:                      Lider patrolu
+troop.form.member:                      %no%. członek patrolu
 
 volunteer.form.title:                   Formularz dla wolontariuszy

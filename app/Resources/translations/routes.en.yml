@@ -13,6 +13,12 @@ registration_rules: /rules
 # Desc: /success
 registration_success: /success
 
+# Desc: /troop/{hash}/confirm
+registration_troop_confirm: '/troop/{hash}/confirm'
+
+# Desc: /troop
+registration_troop_form: /troop
+
 # Desc: /volunteer/{hash}/confirm
 registration_volunteer_confirm: '/volunteer/{hash}/confirm'
 

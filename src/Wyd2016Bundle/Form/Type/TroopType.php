@@ -4,12 +4,13 @@ namespace Wyd2016Bundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 
 /*
  * Form Type
  */
-class VolunteerApplicationType extends AbstractType
+class TroopType extends AbstractType
 {
     /** @var TranslatorInterface */
     protected $translator;
@@ -59,40 +60,15 @@ class VolunteerApplicationType extends AbstractType
             2 => $this->translator->trans('form.service.security'),
         );
 
-        $builder->add('firstName', 'text', array(
-            'label' => $this->translator->trans('form.first_name'),
-        ))
-        ->add('lastName', 'text', array(
-            'label' => $this->translator->trans('form.last_name'),
-        ))
-        ->add('address', 'text', array(
-            'label' => $this->translator->trans('form.address'),
-        ))
-        ->add('phone', 'text', array(
-            'label' => $this->translator->trans('form.phone'),
-        ))
-        ->add('email', 'email', array(
-            'label' => $this->translator->trans('form.email'),
+        $builder->add('name', 'text', array(
+            'label' => $this->translator->trans('form.troopName'),
         ))
         ->add('country', 'country', array(
             'label' => $this->translator->trans('form.country'),
+            'mapped' => false,
             'preferred_choices' => array(
                 strtoupper($this->locale),
             ),
-        ))
-        ->add('birthDate', 'date', array(
-            'label' => $this->translator->trans('form.birth_date'),
-            'required' => false,
-            'widget' => 'single_text',
-        ))
-        ->add('gradeId', 'choice', array(
-            'choices' => array(
-                0 => $this->translator->trans('form.grade.no'),
-                1 => $this->translator->trans('form.grade.guide'),
-                2 => $this->translator->trans('form.grade.sub_scoutmaster'),
-                3 => $this->translator->trans('form.grade.scoutmaster'),
-            ),
-            'label' => $this->translator->trans('form.grade'),
         ))
         ->add('regionId', 'choice', array(
             'choices' => array(
@@ -116,6 +92,7 @@ class VolunteerApplicationType extends AbstractType
                 17 => 'Ziemi Lubuskiej',
             ),
             'label' => $this->translator->trans('form.region'),
+            'mapped' => false,
         ))
         ->add('districtId', 'choice', array(
             'choices' => array(
@@ -123,27 +100,35 @@ class VolunteerApplicationType extends AbstractType
                 1 => '[lista hufców]',
             ),
             'label' => $this->translator->trans('form.district'),
-        ))
-        ->add('pesel', 'text', array(
-            'label' => $this->translator->trans('form.pesel'),
-            'required' => false,
+            'mapped' => false,
         ))
         ->add('serviceMainId', 'choice', array(
             'choices' => $services,
             'label' => $this->translator->trans('form.serviceMain'),
+            'mapped' => false,
         ))
         ->add('serviceExtraId', 'choice', array(
             'choices' => $services,
             'label' => $this->translator->trans('form.serviceExtra'),
+            'mapped' => false,
         ))
         ->add('permissions', 'text', array(
             'label' => $this->translator->trans('form.permissions'),
+            'mapped' => false,
         ))
         ->add('languages', 'text', array(
             'label' => $this->translator->trans('form.languages'),
+            'mapped' => false,
         ))
         ->add('profession', 'text', array(
             'label' => $this->translator->trans('form.profession'),
+            'mapped' => false,
+        ))
+        ->add('members', 'collection', array(
+            'type' => new TroopMemberType($this->translator),
+            'allow_add' => true,
+            'allow_delete' => true,
+            'by_reference' => false
         ))
         ->add('dateFrom', 'date', array_merge($dateOptions, array(
             'label' => $this->translator->trans('form.date_from'),
@@ -169,6 +154,13 @@ class VolunteerApplicationType extends AbstractType
         ));
     }
 
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'Wyd2016Bundle\Entity\Troop',
+        ));
+    }
+
     /**
      * Get name
      *
@@ -176,6 +168,6 @@ class VolunteerApplicationType extends AbstractType
      */
     public function getName()
     {
-        return 'volunteer_application';
+        return 'troop';
     }
 }

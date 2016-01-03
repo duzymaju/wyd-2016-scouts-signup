@@ -5,7 +5,8 @@ confirmation.title:                     Registration confirmation
 email.link:                             Click here to confirm registration
 email.pligrim.text:                     "Thank you for registration your stay in a place prepaired by Polish Scouting Organization during WYD Krakow 2016. To confirm your registration process please click the link below:"
 email.title:                            Registration to WYD Krakow 2016
-email.volunteer.text:                   "Thank you for registration as a volunteer during WYD Krakow 2016. To confirm your registration process please click the link below:"
+email.troop.text:                       "Thank you for registration a troop of volunteers for WYD Krakow 2016. To confirm your registration process please click the link below:"
+email.volunteer.text:                   "Thank you for registration as a volunteer for WYD Krakow 2016. To confirm your registration process please click the link below:"
 
 form.address:                           Address
 form.birth_date:                        Birth date
@@ -25,6 +26,7 @@ form.grade.sub_scoutmaster:             sub-scoutmaster
 form.languages:                         Foreign languages
 form.last_name:                         Last name
 form.email:                             E-mail address
+form.troopName:                         Troop name
 form.permissions:                       Permissions
 form.personal_data:                     "I hereby give consent for the above personal data to be processed by Polish Scouting Organization to prepare my participation in WYD Krakow 2016, in accordance with the Personal Data Protection Act dated Aug 29 1997 (uniform text: Journal of Laws of the Republic of Poland 2014, item 1182)."
 form.pesel:                             PESEL
@@ -46,12 +48,14 @@ form.serviceMain:                       Preferred service
 
 index.pilgrim:                          pilgrim
 index.title:                            You are
-index.volunteer:                        volunteer
+index.troop:                            a troop of volunteers
+index.volunteer:                        single volunteer
 
 layout.title:                           WYD Krakow 2016
 
 next_steps.official_page:               Official page of World Youth Day Krakow 2016
 next_steps.register_pilgrim:            Register another pilgrim
+next_steps.register_troop:              Register another troop of volunteers
 next_steps.register_volunteer:          Register another volunteer
 next_steps.title:                       Next steps
 next_steps.volunteers_page:             Page of preparation to WYD Krakow 2016 make by Polish Scouting Organization
@@ -63,5 +67,9 @@ rules.title:                            Rules of participation
 
 success.message:                        Your data were successfuly saved. To complete your registration please receive e-mail message we've send to you and click confirmation link.
 success.title:                          Thank you for registration
+
+troop.form.title:                       Form for troops of volunteers
+troop.form.leader:                      Troop leader
+troop.form.member:                      %no% troop member
 
 volunteer.form.title:                   Form for volunteers

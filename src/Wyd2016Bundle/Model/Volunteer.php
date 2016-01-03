@@ -167,6 +167,29 @@ class Volunteer implements StatusInterface
     {
         $this->pesel = $pesel;
 
+        $year = (integer) substr($pesel, 0, 2);
+        $month = (integer) substr($pesel, 2, 2);
+        $day = (integer) substr($pesel, 4, 2);
+
+        if ($month > 20 && $month < 33) {
+            $month -= 20;
+            $year += 2000;
+        } elseif ($month > 40 && $month < 53) {
+            $month -= 40;
+            $year += 2100;
+        } elseif ($month > 60 && $month < 73) {
+            $month -= 60;
+            $year += 2200;
+        } elseif ($month > 80 && $month < 93) {
+            $month -= 80;
+            $year += 1800;
+        } else {
+            $year += 1900;
+        }
+
+        $birthDate = new DateTime($year . '-' . $month . '-' . $day);
+        $this->setBirthDate($birthDate);
+
         return $this;
     }
 

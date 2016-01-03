@@ -1,51 +1,21 @@
 {% extends 'Wyd2016Bundle:registration:template.html.twig' %}
 {% import "Wyd2016Bundle:registration:_macro.html.twig" as macro %}
 
-{% set pageTitle = 'volunteer.form.title'|trans %}
+{% set pageTitle = 'troop.form.title'|trans %}
 
 {% block body %}
     {{ macro.flashBagMessages('error', true) }}
-    <h1>{{ 'volunteer.form.title'|trans }}</h1>
+    <h1>{{ 'troop.form.title'|trans }}</h1>
     {{ form_start(form, {'attr': {'class': 'registration-form registration-form-volunteer'}}) }}
         <div class="form-group">
-            {{ form_label(form.firstName) }}
-            {{ form_widget(form.firstName, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.firstName) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form.lastName) }}
-            {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.lastName) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form.address) }}
-            {{ form_widget(form.address, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.address) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form.phone) }}
-            {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.phone) }}
-        </div>
-        <div class="form-group">
-            {{ form_label(form.email) }}
-            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.email) }}
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.name) }}
         </div>
         <div class="form-group">
             {{ form_label(form.country) }}
             {{ form_widget(form.country, {'attr': {'class': 'form-control'}}) }}
             {{ form_errors(form.country) }}
-        </div>
-        <div class="form-group" data-specific-locale="">
-            {{ form_label(form.birthDate) }}
-            {{ form_widget(form.birthDate, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.birthDate) }}
-        </div>
-        <div class="form-group" data-specific-locale="PL">
-            {{ form_label(form.gradeId) }}
-            {{ form_widget(form.gradeId, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.gradeId) }}
         </div>
         <div class="form-group" data-specific-locale="PL">
             {{ form_label(form.regionId) }}
@@ -56,11 +26,6 @@
             {{ form_label(form.districtId) }}
             {{ form_widget(form.districtId, {'attr': {'class': 'form-control'}}) }}
             {{ form_errors(form.districtId) }}
-        </div>
-        <div class="form-group" data-specific-locale="PL">
-            {{ form_label(form.pesel) }}
-            {{ form_widget(form.pesel, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.pesel) }}
         </div>
         <div class="form-group">
             {{ form_label(form.serviceMainId) }}
@@ -86,6 +51,53 @@
             {{ form_label(form.profession) }}
             {{ form_widget(form.profession, {'attr': {'class': 'form-control'}}) }} <div class="info" title="???"></div>
             {{ form_errors(form.profession) }}
+        </div>
+        <div class="row">
+            {% for member in form.members %}
+                <div class="col-sm-6">
+                    <h2>{{ form.vars.data.leader is same as (member.vars.data) ? 'troop.form.leader'|trans : 'troop.form.member'|trans({'%no%': loop.index}) }}</h2>
+                    <div class="form-group">
+                        {{ form_label(member.firstName) }}
+                        {{ form_widget(member.firstName, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(member.firstName) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(member.lastName) }}
+                        {{ form_widget(member.lastName, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(member.lastName) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(member.address) }}
+                        {{ form_widget(member.address, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(member.address) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(member.phone) }}
+                        {{ form_widget(member.phone, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(member.phone) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(member.email) }}
+                        {{ form_widget(member.email, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(member.email) }}
+                    </div>
+                    <div class="form-group" data-specific-locale="">
+                        {{ form_label(member.birthDate) }}
+                        {{ form_widget(member.birthDate, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(member.birthDate) }}
+                    </div>
+                    <div class="form-group" data-specific-locale="PL">
+                        {{ form_label(member.pesel) }}
+                        {{ form_widget(member.pesel, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(member.pesel) }}
+                    </div>
+                    <div class="form-group" data-specific-locale="PL">
+                        {{ form_label(member.gradeId) }}
+                        {{ form_widget(member.gradeId, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(member.gradeId) }}
+                    </div>
+                </div>
+            {% endfor %}
         </div>
         <div class="form-group">
             {{ form_label(form.dateFrom) }}

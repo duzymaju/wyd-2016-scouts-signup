@@ -2,6 +2,8 @@
 
 namespace Wyd2016Bundle\Model;
 
+use DateTime;
+
 /**
  * Model
  */

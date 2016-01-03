@@ -3,7 +3,7 @@
 namespace Wyd2016Bundle\Controller;
 
 use DateTime;
-use Doctrine\ORM\ORMException;
+use Exception;
 use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormTypeInterface;
@@ -13,10 +13,14 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Wyd2016Bundle\Entity\EntityInterface;
 use Wyd2016Bundle\Entity\Pilgrim;
 use Wyd2016Bundle\Entity\Repository\BaseRepositoryInterface;
+use Wyd2016Bundle\Entity\Repository\TroopRepository;
+use Wyd2016Bundle\Entity\Repository\VolunteerRepository;
+use Wyd2016Bundle\Entity\Troop;
 use Wyd2016Bundle\Entity\Volunteer;
 use Wyd2016Bundle\Exception\ExceptionInterface;
 use Wyd2016Bundle\Exception\RegistrationException;
 use Wyd2016Bundle\Form\Type\PilgrimApplicationType;
+use Wyd2016Bundle\Form\Type\TroopType;
 use Wyd2016Bundle\Form\Type\VolunteerApplicationType;
 
 /**
@@ -49,6 +53,87 @@ class RegistrationController extends Controller
             $this->get('wyd2016bundle.pilgrim.repository'), 'registration_pilgrim_form',
             'registration_pilgrim_confirm', 'Wyd2016Bundle::registration/pilgrim_form.html.twig',
             'Wyd2016Bundle::registration/pilgrim_email.html.twig', Pilgrim::STATUS_NOT_CONFIRMED);
+
+        return $response;
+    }
+
+    /**
+     * Troop form action
+     *
+     * @param Request $request request
+     *
+     * @return Response
+     */
+    public function troopFormAction(Request $request)
+    {
+        $formType = new TroopType($this->get('translator'), $request->getLocale());
+
+        $troop = new Troop();
+        $leader = new Volunteer();
+        $leader->setTroop($troop);
+        $troop->setLeader($leader)
+            ->addMember($leader);
+        for ($i = 1; $i < 6; $i++) {
+            $member = new Volunteer();
+            $member->setTroop($troop);
+            $troop->addMember($member);
+        }
+        $form = $this->createForm($formType, $troop, array(
+            'action' => $this->generateUrl('registration_troop_form'),
+            'method' => 'POST',
+        ));
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $hash = $this->generateActivationHash($leader->getEmail());
+            $createdAt = new DateTime();
+            $troop->setStatus(Troop::STATUS_NOT_CONFIRMED)
+                ->setActivationHash($hash)
+                ->setCreatedAt($createdAt);
+            foreach ($troop->getMembers() as $member) {
+                /** @var Volunteer $member */
+                $member->setStatus(Troop::STATUS_NOT_CONFIRMED)
+                    ->setActivationHash($this->generateActivationHash($member->getEmail()))
+                    ->setCountry($form->get('country')->getData())
+                    ->setServiceMainId($form->get('serviceMainId')->getData())
+                    ->setServiceExtraId($form->get('serviceExtraId')->getData())
+                    ->setPermissions($form->get('permissions')->getData())
+                    ->setLanguages($form->get('languages')->getData())
+                    ->setProfession($form->get('profession')->getData())
+                    ->setDateFrom($troop->getDateFrom())
+                    ->setDateTo($troop->getDateTo())
+                    ->setCreatedAt($createdAt);
+                // Adds region and district to Polish volunteer or removes grade from foreigner
+                if ($member->getPesel()) {
+                    $member->setRegionId($form->get('regionId')->getData())
+                        ->setDistrictId($form->get('districtId')->getData());
+                } else {
+                    $member->setGradeId();
+                }
+            }
+
+            try {
+                $this->mailSendingProcedure($leader->getEmail(), 'registration_troop_confirm',
+                    'Wyd2016Bundle::registration/troop_email.html.twig', $hash);
+
+                try {
+                    $this->get('wyd2016bundle.troop.repository')
+                        ->insert($troop, true);
+                } catch (Exception $e) {
+                    throw new RegistrationException('form.exception.database', 0, $e);
+                }
+
+                $this->addMessage('success.message', 'success');
+                $response = $this->redirect($this->generateUrl('registration_success'));
+            } catch (ExceptionInterface $e) {
+                $this->addMessage($e->getMessage(), 'error');
+            }
+        }
+        if (!isset($response)) {
+            $response = $this->render('Wyd2016Bundle::registration/troop_form.html.twig', array(
+                'form' => $form->createView(),
+            ));
+        }
 
         return $response;
     }
@@ -108,6 +193,44 @@ class RegistrationController extends Controller
     }
 
     /**
+     * Troop confirm action
+     *
+     * @param string $hash hash
+     *
+     * @return Response
+     */
+    public function troopConfirmAction($hash)
+    {
+        /** @var TroopRepository $troopRepository */
+        $troopRepository = $this->get('wyd2016bundle.troop.repository');
+        /** @var VolunteerRepository $volunteerRepository */
+        $volunteerRepository = $this->get('wyd2016bundle.volunteer.repository');
+
+        /** @var Troop $troop */
+        $troop = $troopRepository->findOneBy(array(
+            'activationHash' => $hash,
+        ));
+
+        if (!isset($troop) || $troop->isConfirmed()) {
+            $this->addMessage('confirmation.error', 'error');
+        } else {
+            foreach ($troop->getMembers() as $member) {
+                /** @var Volunteer $member */
+                if (!$member->isConfirmed()) {
+                    $member->setStatus(Volunteer::STATUS_CONFIRMED);
+                    $volunteerRepository->update($member);
+                }
+            }
+            $volunteerRepository->flush();
+            $troop->setStatus(Troop::STATUS_CONFIRMED);
+            $troopRepository->update($troop, true);
+            $this->addMessage('confirmation.success', 'success');
+        }
+
+        return $this->render('Wyd2016Bundle::registration/confirmation.html.twig');
+    }
+
+    /**
      * Volunteer confirm action
      *
      * @param string $hash hash
@@ -147,17 +270,24 @@ class RegistrationController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $hash = $this->generateActivationHash($entity);
+            $hash = $this->generateActivationHash($entity->getEmail());
             $entity->setStatus($status)
                 ->setActivationHash($hash)
                 ->setCreatedAt(new DateTime());
+
+            // Removes grade, region and district from foreign volunteer
+            if ($entity instanceof Volunteer && !$entity->getPesel()) {
+                $entity->setGradeId()
+                    ->setRegionId()
+                    ->setDistrictId();
+            }
 
             try {
                 $this->mailSendingProcedure($entity->getEmail(), $confirmRoute, $emailView, $hash);
 
                 try {
                     $repository->insert($entity, true);
-                } catch (ORMException $e) {
+                } catch (Exception $e) {
                     throw new RegistrationException('form.exception.database', 0, $e);
                 }
 
@@ -236,15 +366,16 @@ class RegistrationController extends Controller
     /**
      * Generate activation hash
      *
-     * @param Pilgrim|Volunteer $entity entity
+     * @param string $email e-mail
      *
      * @return string
      */
-    protected function generateActivationHash(EntityInterface $entity)
+    protected function generateActivationHash($email)
     {
         $activationHash = md5(implode('-', array(
-            $entity->getId(),
-            $entity->getEmail(),
+            $email,
+            time(),
+            rand(10000, 99999),
         )));
 
         return $activationHash;

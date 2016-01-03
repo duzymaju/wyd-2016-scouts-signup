@@ -1,0 +1,10 @@
+Wyd2016Bundle\Entity\Troop:
+    properties:
+        name:
+            - Length:
+                min:                    2
+                max:                    50
+        dateFrom:
+            - Date:                     ~
+        dateTo:
+            - Date:                     ~

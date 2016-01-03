@@ -2,6 +2,8 @@
 
 namespace Wyd2016Bundle\Model;
 
+use DateTime;
+
 /**
  * Model
  */
@@ -89,13 +91,15 @@ trait PersonTrait
     /**
      * Set birth date
      *
-     * @param DateTime $birthDate birth date
+     * @param DateTime|null $birthDate birth date
      *
      * @return self
      */
-    public function setBirthDate(DateTime $birthDate)
+    public function setBirthDate(DateTime $birthDate = null)
     {
-        $this->birthDate = $birthDate;
+        if (isset($birthDate)) {
+            $this->birthDate = $birthDate;
+        }
 
         return $this;
     }
