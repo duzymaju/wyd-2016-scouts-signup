@@ -114,6 +114,10 @@
             bindDistrictsWithRegions(form);
             manageServices(form);
             form.find('[data-toggle="tooltip"]').tooltip();
+            form.find('.input-group.date').datepicker({
+                format: 'yyyy-mm-dd',
+                language: $('html').attr('lang')
+            });
         }
     });
 

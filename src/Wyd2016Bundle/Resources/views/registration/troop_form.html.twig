@@ -16,8 +16,8 @@
         {{ macro.formRow(form.permissions, {info: '???'}) }}
         {{ macro.formRow(form.languages, {info: '???'}) }}
         {{ macro.formRow(form.profession, {info: '???'}) }}
-        {{ macro.formRow(form.dateFrom, {info: '???'}) }}
-        {{ macro.formRow(form.dateTo, {info: '???'}) }}
+        {{ macro.formRow(form.dateFrom, {date: true}) }}
+        {{ macro.formRow(form.dateTo, {date: true}) }}
         {{ macro.formRow(form.comments) }}
         <div class="row">
             {% for member in form.members %}
@@ -28,7 +28,7 @@
                     {{ macro.formRow(member.address) }}
                     {{ macro.formRow(member.phone) }}
                     {{ macro.formRow(member.email) }}
-                    {{ macro.formRow(member.birthDate, {locale: ''}) }}
+                    {{ macro.formRow(member.birthDate, {locale: '', date: true}) }}
                     {{ macro.formRow(member.pesel, {locale: 'PL'}) }}
                     {{ macro.formRow(member.gradeId, {locale: 'PL'}) }}
                 </div>

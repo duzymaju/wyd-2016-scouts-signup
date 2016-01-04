@@ -38,7 +38,14 @@
     <div class="form-group{% if options.info is defined %} form-info{% endif %}"
         {% if options.locale is defined %} data-specific-locale="{{ options.locale }}"{% endif %}>
         {{ form_label(element) }}
-        {{ form_widget(element, {'attr': {'class': 'form-control'}}) }}
+        {% if options.date is defined %}
+            <div class="input-group date">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                {{ form_widget(element, {attr: {class: 'span2 form-control', size: 16, readonly: 'readonly'}}) }}
+            </div>
+        {% else %}
+            {{ form_widget(element, {attr: {class: 'form-control'}}) }}
+        {% endif %}
         {% if options.info is defined %}{{ _self.formInfo(options.info) }}{% endif %}
         {{ form_errors(element) }}
     </div>

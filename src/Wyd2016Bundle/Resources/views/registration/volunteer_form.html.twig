@@ -13,7 +13,7 @@
         {{ macro.formRow(form.phone) }}
         {{ macro.formRow(form.email) }}
         {{ macro.formRow(form.country) }}
-        {{ macro.formRow(form.birthDate, {locale: ''}) }}
+        {{ macro.formRow(form.birthDate, {locale: '', date: true}) }}
         {{ macro.formRow(form.gradeId, {locale: 'PL'}) }}
         {{ macro.formRow(form.regionId, {locale: 'PL'}) }}
         {{ macro.formRow(form.districtId, {locale: 'PL'}) }}
@@ -23,8 +23,8 @@
         {{ macro.formRow(form.permissions, {info: '???'}) }}
         {{ macro.formRow(form.languages, {info: '???'}) }}
         {{ macro.formRow(form.profession, {info: '???'}) }}
-        {{ macro.formRow(form.dateFrom, {info: '???'}) }}
-        {{ macro.formRow(form.dateTo, {info: '???'}) }}
+        {{ macro.formRow(form.dateFrom, {date: true}) }}
+        {{ macro.formRow(form.dateTo, {date: true}) }}
         {{ macro.formRow(form.comments) }}
         <div class="form-group form-checkbox">
             {{ form_widget(form.personalData) }}

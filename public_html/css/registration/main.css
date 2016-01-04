@@ -1,11 +1,12 @@
 body {
-    margin: 70px 0 0;
+    margin:0;
+    padding: 70px 0 0;
 }
 
 .registration-form .form-control {
     display: inline-block;
 }
-.registration-form .form-info .form-control {
+.registration-form .form-info > .form-control {
     width: calc(100% - 35px);
 }
 .registration-form .form-info .info {
@@ -38,4 +39,7 @@ body {
     float: left;
     margin-left: 5px;
     width: calc(100% - 25px);
+}
+.registration-form .input-group.date * {
+    cursor: pointer;
 }
