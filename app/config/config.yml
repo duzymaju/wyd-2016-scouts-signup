@@ -5,6 +5,7 @@ imports:
     - resource:                         bundles/assetic.yml
     - resource:                         bundles/doctrine.yml
     - resource:                         bundles/doctrine_migrations.yml
+    - resource:                         bundles/fos_user.yml
     - resource:                         bundles/framework.yml
     - resource:                         bundles/jms_i18n_routing.yml
     - resource:                         bundles/jms_translation.yml
@@ -20,3 +21,4 @@ parameters:
     locales:
         -                               en
         -                               pl
+    locales_pattern:                    (en|pl)

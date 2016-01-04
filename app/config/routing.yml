@@ -1,3 +1,6 @@
+_fos_user_security:
+    resource:                           "@FOSUserBundle/Resources/config/routing/security.xml"
+
 _registration_pilgrim_confirm:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/pilgrim_confirm.yml"
 

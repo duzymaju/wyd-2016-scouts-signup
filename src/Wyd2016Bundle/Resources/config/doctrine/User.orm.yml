@@ -1,0 +1,12 @@
+Wyd2016Bundle\Entity\User:
+    options:
+        collate:                        utf8_general_ci
+    repositoryClass:                    Wyd2016Bundle\Entity\Repository\UserRepository
+    table:                              user
+    type:                               entity
+
+    id:
+        id:
+            generator:
+                strategy:               AUTO
+            type:                       integer
