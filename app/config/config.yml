@@ -22,3 +22,5 @@ parameters:
         -                               en
         -                               pl
     locales_pattern:                    (en|pl)
+
+    wyd2016.troop_size:                 6

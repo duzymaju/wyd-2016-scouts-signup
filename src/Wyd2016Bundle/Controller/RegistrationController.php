@@ -74,7 +74,7 @@ class RegistrationController extends Controller
         $leader->setTroop($troop);
         $troop->setLeader($leader)
             ->addMember($leader);
-        for ($i = 1; $i < 6; $i++) {
+        for ($i = 1; $i < $this->getParameter('wyd2016.troop_size'); $i++) {
             $member = new Volunteer();
             $member->setTroop($troop);
             $troop->addMember($member);
