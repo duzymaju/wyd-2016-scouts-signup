@@ -57,6 +57,8 @@ Wyd2016Bundle\Entity\Volunteer:
         districtId:
             name:                       district_id
             nullable:                   true
+            options:
+                unsigned:               true
             type:                       smallint
         pesel:
             nullable:                   true
