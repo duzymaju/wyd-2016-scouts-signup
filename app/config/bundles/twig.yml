@@ -2,6 +2,8 @@ twig:
     debug:                              "%kernel.debug%"
     globals:
         locales:                        "%locales%"
+        main_page_url:                  "%wyd2016.main_page_url%"
+        wyd_page_url:                   "%wyd2016.wyd_page_url%"
     strict_variables:                   "%kernel.debug%"
 
 services:

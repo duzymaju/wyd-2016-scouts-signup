@@ -10,10 +10,10 @@
         <a href="{{ path('registration_troop_form') }}" class="btn btn-default">
             {{ 'next_steps.register_troop'|trans }}
         </a>
-        <a href="http://sdm.zhp.pl" target="_blank" class="btn btn-default">
+        <a href="{{ main_page_url }}" target="_blank" class="btn btn-default">
             {{ 'next_steps.volunteers_page'|trans }}
         </a>
-        <a href="http://www.krakow2016.com{{ app.request.locale != 'pl' ? '/' ~ app.request.locale : '' }}"
+        <a href="{{ wyd_page_url }}{{ app.request.locale != 'pl' ? '/' ~ app.request.locale : '' }}"
             target="_blank" class="btn btn-default">
             {{ 'next_steps.official_page'|trans }}
         </a>

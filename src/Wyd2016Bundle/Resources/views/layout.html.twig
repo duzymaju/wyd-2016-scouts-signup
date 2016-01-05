@@ -12,17 +12,20 @@
             <nav class="navbar navbar-default navbar-fixed-top">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="{{ path('registration_index') }}" style="line-height:44px;padding:3px 15px">
-                            <img alt="{{ 'layout.title'|trans }}" src="/img/logo.png">
+                        <a class="navbar-brand" href="{{ main_page_url }}" target="_blank" style="line-height:44px;padding:3px 15px">
+                            <img alt="{{ 'wyd_www.title'|trans }}" src="{{ asset('img/logo.png') }}">
+                        </a>
+                        <a class="navbar-brand" href="{{ path('registration_index') }}">
+                            {{ 'layout.title'|trans }}
                         </a>
                     </div>
                     <div id="bs-example-navbar-collapse-5" class="collapse navbar-collapse">
-                        <p class="navbar-text navbar-right" style="margin-right:15px">
+                        <p class="navbar-text navbar-right" class="header-locales" style="margin-right:15px">
                             {% for locale in locales %}
                                 {% if locale == app.request.locale %}
-                                    <span class="navbar-link">{{ locale|upper }}</span>
+                                    <span title="{{ locale|upper }}" class="navbar-link header-locale header-locale-{{ locale }}">{{ locale|upper }}</span>
                                 {% else %}
-                                    <a href="{{ path('registration_index', {_locale: locale}) }}" class="navbar-link">
+                                    <a href="{{ path('registration_index', {_locale: locale}) }}" title="{{ locale|upper }}" class="navbar-link header-locale header-locale-{{ locale }}">
                                         {{ locale|upper }}
                                     </a>
                                 {% endif %}

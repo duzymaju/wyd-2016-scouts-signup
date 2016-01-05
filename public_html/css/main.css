@@ -1,0 +1,32 @@
+.navbar.navbar-fixed-top {
+    background: #a9cce3;
+}
+.navbar-default .navbar-brand {
+    color: #fff;
+    text-shadow: none;
+    transition: color 1s ease;
+}
+.navbar-default .navbar-brand:hover {
+    color: #fd0;
+}
+.header-locale {
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    float: left;
+    height: 20px;
+    overflow: hidden;
+    padding: 5px 3px;
+    text-indent: 200%;
+    white-space: nowrap;
+    width: 22px;
+}
+span.header-locale {
+    opacity: 0.6;
+}
+.header-locale-en {
+    background-image: url('../img/flags/en.png');
+}
+.header-locale-pl {
+    background-image: url('../img/flags/pl.png');
+}

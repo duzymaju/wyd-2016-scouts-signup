@@ -4,9 +4,9 @@ confirmation.title:                     Registration confirmation
 
 email.link:                             Click here to confirm registration
 email.pligrim.text:                     "Thank you for registration your stay in a place prepaired by Polish Scouting Organization during WYD Krakow 2016. To confirm your registration process please click the link below:"
-email.title:                            Registration to WYD Krakow 2016
-email.troop.text:                       "Thank you for registration a troop of volunteers for WYD Krakow 2016. To confirm your registration process please click the link below:"
-email.volunteer.text:                   "Thank you for registration as a volunteer for WYD Krakow 2016. To confirm your registration process please click the link below:"
+email.title:                            Registration to ZHP WYD Krakow 2016
+email.troop.text:                       "Thank you for registration a troop of volunteers for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:"
+email.volunteer.text:                   "Thank you for registration as a volunteer for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:"
 
 form.address:                           Address
 form.birth_date:                        Birth date
@@ -31,7 +31,7 @@ form.email:                             E-mail address
 form.own_tent_troop:                    Troop has its own tent for all participants (organizer doesn't have to provide us a tent).
 form.own_tent_volunteer:                I have my own tent (organizer doesn't have to provide me a tent).
 form.permissions:                       Permissions
-form.personal_data:                     "I hereby give consent for the above personal data to be processed by Polish Scouting Organization to prepare my participation in WYD Krakow 2016, in accordance with the Personal Data Protection Act dated Aug 29 1997 (uniform text: Journal of Laws of the Republic of Poland 2014, item 1182)."
+form.personal_data:                     "I hereby give consent for the above personal data to be processed by Polish Scouting Organization to prepare my participation in ZHP WYD Krakow 2016, in accordance with the Personal Data Protection Act dated Aug 29 1997 (uniform text: Journal of Laws of the Republic of Poland 2014, item 1182)."
 form.pesel:                             PESEL
 form.phone:                             Phone no
 form.profession:                        Profession/Skills
@@ -55,7 +55,7 @@ index.title:                            You are
 index.troop:                            a troop of volunteers
 index.volunteer:                        adult volunteer
 
-layout.title:                           WYD Krakow 2016
+layout.title:                           ZHP WYD Krakow 2016 registration form
 
 next_steps.official_page:               Official page of World Youth Day Krakow 2016
 next_steps.register_pilgrim:            Register another pilgrim
@@ -77,3 +77,5 @@ troop.form.leader:                      Troop leader (adult)
 troop.form.member:                      %no% troop member
 
 volunteer.form.title:                   Form for adult volunteers
+
+wyd_www.title:                          ZHP WYD Krakow 2016
