@@ -104,13 +104,9 @@ class VolunteerType extends AbstractType
         ->add('profession', 'text', array(
             'label' => $this->translator->trans('form.profession'),
         ))
-        ->add('dateFrom', 'date', array(
-            'label' => $this->translator->trans('form.date_from'),
-            'widget' => 'single_text',
-        ))
-        ->add('dateTo', 'date', array(
-            'label' => $this->translator->trans('form.date_to'),
-            'widget' => 'single_text',
+        ->add('datesId', 'choice', array(
+            'choices' => $this->registrationLists->getDates(),
+            'label' => $this->translator->trans('form.dates'),
         ))
         ->add('comments', 'text', array(
             'label' => $this->translator->trans('form.comments'),

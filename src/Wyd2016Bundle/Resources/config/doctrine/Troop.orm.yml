@@ -23,12 +23,9 @@ Wyd2016Bundle\Entity\Troop:
         name:
             length:                     50
             type:                       string
-        dateFrom:
-            name:                       date_from
-            type:                       date
-        dateTo:
-            name:                       date_to
-            type:                       date
+        datesId:
+            name:                       dates_id
+            type:                       smallint
         comments:
             length:                     255
             nullable:                   true

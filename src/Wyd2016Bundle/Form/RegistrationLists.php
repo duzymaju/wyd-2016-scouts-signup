@@ -95,6 +95,22 @@ class RegistrationLists
     }
 
     /**
+     * Get dates
+     *
+     * @return array
+     */
+    public function getDates()
+    {
+        $dates = array(
+            1 => $this->translator->trans('form.dates.1'),
+            2 => $this->translator->trans('form.dates.2'),
+            3 => $this->translator->trans('form.dates.3'),
+        );
+
+        return $dates;
+    }
+
+    /**
      * Get structure
      *
      * @return array

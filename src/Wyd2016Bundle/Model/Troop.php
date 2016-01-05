@@ -24,11 +24,8 @@ class Troop implements StatusInterface
     /** @var ArrayCollection */
     protected $members;
 
-    /** @var DateTime */
-    protected $dateFrom;
-
-    /** @var DateTime */
-    protected $dateTo;
+    /** @var integer */
+    protected $datesId;
 
     /**
      * Construct
@@ -143,49 +140,25 @@ class Troop implements StatusInterface
     }
 
     /**
-     * Get date from
+     * Get dates ID
      *
-     * @return DateTime
+     * @return integer
      */
-    public function getDateFrom()
+    public function getDatesId()
     {
-        return $this->dateFrom;
+        return $this->datesId;
     }
 
     /**
-     * Set date from
+     * Set dates ID
      *
-     * @param DateTime $dateFrom date from
+     * @param integer $datesId dates ID
      *
      * @return self
      */
-    public function setDateFrom(DateTime $dateFrom)
+    public function setDatesId($datesId)
     {
-        $this->dateFrom = $dateFrom;
-
-        return $this;
-    }
-
-    /**
-     * Get date to
-     *
-     * @return DateTime
-     */
-    public function getDateTo()
-    {
-        return $this->dateTo;
-    }
-
-    /**
-     * Set date to
-     *
-     * @param DateTime $dateTo date to
-     *
-     * @return self
-     */
-    public function setDateTo(DateTime $dateTo)
-    {
-        $this->dateTo = $dateTo;
+        $this->datesId = $datesId;
 
         return $this;
     }

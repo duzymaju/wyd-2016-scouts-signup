@@ -42,7 +42,3 @@ Wyd2016Bundle\Entity\Volunteer:
             - Length:
                 min:                    2
                 max:                    255
-        dateFrom:
-            - Date:                     ~
-        dateTo:
-            - Date:                     ~

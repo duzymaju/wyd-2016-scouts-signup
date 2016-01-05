@@ -16,8 +16,7 @@
         {{ macro.formRow(form.permissions, {info: '???'}) }}
         {{ macro.formRow(form.languages, {info: '???'}) }}
         {{ macro.formRow(form.profession, {info: '???'}) }}
-        {{ macro.formRow(form.dateFrom, {date: true}) }}
-        {{ macro.formRow(form.dateTo, {date: true}) }}
+        {{ macro.formRow(form.datesId) }}
         {{ macro.formRow(form.comments) }}
         <div class="row">
             {% for member in form.members %}

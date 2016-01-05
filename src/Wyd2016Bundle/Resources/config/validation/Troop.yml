@@ -4,7 +4,3 @@ Wyd2016Bundle\Entity\Troop:
             - Length:
                 min:                    2
                 max:                    50
-        dateFrom:
-            - Date:                     ~
-        dateTo:
-            - Date:                     ~

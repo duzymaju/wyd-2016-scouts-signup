@@ -94,13 +94,9 @@ class TroopType extends AbstractType
             'allow_delete' => true,
             'by_reference' => false
         ))
-        ->add('dateFrom', 'date', array(
-            'label' => $this->translator->trans('form.date_from'),
-            'widget' => 'single_text',
-        ))
-        ->add('dateTo', 'date', array(
-            'label' => $this->translator->trans('form.date_to'),
-            'widget' => 'single_text',
+        ->add('datesId', 'choice', array(
+            'choices' => $this->registrationLists->getDates(),
+            'label' => $this->translator->trans('form.dates'),
         ))
         ->add('comments', 'text', array(
             'label' => $this->translator->trans('form.comments'),

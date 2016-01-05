@@ -101,8 +101,7 @@ class RegistrationController extends Controller
                     ->setPermissions($form->get('permissions')->getData())
                     ->setLanguages($form->get('languages')->getData())
                     ->setProfession($form->get('profession')->getData())
-                    ->setDateFrom($troop->getDateFrom())
-                    ->setDateTo($troop->getDateTo())
+                    ->setDatesId($troop->getDatesId())
                     ->setCreatedAt($createdAt);
                 // Adds region and district to Polish volunteer or removes grade from foreigner
                 if ($member->getPesel()) {

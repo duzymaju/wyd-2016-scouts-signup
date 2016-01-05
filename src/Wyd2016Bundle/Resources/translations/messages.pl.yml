@@ -12,8 +12,10 @@ form.address:                           Adres zamieszkania
 form.birth_date:                        Data urodzenia
 form.comments:                          Uwagi
 form.country:                           Państwo
-form.date_from:                         Data przyjazdu
-form.date_to:                           Data wyjazdu
+form.dates:                             Terminy
+form.dates.1:                           "11.07 - 1.08 (cena od osoby: 400 PLN z własnym namiotem, 460 PLN bez namiotu)"
+form.dates.2:                           "18.07 - 1.08 (cena od osoby: 300 PLN z własnym namiotem, 360 PLN bez namiotu)"
+form.dates.3:                           "18.07 - 8.08 (cena od osoby: 400 PLN z własnym namiotem, 460 PLN bez namiotu)"
 form.district:                          Hufiec
 form.exception.database:                Wystąpił błąd podczas zapisu danych - prosimy spróbować ponownie.
 form.exception.email:                   Wystąpił błąd podczas wysyłania wiadomości e-mail - sprawdź poprawność podanego adresu e-mail.
