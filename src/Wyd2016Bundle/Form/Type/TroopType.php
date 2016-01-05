@@ -94,6 +94,10 @@ class TroopType extends AbstractType
             'allow_delete' => true,
             'by_reference' => false
         ))
+        ->add('ownTent', 'checkbox', array(
+            'label' => $this->translator->trans('form.own_tent_troop'),
+            'required' => false,
+        ))
         ->add('datesId', 'choice', array(
             'choices' => $this->registrationLists->getDates(),
             'label' => $this->translator->trans('form.dates'),

@@ -28,7 +28,8 @@ form.grade.sub_scoutmaster:             sub-scoutmaster
 form.languages:                         Foreign languages
 form.last_name:                         Last name
 form.email:                             E-mail address
-form.troopName:                         Troop name
+form.own_tent_troop:                    Troop has its own tent for all participants (organizer doesn't have to provide us a tent).
+form.own_tent_volunteer:                I have my own tent (organizer doesn't have to provide me a tent).
 form.permissions:                       Permissions
 form.personal_data:                     "I hereby give consent for the above personal data to be processed by Polish Scouting Organization to prepare my participation in WYD Krakow 2016, in accordance with the Personal Data Protection Act dated Aug 29 1997 (uniform text: Journal of Laws of the Republic of Poland 2014, item 1182)."
 form.pesel:                             PESEL
@@ -47,6 +48,7 @@ form.service.quartermaster:             quartermaster
 form.service.security:                  security
 form.serviceExtra:                      Preferred alternative service
 form.serviceMain:                       Preferred service
+form.troopName:                         Troop name
 
 index.pilgrim:                          pilgrim
 index.title:                            You are

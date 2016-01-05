@@ -16,6 +16,7 @@
         {{ macro.formRow(form.permissions, {info: '???'}) }}
         {{ macro.formRow(form.languages, {info: '???'}) }}
         {{ macro.formRow(form.profession, {info: '???'}) }}
+        {{ macro.formCheckboxRow(form.ownTent) }}
         {{ macro.formRow(form.datesId) }}
         {{ macro.formRow(form.comments) }}
         <div class="row">
@@ -33,11 +34,7 @@
                 </div>
             {% endfor %}
         </div>
-        <div class="form-group form-checkbox">
-            {{ form_widget(form.personalData) }}
-            {{ form_label(form.personalData) }}
-            {{ form_errors(form.personalData) }}
-        </div>
+        {{ macro.formCheckboxRow(form.personalData) }}
         <div class="form-group form-checkbox">
             {{ form_widget(form.rules) }}
             <label for="{{ form.rules.vars.id }}">{{ 'form.rules.acceptance'|trans }} <a href="{{ path('registration_rules') }}" target="_blank">{{ 'form.rules.name'|trans }}</a></label>

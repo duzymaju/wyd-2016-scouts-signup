@@ -44,6 +44,9 @@ class Volunteer implements StatusInterface
     /** @var string */
     protected $profession;
 
+    /** @var boolean */
+    protected $ownTent;
+
     /** @var integer */
     protected $datesId;
 
@@ -306,6 +309,30 @@ class Volunteer implements StatusInterface
     public function setProfession($profession)
     {
         $this->profession = $profession;
+
+        return $this;
+    }
+
+    /**
+     * Has own tent
+     *
+     * @return boolean
+     */
+    public function hasOwnTent()
+    {
+        return $this->ownTent;
+    }
+
+    /**
+     * Set own tent
+     *
+     * @param boolean $ownTent own tent
+     *
+     * @return self
+     */
+    public function setOwnTent($ownTent)
+    {
+        $this->ownTent = $ownTent;
 
         return $this;
     }

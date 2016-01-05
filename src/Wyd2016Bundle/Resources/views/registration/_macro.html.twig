@@ -34,6 +34,14 @@
     {% endif %}
 {% endmacro %}
 
+{% macro formCheckboxRow(element) %}
+    <div class="form-group form-checkbox">
+        {{ form_widget(element) }}
+        {{ form_label(element) }}
+        {{ form_errors(element) }}
+    </div>
+{% endmacro %}
+
 {% macro formRow(element, options = {}) %}
     <div class="form-group{% if options.info is defined %} form-info{% endif %}"
         {% if options.locale is defined %} data-specific-locale="{{ options.locale }}"{% endif %}>

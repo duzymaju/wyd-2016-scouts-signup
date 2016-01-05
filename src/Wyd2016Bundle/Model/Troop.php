@@ -24,6 +24,9 @@ class Troop implements StatusInterface
     /** @var ArrayCollection */
     protected $members;
 
+    /** @var boolean */
+    protected $ownTent;
+
     /** @var integer */
     protected $datesId;
 
@@ -135,6 +138,30 @@ class Troop implements StatusInterface
     public function setMembers(ArrayCollection $members)
     {
         $this->members = $members;
+
+        return $this;
+    }
+
+    /**
+     * Has own tent
+     *
+     * @return boolean
+     */
+    public function hasOwnTent()
+    {
+        return $this->ownTent;
+    }
+
+    /**
+     * Set own tent
+     *
+     * @param boolean $ownTent own tent
+     *
+     * @return self
+     */
+    public function setOwnTent($ownTent)
+    {
+        $this->ownTent = $ownTent;
 
         return $this;
     }

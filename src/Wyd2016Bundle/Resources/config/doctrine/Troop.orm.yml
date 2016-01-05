@@ -23,6 +23,9 @@ Wyd2016Bundle\Entity\Troop:
         name:
             length:                     50
             type:                       string
+        ownTent:
+            name:                       own_tent
+            type:                       boolean
         datesId:
             name:                       dates_id
             type:                       smallint

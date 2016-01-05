@@ -79,6 +79,9 @@ Wyd2016Bundle\Entity\Volunteer:
         profession:
             length:                     255
             type:                       string
+        ownTent:
+            name:                       own_tent
+            type:                       boolean
         datesId:
             name:                       dates_id
             type:                       smallint

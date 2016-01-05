@@ -28,7 +28,8 @@ form.grade.sub_scoutmaster:             podharcmistrz
 form.languages:                         Języki obce
 form.last_name:                         Nazwisko
 form.email:                             Adres e-mail
-form.troopName:                         Nazwa patrolu
+form.own_tent_troop:                    Patrol posiada własny namiot dla wszystkich członków (organizator nie musi zapewniać nam namiotu).
+form.own_tent_volunteer:                Posiadam własny namiot (organizator nie musi zapewniać mi namiotu).
 form.permissions:                       Uprawnienia
 form.personal_data:                     Wyrażam zgodę na przetwarzanie powyższych danych osobowych przez Związek Harcerstwa Polskiego w celu organizacji mojego udziału w ŚDM Kraków 2016, zgodnie z ustawą z dn. 29 sierpnia 1997 roku o Ochronie Danych Osobowych (Dz. U. 2014, poz. 1882).
 form.pesel:                             PESEL
@@ -47,6 +48,7 @@ form.service.quartermaster:             kwatermistrzowska
 form.service.security:                  zabezpieczenia
 form.serviceExtra:                      Preferowana służba alternatywna
 form.serviceMain:                       Preferowana służba
+form.troopName:                         Nazwa patrolu
 
 index.pilgrim:                          pielgrzymem
 index.title:                            Jesteś
