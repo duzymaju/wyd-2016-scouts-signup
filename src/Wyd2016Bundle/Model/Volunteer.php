@@ -7,12 +7,9 @@ use DateTime;
 /**
  * Model
  */
-class Volunteer implements StatusInterface
+class Volunteer extends ParticipantAbstract
 {
-    use IdTrait;
     use PersonTrait;
-    use RecordTrait;
-    use StatusTrait;
 
     /** @var integer|null */
     protected $gradeId;

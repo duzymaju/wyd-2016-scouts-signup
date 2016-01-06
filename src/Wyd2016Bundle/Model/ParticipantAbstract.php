@@ -5,13 +5,27 @@ namespace Wyd2016Bundle\Model;
 /**
  * Model
  */
-trait StatusTrait
+abstract class ParticipantAbstract
 {
+    use RecordTrait;
+
+    /** @const integer */
+    const STATUS_CONFIRMED = 1;
+
+    /** @const integer */
+    const STATUS_PAYED = 2;
+
+    /** @const integer */
+    const STATUS_NOT_CONFIRMED = 0;
+    
     /** @var integer */
     protected $status;
 
     /** @var string */
     protected $activationHash;
+
+    /** @var string */
+    protected $comments;
 
     /**
      * Get status
@@ -77,6 +91,30 @@ trait StatusTrait
     public function setActivationHash($activationHash)
     {
         $this->activationHash = $activationHash;
+
+        return $this;
+    }
+
+    /**
+     * Get comments
+     *
+     * @return string|null
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Set comments
+     *
+     * @param string|null $comments comments
+     *
+     * @return self
+     */
+    public function setComments($comments = null)
+    {
+        $this->comments = $comments;
 
         return $this;
     }

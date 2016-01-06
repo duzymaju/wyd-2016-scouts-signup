@@ -9,32 +9,32 @@ use DateTime;
  */
 trait RecordTrait
 {
-    /** @var string */
-    protected $comments;
+    /** @var integer */
+    protected $id;
 
     /** @var DateTime */
     protected $createdAt;
 
     /**
-     * Get comments
+     * Get ID
      *
-     * @return string|null
+     * @return integer
      */
-    public function getComments()
+    public function getId()
     {
-        return $this->comments;
+        return $this->id;
     }
 
     /**
-     * Set comments
+     * Set ID
      *
-     * @param string|null $comments comments
+     * @param integer $id ID
      *
      * @return self
      */
-    public function setComments($comments = null)
+    public function setId($id)
     {
-        $this->comments = $comments;
+        $this->id = $id;
 
         return $this;
     }

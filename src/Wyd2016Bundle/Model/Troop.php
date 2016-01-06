@@ -2,19 +2,14 @@
 
 namespace Wyd2016Bundle\Model;
 
-use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
  * Model
  */
-class Troop implements StatusInterface
+class Troop extends ParticipantAbstract
 {
-    use IdTrait;
-    use RecordTrait;
-    use StatusTrait;
-
     /** @var string */
     protected $name;
 

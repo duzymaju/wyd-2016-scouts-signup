@@ -7,12 +7,9 @@ use DateTime;
 /**
  * Model
  */
-class Pilgrim implements StatusInterface
+class Pilgrim extends ParticipantAbstract
 {
-    use IdTrait;
     use PersonTrait;
-    use RecordTrait;
-    use StatusTrait;
 
     /** @var DateTime */
     protected $dateFrom;
