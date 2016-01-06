@@ -16,6 +16,7 @@ framework:
         handler_id:                     ~
     templating:
         assets_version:                 %assets_version%
+        assets_version_format:          static/%%2$s/%%1$s
         engines:
             -                           twig
     translator:
