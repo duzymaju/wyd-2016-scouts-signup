@@ -9,6 +9,13 @@
 .navbar-default .navbar-brand:hover {
     color: #fd0;
 }
+.navbar > .container-fluid .navbar-brand-logo {
+    line-height: 44px;
+    padding: 3px 15px
+}
+.navbar > .container-fluid .navbar-brand-title {
+    margin-left: 0;
+}
 .header-locales.navbar-right {
     float: right;
     margin: 7px -5px;
