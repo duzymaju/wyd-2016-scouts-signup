@@ -7,9 +7,6 @@ registration_pilgrim_confirm: '/pielgrzym/{hash}/potwierdz'
 # Desc: /pilgrim
 registration_pilgrim_form: /pielgrzym
 
-# Desc: /rules
-registration_rules: /regulamin
-
 # Desc: /success
 registration_success: /sukces
 

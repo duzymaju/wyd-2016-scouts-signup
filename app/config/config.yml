@@ -24,5 +24,6 @@ parameters:
     locales_pattern:                    (en|pl)
 
     wyd2016.main_page_url:              http://sdm.zhp.pl
+    wyd2016.main_page_rules_path:       /regulamin
     wyd2016.troop_size:                 6
     wyd2016.wyd_page_url:               http://www.krakow2016.com

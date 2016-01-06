@@ -1,5 +1,0 @@
-registration_rules:
-    defaults:
-        _controller:                    Wyd2016Bundle:Registration:rules
-    methods:                            [GET]
-    path:                               /rules

@@ -160,16 +160,6 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Rules action
-     *
-     * @return Response
-     */
-    public function rulesAction()
-    {
-        return $this->render('Wyd2016Bundle::registration/rules.html.twig');
-    }
-
-    /**
      * Success action
      *
      * @return Response

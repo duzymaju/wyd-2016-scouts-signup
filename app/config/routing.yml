@@ -19,9 +19,6 @@ _registration_troop_form:
 _registration_volunteer_form:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/volunteer_form.yml"
 
-_registration_rules:
-    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/rules.yml"
-
 _registration_success:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/success.yml"
 

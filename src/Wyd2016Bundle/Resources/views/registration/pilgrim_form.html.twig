@@ -20,7 +20,7 @@
         {{ macro.formCheckboxRow(form.personalData) }}
         <div class="form-group form-checkbox">
             {{ form_widget(form.rules) }}
-            <label for="{{ form.rules.vars.id }}">{{ 'form.rules.acceptance'|trans }} <a href="{{ path('registration_rules') }}" target="_blank">{{ 'form.rules.name'|trans }}</a></label>
+            <label for="{{ form.rules.vars.id }}">{{ 'form.rules.acceptance'|trans }} <a href="{{ main_page_rules_url }}" target="_blank">{{ 'form.rules.name'|trans }}</a></label>
             {{ form_errors(form.rules) }}
         </div>
         <div class="form-group">
