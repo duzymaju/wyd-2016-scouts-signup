@@ -95,19 +95,33 @@ class RegistrationLists
     }
 
     /**
-     * Get dates
+     * Get pilgrim dates
      *
      * @return array
      */
-    public function getDates()
+    public function getPilgrimDates()
     {
-        $dates = array(
-            1 => $this->translator->trans('form.dates.1'),
-            2 => $this->translator->trans('form.dates.2'),
-            3 => $this->translator->trans('form.dates.3'),
+        $pilgrimDates = array(
+            1 => $this->translator->trans('form.dates.pilgrim.1'),
         );
 
-        return $dates;
+        return $pilgrimDates;
+    }
+
+    /**
+     * Get volunteer dates
+     *
+     * @return array
+     */
+    public function getVolunteerDates()
+    {
+        $volunteerDates = array(
+            1 => $this->translator->trans('form.dates.volunteer.1'),
+            2 => $this->translator->trans('form.dates.volunteer.2'),
+            3 => $this->translator->trans('form.dates.volunteer.3'),
+        );
+
+        return $volunteerDates;
     }
 
     /**

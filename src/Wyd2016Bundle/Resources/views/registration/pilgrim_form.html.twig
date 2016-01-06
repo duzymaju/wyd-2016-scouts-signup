@@ -14,8 +14,8 @@
         {{ macro.formRow(form.email) }}
         {{ macro.formRow(form.country) }}
         {{ macro.formRow(form.birthDate, {date: true}) }}
-        {{ macro.formRow(form.dateFrom, {date: true}) }}
-        {{ macro.formRow(form.dateTo, {date: true}) }}
+        {{ macro.formCheckboxRow(form.ownTent) }}
+        {{ macro.formRow(form.datesId) }}
         {{ macro.formRow(form.comments) }}
         {{ macro.formCheckboxRow(form.personalData) }}
         <div class="form-group form-checkbox">

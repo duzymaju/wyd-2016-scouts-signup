@@ -5,6 +5,7 @@ namespace Wyd2016Bundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
+use Wyd2016Bundle\Form\RegistrationLists;
 
 /*
  * Form Type
@@ -17,16 +18,21 @@ class PilgrimType extends AbstractType
     /** @var string */
     protected $locale;
 
+    /** @var RegistrationLists */
+    protected $registrationLists;
+
     /**
      * Constructor
      *
-     * @param TranslatorInterface $translator translator
-     * @param string              $locale     locale
+     * @param TranslatorInterface $translator        translator
+     * @param string              $locale            locale
+     * @param RegistrationLists   $registrationLists registration lists
      */
-    public function __construct(TranslatorInterface $translator, $locale)
+    public function __construct(TranslatorInterface $translator, $locale, RegistrationLists $registrationLists)
     {
         $this->translator = $translator;
         $this->locale = $locale;
+        $this->registrationLists = $registrationLists;
     }
 
     /**
@@ -74,14 +80,14 @@ class PilgrimType extends AbstractType
             'label' => $this->translator->trans('form.birth_date'),
             'widget' => 'single_text',
         ))
-        ->add('dateFrom', 'date', array_merge($dateOptions, array(
-            'label' => $this->translator->trans('form.date_from'),
-            'widget' => 'single_text',
-        )))
-        ->add('dateTo', 'date', array_merge($dateOptions, array(
-            'label' => $this->translator->trans('form.date_to'),
-            'widget' => 'single_text',
-        )))
+        ->add('ownTent', 'checkbox', array(
+            'label' => $this->translator->trans('form.own_tent_single'),
+            'required' => false,
+        ))
+        ->add('datesId', 'choice', array(
+            'choices' => $this->registrationLists->getPilgrimDates(),
+            'label' => $this->translator->trans('form.dates'),
+        ))
         ->add('comments', 'text', array(
             'label' => $this->translator->trans('form.comments'),
             'required' => false,

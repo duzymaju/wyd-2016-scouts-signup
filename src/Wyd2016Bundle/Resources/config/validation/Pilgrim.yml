@@ -25,7 +25,3 @@ Wyd2016Bundle\Entity\Pilgrim:
             - Length:
                 min:                    3
                 max:                    40
-        dateFrom:
-            - Date:                     ~
-        dateTo:
-            - Date:                     ~

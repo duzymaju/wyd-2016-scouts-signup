@@ -41,12 +41,6 @@ class Volunteer extends ParticipantAbstract
     /** @var string */
     protected $profession;
 
-    /** @var boolean */
-    protected $ownTent;
-
-    /** @var integer */
-    protected $datesId;
-
     /**
      * Get grade ID
      *
@@ -306,54 +300,6 @@ class Volunteer extends ParticipantAbstract
     public function setProfession($profession)
     {
         $this->profession = $profession;
-
-        return $this;
-    }
-
-    /**
-     * Has own tent
-     *
-     * @return boolean
-     */
-    public function hasOwnTent()
-    {
-        return $this->ownTent;
-    }
-
-    /**
-     * Set own tent
-     *
-     * @param boolean $ownTent own tent
-     *
-     * @return self
-     */
-    public function setOwnTent($ownTent)
-    {
-        $this->ownTent = $ownTent;
-
-        return $this;
-    }
-
-    /**
-     * Get dates ID
-     *
-     * @return integer
-     */
-    public function getDatesId()
-    {
-        return $this->datesId;
-    }
-
-    /**
-     * Set dates ID
-     *
-     * @param integer $datesId dates ID
-     *
-     * @return self
-     */
-    public function setDatesId($datesId)
-    {
-        $this->datesId = $datesId;
 
         return $this;
     }

@@ -19,12 +19,6 @@ class Troop extends ParticipantAbstract
     /** @var ArrayCollection */
     protected $members;
 
-    /** @var boolean */
-    protected $ownTent;
-
-    /** @var integer */
-    protected $datesId;
-
     /**
      * Construct
      */
@@ -133,54 +127,6 @@ class Troop extends ParticipantAbstract
     public function setMembers(ArrayCollection $members)
     {
         $this->members = $members;
-
-        return $this;
-    }
-
-    /**
-     * Has own tent
-     *
-     * @return boolean
-     */
-    public function hasOwnTent()
-    {
-        return $this->ownTent;
-    }
-
-    /**
-     * Set own tent
-     *
-     * @param boolean $ownTent own tent
-     *
-     * @return self
-     */
-    public function setOwnTent($ownTent)
-    {
-        $this->ownTent = $ownTent;
-
-        return $this;
-    }
-
-    /**
-     * Get dates ID
-     *
-     * @return integer
-     */
-    public function getDatesId()
-    {
-        return $this->datesId;
-    }
-
-    /**
-     * Set dates ID
-     *
-     * @param integer $datesId dates ID
-     *
-     * @return self
-     */
-    public function setDatesId($datesId)
-    {
-        $this->datesId = $datesId;
 
         return $this;
     }

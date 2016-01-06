@@ -13,9 +13,10 @@ form.birth_date:                        Data urodzenia
 form.comments:                          Uwagi
 form.country:                           Państwo
 form.dates:                             Terminy
-form.dates.1:                           "11.07 - 1.08 (cena od osoby: 400 PLN z własnym namiotem, 460 PLN bez namiotu)"
-form.dates.2:                           "18.07 - 1.08 (cena od osoby: 300 PLN z własnym namiotem, 360 PLN bez namiotu)"
-form.dates.3:                           "18.07 - 8.08 (cena od osoby: 400 PLN z własnym namiotem, 460 PLN bez namiotu)"
+form.dates.pilgrim.1:                   "24.07 - 1.08 (cena od osoby: XXX PLN z własnym namiotem, XXX PLN bez namiotu)"
+form.dates.volunteer.1:                 "11.07 - 1.08 (cena od osoby: 400 PLN z własnym namiotem, 460 PLN bez namiotu)"
+form.dates.volunteer.2:                 "18.07 - 1.08 (cena od osoby: 300 PLN z własnym namiotem, 360 PLN bez namiotu)"
+form.dates.volunteer.3:                 "18.07 - 8.08 (cena od osoby: 400 PLN z własnym namiotem, 460 PLN bez namiotu)"
 form.district:                          Hufiec
 form.exception.database:                Wystąpił błąd podczas zapisu danych - prosimy spróbować ponownie.
 form.exception.email:                   Wystąpił błąd podczas wysyłania wiadomości e-mail - sprawdź poprawność podanego adresu e-mail.
@@ -28,8 +29,8 @@ form.grade.sub_scoutmaster:             podharcmistrz
 form.languages:                         Języki obce
 form.last_name:                         Nazwisko
 form.email:                             Adres e-mail
-form.own_tent_troop:                    Patrol posiada własny namiot dla wszystkich członków (organizator nie musi zapewniać nam namiotu).
-form.own_tent_volunteer:                Posiadam własny namiot (organizator nie musi zapewniać mi namiotu).
+form.own_tent_group:                    Patrol posiada własny namiot dla wszystkich członków (organizator nie musi zapewniać nam namiotu).
+form.own_tent_single:                   Posiadam własny namiot (organizator nie musi zapewniać mi namiotu).
 form.permissions:                       Uprawnienia
 form.personal_data:                     Wyrażam zgodę na przetwarzanie powyższych danych osobowych przez Związek Harcerstwa Polskiego w celu organizacji mojego udziału w ZHP ŚDM Kraków 2016, zgodnie z ustawą z dn. 29 sierpnia 1997 roku o Ochronie Danych Osobowych (Dz. U. 2014, poz. 1882).
 form.pesel:                             PESEL

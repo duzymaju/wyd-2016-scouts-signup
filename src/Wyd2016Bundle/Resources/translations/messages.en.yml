@@ -13,9 +13,10 @@ form.birth_date:                        Birth date
 form.comments:                          Comments
 form.country:                           Country
 form.dates:                             Dates
-form.dates.1:                           "Jul 11 - Sep 1 (price per person: 400 PLN with own tent, 460 PLN without tent)"
-form.dates.2:                           "Jul 18 - Sep 1 (price per person: 300 PLN with own tent, 360 PLN without tent)"
-form.dates.3:                           "Jul 18 - Sep 8 (price per person: 400 PLN with own tent, 460 PLN without tent)"
+form.dates.pilgrim.1:                   "Jul 24 - Sep 1 (price per person: XXX PLN with own tent, XXX PLN without tent)"
+form.dates.volunteer.1:                 "Jul 11 - Sep 1 (price per person: 400 PLN with own tent, 460 PLN without tent)"
+form.dates.volunteer.2:                 "Jul 18 - Sep 1 (price per person: 300 PLN with own tent, 360 PLN without tent)"
+form.dates.volunteer.3:                 "Jul 18 - Sep 8 (price per person: 400 PLN with own tent, 460 PLN without tent)"
 form.district:                          District
 form.exception.database:                An error occured during data saving - please try again.
 form.exception.email:                   An error occured during e-mail sending - check if an e-mail address is correct.
@@ -28,8 +29,8 @@ form.grade.sub_scoutmaster:             sub-scoutmaster
 form.languages:                         Foreign languages
 form.last_name:                         Last name
 form.email:                             E-mail address
-form.own_tent_troop:                    Troop has its own tent for all participants (organizer doesn't have to provide us a tent).
-form.own_tent_volunteer:                I have my own tent (organizer doesn't have to provide me a tent).
+form.own_tent_group:                    Troop has its own tent for all participants (organizer doesn't have to provide us a tent).
+form.own_tent_single:                   I have my own tent (organizer doesn't have to provide me a tent).
 form.permissions:                       Permissions
 form.personal_data:                     "I hereby give consent for the above personal data to be processed by Polish Scouting Organization to prepare my participation in ZHP WYD Krakow 2016, in accordance with the Personal Data Protection Act dated Aug 29 1997 (uniform text: Journal of Laws of the Republic of Poland 2014, item 1182)."
 form.pesel:                             PESEL

@@ -47,7 +47,8 @@ class RegistrationController extends Controller
      */
     public function pilgrimFormAction(Request $request)
     {
-        $formType = new PilgrimType($this->get('translator'), $request->getLocale());
+        $formType = new PilgrimType($this->get('translator'), $request->getLocale(),
+            $this->get('wyd2016bundle.registration.lists'));
 
         $response = $this->standardRegistrationProcedure($request, $formType, new Pilgrim(),
             $this->get('wyd2016bundle.pilgrim.repository'), 'registration_pilgrim_form',

@@ -105,11 +105,11 @@ class VolunteerType extends AbstractType
             'label' => $this->translator->trans('form.profession'),
         ))
         ->add('ownTent', 'checkbox', array(
-            'label' => $this->translator->trans('form.own_tent_volunteer'),
+            'label' => $this->translator->trans('form.own_tent_single'),
             'required' => false,
         ))
         ->add('datesId', 'choice', array(
-            'choices' => $this->registrationLists->getDates(),
+            'choices' => $this->registrationLists->getVolunteerDates(),
             'label' => $this->translator->trans('form.dates'),
         ))
         ->add('comments', 'text', array(
