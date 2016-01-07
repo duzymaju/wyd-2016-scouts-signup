@@ -103,9 +103,11 @@ class VolunteerType extends AbstractType
         ))
         ->add('permissions', 'text', array(
             'label' => $this->translator->trans('form.permissions'),
+            'required' => false,
         ))
         ->add('profession', 'text', array(
             'label' => $this->translator->trans('form.profession'),
+            'required' => false,
         ))
         ->add('ownTent', 'checkbox', array(
             'label' => $this->translator->trans('form.own_tent_single'),

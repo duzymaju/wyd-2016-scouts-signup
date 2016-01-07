@@ -72,9 +72,11 @@ Wyd2016Bundle\Entity\Volunteer:
             type:                       smallint
         permissions:
             length:                     255
+            nullable:                   true
             type:                       string
         profession:
             length:                     255
+            nullable:                   true
             type:                       string
         ownTent:
             name:                       own_tent

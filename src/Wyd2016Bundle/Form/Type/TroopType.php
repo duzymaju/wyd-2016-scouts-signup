@@ -69,10 +69,12 @@ class TroopType extends AbstractType
         ->add('permissions', 'text', array(
             'label' => $this->translator->trans('form.permissions'),
             'mapped' => false,
+            'required' => false,
         ))
         ->add('profession', 'text', array(
             'label' => $this->translator->trans('form.profession'),
             'mapped' => false,
+            'required' => false,
         ))
         ->add('members', 'collection', array(
             'type' => new TroopMemberType($this->translator, $this->registrationLists),

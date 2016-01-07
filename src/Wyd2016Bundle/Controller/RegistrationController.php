@@ -102,7 +102,6 @@ class RegistrationController extends Controller
                     ->setActivationHash($this->generateActivationHash($member->getEmail()))
                     ->setCountry($form->get('country')->getData())
                     ->setServiceMainId($registrationLists::SERVICE_UNDERAGE)
-                    ->setServiceExtraId($registrationLists::SERVICE_UNDERAGE)
                     ->setPermissions($form->get('permissions')->getData())
                     ->setProfession($form->get('profession')->getData())
                     ->setOwnTent($troop->hasOwnTent())

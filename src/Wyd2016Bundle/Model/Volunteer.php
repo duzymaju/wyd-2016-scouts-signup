@@ -34,13 +34,13 @@ class Volunteer extends ParticipantAbstract
     /** @var integer|null */
     protected $serviceExtraId;
 
-    /** @var string */
+    /** @var string|null */
     protected $permissions;
 
     /** @var ArrayCollection */
     protected $languages;
 
-    /** @var string */
+    /** @var string|null */
     protected $profession;
 
     /**
@@ -245,7 +245,7 @@ class Volunteer extends ParticipantAbstract
     /**
      * Get permissions
      *
-     * @return string
+     * @return string|null
      */
     public function getPermissions()
     {
@@ -255,11 +255,11 @@ class Volunteer extends ParticipantAbstract
     /**
      * Set permissions
      *
-     * @param string $permissions permissions
+     * @param string|null $permissions permissions
      *
      * @return self
      */
-    public function setPermissions($permissions)
+    public function setPermissions($permissions = null)
     {
         $this->permissions = $permissions;
 
@@ -325,7 +325,7 @@ class Volunteer extends ParticipantAbstract
     /**
      * Get profession
      *
-     * @return string
+     * @return string|null
      */
     public function getProfession()
     {
@@ -335,11 +335,11 @@ class Volunteer extends ParticipantAbstract
     /**
      * Set profession
      *
-     * @param string $profession profession
+     * @param string|null $profession profession
      *
      * @return self
      */
-    public function setProfession($profession)
+    public function setProfession($profession = null)
     {
         $this->profession = $profession;
 

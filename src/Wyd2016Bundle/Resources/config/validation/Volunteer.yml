@@ -32,9 +32,7 @@ Wyd2016Bundle\Entity\Volunteer:
             - Wyd2016Bundle\Validator\Constraints\ContainsPesel: ~
         permissions:
             - Length:
-                min:                    2
                 max:                    255
         profession:
             - Length:
-                min:                    2
                 max:                    255
