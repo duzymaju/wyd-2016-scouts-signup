@@ -9,6 +9,24 @@ use Symfony\Component\Translation\TranslatorInterface;
  */
 class RegistrationLists
 {
+    /** @var integer */
+    const SERVICE_INFORMATION = 4;
+
+    /** @var integer */
+    const SERVICE_KITCHEN = 5;
+
+    /** @var integer */
+    const SERVICE_MEDICAL = 1;
+
+    /** @var integer */
+    const SERVICE_QUATERMASTER = 3;
+
+    /** @var integer */
+    const SERVICE_SECURITY = 2;
+    
+    /** @var integer */
+    const SERVICE_UNDERAGE = 6;
+
     /** @var TranslatorInterface */
     protected $translator;
 
@@ -30,13 +48,11 @@ class RegistrationLists
     public function getServices()
     {
         $services = array(
-            7 => $this->translator->trans('form.service.kitchen'),
-            6 => $this->translator->trans('form.service.office'),
-            4 => $this->translator->trans('form.service.information'),
-            3 => $this->translator->trans('form.service.quartermaster'),
-            5 => $this->translator->trans('form.service.program'),
-            1 => $this->translator->trans('form.service.medical'),
-            2 => $this->translator->trans('form.service.security'),
+            self::SERVICE_KITCHEN => $this->translator->trans('form.service.kitchen'),
+            self::SERVICE_INFORMATION => $this->translator->trans('form.service.information'),
+            self::SERVICE_QUATERMASTER => $this->translator->trans('form.service.quartermaster'),
+            self::SERVICE_MEDICAL => $this->translator->trans('form.service.medical'),
+            self::SERVICE_SECURITY => $this->translator->trans('form.service.security'),
         );
 
         return $services;

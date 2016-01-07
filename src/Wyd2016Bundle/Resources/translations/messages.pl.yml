@@ -41,12 +41,11 @@ form.rules.acceptance:                  Akceptuję
 form.rules.name:                        regulamin uczestnictwa
 form.save:                              Zapisz
 form.service.information:               informacyjna
-form.service.kitchen:                   aprowizacyjna
+form.service.kitchen:                   kuchenna
 form.service.medical:                   medyczna
-form.service.office:                    biuro miasteczka
-form.service.program:                   programowa
 form.service.quartermaster:             kwatermistrzowska
 form.service.security:                  zabezpieczenia
+form.service.underage:                  niepełnoletni
 form.serviceExtra:                      Preferowana służba alternatywna
 form.serviceMain:                       Preferowana służba
 form.troopName:                         Nazwa patrolu

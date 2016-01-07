@@ -43,10 +43,9 @@ form.save:                              Save
 form.service.information:               information
 form.service.kitchen:                   kitchen
 form.service.medical:                   medical
-form.service.office:                    office
-form.service.program:                   program
 form.service.quartermaster:             quartermaster
 form.service.security:                  security
+form.service.underage:                  underage
 form.serviceExtra:                      Preferred alternative service
 form.serviceMain:                       Preferred service
 form.troopName:                         Troop name

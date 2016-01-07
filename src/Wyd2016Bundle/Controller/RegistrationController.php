@@ -19,6 +19,7 @@ use Wyd2016Bundle\Entity\Troop;
 use Wyd2016Bundle\Entity\Volunteer;
 use Wyd2016Bundle\Exception\ExceptionInterface;
 use Wyd2016Bundle\Exception\RegistrationException;
+use Wyd2016Bundle\Form\RegistrationLists;
 use Wyd2016Bundle\Form\Type\PilgrimType;
 use Wyd2016Bundle\Form\Type\TroopType;
 use Wyd2016Bundle\Form\Type\VolunteerType;
@@ -67,8 +68,9 @@ class RegistrationController extends Controller
      */
     public function troopFormAction(Request $request)
     {
-        $formType = new TroopType($this->get('translator'), $request->getLocale(),
-            $this->get('wyd2016bundle.registration.lists'));
+        /** @var RegistrationLists $registrationLists */
+        $registrationLists = $this->get('wyd2016bundle.registration.lists');
+        $formType = new TroopType($this->get('translator'), $request->getLocale(), $registrationLists);
 
         $troop = new Troop();
         $leader = new Volunteer();
@@ -97,8 +99,8 @@ class RegistrationController extends Controller
                 $member->setStatus(Troop::STATUS_NOT_CONFIRMED)
                     ->setActivationHash($this->generateActivationHash($member->getEmail()))
                     ->setCountry($form->get('country')->getData())
-                    ->setServiceMainId($form->get('serviceMainId')->getData())
-                    ->setServiceExtraId($form->get('serviceExtraId')->getData())
+                    ->setServiceMainId($registrationLists::SERVICE_UNDERAGE)
+                    ->setServiceExtraId($registrationLists::SERVICE_UNDERAGE)
                     ->setPermissions($form->get('permissions')->getData())
                     ->setLanguages($form->get('languages')->getData())
                     ->setProfession($form->get('profession')->getData())
