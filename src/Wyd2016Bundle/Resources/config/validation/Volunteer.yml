@@ -34,10 +34,6 @@ Wyd2016Bundle\Entity\Volunteer:
             - Length:
                 min:                    2
                 max:                    255
-        languages:
-            - Length:
-                min:                    2
-                max:                    255
         profession:
             - Length:
                 min:                    2

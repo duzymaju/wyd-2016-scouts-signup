@@ -1,0 +1,22 @@
+Wyd2016Bundle\Entity\Language:
+    options:
+        collate:                        utf8_general_ci
+    repositoryClass:                    Wyd2016Bundle\Entity\Repository\LanguageRepository
+    table:                              language
+    type:                               entity
+
+    id:
+        volunteer:
+            associationKey:             true
+        slug:
+            length:                     2
+            options:
+                fixed:                  true
+            type:                       string
+
+    manyToOne:
+        volunteer:
+            cascade:
+                -                       persist
+            inversedBy:                 languages
+            targetEntity:               Wyd2016Bundle\Entity\Volunteer

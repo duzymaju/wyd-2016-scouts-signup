@@ -26,7 +26,14 @@ form.grade.guide:                       przewodnik
 form.grade.no:                          brak
 form.grade.scoutmaster:                 harcmistrz
 form.grade.sub_scoutmaster:             podharcmistrz
-form.languages:                         Języki obce
+form.languages:                         Języki (komunikatywnie)
+form.languages.de:                      niemiecki
+form.languages.en:                      angielski
+form.languages.es:                      hiszpański
+form.languages.fr:                      francuski
+form.languages.it:                      włoski
+form.languages.pl:                      polski
+form.languages.pt:                      portugalski
 form.last_name:                         Nazwisko
 form.email:                             Adres e-mail
 form.own_tent_group:                    Patrol posiada własny namiot dla wszystkich członków (organizator nie musi zapewniać nam namiotu).

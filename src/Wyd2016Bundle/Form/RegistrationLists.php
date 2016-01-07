@@ -141,6 +141,26 @@ class RegistrationLists
     }
 
     /**
+     * Get languages
+     *
+     * @return array
+     */
+    public function getLanguages()
+    {
+        $languages = array(
+            'pl' => $this->translator->trans('form.languages.pl'),
+            'en' => $this->translator->trans('form.languages.en'),
+            'es' => $this->translator->trans('form.languages.es'),
+            'it' => $this->translator->trans('form.languages.it'),
+            'pt' => $this->translator->trans('form.languages.pt'),
+            'fr' => $this->translator->trans('form.languages.fr'),
+            'de' => $this->translator->trans('form.languages.de'),
+        );
+
+        return $languages;
+    }
+
+    /**
      * Get structure
      *
      * @return array

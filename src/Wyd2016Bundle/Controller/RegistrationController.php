@@ -3,6 +3,7 @@
 namespace Wyd2016Bundle\Controller;
 
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
 use Exception;
 use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -11,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Wyd2016Bundle\Entity\EntityInterface;
+use Wyd2016Bundle\Entity\Language;
 use Wyd2016Bundle\Entity\Pilgrim;
 use Wyd2016Bundle\Entity\Repository\BaseRepositoryInterface;
 use Wyd2016Bundle\Entity\Repository\TroopRepository;
@@ -102,7 +104,6 @@ class RegistrationController extends Controller
                     ->setServiceMainId($registrationLists::SERVICE_UNDERAGE)
                     ->setServiceExtraId($registrationLists::SERVICE_UNDERAGE)
                     ->setPermissions($form->get('permissions')->getData())
-                    ->setLanguages($form->get('languages')->getData())
                     ->setProfession($form->get('profession')->getData())
                     ->setOwnTent($troop->hasOwnTent())
                     ->setDatesId($troop->getDatesId())
@@ -281,6 +282,18 @@ class RegistrationController extends Controller
                 $this->mailSendingProcedure($entity->getEmail(), $confirmRoute, $emailView, $hash);
 
                 try {
+                    // Save volunteer before save its languages because of Doctrine requirements
+                    if ($entity instanceof Volunteer) {
+                        $languages = $entity->getLanguages();
+                        foreach ($languages as $language) {
+                            /** @var Language $language */
+                            $language->setVolunteer($entity);
+                        }
+                        $entity->setLanguages(new ArrayCollection());
+                        $repository->insert($entity, true);
+                        $entity->setLanguages($languages);
+                    }
+
                     $repository->insert($entity, true);
                 } catch (Exception $e) {
                     throw new RegistrationException('form.exception.database', 0, $e);

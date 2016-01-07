@@ -5,6 +5,7 @@ namespace Wyd2016Bundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
+use Wyd2016Bundle\Form\DataTransformer\LanguagesCollectionTransformer;
 use Wyd2016Bundle\Form\RegistrationLists;
 
 /*
@@ -95,11 +96,13 @@ class VolunteerType extends AbstractType
             'choices' => $this->registrationLists->getServices(),
             'label' => $this->translator->trans('form.serviceExtra'),
         ))
+        ->add('languages', 'choice', array(
+            'choices' => $this->registrationLists->getLanguages(),
+            'label' => $this->translator->trans('form.languages'),
+            'multiple' => true,
+        ))
         ->add('permissions', 'text', array(
             'label' => $this->translator->trans('form.permissions'),
-        ))
-        ->add('languages', 'text', array(
-            'label' => $this->translator->trans('form.languages'),
         ))
         ->add('profession', 'text', array(
             'label' => $this->translator->trans('form.profession'),
@@ -126,6 +129,9 @@ class VolunteerType extends AbstractType
         ->add('save', 'submit', array(
             'label' => $this->translator->trans('form.save'),
         ));
+
+        $builder->get('languages')
+            ->addModelTransformer(new LanguagesCollectionTransformer());
     }
 
     /**

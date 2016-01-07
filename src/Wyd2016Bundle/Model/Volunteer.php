@@ -3,6 +3,8 @@
 namespace Wyd2016Bundle\Model;
 
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * Model
@@ -35,11 +37,19 @@ class Volunteer extends ParticipantAbstract
     /** @var string */
     protected $permissions;
 
-    /** @var string */
+    /** @var ArrayCollection */
     protected $languages;
 
     /** @var string */
     protected $profession;
+
+    /**
+     * Construct
+     */
+    public function __construct()
+    {
+        $this->initializeCollections();
+    }
 
     /**
      * Get grade ID
@@ -259,7 +269,7 @@ class Volunteer extends ParticipantAbstract
     /**
      * Get languages
      *
-     * @return string
+     * @return ArrayCollection
      */
     public function getLanguages()
     {
@@ -267,13 +277,45 @@ class Volunteer extends ParticipantAbstract
     }
 
     /**
-     * Set languages
+     * Add language
      *
-     * @param string $languages languages
+     * @param Language $language language
      *
      * @return self
      */
-    public function setLanguages($languages)
+    public function addLanguage(Language $language)
+    {
+        if (!$this->languages->contains($language)) {
+            $this->languages->add($language);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove language
+     *
+     * @param Language $language language
+     *
+     * @return self
+     */
+    public function removeLanguage(Language $language)
+    {
+        if ($this->languages->contains($language)) {
+            $this->languages->removeElement($language);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Set languages
+     *
+     * @param ArrayCollection $languages languages
+     *
+     * @return self
+     */
+    public function setLanguages(ArrayCollection $languages)
     {
         $this->languages = $languages;
 
@@ -302,5 +344,15 @@ class Volunteer extends ParticipantAbstract
         $this->profession = $profession;
 
         return $this;
+    }
+
+    /**
+     * Initialize collections
+     */
+    public function initializeCollections()
+    {
+        if (!($this->languages instanceof Collection)) {
+            $this->languages = new ArrayCollection();
+        }
     }
 }

@@ -73,9 +73,6 @@ Wyd2016Bundle\Entity\Volunteer:
         permissions:
             length:                     255
             type:                       string
-        languages:
-            length:                     255
-            type:                       string
         profession:
             length:                     255
             type:                       string
@@ -97,9 +94,20 @@ Wyd2016Bundle\Entity\Volunteer:
         troop:
             cascade:
                 -                       persist
-            inversedBy:                 volunteers
+            inversedBy:                 members
             targetEntity:               Wyd2016Bundle\Entity\Troop
+
+    oneToMany:
+        languages:
+            cascade:
+                -                       persist
+            mappedBy:                   volunteer
+            targetEntity:               Wyd2016Bundle\Entity\Language
 
     indexes:
         v_index_1:
             columns:                    status
+
+    lifecycleCallbacks:
+        postLoad:
+            -                           initializeCollections

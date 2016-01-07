@@ -26,7 +26,14 @@ form.grade.guide:                       guide
 form.grade.no:                          no
 form.grade.scoutmaster:                 scoutmaster
 form.grade.sub_scoutmaster:             sub-scoutmaster
-form.languages:                         Foreign languages
+form.languages:                         Languages (communicative)
+form.languages.de:                      German
+form.languages.en:                      English
+form.languages.es:                      Spanish
+form.languages.fr:                      French
+form.languages.it:                      Italian
+form.languages.pl:                      Polish
+form.languages.pt:                      Portuguese
 form.last_name:                         Last name
 form.email:                             E-mail address
 form.own_tent_group:                    Troop has its own tent for all participants (organizer doesn't have to provide us a tent).
