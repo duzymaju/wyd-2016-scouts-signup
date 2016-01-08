@@ -66,6 +66,13 @@ class TroopType extends AbstractType
             'label' => $this->translator->trans('form.district'),
             'mapped' => false,
         ))
+        ->add('languages', 'choice', array(
+            'choices' => $this->registrationLists->getLanguages(),
+            'label' => $this->translator->trans('form.languages'),
+            'mapped' => false,
+            'multiple' => true,
+            'required' => false,
+        ))
         ->add('permissions', 'text', array(
             'label' => $this->translator->trans('form.permissions'),
             'mapped' => false,

@@ -136,11 +136,19 @@ class RegistrationController extends Controller
             $troop->setStatus(Troop::STATUS_NOT_CONFIRMED)
                 ->setActivationHash($hash)
                 ->setCreatedAt($createdAt);
+            $languages = new ArrayCollection();
+            foreach ($form->get('languages')->getData() as $slug) {
+                $language = new Language();
+                $language->setVolunteer($leader)
+                    ->setSlug($slug);
+                $languages->add($language);
+            }
             $isPolish = $this->isPolish($form);
             $usedEmails = array();
             $usedPesels = array();
             foreach ($troop->getMembers() as $i => $member) {
                 /** @var Volunteer $member */
+                $isLeader = $member === $troop->getLeader();
                 // Copies data from form to each volunteer
                 $member->setStatus(Troop::STATUS_NOT_CONFIRMED)
                     ->setActivationHash($this->generateActivationHash($member->getEmail()))
@@ -149,11 +157,11 @@ class RegistrationController extends Controller
                     ->setOwnTent($troop->hasOwnTent())
                     ->setDatesId($troop->getDatesId())
                     ->setCreatedAt($createdAt);
-                if ($form->has('permissions')) {
+                if ($isLeader && $form->has('permissions')) {
                     $member->setPermissions($form->get('permissions')->getData());
                 }
-                if ($form->has('profession')) {
-                    $member->setPermissions($form->get('profession')->getData());
+                if ($isLeader && $form->has('profession')) {
+                    $member->setProfession($form->get('profession')->getData());
                 }
                 // Adds region and district to Polish volunteer or removes grade from foreigner
                 if ($isPolish) {
@@ -172,7 +180,6 @@ class RegistrationController extends Controller
                 }
                 $usedEmails[] = $member->getEmail();
                 // Validates age
-                $isLeader = $member === $troop->getLeader();
                 $this->validateAge($member, $memberView->get($isPolish ? 'pesel' : 'birthDate'),
                     $isLeader ? 'wyd2016.age.min_adult' : 'wyd2016.age.min_member');
                 if ($isPolish) {
@@ -203,6 +210,11 @@ class RegistrationController extends Controller
                     try {
                         $this->get('wyd2016bundle.troop.repository')
                             ->insert($troop, true);
+
+                        // Add languages to leader after save him because of Doctrine requirements
+                        $leader->setLanguages($languages);
+                        $this->get('wyd2016bundle.volunteer.repository')
+                            ->insert($leader, true);
                     } catch (Exception $e) {
                         throw new RegistrationException('form.exception.database', 0, $e);
                     }

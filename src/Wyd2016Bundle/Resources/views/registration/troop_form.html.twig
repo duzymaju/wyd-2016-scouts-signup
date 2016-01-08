@@ -11,6 +11,7 @@
         {{ macro.formRow(form.country) }}
         {{ macro.formRow(form.regionId, {locale: 'PL'}) }}
         {{ macro.formRow(form.districtId, {locale: 'PL'}) }}
+        {{ macro.formRow(form.languages) }}
         {{ macro.formRow(form.permissions, {info: 'form.tip.permissions'|trans}) }}
         {{ macro.formRow(form.profession) }}
         {{ macro.formCheckboxRow(form.ownTent) }}
@@ -18,6 +19,10 @@
         {{ macro.formRow(form.comments) }}
         <div class="row">
             {% for member in form.members %}
+                {% if loop.index0 > 0 and loop.index0 is even %}
+        </div>
+        <div class="row">
+                {% endif %}
                 <div class="col-sm-6">
                     <h2>{{ form.vars.data.leader is same as (member.vars.data) ? 'troop.form.leader'|trans : 'troop.form.member'|trans({'%no%': loop.index}) }}</h2>
                     {{ macro.formRow(member.firstName) }}
