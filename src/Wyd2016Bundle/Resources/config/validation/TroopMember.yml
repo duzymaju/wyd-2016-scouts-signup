@@ -36,12 +36,3 @@ Wyd2016Bundle\Entity\Volunteer:
                 pattern:                "/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/"
         pesel:
             - Wyd2016Bundle\Validator\Constraints\ContainsPesel: ~
-        permissions:
-            - Length:
-                max:                    255
-        profession:
-            - Length:
-                max:                    255
-        comments:
-            - Length:
-                max:                    255
