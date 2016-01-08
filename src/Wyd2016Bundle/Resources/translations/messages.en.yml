@@ -13,10 +13,10 @@ form.birth_date:                        Birth date
 form.comments:                          Comments
 form.country:                           Country
 form.dates:                             Dates
-form.dates.pilgrim.1:                   "Jul 24 - Sep 1 (price per person: XXX PLN with own tent, XXX PLN without tent)"
-form.dates.volunteer.1:                 "Jul 11 - Sep 1 (price per person: 400 PLN with own tent, 460 PLN without tent)"
-form.dates.volunteer.2:                 "Jul 18 - Sep 1 (price per person: 300 PLN with own tent, 360 PLN without tent)"
-form.dates.volunteer.3:                 "Jul 18 - Sep 8 (price per person: 400 PLN with own tent, 460 PLN without tent)"
+form.dates.pilgrim.1:                   "Jul 25 - Sep 1 (price per person: XXX PLN with own tent, XXX PLN without tent)"
+form.dates.volunteer.1:                 "Jul 18 - Sep 1 (price per person: 400 PLN with own tent, 460 PLN without tent)"
+form.dates.volunteer.2:                 "Jul 23 - Sep 1 (price per person: 300 PLN with own tent, 360 PLN without tent)"
+form.dates.volunteer.3:                 "Jul 23 - Sep 6 (price per person: 400 PLN with own tent, 460 PLN without tent)"
 form.district:                          District
 form.error.age_too_high:                Maximal age is %age%.
 form.error.age_too_low:                 Minimal age is %age%.
