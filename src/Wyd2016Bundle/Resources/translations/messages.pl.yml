@@ -62,6 +62,9 @@ form.service.security:                  zabezpieczenia
 form.service.underage:                  niepełnoletni
 form.serviceExtra:                      Preferowana służba alternatywna
 form.serviceMain:                       Preferowana służba
+form.tip.permissions:                   Np. kurs pierwszej pomocy, członków służb ochrony imprez masowych itd.
+form.tip.service_extra_id:              Musi być inna niż poprzednio wybrana.
+form.tip.service_main_id:               Ostateczną decyzję o przydziale służby podejmują organizatorzy.
 form.troopName:                         Nazwa patrolu
 
 index.pilgrim:                          pielgrzymem

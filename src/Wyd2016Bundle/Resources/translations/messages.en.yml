@@ -62,6 +62,9 @@ form.service.security:                  security
 form.service.underage:                  underage
 form.serviceExtra:                      Preferred alternative service
 form.serviceMain:                       Preferred service
+form.tip.permissions:                   E.g. first aid course, security service course etc.
+form.tip.service_extra_id:              It have to be different than previously selected one.
+form.tip.service_main_id:               Organizers take final decission on the allocation of services.
 form.troopName:                         Troop name
 
 index.pilgrim:                          pilgrim

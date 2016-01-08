@@ -1,8 +1,5 @@
-.navbar.navbar-fixed-top {
-    background: #a9cce3;
-}
 .navbar-default .navbar-brand {
-    color: #fff;
+    color: #e60000;
     text-shadow: none;
     transition: color 1s ease;
 }
