@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Exception;
 use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -19,6 +21,7 @@ use Wyd2016Bundle\Entity\Troop;
 use Wyd2016Bundle\Entity\Volunteer;
 use Wyd2016Bundle\Exception\ExceptionInterface;
 use Wyd2016Bundle\Exception\RegistrationException;
+use Wyd2016Bundle\Model\PersonInterface;
 use Wyd2016Bundle\Form\RegistrationLists;
 use Wyd2016Bundle\Form\Type\PilgrimType;
 use Wyd2016Bundle\Form\Type\TroopType;
@@ -64,21 +67,26 @@ class RegistrationController extends Controller
                 ->setActivationHash($hash)
                 ->setCreatedAt(new DateTime());
 
-            try {
-                $this->mailSendingProcedure($pilgrim->getEmail(), 'registration_pilgrim_confirm',
-                    'Wyd2016Bundle::registration/pilgrim_email.html.twig', $hash);
+            // Validates age
+            $this->validateAge($pilgrim, $form->get('birthDate'), 'wyd2016.age.min_adult');
 
+            if ($form->isValid()) {
                 try {
-                    $this->get('wyd2016bundle.pilgrim.repository')
-                        ->insert($pilgrim, true);
-                } catch (Exception $e) {
-                    throw new RegistrationException('form.exception.database', 0, $e);
-                }
+                    $this->mailSendingProcedure($pilgrim->getEmail(), 'registration_pilgrim_confirm',
+                        'Wyd2016Bundle::registration/pilgrim_email.html.twig', $hash);
 
-                $this->addMessage('success.message', 'success');
-                $response = $this->redirect($this->generateUrl('registration_success'));
-            } catch (ExceptionInterface $e) {
-                $this->addMessage($e->getMessage(), 'error');
+                    try {
+                        $this->get('wyd2016bundle.pilgrim.repository')
+                            ->insert($pilgrim, true);
+                    } catch (Exception $e) {
+                        throw new RegistrationException('form.exception.database', 0, $e);
+                    }
+
+                    $this->addMessage('success.message', 'success');
+                    $response = $this->redirect($this->generateUrl('registration_success'));
+                } catch (ExceptionInterface $e) {
+                    $this->addMessage($e->getMessage(), 'error');
+                }
             }
         }
         if (!isset($response)) {
@@ -99,9 +107,12 @@ class RegistrationController extends Controller
      */
     public function troopFormAction(Request $request)
     {
+        /** @var TranslatorInterface */
+        $translator = $this->get('translator');
+
         /** @var RegistrationLists $registrationLists */
         $registrationLists = $this->get('wyd2016bundle.registration.lists');
-        $formType = new TroopType($this->get('translator'), $request->getLocale(), $registrationLists);
+        $formType = new TroopType($translator, $request->getLocale(), $registrationLists);
 
         $troop = new Troop();
         $leader = new Volunteer();
@@ -125,8 +136,12 @@ class RegistrationController extends Controller
             $troop->setStatus(Troop::STATUS_NOT_CONFIRMED)
                 ->setActivationHash($hash)
                 ->setCreatedAt($createdAt);
-            foreach ($troop->getMembers() as $member) {
+            $isPolish = $this->isPolish($form);
+            $usedEmails = array();
+            $usedPesels = array();
+            foreach ($troop->getMembers() as $i => $member) {
                 /** @var Volunteer $member */
+                // Copies data from form to each volunteer
                 $member->setStatus(Troop::STATUS_NOT_CONFIRMED)
                     ->setActivationHash($this->generateActivationHash($member->getEmail()))
                     ->setCountry($form->get('country')->getData())
@@ -141,29 +156,62 @@ class RegistrationController extends Controller
                     $member->setPermissions($form->get('profession')->getData());
                 }
                 // Adds region and district to Polish volunteer or removes grade from foreigner
-                if ($member->getPesel()) {
+                if ($isPolish) {
                     $member->setRegionId($form->get('regionId')->getData())
                         ->setDistrictId($form->get('districtId')->getData());
                 } else {
                     $member->setGradeId();
                 }
+
+                /** @var FormInterface $memberView */
+                $memberView = $form->get('members')->get($i);
+                // Validates e-mail duplication
+                if (in_array($member->getEmail(), $usedEmails)) {
+                    $memberView->get('email')
+                        ->addError(new FormError($translator->trans('form.error.email_duplicated')));
+                }
+                $usedEmails[] = $member->getEmail();
+                // Validates age
+                $isLeader = $member === $troop->getLeader();
+                $this->validateAge($member, $memberView->get($isPolish ? 'pesel' : 'birthDate'),
+                    $isLeader ? 'wyd2016.age.min_adult' : 'wyd2016.age.min_member');
+                if ($isPolish) {
+                    // Validates PESEL existance
+                    if ($member->getPesel() == null) {
+                        $memberView->get('pesel')
+                            ->addError(new FormError($translator->trans('form.error.pesel_empty')));
+                    }
+                    // Validates PESEL duplication
+                    if (in_array($member->getPesel(), $usedPesels)) {
+                        $memberView->get('pesel')
+                            ->addError(new FormError($translator->trans('form.error.pesel_duplicated')));
+                    }
+                    $usedPesels[] = $member->getPesel();
+                    if ($isLeader) {
+                        // Validates structure
+                        // For leader only to check it only once
+                        $this->validateStructure($member, $form->get('districtId'));
+                    }
+                }
             }
 
-            try {
-                $this->mailSendingProcedure($leader->getEmail(), 'registration_troop_confirm',
-                    'Wyd2016Bundle::registration/troop_email.html.twig', $hash);
-
+            if ($form->isValid()) {
                 try {
-                    $this->get('wyd2016bundle.troop.repository')
-                        ->insert($troop, true);
-                } catch (Exception $e) {
-                    throw new RegistrationException('form.exception.database', 0, $e);
-                }
+                    $this->mailSendingProcedure($leader->getEmail(), 'registration_troop_confirm',
+                        'Wyd2016Bundle::registration/troop_email.html.twig', $hash);
 
-                $this->addMessage('success.message', 'success');
-                $response = $this->redirect($this->generateUrl('registration_success'));
-            } catch (ExceptionInterface $e) {
-                $this->addMessage($e->getMessage(), 'error');
+                    try {
+                        $this->get('wyd2016bundle.troop.repository')
+                            ->insert($troop, true);
+                    } catch (Exception $e) {
+                        throw new RegistrationException('form.exception.database', 0, $e);
+                    }
+
+                    $this->addMessage('success.message', 'success');
+                    $response = $this->redirect($this->generateUrl('registration_success'));
+                } catch (ExceptionInterface $e) {
+                    $this->addMessage($e->getMessage(), 'error');
+                }
             }
         }
         if (!isset($response)) {
@@ -184,6 +232,9 @@ class RegistrationController extends Controller
      */
     public function volunteerFormAction(Request $request)
     {
+        /** @var TranslatorInterface */
+        $translator = $this->get('translator');
+
         $formType = new VolunteerType($this->get('translator'), $request->getLocale(),
             $this->get('wyd2016bundle.registration.lists'));
 
@@ -196,43 +247,63 @@ class RegistrationController extends Controller
 
         if ($form->isValid()) {
             $hash = $this->generateActivationHash($volunteer->getEmail());
+            $isPolish = $this->isPolish($form);
             $volunteer->setStatus(Volunteer::STATUS_NOT_CONFIRMED)
                 ->setActivationHash($hash)
                 ->setCreatedAt(new DateTime());
 
             // Removes grade, region and district from foreign volunteer
-            if (!$volunteer->getPesel()) {
+            if (!$isPolish) {
                 $volunteer->setGradeId()
                     ->setRegionId()
                     ->setDistrictId();
             }
 
-            try {
-                $this->mailSendingProcedure($volunteer->getEmail(), 'registration_volunteer_confirm',
-                    'Wyd2016Bundle::registration/volunteer_email.html.twig', $hash);
-
-                try {
-                    $volunteerRepository = $this->get('wyd2016bundle.volunteer.repository');
-
-                    // Save volunteer before save its languages because of Doctrine requirements
-                    $languages = $volunteer->getLanguages();
-                    foreach ($languages as $language) {
-                        /** @var Language $language */
-                        $language->setVolunteer($volunteer);
-                    }
-                    $volunteer->setLanguages(new ArrayCollection());
-                    $volunteerRepository->insert($volunteer, true);
-                    $volunteer->setLanguages($languages);
-
-                    $volunteerRepository->insert($volunteer, true);
-                } catch (Exception $e) {
-                    throw new RegistrationException('form.exception.database', 0, $e);
+            // Validates age
+            $this->validateAge($volunteer, $form->get($isPolish ? 'pesel' : 'birthDate'), 'wyd2016.age.min_adult');
+            // Validates services
+            if ($volunteer->getServiceMainId() == $volunteer->getServiceExtraId()) {
+                $form->get('serviceExtraId')
+                    ->addError(new FormError($translator->trans('form.error.services_duplicated')));
+            }
+            if ($isPolish) {
+                // Validates PESEL existance
+                if ($volunteer->getPesel() == null) {
+                    $form->get('pesel')
+                        ->addError(new FormError($translator->trans('form.error.pesel_empty')));
                 }
+                // Validates structure
+                $this->validateStructure($volunteer, $form->get('districtId'));
+            }
 
-                $this->addMessage('success.message', 'success');
-                $response = $this->redirect($this->generateUrl('registration_success'));
-            } catch (ExceptionInterface $e) {
-                $this->addMessage($e->getMessage(), 'error');
+            if ($form->isValid()) {
+                try {
+                    $this->mailSendingProcedure($volunteer->getEmail(), 'registration_volunteer_confirm',
+                        'Wyd2016Bundle::registration/volunteer_email.html.twig', $hash);
+
+                    try {
+                        $volunteerRepository = $this->get('wyd2016bundle.volunteer.repository');
+
+                        // Save volunteer before save its languages because of Doctrine requirements
+                        $languages = $volunteer->getLanguages();
+                        foreach ($languages as $language) {
+                            /** @var Language $language */
+                            $language->setVolunteer($volunteer);
+                        }
+                        $volunteer->setLanguages(new ArrayCollection());
+                        $volunteerRepository->insert($volunteer, true);
+                        $volunteer->setLanguages($languages);
+
+                        $volunteerRepository->insert($volunteer, true);
+                    } catch (Exception $e) {
+                        throw new RegistrationException('form.exception.database', 0, $e);
+                    }
+
+                    $this->addMessage('success.message', 'success');
+                    $response = $this->redirect($this->generateUrl('registration_success'));
+                } catch (ExceptionInterface $e) {
+                    $this->addMessage($e->getMessage(), 'error');
+                }
             }
         }
         if (!isset($response)) {
@@ -377,6 +448,68 @@ class RegistrationController extends Controller
         }
 
         return $this->render('Wyd2016Bundle::registration/confirmation.html.twig');
+    }
+
+    /**
+     * Validate age
+     *
+     * @param PersonInterface $person          person
+     * @param FormInterface   $ageField        age field
+     * @param string          $minAgeParamName min age param name
+     */
+    protected function validateAge(PersonInterface $person, FormInterface $ageField, $minAgeParamName)
+    {
+        /** @var TranslatorInterface */
+        $translator = $this->get('translator');
+
+        $ageMin = $this->getParameter($minAgeParamName);
+        $ageMax = $this->getParameter('wyd2016.age.max');
+        $ageLimit = new DateTime($this->getParameter('wyd2016.age.limit'));
+
+        $age = (integer) $person->getBirthDate()
+            ->diff($ageLimit)
+            ->format('%y');
+        if ($age < $ageMin) {
+            $ageField->addError(new FormError($translator->trans('form.error.age_too_low', array(
+                '%age%' => $ageMin,
+            ))));
+        } elseif ($age > $ageMax) {
+            $ageField->addError(new FormError($translator->trans('form.error.age_too_high', array(
+                '%age%' => $ageMax,
+            ))));
+        }
+    }
+
+    /**
+     * Validate structure
+     *
+     * @param Volunteer     $volunteer     volunteer
+     * @param FormInterface $districtField district field
+     */
+    protected function validateStructure(Volunteer $volunteer, FormInterface $districtField)
+    {
+        /** @var TranslatorInterface */
+        $translator = $this->get('translator');
+        /** @var RegistrationLists $registrationLists */
+        $registrationLists = $this->get('wyd2016bundle.registration.lists');
+
+        if (!$registrationLists->regionContainsDistrict($volunteer->getRegionId(), $volunteer->getDistrictId())) {
+            $districtField->addError(new FormError($translator->trans('form.error.district_invalid')));
+        }
+    }
+
+    /**
+     * Is Polish
+     *
+     * @param FormInterface $form form
+     *
+     * @return boolean
+     */
+    protected function isPolish(FormInterface $form)
+    {
+        $isPolish = strtolower($form->get('country')->getData()) == RegistrationLists::COUNTRY_POLAND;
+
+        return $isPolish;
     }
 
     /**

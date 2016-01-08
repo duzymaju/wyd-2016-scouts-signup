@@ -25,3 +25,5 @@ Wyd2016Bundle\Entity\Pilgrim:
             - Length:
                 min:                    3
                 max:                    40
+        birthDate:
+            - DateTime:                 ~

@@ -23,6 +23,10 @@ parameters:
         -                               pl
     locales_pattern:                    (en|pl)
 
+    wyd2016.age.limit:                  "2016-07-11"
+    wyd2016.age.max:                    120
+    wyd2016.age.min_adult:              18
+    wyd2016.age.min_member:             16
     wyd2016.main_page_url:              http://sdm.zhp.pl
     wyd2016.main_page_rules_path:       /regulamin
     wyd2016.troop_size:                 6

@@ -5,7 +5,7 @@ namespace Wyd2016Bundle\Model;
 /**
  * Model
  */
-class Pilgrim extends ParticipantAbstract
+class Pilgrim extends ParticipantAbstract implements PersonInterface
 {
     use PersonTrait;
 }

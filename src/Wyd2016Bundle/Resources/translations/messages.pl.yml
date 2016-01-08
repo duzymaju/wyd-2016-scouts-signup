@@ -18,6 +18,13 @@ form.dates.volunteer.1:                 "11.07 - 1.08 (cena od osoby: 400 PLN z 
 form.dates.volunteer.2:                 "18.07 - 1.08 (cena od osoby: 300 PLN z własnym namiotem, 360 PLN bez namiotu)"
 form.dates.volunteer.3:                 "18.07 - 8.08 (cena od osoby: 400 PLN z własnym namiotem, 460 PLN bez namiotu)"
 form.district:                          Hufiec
+form.error.age_too_high:                Maksymalny wiek to %age% lat.
+form.error.age_too_low:                 Minimalny wiek to %age% lat.
+form.error.district_invalid:            Wybrany hufiec nie należy do wybranej chorągwi.
+form.error.email_duplicated:            Adres e-mail nie może być powtórzony.
+form.error.pesel_duplicated:            PESEL nie może być powtórzony.
+form.error.pesel_empty:                 Pole z PESELem nie może być puste.
+form.error.services_duplicated:         Preferowane służby muszą być różne.
 form.exception.database:                Wystąpił błąd podczas zapisu danych - prosimy spróbować ponownie.
 form.exception.email:                   Wystąpił błąd podczas wysyłania wiadomości e-mail - sprawdź poprawność podanego adresu e-mail.
 form.first_name:                        Imię

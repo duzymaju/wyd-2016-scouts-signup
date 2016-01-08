@@ -18,6 +18,13 @@ form.dates.volunteer.1:                 "Jul 11 - Sep 1 (price per person: 400 P
 form.dates.volunteer.2:                 "Jul 18 - Sep 1 (price per person: 300 PLN with own tent, 360 PLN without tent)"
 form.dates.volunteer.3:                 "Jul 18 - Sep 8 (price per person: 400 PLN with own tent, 460 PLN without tent)"
 form.district:                          District
+form.error.age_too_high:                Maximal age is %age%.
+form.error.age_too_low:                 Minimal age is %age%.
+form.error.district_invalid:            Selected district doesn't belong to selected region.
+form.error.email_duplicated:            E-mail address can't be duplicated.
+form.error.pesel_duplicated:            PESEL can't be duplicated.
+form.error.pesel_empty:                 PESEL field can't be empty.
+form.error.services_duplicated:         Preferred services have to be different.
 form.exception.database:                An error occured during data saving - please try again.
 form.exception.email:                   An error occured during e-mail sending - check if an e-mail address is correct.
 form.first_name:                        First name

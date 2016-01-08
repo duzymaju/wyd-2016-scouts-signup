@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\Collection;
 /**
  * Model
  */
-class Volunteer extends ParticipantAbstract
+class Volunteer extends ParticipantAbstract implements PersonInterface
 {
     use PersonTrait;
 

@@ -77,10 +77,13 @@ class TroopType extends AbstractType
             'required' => false,
         ))
         ->add('members', 'collection', array(
-            'type' => new TroopMemberType($this->translator, $this->registrationLists),
             'allow_add' => false,
             'allow_delete' => false,
-            'by_reference' => false
+            'by_reference' => false,
+            'type' => new TroopMemberType($this->translator, $this->registrationLists),
+            'validation_groups' => array(
+                'troopMember',
+            ),
         ))
         ->add('ownTent', 'checkbox', array(
             'label' => $this->translator->trans('form.own_tent_group'),
@@ -109,6 +112,7 @@ class TroopType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
+            'cascade_validation' => true,
             'data_class' => 'Wyd2016Bundle\Entity\Troop',
         ));
     }

@@ -100,6 +100,7 @@ class VolunteerType extends AbstractType
             'choices' => $this->registrationLists->getLanguages(),
             'label' => $this->translator->trans('form.languages'),
             'multiple' => true,
+            'required' => false,
         ))
         ->add('permissions', 'text', array(
             'label' => $this->translator->trans('form.permissions'),

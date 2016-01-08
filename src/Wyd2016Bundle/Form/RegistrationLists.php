@@ -9,6 +9,9 @@ use Symfony\Component\Translation\TranslatorInterface;
  */
 class RegistrationLists
 {
+    /** @var string */
+    const COUNTRY_POLAND = 'pl';
+
     /** @var integer */
     const SERVICE_INFORMATION = 4;
 
@@ -84,9 +87,9 @@ class RegistrationLists
         $districts = array();
 
         foreach ($this->getStructure() as $regionId => $region) {
-            foreach ($region['districts'] as $districtId => $district) {
-                $key = $regionId * 1000 + $districtId;
-                $districts[$key] = $district;
+            foreach ($region['districts'] as $districtKey => $district) {
+                $districtId = $this->getDistrictId($regionId, $districtKey);
+                $districts[$districtId] = $district;
             }
         }
 
@@ -158,6 +161,70 @@ class RegistrationLists
         );
 
         return $languages;
+    }
+
+    /**
+     * Region contains district
+     *
+     * @param integer $regionId   region ID
+     * @param integer $districtId district ID
+     *
+     * @return boolean
+     */
+    public function regionContainsDistrict($regionId, $districtId)
+    {
+        $structure = $this->getStructure();
+        if (!array_key_exists($regionId, $structure) || $regionId !== $this->getRegionId($districtId)) {
+            return false;
+        }
+
+        $districtKey = $this->getDistrictKey($districtId);
+        $districts = $structure[$regionId]['districts'];
+        return array_key_exists($districtKey, $districts);
+    }
+
+    /**
+     * Get district ID
+     * 
+     * @param integer $regionId    region ID
+     * @param integer $districtKey district key
+     *
+     * @return integer
+     */
+    protected function getDistrictId($regionId, $districtKey)
+    {
+        $districtId = $districtKey + $regionId * 1000;
+
+        return $districtId;
+    }
+
+    /**
+     * Get region ID
+     *
+     * @param integer $districtId district ID
+     *
+     * @return integer
+     */
+    protected function getRegionId($districtId)
+    {
+        $regionId = (integer) floor($districtId / 1000);
+
+        return $regionId;
+    }
+
+    /**
+     * Get district key
+     *
+     * @param integer $districtId district ID
+     *
+     * @return integer
+     */
+    protected function getDistrictKey($districtId)
+    {
+        $regionId = $this->getRegionId($districtId);
+        $districtKey = $districtId - $regionId * 1000;
+
+        return $districtKey;
     }
 
     /**
