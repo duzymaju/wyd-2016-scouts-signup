@@ -195,6 +195,11 @@ class RegistrationController extends Controller
                     }
                     $usedPesels[] = $member->getPesel();
                     if ($isLeader) {
+                        // Validates leader grade
+                        if ($member->getGradeId() == $registrationLists::GRADE_NO) {
+                            $memberView->get('gradeId')
+                                ->addError(new FormError($translator->trans('form.error.grade_inproper')));
+                        }
                         // Validates structure
                         // For leader only to check it only once
                         $this->validateStructure($member, $form->get('districtId'));

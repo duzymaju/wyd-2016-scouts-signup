@@ -13,6 +13,9 @@ class RegistrationLists
     const COUNTRY_POLAND = 'pl';
 
     /** @var integer */
+    const GRADE_NO = 0;
+
+    /** @var integer */
     const SERVICE_INFORMATION = 4;
 
     /** @var integer */
@@ -104,7 +107,7 @@ class RegistrationLists
     public function getGrades()
     {
         $grades = array(
-            0 => $this->translator->trans('form.grade.no'),
+            self::GRADE_NO => $this->translator->trans('form.grade.no'),
             1 => $this->translator->trans('form.grade.guide'),
             2 => $this->translator->trans('form.grade.sub_scoutmaster'),
             3 => $this->translator->trans('form.grade.scoutmaster'),
