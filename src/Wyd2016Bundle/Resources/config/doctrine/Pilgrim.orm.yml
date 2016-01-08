@@ -58,7 +58,7 @@ Wyd2016Bundle\Entity\Pilgrim:
             type:                       string
         createdAt:
             name:                       created_at
-            type:                       date
+            type:                       datetime
 
     indexes:
         p_index_1:

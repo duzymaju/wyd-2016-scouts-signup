@@ -90,7 +90,7 @@ Wyd2016Bundle\Entity\Volunteer:
             type:                       string
         createdAt:
             name:                       created_at
-            type:                       date
+            type:                       datetime
 
     manyToOne:
         troop:

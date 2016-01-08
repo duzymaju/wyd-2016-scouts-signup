@@ -35,7 +35,7 @@ Wyd2016Bundle\Entity\Troop:
             type:                       string
         createdAt:
             name:                       created_at
-            type:                       date
+            type:                       datetime
 
     oneToOne:
         leader:
