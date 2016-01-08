@@ -131,11 +131,15 @@ class RegistrationController extends Controller
                     ->setActivationHash($this->generateActivationHash($member->getEmail()))
                     ->setCountry($form->get('country')->getData())
                     ->setServiceMainId($registrationLists::SERVICE_UNDERAGE)
-                    ->setPermissions($form->get('permissions')->getData())
-                    ->setProfession($form->get('profession')->getData())
                     ->setOwnTent($troop->hasOwnTent())
                     ->setDatesId($troop->getDatesId())
                     ->setCreatedAt($createdAt);
+                if ($form->has('permissions')) {
+                    $member->setPermissions($form->get('permissions')->getData());
+                }
+                if ($form->has('profession')) {
+                    $member->setPermissions($form->get('profession')->getData());
+                }
                 // Adds region and district to Polish volunteer or removes grade from foreigner
                 if ($member->getPesel()) {
                     $member->setRegionId($form->get('regionId')->getData())
