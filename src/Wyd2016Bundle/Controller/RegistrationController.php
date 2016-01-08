@@ -7,11 +7,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Exception;
 use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Wyd2016Bundle\Entity\EntityInterface;
 use Wyd2016Bundle\Entity\Language;
 use Wyd2016Bundle\Entity\Pilgrim;
 use Wyd2016Bundle\Entity\Repository\BaseRepositoryInterface;
@@ -53,10 +51,41 @@ class RegistrationController extends Controller
         $formType = new PilgrimType($this->get('translator'), $request->getLocale(),
             $this->get('wyd2016bundle.registration.lists'));
 
-        $response = $this->standardRegistrationProcedure($request, $formType, new Pilgrim(),
-            $this->get('wyd2016bundle.pilgrim.repository'), 'registration_pilgrim_form',
-            'registration_pilgrim_confirm', 'Wyd2016Bundle::registration/pilgrim_form.html.twig',
-            'Wyd2016Bundle::registration/pilgrim_email.html.twig', Pilgrim::STATUS_NOT_CONFIRMED);
+        $pilgrim = new Pilgrim();
+        $form = $this->createForm($formType, $pilgrim, array(
+            'action' => $this->generateUrl('registration_pilgrim_form'),
+            'method' => 'POST',
+        ));
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $hash = $this->generateActivationHash($pilgrim->getEmail());
+            $pilgrim->setStatus(Pilgrim::STATUS_NOT_CONFIRMED)
+                ->setActivationHash($hash)
+                ->setCreatedAt(new DateTime());
+
+            try {
+                $this->mailSendingProcedure($pilgrim->getEmail(), 'registration_pilgrim_confirm',
+                    'Wyd2016Bundle::registration/pilgrim_email.html.twig', $hash);
+
+                try {
+                    $this->get('wyd2016bundle.pilgrim.repository')
+                        ->insert($pilgrim, true);
+                } catch (Exception $e) {
+                    throw new RegistrationException('form.exception.database', 0, $e);
+                }
+
+                $this->addMessage('success.message', 'success');
+                $response = $this->redirect($this->generateUrl('registration_success'));
+            } catch (ExceptionInterface $e) {
+                $this->addMessage($e->getMessage(), 'error');
+            }
+        }
+        if (!isset($response)) {
+            $response = $this->render('Wyd2016Bundle::registration/pilgrim_form.html.twig', array(
+                'form' => $form->createView(),
+            ));
+        }
 
         return $response;
     }
@@ -154,10 +183,59 @@ class RegistrationController extends Controller
         $formType = new VolunteerType($this->get('translator'), $request->getLocale(),
             $this->get('wyd2016bundle.registration.lists'));
 
-        $response = $this->standardRegistrationProcedure($request, $formType, new Volunteer(),
-            $this->get('wyd2016bundle.volunteer.repository'), 'registration_volunteer_form',
-            'registration_volunteer_confirm', 'Wyd2016Bundle::registration/volunteer_form.html.twig',
-            'Wyd2016Bundle::registration/volunteer_email.html.twig', Volunteer::STATUS_NOT_CONFIRMED);
+        $volunteer = new Volunteer();
+        $form = $this->createForm($formType, $volunteer, array(
+            'action' => $this->generateUrl('registration_volunteer_form'),
+            'method' => 'POST',
+        ));
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $hash = $this->generateActivationHash($volunteer->getEmail());
+            $volunteer->setStatus(Volunteer::STATUS_NOT_CONFIRMED)
+                ->setActivationHash($hash)
+                ->setCreatedAt(new DateTime());
+
+            // Removes grade, region and district from foreign volunteer
+            if (!$volunteer->getPesel()) {
+                $volunteer->setGradeId()
+                    ->setRegionId()
+                    ->setDistrictId();
+            }
+
+            try {
+                $this->mailSendingProcedure($volunteer->getEmail(), 'registration_volunteer_confirm',
+                    'Wyd2016Bundle::registration/volunteer_email.html.twig', $hash);
+
+                try {
+                    $volunteerRepository = $this->get('wyd2016bundle.volunteer.repository');
+
+                    // Save volunteer before save its languages because of Doctrine requirements
+                    $languages = $volunteer->getLanguages();
+                    foreach ($languages as $language) {
+                        /** @var Language $language */
+                        $language->setVolunteer($volunteer);
+                    }
+                    $volunteer->setLanguages(new ArrayCollection());
+                    $volunteerRepository->insert($volunteer, true);
+                    $volunteer->setLanguages($languages);
+
+                    $volunteerRepository->insert($volunteer, true);
+                } catch (Exception $e) {
+                    throw new RegistrationException('form.exception.database', 0, $e);
+                }
+
+                $this->addMessage('success.message', 'success');
+                $response = $this->redirect($this->generateUrl('registration_success'));
+            } catch (ExceptionInterface $e) {
+                $this->addMessage($e->getMessage(), 'error');
+            }
+        }
+        if (!isset($response)) {
+            $response = $this->render('Wyd2016Bundle::registration/volunteer_form.html.twig', array(
+                'form' => $form->createView(),
+            ));
+        }
 
         return $response;
     }
@@ -236,79 +314,6 @@ class RegistrationController extends Controller
     {
         $response = $this->confirmationProcedure($this->get('wyd2016bundle.volunteer.repository'), $hash,
             Volunteer::STATUS_CONFIRMED);
-
-        return $response;
-    }
-
-    /**
-     * Standard registration procedure
-     *
-     * @param Request                 $request      request
-     * @param FormTypeInterface       $type         type
-     * @param EntityInterface         $entity       entity
-     * @param BaseRepositoryInterface $repository   repository
-     * @param string                  $formRoute    form route
-     * @param string                  $confirmRoute confirm route
-     * @param string                  $formView     form view
-     * @param string                  $emailView    email view
-     * @param integer                 $status       status
-     *
-     * @return Response
-     */
-    protected function standardRegistrationProcedure(Request $request, FormTypeInterface $type, EntityInterface $entity,
-        BaseRepositoryInterface $repository, $formRoute, $confirmRoute, $formView, $emailView, $status)
-    {
-        $form = $this->createForm($type, $entity, array(
-            'action' => $this->generateUrl($formRoute),
-            'method' => 'POST',
-        ));
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $hash = $this->generateActivationHash($entity->getEmail());
-            $entity->setStatus($status)
-                ->setActivationHash($hash)
-                ->setCreatedAt(new DateTime());
-
-            // Removes grade, region and district from foreign volunteer
-            if ($entity instanceof Volunteer && !$entity->getPesel()) {
-                $entity->setGradeId()
-                    ->setRegionId()
-                    ->setDistrictId();
-            }
-
-            try {
-                $this->mailSendingProcedure($entity->getEmail(), $confirmRoute, $emailView, $hash);
-
-                try {
-                    // Save volunteer before save its languages because of Doctrine requirements
-                    if ($entity instanceof Volunteer) {
-                        $languages = $entity->getLanguages();
-                        foreach ($languages as $language) {
-                            /** @var Language $language */
-                            $language->setVolunteer($entity);
-                        }
-                        $entity->setLanguages(new ArrayCollection());
-                        $repository->insert($entity, true);
-                        $entity->setLanguages($languages);
-                    }
-
-                    $repository->insert($entity, true);
-                } catch (Exception $e) {
-                    throw new RegistrationException('form.exception.database', 0, $e);
-                }
-
-                $this->addMessage('success.message', 'success');
-                $response = $this->redirect($this->generateUrl('registration_success'));
-            } catch (ExceptionInterface $e) {
-                $this->addMessage($e->getMessage(), 'error');
-            }
-        }
-        if (!isset($response)) {
-            $response = $this->render($formView, array(
-                'form' => $form->createView(),
-            ));
-        }
 
         return $response;
     }
