@@ -22,6 +22,7 @@ parameters:
         -                               en
         -                               pl
     locales_pattern:                    (en|pl)
+    requires_channel:                   http
 
     wyd2016.age.limit:                  "2016-07-11"
     wyd2016.age.max:                    120

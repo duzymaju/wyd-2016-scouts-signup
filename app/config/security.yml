@@ -3,17 +3,21 @@ security:
         # internal
         -
             path:                       ^/(_(profiler|wdt)|css|images|js)/
+            requires_channel:           %requires_channel%
             role:                       IS_AUTHENTICATED_ANONYMOUSLY
         # admin
         -
             path:                       ^/%locales_pattern%/admin/(login|register|resetting)$
+            requires_channel:           %requires_channel%
             role:                       IS_AUTHENTICATED_ANONYMOUSLY
         -
             path:                       ^/%locales_pattern%/admin
+            requires_channel:           %requires_channel%
             role:                       ROLE_ADMIN
         # default
         -
             path:                       ^/
+            requires_channel:           %requires_channel%
             role:                       IS_AUTHENTICATED_ANONYMOUSLY
     encoders:
         FOS\UserBundle\Model\UserInterface: bcrypt
