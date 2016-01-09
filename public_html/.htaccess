@@ -1,4 +1,9 @@
+#:Location /*.php
+#Use php54
+#:Location
+
 #AddHandler application/x-httpd-php55 php
+
 DirectoryIndex app.php
 
 <IfModule mod_rewrite.c>
