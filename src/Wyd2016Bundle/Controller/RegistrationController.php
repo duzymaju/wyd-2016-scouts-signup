@@ -154,7 +154,6 @@ class RegistrationController extends Controller
                     ->setActivationHash($this->generateActivationHash($member->getEmail()))
                     ->setCountry($form->get('country')->getData())
                     ->setServiceMainId($registrationLists::SERVICE_UNDERAGE)
-                    ->setOwnTent($troop->hasOwnTent())
                     ->setDatesId($troop->getDatesId())
                     ->setCreatedAt($createdAt);
                 if ($isLeader && $form->has('permissions')) {

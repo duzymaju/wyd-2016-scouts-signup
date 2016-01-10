@@ -24,9 +24,6 @@ abstract class ParticipantAbstract
     /** @var string */
     protected $activationHash;
 
-    /** @var boolean */
-    protected $ownTent;
-
     /** @var integer */
     protected $datesId;
 
@@ -97,30 +94,6 @@ abstract class ParticipantAbstract
     public function setActivationHash($activationHash)
     {
         $this->activationHash = $activationHash;
-
-        return $this;
-    }
-
-    /**
-     * Has own tent
-     *
-     * @return boolean
-     */
-    public function hasOwnTent()
-    {
-        return $this->ownTent;
-    }
-
-    /**
-     * Set own tent
-     *
-     * @param boolean $ownTent own tent
-     *
-     * @return self
-     */
-    public function setOwnTent($ownTent)
-    {
-        $this->ownTent = $ownTent;
 
         return $this;
     }

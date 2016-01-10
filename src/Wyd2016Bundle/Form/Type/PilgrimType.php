@@ -80,10 +80,6 @@ class PilgrimType extends AbstractType
             'label' => $this->translator->trans('form.birth_date'),
             'widget' => 'single_text',
         ))
-        ->add('ownTent', 'checkbox', array(
-            'label' => $this->translator->trans('form.own_tent_single'),
-            'required' => false,
-        ))
         ->add('datesId', 'choice', array(
             'choices' => $this->registrationLists->getPilgrimDates(),
             'label' => $this->translator->trans('form.dates'),

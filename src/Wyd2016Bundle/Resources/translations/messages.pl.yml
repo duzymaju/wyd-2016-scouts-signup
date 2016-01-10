@@ -13,10 +13,10 @@ form.birth_date:                        Data urodzenia
 form.comments:                          Uwagi
 form.country:                           Państwo
 form.dates:                             Terminy
-form.dates.pilgrim.1:                   "25.07 - 1.08 (cena od osoby: XXX PLN z własnym namiotem, XXX PLN bez namiotu)"
-form.dates.volunteer.1:                 "18.07 - 1.08 (cena od osoby: 400 PLN z własnym namiotem, 460 PLN bez namiotu)"
-form.dates.volunteer.2:                 "23.07 - 1.08 (cena od osoby: 300 PLN z własnym namiotem, 360 PLN bez namiotu)"
-form.dates.volunteer.3:                 "23.07 - 6.08 (cena od osoby: 400 PLN z własnym namiotem, 460 PLN bez namiotu)"
+form.dates.pilgrim.1:                   "25.07 - 1.08 (cena: 420 PLN od osoby)"
+form.dates.volunteer.1:                 "18.07 - 1.08 (cena: 420 PLN od osoby)"
+form.dates.volunteer.2:                 "23.07 - 1.08 (cena: 320 PLN od osoby)"
+form.dates.volunteer.3:                 "23.07 - 6.08 (cena: 420 PLN od osoby)"
 form.district:                          Hufiec
 form.error.age_too_high:                Maksymalny wiek to %age% lat.
 form.error.age_too_low:                 Minimalny wiek to %age% lat.

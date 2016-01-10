@@ -46,9 +46,6 @@ Wyd2016Bundle\Entity\Pilgrim:
         birthDate:
             name:                       birth_date
             type:                       date
-        ownTent:
-            name:                       own_tent
-            type:                       boolean
         datesId:
             name:                       dates_id
             type:                       smallint
