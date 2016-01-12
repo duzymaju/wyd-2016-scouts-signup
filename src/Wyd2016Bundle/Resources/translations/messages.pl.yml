@@ -18,6 +18,7 @@ form.dates.volunteer.1:                 "18.07 - 1.08 (cena: 420 PLN od osoby)"
 form.dates.volunteer.2:                 "23.07 - 1.08 (cena: 320 PLN od osoby)"
 form.dates.volunteer.3:                 "23.07 - 6.08 (cena: 420 PLN od osoby)"
 form.dates.volunteer.4:                 "18.07 - 6.08 (cena: 520 PLN od osoby)"
+form.dates.volunteer.5:                 "23.07 - 1.08 (cena: 50 PLN od osoby bez wyżywienia i zakwaterowania)"
 form.district:                          Hufiec
 form.error.age_too_high:                Maksymalny wiek to %age% lat.
 form.error.age_too_low:                 Minimalny wiek to %age% lat.
@@ -85,15 +86,18 @@ next_steps.register_volunteer:          Zarejestruj kolejnego pełnoletniego wol
 next_steps.title:                       Kolejne kroki
 next_steps.volunteers_page:             Strona przygotowań do ŚDM Kraków 2016 przez Związek Harcerstwa Polskiego
 
+pilgrims.form.description:              Minimalny wiek pielgrzyma to %age% lat ukończone przed %date%.
 pilgrims.form.title:                    Formularz dla pielgrzymów
 
 success.message:                        Twoje dane zostały pomyślnie zapisane. Aby dokończyć rejestrację odbierz wiadomość e-mail, którą Ci wysłaliśmy i kliknij w link potwierdzenia.
 success.title:                          Dziękujemy za rejestrację
 
+troop.form.description:                 Minimalny wiek członka patrolu to %age% lat ukończone przed %date%.
 troop.form.title:                       Formularz dla patroli wolontariuszy
 troop.form.leader:                      Patrolowy (pełnoletni)
 troop.form.member:                      %no%. członek patrolu
 
+volunteer.form.description:             Minimalny wiek wolontariusza to %age% lat ukończone przed %date%.
 volunteer.form.title:                   Formularz dla pełnoletnich wolontariuszy
 
 wyd_www.title:                          ZHP ŚDM Kraków 2016

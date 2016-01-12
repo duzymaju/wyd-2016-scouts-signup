@@ -1,9 +1,13 @@
 twig:
     debug:                              "%kernel.debug%"
     globals:
+        age_limit:                      "%wyd2016.age.limit%"
         locales:                        "%locales%"
         main_page_rules_url:            "%wyd2016.main_page_url%%wyd2016.main_page_rules_path%"
         main_page_url:                  "%wyd2016.main_page_url%"
+        min_age_adult:                  "%wyd2016.age.min_adult%"
+        min_age_member:                 "%wyd2016.age.min_member%"
+        min_age_pilgrim:                "%wyd2016.age.min_pilgrim%"
         wyd_page_url:                   "%wyd2016.wyd_page_url%"
     strict_variables:                   "%kernel.debug%"
 

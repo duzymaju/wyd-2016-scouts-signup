@@ -18,6 +18,7 @@ form.dates.volunteer.1:                 "Jul 18 - Sep 1 (price: 420 PLN per pers
 form.dates.volunteer.2:                 "Jul 23 - Sep 1 (price: 320 PLN per person)"
 form.dates.volunteer.3:                 "Jul 23 - Sep 6 (price: 420 PLN per person)"
 form.dates.volunteer.4:                 "Jul 18 - Sep 6 (price: 520 PLN per person)"
+form.dates.volunteer.5:                 "Jul 23 - Sep 1 (price: 50 PLN per person without meals and accommodation)"
 form.district:                          District
 form.error.age_too_high:                Maximal age is %age%.
 form.error.age_too_low:                 Minimal age is %age%.
@@ -85,15 +86,18 @@ next_steps.register_volunteer:          Register another adult volunteer
 next_steps.title:                       Next steps
 next_steps.volunteers_page:             Page of preparation to WYD Krakow 2016 make by Polish Scouting Organization
 
+pilgrims.form.description:              Pligrim must be over %age% years before %date%.
 pilgrims.form.title:                    Form for pilgrims
 
 success.message:                        Your data were successfuly saved. To complete your registration please receive e-mail message we've send to you and click confirmation link.
 success.title:                          Thank you for registration
 
+troop.form.description:                 Troop member must be over %age% years before %date%.
 troop.form.title:                       Form for troops of volunteers
 troop.form.leader:                      Troop leader (adult)
 troop.form.member:                      %no% troop member
 
+volunteer.form.description:             Volunteer must be over %age% years before %date%.
 volunteer.form.title:                   Form for adult volunteers
 
 wyd_www.title:                          ZHP WYD Krakow 2016

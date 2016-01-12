@@ -483,7 +483,7 @@ class RegistrationController extends Controller
         $ageLimit = new DateTime($this->getParameter('wyd2016.age.limit'));
 
         $age = (integer) $person->getBirthDate()
-            ->diff($ageLimit)
+            ->diff($ageLimit->modify('-1 day'))
             ->format('%y');
         if ($age < $ageMin) {
             $ageField->addError(new FormError($translator->trans('form.error.age_too_low', array(
