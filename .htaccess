@@ -1,0 +1,11 @@
+# Special file just for Home.pl environment to allow using PHP 5.5 and "move" whole traffic into public_html dir
+# More at http://forum.php.pl/Symfony2Symfony_Instalacja_Symfony_2_na_homepl_t219663.html
+
+:Location /*.php
+Use php55
+:Location
+
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^(.*)$ public_html/$1 [QSA,L]
