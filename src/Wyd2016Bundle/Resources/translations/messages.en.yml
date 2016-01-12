@@ -13,10 +13,11 @@ form.birth_date:                        Birth date
 form.comments:                          Comments
 form.country:                           Country
 form.dates:                             Dates
-form.dates.pilgrim.1:                   "Jul 25 - Sep 1 (price: 420 PLN per person)"
+form.dates.pilgrim.1:                   "Jul 25 - Sep 1 (price: 640 PLN per person)"
 form.dates.volunteer.1:                 "Jul 18 - Sep 1 (price: 420 PLN per person)"
 form.dates.volunteer.2:                 "Jul 23 - Sep 1 (price: 320 PLN per person)"
 form.dates.volunteer.3:                 "Jul 23 - Sep 6 (price: 420 PLN per person)"
+form.dates.volunteer.4:                 "Jul 18 - Sep 6 (price: 520 PLN per person)"
 form.district:                          District
 form.error.age_too_high:                Maximal age is %age%.
 form.error.age_too_low:                 Minimal age is %age%.
