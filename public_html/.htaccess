@@ -9,9 +9,15 @@ DirectoryIndex app.php
     RewriteCond         %{ENV:REDIRECT_STATUS}      200
     RewriteRule         .*                          - [L]
 
+    # require with subdomain (prod)
+    RewriteCond         %{HTTPS}s                   on(s)|
+    RewriteCond         %{HTTP_HOST}                ^.+\.(rejestracja\.sdm\.zhp\.pl)$ [NC]
+    RewriteRule         ^(.*)$                      http%2://%1/$1 [L,NC,R=301]
+
     # require without the www
+    RewriteCond         %{HTTPS}s                   on(s)|
     RewriteCond         %{HTTP_HOST}                ^www\.(.*) [NC]
-    RewriteRule         ^(.*)$                      //%1/$1 [L,NC,R=301]
+    RewriteRule         ^(.*)$                      http%2://%1/$1 [L,NC,R=301]
 
     # cache-friendly file names: /static/yymmddnn/file.ext
     RewriteCond         %{REQUEST_FILENAME}         !-f

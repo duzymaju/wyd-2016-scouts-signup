@@ -68,7 +68,7 @@ class RegistrationController extends Controller
                 ->setCreatedAt(new DateTime());
 
             // Validates age
-            $this->validateAge($pilgrim, $form->get('birthDate'), 'wyd2016.age.min_adult');
+            $this->validateAge($pilgrim, $form->get('birthDate'), 'wyd2016.age.min_pilgrim');
 
             if ($form->isValid()) {
                 try {
