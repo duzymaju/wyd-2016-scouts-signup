@@ -4,7 +4,7 @@ confirmation.title:                     Registration confirmation
 
 email.link:                             Click here to confirm registration
 email.pligrim.text:                     "Thank you for registration your stay in a place prepaired by Polish Scouting Organization during WYD Krakow 2016. To confirm your registration process please click the link below:"
-email.title:                            Registration to ZHP WYD Krakow 2016
+email.title:                            Registration for ZHP WYD Krakow 2016
 email.troop.text:                       "Thank you for registration a troop of volunteers for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:"
 email.volunteer.text:                   "Thank you for registration as a volunteer for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:"
 
@@ -13,15 +13,15 @@ form.birth_date:                        Birth date
 form.comments:                          Comments
 form.country:                           Country
 form.dates:                             Dates
-form.dates.pilgrim.1:                   "Jul 25 - Sep 1 (price: 640 PLN per person)"
-form.dates.volunteer.1:                 "Jul 18 - Sep 1 (price: 420 PLN per person)"
-form.dates.volunteer.2:                 "Jul 23 - Sep 1 (price: 320 PLN per person)"
-form.dates.volunteer.3:                 "Jul 23 - Sep 6 (price: 420 PLN per person)"
-form.dates.volunteer.4:                 "Jul 18 - Sep 6 (price: 520 PLN per person)"
-form.dates.volunteer.5:                 "Jul 23 - Sep 1 (price: 50 PLN per person without meals and accommodation)"
+form.dates.pilgrim.1:                   "Jul 25 - Aug 1 (price: 640 PLN per person)"
+form.dates.volunteer.1:                 "Jul 18 - Aug 1 (price: 420 PLN per person)"
+form.dates.volunteer.2:                 "Jul 23 - Aug 1 (price: 320 PLN per person)"
+form.dates.volunteer.3:                 "Jul 23 - Aug 6 (price: 420 PLN per person)"
+form.dates.volunteer.4:                 "Jul 18 - Aug 6 (price: 520 PLN per person)"
+form.dates.volunteer.5:                 "Jul 23 - Aug 1 (price: 50 PLN per person without meals and accommodation)"
 form.district:                          District
-form.error.age_too_high:                Maximal age is %age%.
-form.error.age_too_low:                 Minimal age is %age%.
+form.error.age_too_high:                Maximum age is %age%.
+form.error.age_too_low:                 Minimum age is %age%.
 form.error.district_invalid:            Selected district doesn't belong to selected region.
 form.error.email_duplicated:            E-mail address can't be duplicated.
 form.error.grade_inproper:              Leader should have at least guide grade.
@@ -58,7 +58,7 @@ form.rules.acceptance:                  I accept
 form.rules.name:                        the rules of participation
 form.save:                              Save
 form.service.information:               information
-form.service.kitchen:                   kitchen
+form.service.kitchen:                   food shortages
 form.service.medical:                   medical
 form.service.quartermaster:             quartermaster
 form.service.security:                  security
