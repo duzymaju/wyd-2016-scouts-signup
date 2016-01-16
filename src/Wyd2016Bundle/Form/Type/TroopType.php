@@ -84,7 +84,7 @@ class TroopType extends AbstractType
             'required' => false,
         ))
         ->add('members', 'collection', array(
-            'allow_add' => false,
+            'allow_add' => true,
             'allow_delete' => false,
             'by_reference' => false,
             'type' => new TroopMemberType($this->translator, $this->registrationLists),

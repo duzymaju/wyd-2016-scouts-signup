@@ -92,7 +92,8 @@ pilgrims.form.title:                    Formularz dla pielgrzymów
 success.message:                        Twoje dane zostały pomyślnie zapisane. Aby dokończyć rejestrację odbierz wiadomość e-mail, którą Ci wysłaliśmy i kliknij w link potwierdzenia.
 success.title:                          Dziękujemy za rejestrację
 
-troop.form.description:                 Minimalny wiek członka patrolu to %age% lat ukończone przed %date%.
+troop.form.add_member:                  Dodaj kolejnego członka patrolu
+troop.form.description:                 Minimalny wiek członka patrolu to %age% lat ukończone przed %date%. W skład patrolu musi wchodzić od %min_size% do %max_size% członków, w tym pełnoletni patrolowy.
 troop.form.title:                       Formularz dla patroli wolontariuszy
 troop.form.leader:                      Patrolowy (pełnoletni)
 troop.form.member:                      %no%. członek patrolu

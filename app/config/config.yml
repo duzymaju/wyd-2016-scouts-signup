@@ -16,7 +16,7 @@ imports:
     - resource:                         @Wyd2016Bundle/Resources/config/services.yml
 
 parameters:
-    assets_version:                     15091301
+    assets_version:                     16011501
     locale:                             en
     locales:
         -                               en
@@ -31,5 +31,6 @@ parameters:
     wyd2016.age.min_pilgrim:            15
     wyd2016.main_page_url:              http://sdm.zhp.pl
     wyd2016.main_page_rules_path:       /regulamin
-    wyd2016.troop_size:                 6
+    wyd2016.troop.max_size:             6
+    wyd2016.troop.min_size:             2
     wyd2016.wyd_page_url:               http://www.krakow2016.com

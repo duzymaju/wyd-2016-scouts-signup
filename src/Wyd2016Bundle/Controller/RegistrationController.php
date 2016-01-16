@@ -119,7 +119,9 @@ class RegistrationController extends Controller
         $leader->setTroop($troop);
         $troop->setLeader($leader)
             ->addMember($leader);
-        for ($i = 1; $i < $this->getParameter('wyd2016.troop_size'); $i++) {
+        $troopMinSize = $this->getParameter('wyd2016.troop.min_size');
+        $troopMaxSize = $this->getParameter('wyd2016.troop.max_size');
+        for ($i = 1; $i < $troopMinSize; $i++) {
             $member = new Volunteer();
             $member->setTroop($troop);
             $troop->addMember($member);
@@ -131,6 +133,11 @@ class RegistrationController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $members = $troop->getMembers();
+            if ($members->count() > $troopMaxSize) {
+                $troop->setMembers(new ArrayCollection($members->slice(0, $troopMaxSize)));
+            }
+            unset($members);
             $hash = $this->generateActivationHash($leader->getEmail());
             $createdAt = new DateTime();
             $troop->setStatus(Troop::STATUS_NOT_CONFIRMED)
@@ -153,6 +160,7 @@ class RegistrationController extends Controller
                 $member->setStatus(Troop::STATUS_NOT_CONFIRMED)
                     ->setActivationHash($this->generateActivationHash($member->getEmail()))
                     ->setCountry($form->get('country')->getData())
+                    ->setTroop($troop)
                     ->setServiceMainId($registrationLists::SERVICE_UNDERAGE)
                     ->setDatesId($troop->getDatesId())
                     ->setCreatedAt($createdAt);
@@ -233,6 +241,10 @@ class RegistrationController extends Controller
         if (!isset($response)) {
             $response = $this->render('Wyd2016Bundle::registration/troop_form.html.twig', array(
                 'form' => $form->createView(),
+                'troop' => array(
+                    'max_size' => $troopMaxSize,
+                    'min_size' => $troopMinSize,
+                ),
             ));
         }
 

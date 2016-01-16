@@ -6,7 +6,7 @@
 {% block body %}
     {{ macro.flashBagMessages('error', true) }}
     <h1>{{ 'troop.form.title'|trans }}</h1>
-    <p>{{ 'troop.form.description'|trans({'%age%': min_age_member, '%date%': age_limit}) }}</p>
+    <p>{{ 'troop.form.description'|trans({'%age%': min_age_member, '%date%': age_limit, '%min_size%': troop.min_size, '%max_size%': troop.max_size}) }}</p>
     {{ form_start(form, {'attr': {'class': 'registration-form registration-form-troop'}}) }}
         {{ macro.formRow(form.name) }}
         {{ macro.formRow(form.country) }}
@@ -17,24 +17,20 @@
         {{ macro.formRow(form.profession) }}
         {{ macro.formRow(form.datesId) }}
         {{ macro.formRow(form.comments) }}
-        <div class="row">
-            {% for member in form.members %}
-                {% if loop.index0 > 0 and loop.index0 is even %}
+        <div data-item-name="member" data-max-size="{{ troop.max_size }}" data-prototype="{{ macro.troopMember(form.members.vars.prototype, '__no__')|e }}">
+            <div class="row">
+                {% for member in form.members %}
+                    {% if loop.index0 > 0 and loop.index0 is even %}
+                        </div><div class="row">
+                    {% endif %}
+                    {{ macro.troopMember(member, loop.index, form.vars.data.leader) }}
+                {% endfor %}
+            </div>
         </div>
-        <div class="row">
-                {% endif %}
-                <div class="col-sm-6">
-                    <h2>{{ form.vars.data.leader is same as (member.vars.data) ? 'troop.form.leader'|trans : 'troop.form.member'|trans({'%no%': loop.index}) }}</h2>
-                    {{ macro.formRow(member.firstName) }}
-                    {{ macro.formRow(member.lastName) }}
-                    {{ macro.formRow(member.address) }}
-                    {{ macro.formRow(member.phone) }}
-                    {{ macro.formRow(member.email) }}
-                    {{ macro.formRow(member.birthDate, {locale: '', date: true}) }}
-                    {{ macro.formRow(member.pesel, {locale: 'PL'}) }}
-                    {{ macro.formRow(member.gradeId, {locale: 'PL'}) }}
-                </div>
-            {% endfor %}
+        <div class="form-group" style="display:none">
+            <span id="add-member" class="btn btn-default btn-lg" style="width:100%">
+                {{ 'troop.form.add_member'|trans }}
+            </span>
         </div>
         {{ macro.formCheckboxRow(form.personalData) }}
         <div class="form-group form-checkbox">

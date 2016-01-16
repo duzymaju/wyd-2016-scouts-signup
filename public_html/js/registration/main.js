@@ -6,39 +6,49 @@
      * @param {jQuery} form form
      */
     var hideSpecificFields = function (form) {
-        var allElements = form.find('[data-specific-locale]');
-        if (allElements.length === 0) {
-            return;
-        }
         var country = form.find('[id$="_country"]').first(),
-            locales = [],
-            otherLocale = 'other',
-            elements = {};
+            availableLocales = [];
 
-        allElements.each(function () {
-            var locale = $(this).data('specific-locale');
-            if ($.inArray(locale, locales) === -1) {
-                locales.push(locale);
+        var checkLocales = function () {
+            var allElements = form.find('[data-specific-locale]');
+            if (allElements.length === 0) {
+                return false;
             }
-        }).find('label').addClass('required');
+            allElements.each(function () {
+                var locale = $(this).data('specific-locale');
+                if ($.inArray(locale, availableLocales) === -1) {
+                    availableLocales.push(locale);
+                }
+            }).find('label').addClass('required');
 
-        $.each(locales, function (index, value) {
-            var key = value !== '' ? value : otherLocale;
-            elements[key] = form.find('[data-specific-locale="' + value + '"]');
-        });
-
-        var changeLocale = function () {
-            var locale = country.val(),
-                key = $.inArray(locale, locales) !== -1 ? locale : otherLocale;
-            allElements.hide()
-                .children('.form-control').prop('required', false);
-            if (typeof elements[key] !== undefinedType) {
-                elements[key].show()
-                    .children('.form-control').prop('required', true);
-            }
+            return true;
         };
 
+        var changeLocale = function () {
+            form.find('[data-specific-locale]')
+                .trigger('locale:change', '' + country.val());
+        };
+
+        if (!checkLocales()) {
+            return;
+        }
+
+        form.on('locale:change', '[data-specific-locale]', function (event, selectedLocale) {
+            var locale = '' + $(this).data('specific-locale');
+            if (locale === selectedLocale || ($.inArray(selectedLocale, availableLocales) === -1 && locale === '')) {
+                $(this).show()
+                    .children('.form-control').prop('required', true);
+            } else {
+                $(this).hide()
+                    .children('.form-control').prop('required', false);
+            }
+        });
+
         country.on('change', changeLocale);
+        form.on('enlarge', function () {
+            checkLocales();
+            changeLocale();
+        });
         changeLocale();
     };
 
@@ -107,17 +117,65 @@
         diversifyServices();
     };
 
+    /**
+     * Manage services
+     *
+     * @param {jQuery}   form     form
+     * @param {function} callback callback
+     */
+    var manageSubforms = function (form, callback) {
+        $('[data-prototype]').each(function () {
+            var colsInRow = 2,
+                rowClassName = 'row',
+                collection = $(this),
+                itemName = collection.data('item-name'),
+                maxSize = collection.data('max-size'),
+                prototype = collection.data('prototype'),
+                items = collection.find('.' + itemName);
+
+            if (items.length >= maxSize) {
+                return;
+            }
+            form.find('#add-' + itemName).on('click', function () {
+                if (items.length < maxSize) {
+                    var row;
+                    if (items.length % colsInRow) {
+                        row = items.last().closest('.' + rowClassName);
+                    } else {
+                        row = $('<div class="' + rowClassName + '">');
+                        collection.append(row);
+                    }
+                    var newItem = $(prototype.replace(/__name__/g, items.length).replace(/__no__/g, items.length + 1));
+                    row.append(newItem);
+                    items = collection.find('.' + itemName);
+                    form.trigger('enlarge');
+                    callback(newItem);
+                    if (items.length === maxSize) {
+                        $(this).parent().hide();
+                    }
+                }
+            }).parent().show();
+        });
+    };
+    
+    var addTools = function (range) {
+        range.find('[data-toggle="tooltip"]').tooltip();
+        range.find('.input-group.date').datepicker({
+            format: 'yyyy-mm-dd',
+            language: $('html').attr('lang')
+        });
+    };
+
     $(document).ready(function() {
         var form = $('.registration-form').first();
         if (form.length === 1) {
             hideSpecificFields(form);
             bindDistrictsWithRegions(form);
             manageServices(form);
-            form.find('[data-toggle="tooltip"]').tooltip();
-            form.find('.input-group.date').datepicker({
-                format: 'yyyy-mm-dd',
-                language: $('html').attr('lang')
+            manageSubforms(form, function (item) {
+                addTools(item);
             });
+            addTools(form);
         }
     });
 

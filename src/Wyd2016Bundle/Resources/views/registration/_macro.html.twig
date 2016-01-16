@@ -59,6 +59,20 @@
     </div>
 {% endmacro %}
 
+{% macro troopMember(member, no = 1, leaderData = null) %}
+    <div class="col-sm-6 member">
+        <h2>{{ leaderData and leaderData is same as (member.vars.data) ? 'troop.form.leader'|trans : 'troop.form.member'|trans({'%no%': no}) }}</h2>
+        {{ _self.formRow(member.firstName) }}
+        {{ _self.formRow(member.lastName) }}
+        {{ _self.formRow(member.address) }}
+        {{ _self.formRow(member.phone) }}
+        {{ _self.formRow(member.email) }}
+        {{ _self.formRow(member.birthDate, {locale: '', date: true}) }}
+        {{ _self.formRow(member.pesel, {locale: 'PL'}) }}
+        {{ _self.formRow(member.gradeId, {locale: 'PL'}) }}
+    </div>
+{% endmacro %}
+
 {% macro formInfo(text, tooltipPlacement = 'left') %}
     <div class="info" data-toggle="tooltip" data-placement="{{ tooltipPlacement }}" title="{{ text }}"></div>
 {% endmacro %}
