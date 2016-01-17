@@ -16,7 +16,7 @@ imports:
     - resource:                         @Wyd2016Bundle/Resources/config/services.yml
 
 parameters:
-    assets_version:                     16011501
+    assets_version:                     16011701
     locale:                             en
     locales:
         -                               en
@@ -29,8 +29,19 @@ parameters:
     wyd2016.age.min_adult:              18
     wyd2016.age.min_group_member:       15
     wyd2016.age.min_troop_member:       16
-    wyd2016.main_page_url:              http://sdm.zhp.pl
-    wyd2016.main_page_rules_path:       /regulamin
+    wyd2016.main_page:
+        rules_pilgrim:
+            en:                         /regulamin
+            es:                         /regulamin
+            pl:                         /regulamin
+        rules_volunteer:
+            en:                         /regulamin
+            es:                         /regulamin
+            pl:                         /regulamin
+        url:
+            en:                         http://sdm.zhp.pl
+            es:                         http://sdm.zhp.pl
+            pl:                         http://sdm.zhp.pl
     wyd2016.size.max_group:             15
     wyd2016.size.max_troop:             6
     wyd2016.size.min_group:             2

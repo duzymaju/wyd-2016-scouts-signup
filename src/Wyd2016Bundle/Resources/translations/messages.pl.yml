@@ -56,8 +56,7 @@ form.pesel:                             PESEL
 form.phone:                             Nr telefonu
 form.profession:                        Zawód/Umiejętności
 form.region:                            Chorągiew
-form.rules.acceptance:                  Akceptuję
-form.rules.name:                        regulamin uczestnictwa
+form.rules:                             Akceptuję <a href="%url%" target="_blank">regulamin uczestnictwa</a>.
 form.save:                              Zapisz
 form.service.information:               informacyjna
 form.service.kitchen:                   aprowizacyjna

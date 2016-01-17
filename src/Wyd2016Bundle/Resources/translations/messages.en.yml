@@ -56,8 +56,7 @@ form.pesel:                             PESEL
 form.phone:                             Phone no
 form.profession:                        Profession/Skills
 form.region:                            Region
-form.rules.acceptance:                  I accept
-form.rules.name:                        the rules of participation
+form.rules:                             I accept <a href="%url%" target="_blank">the rules of participation</a>.
 form.save:                              Save
 form.service.information:               information
 form.service.kitchen:                   food shortages
