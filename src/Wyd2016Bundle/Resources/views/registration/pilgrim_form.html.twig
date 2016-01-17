@@ -6,7 +6,7 @@
 {% block body %}
     {{ macro.flashBagMessages('error', true) }}
     <h1>{{ 'pilgrims.form.title'|trans }}</h1>
-    <p>{{ 'pilgrims.form.description'|trans({'%age%': min_age_pilgrim, '%date%': age_limit}) }}</p>
+    <p>{{ 'pilgrims.form.description'|trans({'%age%': min_age_adult, '%date%': age_limit}) }}</p>
     {{ form_start(form, {'attr': {'class': 'registration-form registration-form-pilgrim'}}) }}
         {{ macro.formRow(form.firstName) }}
         {{ macro.formRow(form.lastName) }}

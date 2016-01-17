@@ -1,35 +1,30 @@
 {% extends 'Wyd2016Bundle:registration:template.html.twig' %}
 {% import "Wyd2016Bundle:registration:_macro.html.twig" as macro %}
 
-{% set pageTitle = 'troop.form.title'|trans %}
+{% set pageTitle = 'group.form.title'|trans %}
 
 {% block body %}
     {{ macro.flashBagMessages('error', true) }}
-    <h1>{{ 'troop.form.title'|trans }}</h1>
-    <p>{{ 'troop.form.description'|trans({'%age%': min_age_member, '%date%': age_limit, '%min_size%': min_size, '%max_size%': max_size}) }}</p>
-    {{ form_start(form, {'attr': {'class': 'registration-form registration-form-troop'}}) }}
+    <h1>{{ 'group.form.title'|trans }}</h1>
+    <p>{{ 'group.form.description'|trans({'%age%': min_age_member, '%date%': age_limit, '%min_size%': min_size, '%max_size%': max_size}) }}</p>
+    {{ form_start(form, {'attr': {'class': 'registration-form registration-form-group'}}) }}
         {{ macro.formRow(form.name) }}
         {{ macro.formRow(form.country) }}
-        {{ macro.formRow(form.regionId, {locale: 'PL'}) }}
-        {{ macro.formRow(form.districtId, {locale: 'PL'}) }}
-        {{ macro.formRow(form.languages) }}
-        {{ macro.formRow(form.permissions, {info: 'form.tip.permissions'|trans}) }}
-        {{ macro.formRow(form.profession) }}
         {{ macro.formRow(form.datesId) }}
         {{ macro.formRow(form.comments) }}
-        <div data-item-name="member" data-max-size="{{ max_size }}" data-prototype="{{ macro.troopMember(form.members.vars.prototype, '__no__')|e }}">
+        <div data-item-name="member" data-max-size="{{ max_size }}" data-prototype="{{ macro.groupMember(form.members.vars.prototype, '__no__')|e }}">
             <div class="row">
                 {% for member in form.members %}
                     {% if loop.index0 > 0 and loop.index0 is even %}
                         </div><div class="row">
                     {% endif %}
-                    {{ macro.troopMember(member, loop.index, form.vars.data.leader) }}
+                    {{ macro.groupMember(member, loop.index, form.vars.data.leader) }}
                 {% endfor %}
             </div>
         </div>
         <div class="form-group" style="display:none">
             <span id="add-member" class="btn btn-default btn-lg" style="width:100%">
-                {{ 'troop.form.add_member'|trans }}
+                {{ 'group.form.add_member'|trans }}
             </span>
         </div>
         {{ macro.formCheckboxRow(form.personalData) }}

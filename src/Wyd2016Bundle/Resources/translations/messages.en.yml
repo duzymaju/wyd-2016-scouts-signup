@@ -3,6 +3,7 @@ confirmation.success:                   Your registration was successfully confi
 confirmation.title:                     Registration confirmation
 
 email.link:                             Click here to confirm registration
+email.group.text:                       "Thank you for registration a group of pilgrims staying in a place prepaired by Polish Scouting Organization during WYD Krakow 2016. To confirm your registration process please click the link below:"
 email.pligrim.text:                     "Thank you for registration your stay in a place prepaired by Polish Scouting Organization during WYD Krakow 2016. To confirm your registration process please click the link below:"
 email.title:                            Registration for ZHP WYD Krakow 2016
 email.troop.text:                       "Thank you for registration a troop of volunteers for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:"
@@ -36,6 +37,7 @@ form.grade.guide:                       guide
 form.grade.no:                          no
 form.grade.scoutmaster:                 scoutmaster
 form.grade.sub_scoutmaster:             sub-scoutmaster
+form.groupName:                         Group name
 form.languages:                         Languages (communicative)
 form.languages.de:                      German
 form.languages.en:                      English
@@ -70,7 +72,14 @@ form.tip.service_extra_id:              It have to be different than previously 
 form.tip.service_main_id:               Organizers take final decission on the allocation of services.
 form.troopName:                         Troop name
 
-index.pilgrim:                          pilgrim
+group.form.add_member:                  Add another group member
+group.form.description:                 Group member must be over %age% years before %date%. Group has to contain from %min_size% to %max_size% members including adult leader.
+group.form.title:                       Form for groups of pilgrims
+group.form.leader:                      Group leader (adult)
+group.form.member:                      %no% group member
+
+index.group:                            leader of a group of pilgrims
+index.pilgrim:                          adult pilgrim
 index.title:                            You are
 index.troop:                            leader of a troop of volunteers
 index.volunteer:                        adult volunteer
@@ -80,14 +89,15 @@ layout.title:                           ZHP WYD Krakow 2016 registration form
 layout.title_short:                     Registration
 
 next_steps.official_page:               Official page of World Youth Day Krakow 2016
-next_steps.register_pilgrim:            Register another pilgrim
+next_steps.register_group:              Register another group of pilgrims
+next_steps.register_pilgrim:            Register another adult pilgrim
 next_steps.register_troop:              Register another troop of volunteers
 next_steps.register_volunteer:          Register another adult volunteer
 next_steps.title:                       Next steps
 next_steps.volunteers_page:             Page of preparation to WYD Krakow 2016 make by Polish Scouting Organization
 
 pilgrims.form.description:              Pligrim must be over %age% years before %date%.
-pilgrims.form.title:                    Form for pilgrims
+pilgrims.form.title:                    Form for adult pilgrims
 
 success.message:                        Your data were successfuly saved. To complete your registration please receive e-mail message we've send to you and click confirmation link.
 success.title:                          Thank you for registration

@@ -3,7 +3,8 @@ confirmation.success:                   Twoja rejestracja została prawidłowo p
 confirmation.title:                     Potwierdzenie rejestracji
 
 email.link:                             Kliknij tutaj aby potwierdzić rejestrację
-email.pligrim.text:                     "Dziękujemy za rejestrację pobytu w miejscu przygotowywanym przez Związek Harcerstwa Polskiego podczas ŚDM Kraków 2016. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
+email.group.text:                       "Dziękujemy za rejestrację pobytu grupy pielgrzymów miejscu przygotowywanym przez Związek Harcerstwa Polskiego podczas ŚDM Kraków 2016. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
+email.pligrim.text:                     "Dziękujemy za rejestrację swojego pobytu w miejscu przygotowywanym przez Związek Harcerstwa Polskiego podczas ŚDM Kraków 2016. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
 email.title:                            Rejestracja na ZHP ŚDM Kraków 2016
 email.troop.text:                       "Dziękujemy za rejestrację patrolu wolontariuszy na ZHP ŚDM Kraków 2016. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
 email.volunteer.text:                   "Dziękujemy za rejestrację jako wolontariusz na ZHP ŚDM Kraków 2016. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
@@ -36,6 +37,7 @@ form.grade.guide:                       przewodnik
 form.grade.no:                          brak
 form.grade.scoutmaster:                 harcmistrz
 form.grade.sub_scoutmaster:             podharcmistrz
+form.groupName:                         Nazwa grupy
 form.languages:                         Języki (komunikatywnie)
 form.languages.de:                      niemiecki
 form.languages.en:                      angielski
@@ -70,7 +72,14 @@ form.tip.service_extra_id:              Musi być inna niż poprzednio wybrana.
 form.tip.service_main_id:               Ostateczną decyzję o przydziale służby podejmują organizatorzy.
 form.troopName:                         Nazwa patrolu
 
-index.pilgrim:                          pielgrzymem
+group.form.add_member:                  Dodaj kolejnego członka grupy
+group.form.description:                 Minimalny wiek członka grupy to %age% lat ukończone przed %date%. W skład grupy musi wchodzić od %min_size% do %max_size% członków, w tym pełnoletni opiekun.
+group.form.title:                       Formularz dla grup pielgrzymów
+group.form.leader:                      Opiekun (pełnoletni)
+group.form.member:                      %no%. członek grupy
+
+index.group:                            opiekunem grupy pielgrzymów
+index.pilgrim:                          pełnoletnim pielgrzymem
 index.title:                            Jesteś
 index.troop:                            patrolowym patrolu wolontariuszy
 index.volunteer:                        pełnoletnim wolontariuszem
@@ -80,14 +89,15 @@ layout.title:                           Formularz rejestracyjny ZHP ŚDM Kraków
 layout.title_short:                     Rejestracja
 
 next_steps.official_page:               Oficjalna strona Światowych Dni Młodzieży Kraków 2016
-next_steps.register_pilgrim:            Zarejestruj kolejnego pielgrzyma
+next_steps.register_group:              Zarejestruj kolejną grupę pielgrzymów
+next_steps.register_pilgrim:            Zarejestruj kolejnego pełnoletniego pielgrzyma
 next_steps.register_troop:              Zarejestruj kolejny patrol wolontariuszy
 next_steps.register_volunteer:          Zarejestruj kolejnego pełnoletniego wolontariusza
 next_steps.title:                       Kolejne kroki
 next_steps.volunteers_page:             Strona przygotowań do ŚDM Kraków 2016 przez Związek Harcerstwa Polskiego
 
 pilgrims.form.description:              Minimalny wiek pielgrzyma to %age% lat ukończone przed %date%.
-pilgrims.form.title:                    Formularz dla pielgrzymów
+pilgrims.form.title:                    Formularz dla pełnoletnich pielgrzymów
 
 success.message:                        Twoje dane zostały pomyślnie zapisane. Aby dokończyć rejestrację odbierz wiadomość e-mail, którą Ci wysłaliśmy i kliknij w link potwierdzenia.
 success.title:                          Dziękujemy za rejestrację

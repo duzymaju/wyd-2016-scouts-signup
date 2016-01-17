@@ -1,0 +1,7 @@
+registration_group_confirm:
+    defaults:
+        _controller:                    Wyd2016Bundle:Registration:groupConfirm
+    methods:                            [GET]
+    path:                               /group/{hash}/confirm
+    requirements:
+        hash:                           "[0-9a-f]{32}$"

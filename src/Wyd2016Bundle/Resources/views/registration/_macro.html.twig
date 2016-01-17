@@ -1,14 +1,17 @@
 {% macro nextStepsBox() %}
     <h1>{{ 'next_steps.title'|trans }}:</h1>
     <div class="btn-group-vertical btn-group-lg">
-        <a href="{{ path('registration_pilgrim_form') }}" class="btn btn-default">
-            {{ 'next_steps.register_pilgrim'|trans }}
-        </a>
         <a href="{{ path('registration_volunteer_form') }}" class="btn btn-default">
             {{ 'next_steps.register_volunteer'|trans }}
         </a>
         <a href="{{ path('registration_troop_form') }}" class="btn btn-default">
             {{ 'next_steps.register_troop'|trans }}
+        </a>
+        <a href="{{ path('registration_pilgrim_form') }}" class="btn btn-default">
+            {{ 'next_steps.register_pilgrim'|trans }}
+        </a>
+        <a href="{{ path('registration_group_form') }}" class="btn btn-default">
+            {{ 'next_steps.register_group'|trans }}
         </a>
         <a href="{{ main_page_url }}" target="_blank" class="btn btn-default">
             {{ 'next_steps.volunteers_page'|trans }}
@@ -56,6 +59,18 @@
         {% endif %}
         {% if options.info is defined %}{{ _self.formInfo(options.info) }}{% endif %}
         {{ form_errors(element) }}
+    </div>
+{% endmacro %}
+
+{% macro groupMember(member, no = 1, leaderData = null) %}
+    <div class="col-sm-6 member">
+        <h2>{{ leaderData and leaderData is same as (member.vars.data) ? 'group.form.leader'|trans : 'group.form.member'|trans({'%no%': no}) }}</h2>
+        {{ _self.formRow(member.firstName) }}
+        {{ _self.formRow(member.lastName) }}
+        {{ _self.formRow(member.address) }}
+        {{ _self.formRow(member.phone) }}
+        {{ _self.formRow(member.email) }}
+        {{ _self.formRow(member.birthDate, {date: true}) }}
     </div>
 {% endmacro %}
 

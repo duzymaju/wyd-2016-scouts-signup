@@ -12,17 +12,17 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Wyd2016Bundle\Entity\Group;
 use Wyd2016Bundle\Entity\Language;
 use Wyd2016Bundle\Entity\Pilgrim;
 use Wyd2016Bundle\Entity\Repository\BaseRepositoryInterface;
-use Wyd2016Bundle\Entity\Repository\TroopRepository;
-use Wyd2016Bundle\Entity\Repository\VolunteerRepository;
 use Wyd2016Bundle\Entity\Troop;
 use Wyd2016Bundle\Entity\Volunteer;
 use Wyd2016Bundle\Exception\ExceptionInterface;
 use Wyd2016Bundle\Exception\RegistrationException;
 use Wyd2016Bundle\Model\PersonInterface;
 use Wyd2016Bundle\Form\RegistrationLists;
+use Wyd2016Bundle\Form\Type\GroupType;
 use Wyd2016Bundle\Form\Type\PilgrimType;
 use Wyd2016Bundle\Form\Type\TroopType;
 use Wyd2016Bundle\Form\Type\VolunteerType;
@@ -40,6 +40,106 @@ class RegistrationController extends Controller
     public function indexAction()
     {
         return $this->render('Wyd2016Bundle::registration/index.html.twig');
+    }
+
+    /**
+     * Group form action
+     *
+     * @param Request $request request
+     *
+     * @return Response
+     */
+    public function groupFormAction(Request $request)
+    {
+        /** @var TranslatorInterface */
+        $translator = $this->get('translator');
+        /** @var RegistrationLists $registrationLists */
+        $registrationLists = $this->get('wyd2016bundle.registration.lists');
+        $formType = new GroupType($translator, $request->getLocale(), $registrationLists);
+
+        $group = new Group();
+        $leader = new Pilgrim();
+        $leader->setGroup($group);
+        $group->setLeader($leader)
+            ->addMember($leader);
+        $groupMinSize = $this->getParameter('wyd2016.size.min_group');
+        $groupMaxSize = $this->getParameter('wyd2016.size.max_group');
+        for ($i = 1; $i < $groupMinSize; $i++) {
+            $member = new Pilgrim();
+            $member->setGroup($group);
+            $group->addMember($member);
+        }
+        $form = $this->createForm($formType, $group, array(
+            'action' => $this->generateUrl('registration_group_form'),
+            'method' => 'POST',
+        ));
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $members = $group->getMembers();
+            if ($members->count() > $groupMaxSize) {
+                $group->setMembers(new ArrayCollection($members->slice(0, $groupMaxSize)));
+            }
+            unset($members);
+            $hash = $this->generateActivationHash($leader->getEmail());
+            $createdAt = new DateTime();
+            $group->setStatus(Group::STATUS_NOT_CONFIRMED)
+                ->setActivationHash($hash)
+                ->setCreatedAt($createdAt);
+            $usedEmails = array();
+            foreach ($group->getMembers() as $i => $member) {
+                /** @var Pilgrim $member */
+                $isLeader = $member === $group->getLeader();
+                // Copies data from form to each pilgrim
+                $member->setStatus(Pilgrim::STATUS_NOT_CONFIRMED)
+                    ->setActivationHash($this->generateActivationHash($member->getEmail()))
+                    ->setCountry($form->get('country')->getData())
+                    ->setGroup($group)
+                    ->setDatesId($group->getDatesId())
+                    ->setCreatedAt($createdAt);
+
+                /** @var FormInterface $memberView */
+                $memberView = $form->get('members')->get($i);
+                // Validates e-mail duplication
+                if (in_array($member->getEmail(), $usedEmails)) {
+                    $memberView->get('email')
+                        ->addError(new FormError($translator->trans('form.error.email_duplicated')));
+                }
+                $usedEmails[] = $member->getEmail();
+                // Validates age
+                $this->validateAge($member, $memberView->get('birthDate'),
+                    $isLeader ? 'wyd2016.age.min_adult' : 'wyd2016.age.min_group_member');
+            }
+
+            if ($form->isValid()) {
+                try {
+                    $this->mailSendingProcedure($leader->getEmail(), 'registration_group_confirm',
+                        'Wyd2016Bundle::registration/group_email.html.twig', $hash);
+
+                    try {
+                        $this->get('wyd2016bundle.group.repository')
+                            ->insert($group, true);
+                    } catch (Exception $e) {
+                        throw new RegistrationException('form.exception.database', 0, $e);
+                    }
+
+                    $this->addMessage('success.message', 'success');
+                    $response = $this->redirect($this->generateUrl('registration_success'));
+                } catch (ExceptionInterface $e) {
+                    $this->addMessage($e->getMessage(), 'error');
+                }
+            }
+        }
+        if (!isset($response)) {
+            $response = $this->render('Wyd2016Bundle::registration/group_form.html.twig', array(
+                'form' => $form->createView(),
+                'max_size' => $groupMaxSize,
+                'min_age_member' => $this->getParameter('wyd2016.age.min_group_member'),
+                'min_size' => $groupMinSize,
+            ));
+        }
+
+        return $response;
     }
 
     /**
@@ -68,7 +168,7 @@ class RegistrationController extends Controller
                 ->setCreatedAt(new DateTime());
 
             // Validates age
-            $this->validateAge($pilgrim, $form->get('birthDate'), 'wyd2016.age.min_pilgrim');
+            $this->validateAge($pilgrim, $form->get('birthDate'), 'wyd2016.age.min_adult');
 
             if ($form->isValid()) {
                 try {
@@ -109,7 +209,6 @@ class RegistrationController extends Controller
     {
         /** @var TranslatorInterface */
         $translator = $this->get('translator');
-
         /** @var RegistrationLists $registrationLists */
         $registrationLists = $this->get('wyd2016bundle.registration.lists');
         $formType = new TroopType($translator, $request->getLocale(), $registrationLists);
@@ -119,8 +218,8 @@ class RegistrationController extends Controller
         $leader->setTroop($troop);
         $troop->setLeader($leader)
             ->addMember($leader);
-        $troopMinSize = $this->getParameter('wyd2016.troop.min_size');
-        $troopMaxSize = $this->getParameter('wyd2016.troop.max_size');
+        $troopMinSize = $this->getParameter('wyd2016.size.min_troop');
+        $troopMaxSize = $this->getParameter('wyd2016.size.max_troop');
         for ($i = 1; $i < $troopMinSize; $i++) {
             $member = new Volunteer();
             $member->setTroop($troop);
@@ -157,7 +256,7 @@ class RegistrationController extends Controller
                 /** @var Volunteer $member */
                 $isLeader = $member === $troop->getLeader();
                 // Copies data from form to each volunteer
-                $member->setStatus(Troop::STATUS_NOT_CONFIRMED)
+                $member->setStatus(Volunteer::STATUS_NOT_CONFIRMED)
                     ->setActivationHash($this->generateActivationHash($member->getEmail()))
                     ->setCountry($form->get('country')->getData())
                     ->setTroop($troop)
@@ -188,7 +287,7 @@ class RegistrationController extends Controller
                 $usedEmails[] = $member->getEmail();
                 // Validates age
                 $this->validateAge($member, $memberView->get($isPolish ? 'pesel' : 'birthDate'),
-                    $isLeader ? 'wyd2016.age.min_adult' : 'wyd2016.age.min_member');
+                    $isLeader ? 'wyd2016.age.min_adult' : 'wyd2016.age.min_troop_member');
                 if ($isPolish) {
                     // Validates PESEL existance
                     if ($member->getPesel() == null) {
@@ -241,10 +340,9 @@ class RegistrationController extends Controller
         if (!isset($response)) {
             $response = $this->render('Wyd2016Bundle::registration/troop_form.html.twig', array(
                 'form' => $form->createView(),
-                'troop' => array(
-                    'max_size' => $troopMaxSize,
-                    'min_size' => $troopMinSize,
-                ),
+                'max_size' => $troopMaxSize,
+                'min_age_member' => $this->getParameter('wyd2016.age.min_troop_member'),
+                'min_size' => $troopMinSize,
             ));
         }
 
@@ -354,6 +452,21 @@ class RegistrationController extends Controller
     }
 
     /**
+     * Group confirm action
+     *
+     * @param string $hash hash
+     *
+     * @return Response
+     */
+    public function groupConfirmAction($hash)
+    {
+        $response = $this->confirmationProcedureMultiple($this->get('wyd2016bundle.group.repository'),
+            $this->get('wyd2016bundle.pilgrim.repository'), $hash, Group::STATUS_CONFIRMED, Pilgrim::STATUS_CONFIRMED);
+
+        return $response;
+    }
+
+    /**
      * Pilgrim confirm action
      * 
      * @param string $hash hash
@@ -362,7 +475,7 @@ class RegistrationController extends Controller
      */
     public function pilgrimConfirmAction($hash)
     {
-        $response = $this->confirmationProcedure($this->get('wyd2016bundle.pilgrim.repository'), $hash,
+        $response = $this->confirmationProcedureSingle($this->get('wyd2016bundle.pilgrim.repository'), $hash,
             Pilgrim::STATUS_CONFIRMED);
 
         return $response;
@@ -377,33 +490,11 @@ class RegistrationController extends Controller
      */
     public function troopConfirmAction($hash)
     {
-        /** @var TroopRepository $troopRepository */
-        $troopRepository = $this->get('wyd2016bundle.troop.repository');
-        /** @var VolunteerRepository $volunteerRepository */
-        $volunteerRepository = $this->get('wyd2016bundle.volunteer.repository');
+        $response = $this->confirmationProcedureMultiple($this->get('wyd2016bundle.troop.repository'),
+            $this->get('wyd2016bundle.volunteer.repository'), $hash, Troop::STATUS_CONFIRMED,
+            Volunteer::STATUS_CONFIRMED);
 
-        /** @var Troop $troop */
-        $troop = $troopRepository->findOneBy(array(
-            'activationHash' => $hash,
-        ));
-
-        if (!isset($troop) || $troop->isConfirmed()) {
-            $this->addMessage('confirmation.error', 'error');
-        } else {
-            foreach ($troop->getMembers() as $member) {
-                /** @var Volunteer $member */
-                if (!$member->isConfirmed()) {
-                    $member->setStatus(Volunteer::STATUS_CONFIRMED);
-                    $volunteerRepository->update($member);
-                }
-            }
-            $volunteerRepository->flush();
-            $troop->setStatus(Troop::STATUS_CONFIRMED);
-            $troopRepository->update($troop, true);
-            $this->addMessage('confirmation.success', 'success');
-        }
-
-        return $this->render('Wyd2016Bundle::registration/confirmation.html.twig');
+        return $response;
     }
 
     /**
@@ -415,7 +506,7 @@ class RegistrationController extends Controller
      */
     public function volunteerConfirmAction($hash)
     {
-        $response = $this->confirmationProcedure($this->get('wyd2016bundle.volunteer.repository'), $hash,
+        $response = $this->confirmationProcedureSingle($this->get('wyd2016bundle.volunteer.repository'), $hash,
             Volunteer::STATUS_CONFIRMED);
 
         return $response;
@@ -452,7 +543,7 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Confirmation procedure
+     * Confirmation procedure single
      *
      * @param BaseRepositoryInterface $repository repository
      * @param string                  $hash       hash
@@ -460,7 +551,7 @@ class RegistrationController extends Controller
      *
      * @return Response
      */
-    protected function confirmationProcedure(BaseRepositoryInterface $repository, $hash, $status)
+    protected function confirmationProcedureSingle(BaseRepositoryInterface $repository, $hash, $status)
     {
         /** @var Pilgrim|Volunteer $entity */
         $entity = $repository->findOneBy(array(
@@ -472,6 +563,44 @@ class RegistrationController extends Controller
         } else {
             $entity->setStatus($status);
             $repository->update($entity, true);
+            $this->addMessage('confirmation.success', 'success');
+        }
+
+        return $this->render('Wyd2016Bundle::registration/confirmation.html.twig');
+    }
+
+    /**
+     * Confirmation procedure multiple
+     *
+     * @param BaseRepositoryInterface $multipleRepository multiple repository
+     * @param BaseRepositoryInterface $singleRepository   single repository
+     * @param string                  $hash               hash
+     * @param integer                 $multipleStatus     multiple status
+     * @param integer                 $singleStatus       single status
+     *
+     * @return Response
+     */
+    protected function confirmationProcedureMultiple(BaseRepositoryInterface $multipleRepository,
+        BaseRepositoryInterface $singleRepository, $hash, $multipleStatus, $singleStatus)
+    {
+        /** @var Group|Troop $entity */
+        $entity = $multipleRepository->findOneBy(array(
+            'activationHash' => $hash,
+        ));
+
+        if (!isset($entity) || $entity->isConfirmed()) {
+            $this->addMessage('confirmation.error', 'error');
+        } else {
+            foreach ($entity->getMembers() as $member) {
+                /** @var Pilgrim|Volunteer $member */
+                if (!$member->isConfirmed()) {
+                    $member->setStatus($singleStatus);
+                    $singleRepository->update($member);
+                }
+            }
+            $singleRepository->flush();
+            $entity->setStatus($multipleStatus);
+            $multipleRepository->update($entity, true);
             $this->addMessage('confirmation.success', 'success');
         }
 

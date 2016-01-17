@@ -2,6 +2,12 @@ services:
     wyd2016bundle.alias.manager_service:
         alias:                          doctrine
 
+    wyd2016bundle.group.repository:
+        arguments:
+            -                           Wyd2016Bundle\Entity\Group
+        class:                          Wyd2016Bundle\Entity\Repository\GroupRepository
+        factory:                        [@wyd2016bundle.alias.manager_service, getRepository]
+
     wyd2016bundle.pilgrim.repository:
         arguments:
             -                           Wyd2016Bundle\Entity\Pilgrim

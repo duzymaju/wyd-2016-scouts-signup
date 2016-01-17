@@ -1,8 +1,8 @@
-Wyd2016Bundle\Entity\Pilgrim:
+Wyd2016Bundle\Entity\Group:
     options:
         collate:                        utf8_general_ci
-    repositoryClass:                    Wyd2016Bundle\Entity\Repository\PilgrimRepository
-    table:                              pilgrim
+    repositoryClass:                    Wyd2016Bundle\Entity\Repository\GroupRepository
+    table:                              "`group`"
     type:                               entity
 
     id:
@@ -20,32 +20,9 @@ Wyd2016Bundle\Entity\Pilgrim:
                 fixed:                  true
             type:                       string
             unique:                     true
-        firstName:
+        name:
             length:                     50
-            name:                       first_name
             type:                       string
-        lastName:
-            length:                     50
-            name:                       last_name
-            type:                       string
-        address:
-            length:                     255
-            type:                       string
-        phone:
-            length:                     15
-            type:                       string
-        email:
-            length:                     40
-            type:                       string
-            unique:                     true
-        country:
-            length:                     2
-            options:
-                fixed:                  true
-            type:                       string
-        birthDate:
-            name:                       birth_date
-            type:                       date
         datesId:
             name:                       dates_id
             type:                       smallint
@@ -57,13 +34,21 @@ Wyd2016Bundle\Entity\Pilgrim:
             name:                       created_at
             type:                       datetime
 
-    manyToOne:
-        group:
+    oneToOne:
+        leader:
+            targetEntity:               Wyd2016Bundle\Entity\Pilgrim
+
+    oneToMany:
+        members:
             cascade:
                 -                       persist
-            inversedBy:                 members
-            targetEntity:               Wyd2016Bundle\Entity\Group
+            mappedBy:                   group
+            targetEntity:               Wyd2016Bundle\Entity\Pilgrim
 
     indexes:
-        p_index_1:
+        g_index_1:
             columns:                    status
+
+    lifecycleCallbacks:
+        postLoad:
+            -                           initializeCollections

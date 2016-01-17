@@ -27,10 +27,12 @@ parameters:
     wyd2016.age.limit:                  "2016-07-01"
     wyd2016.age.max:                    120
     wyd2016.age.min_adult:              18
-    wyd2016.age.min_member:             16
-    wyd2016.age.min_pilgrim:            15
+    wyd2016.age.min_group_member:       15
+    wyd2016.age.min_troop_member:       16
     wyd2016.main_page_url:              http://sdm.zhp.pl
     wyd2016.main_page_rules_path:       /regulamin
-    wyd2016.troop.max_size:             6
-    wyd2016.troop.min_size:             2
+    wyd2016.size.max_group:             15
+    wyd2016.size.max_troop:             6
+    wyd2016.size.min_group:             2
+    wyd2016.size.min_troop:             2
     wyd2016.wyd_page_url:               http://www.krakow2016.com

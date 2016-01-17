@@ -1,3 +1,18 @@
+# Desc: /login_check
+fos_user_security_check: /login_check
+
+# Desc: /login
+fos_user_security_login: /login
+
+# Desc: /logout
+fos_user_security_logout: /logout
+
+# Desc: /group/{hash}/confirm
+registration_group_confirm: '/group/{hash}/confirm'
+
+# Desc: /group
+registration_group_form: /group
+
 # Desc: /
 registration_index: /
 

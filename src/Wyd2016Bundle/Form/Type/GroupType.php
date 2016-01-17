@@ -11,7 +11,7 @@ use Wyd2016Bundle\Form\RegistrationLists;
 /*
  * Form Type
  */
-class TroopType extends AbstractType
+class GroupType extends AbstractType
 {
     /** @var TranslatorInterface */
     protected $translator;
@@ -47,7 +47,7 @@ class TroopType extends AbstractType
         unset($options);
 
         $builder->add('name', 'text', array(
-            'label' => $this->translator->trans('form.troopName'),
+            'label' => $this->translator->trans('form.groupName'),
         ))
         ->add('country', 'country', array(
             'label' => $this->translator->trans('form.country'),
@@ -56,49 +56,22 @@ class TroopType extends AbstractType
                 strtoupper($this->locale),
             ),
         ))
-        ->add('regionId', 'choice', array(
-            'choices' => $this->registrationLists->getRegions(),
-            'label' => $this->translator->trans('form.region'),
-            'mapped' => false,
+        ->add('datesId', 'choice', array(
+            'choices' => $this->registrationLists->getPilgrimDates(),
+            'label' => $this->translator->trans('form.dates'),
         ))
-        ->add('districtId', 'choice', array(
-            'choices' => $this->registrationLists->getDistricts(),
-            'label' => $this->translator->trans('form.district'),
-            'mapped' => false,
-        ))
-        ->add('languages', 'choice', array(
-            'choices' => $this->registrationLists->getLanguages(),
-            'label' => $this->translator->trans('form.languages'),
-            'mapped' => false,
-            'multiple' => true,
-            'required' => false,
-        ))
-        ->add('permissions', 'text', array(
-            'label' => $this->translator->trans('form.permissions'),
-            'mapped' => false,
-            'required' => false,
-        ))
-        ->add('profession', 'text', array(
-            'label' => $this->translator->trans('form.profession'),
-            'mapped' => false,
+        ->add('comments', 'text', array(
+            'label' => $this->translator->trans('form.comments'),
             'required' => false,
         ))
         ->add('members', 'collection', array(
             'allow_add' => true,
             'allow_delete' => false,
             'by_reference' => false,
-            'type' => new TroopMemberType($this->translator, $this->registrationLists),
+            'type' => new GroupMemberType($this->translator, $this->registrationLists),
             'validation_groups' => array(
-                'troopMember',
+                'groupMember',
             ),
-        ))
-        ->add('datesId', 'choice', array(
-            'choices' => $this->registrationLists->getVolunteerDates(),
-            'label' => $this->translator->trans('form.dates'),
-        ))
-        ->add('comments', 'text', array(
-            'label' => $this->translator->trans('form.comments'),
-            'required' => false,
         ))
         ->add('personalData', 'checkbox', array(
             'label' => $this->translator->trans('form.personal_data'),
@@ -121,7 +94,7 @@ class TroopType extends AbstractType
     {
         $resolver->setDefaults(array(
             'cascade_validation' => true,
-            'data_class' => 'Wyd2016Bundle\Entity\Troop',
+            'data_class' => 'Wyd2016Bundle\Entity\Group',
         ));
     }
 
@@ -132,6 +105,6 @@ class TroopType extends AbstractType
      */
     public function getName()
     {
-        return 'troop';
+        return 'group';
     }
 }

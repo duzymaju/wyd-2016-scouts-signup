@@ -1,6 +1,9 @@
 _fos_user_security:
     resource:                           "@FOSUserBundle/Resources/config/routing/security.xml"
 
+_registration_group_confirm:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/group_confirm.yml"
+
 _registration_pilgrim_confirm:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/pilgrim_confirm.yml"
 
@@ -9,6 +12,9 @@ _registration_troop_confirm:
 
 _registration_volunteer_confirm:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/volunteer_confirm.yml"
+
+_registration_group_form:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/group_form.yml"
 
 _registration_pilgrim_form:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/pilgrim_form.yml"

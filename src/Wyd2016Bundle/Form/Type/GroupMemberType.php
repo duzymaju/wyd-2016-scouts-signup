@@ -11,7 +11,7 @@ use Wyd2016Bundle\Form\RegistrationLists;
 /*
  * Form Type
  */
-class TroopMemberType extends AbstractType
+class GroupMemberType extends AbstractType
 {
     /** @var TranslatorInterface */
     protected $translator;
@@ -58,16 +58,7 @@ class TroopMemberType extends AbstractType
         ))
         ->add('birthDate', 'date', array(
             'label' => $this->translator->trans('form.birth_date'),
-            'required' => false,
             'widget' => 'single_text',
-        ))
-        ->add('pesel', 'text', array(
-            'label' => $this->translator->trans('form.pesel'),
-            'required' => false,
-        ))
-        ->add('gradeId', 'choice', array(
-            'choices' => $this->registrationLists->getGrades(),
-            'label' => $this->translator->trans('form.grade'),
         ));
     }
 
@@ -79,7 +70,7 @@ class TroopMemberType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Wyd2016Bundle\Entity\Volunteer',
+            'data_class' => 'Wyd2016Bundle\Entity\Pilgrim',
         ));
     }
 
@@ -90,6 +81,6 @@ class TroopMemberType extends AbstractType
      */
     public function getName()
     {
-        return 'troop_member';
+        return 'group_member';
     }
 }

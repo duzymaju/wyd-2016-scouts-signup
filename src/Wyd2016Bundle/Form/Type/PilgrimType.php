@@ -45,16 +45,6 @@ class PilgrimType extends AbstractType
     {
         unset($options);
 
-        $dateOptions = array(
-            'days' => range(17, 31),
-            'months' => array(
-                7,
-            ),
-            'years' => array(
-                2016,
-            ),
-        );
-
         $builder->add('firstName', 'text', array(
             'label' => $this->translator->trans('form.first_name'),
         ))

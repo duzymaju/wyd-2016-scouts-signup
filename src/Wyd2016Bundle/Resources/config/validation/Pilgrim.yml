@@ -4,26 +4,40 @@ Wyd2016Bundle\Entity\Pilgrim:
     properties:
         firstName:
             - Length:
+                groups:
+                    -                   groupMember
                 min:                    2
                 max:                    50
         lastName:
             - Length:
+                groups:
+                    -                   groupMember
                 min:                    2
                 max:                    50
         address:
             - Length:
+                groups:
+                    -                   groupMember
                 min:                    10
                 max:                    255
         phone:
             - Length:
+                groups:
+                    -                   groupMember
                 min:                    8
                 max:                    15
             - Regex:
                 pattern:                "/^[0-9 \+\-\(\)]{8,15}$/"
         email:
-            - Email:                    ~
+            - Email:
+                groups:
+                    -                   groupMember
             - Length:
+                groups:
+                    -                   groupMember
                 min:                    3
                 max:                    40
         birthDate:
-            - DateTime:                 ~
+            - DateTime:
+                groups:
+                    -                   groupMember

@@ -1,0 +1,9 @@
+Wyd2016Bundle\Entity\Group:
+    properties:
+        name:
+            - Length:
+                min:                    2
+                max:                    50
+        comments:
+            - Length:
+                max:                    255
