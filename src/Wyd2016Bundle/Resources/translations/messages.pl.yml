@@ -48,6 +48,7 @@ form.languages.pl:                      polski
 form.languages.pt:                      portugalski
 form.last_name:                         Nazwisko
 form.email:                             Adres e-mail
+form.errors:                            Część danych jest niepoprawna - zmień je przed zapisaniem formularza.
 form.own_tent_group:                    Patrol posiada własny namiot dla wszystkich członków (organizator nie musi zapewniać nam namiotu).
 form.own_tent_single:                   Posiadam własny namiot (organizator nie musi zapewniać mi namiotu).
 form.permissions:                       Uprawnienia

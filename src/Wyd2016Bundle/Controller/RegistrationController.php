@@ -131,6 +131,7 @@ class RegistrationController extends Controller
             }
         }
         if (!isset($response)) {
+            $this->addErrorMessage($form);
             $response = $this->render('Wyd2016Bundle::registration/group_form.html.twig', array(
                 'form' => $form->createView(),
                 'max_size' => $groupMaxSize,
@@ -190,6 +191,7 @@ class RegistrationController extends Controller
             }
         }
         if (!isset($response)) {
+            $this->addErrorMessage($form);
             $response = $this->render('Wyd2016Bundle::registration/pilgrim_form.html.twig', array(
                 'form' => $form->createView(),
             ));
@@ -338,6 +340,7 @@ class RegistrationController extends Controller
             }
         }
         if (!isset($response)) {
+            $this->addErrorMessage($form);
             $response = $this->render('Wyd2016Bundle::registration/troop_form.html.twig', array(
                 'form' => $form->createView(),
                 'max_size' => $troopMaxSize,
@@ -433,6 +436,7 @@ class RegistrationController extends Controller
             }
         }
         if (!isset($response)) {
+            $this->addErrorMessage($form);
             $response = $this->render('Wyd2016Bundle::registration/volunteer_form.html.twig', array(
                 'form' => $form->createView(),
             ));
@@ -685,6 +689,18 @@ class RegistrationController extends Controller
         )));
 
         return $activationHash;
+    }
+
+    /**
+     * Add error message
+     *
+     * @param FormInterface $form
+     */
+    protected function addErrorMessage(FormInterface $form)
+    {
+        if ($form->isSubmitted() && !$form->isValid()) {
+            $this->addMessage('form.errors', 'error');
+        }
     }
 
     /**

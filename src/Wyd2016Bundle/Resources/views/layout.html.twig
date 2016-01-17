@@ -37,7 +37,7 @@
                                     </li>
                                 {% else %}
                                     <li class="header-locale">
-                                        <a href="{{ path('registration_index', {_locale: locale}) }}" title="{{ locale|upper }}" class="navbar-link header-locale-item header-locale-{{ locale }}">
+                                        <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({_locale: locale})) }}" title="{{ locale|upper }}" class="navbar-link header-locale-item header-locale-{{ locale }}">
                                             {{ locale|upper }}
                                         </a>
                                     </li>

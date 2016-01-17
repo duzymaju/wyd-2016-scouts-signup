@@ -48,6 +48,7 @@ form.languages.pl:                      Polish
 form.languages.pt:                      Portuguese
 form.last_name:                         Last name
 form.email:                             E-mail address
+form.errors:                            Some data is incorrect - change it before saving the form.
 form.own_tent_group:                    Troop has its own tent for all participants (organizer doesn't have to provide us a tent).
 form.own_tent_single:                   I have my own tent (organizer doesn't have to provide me a tent).
 form.permissions:                       Permissions
