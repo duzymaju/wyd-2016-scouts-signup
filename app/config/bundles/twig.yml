@@ -2,10 +2,11 @@ twig:
     debug:                              "%kernel.debug%"
     globals:
         age_limit:                      "%wyd2016.age.limit%"
+        defaultLocale:                  "%locale%"
         locales:                        "%locales%"
         main_page:                      "%wyd2016.main_page%"
         min_age_adult:                  "%wyd2016.age.min_adult%"
-        wyd_page_url:                   "%wyd2016.wyd_page_url%"
+        wyd_page:                       "%wyd2016.wyd_page%"
     strict_variables:                   "%kernel.debug%"
 
 services:

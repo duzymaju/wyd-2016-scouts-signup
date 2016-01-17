@@ -46,4 +46,8 @@ parameters:
     wyd2016.size.max_troop:             6
     wyd2016.size.min_group:             2
     wyd2016.size.min_troop:             2
-    wyd2016.wyd_page_url:               http://www.krakow2016.com
+    wyd2016.wyd_page:
+        url:
+            en:                         http://www.krakow2016.com/en
+            es:                         http://www.krakow2016.com/es
+            pl:                         http://www.krakow2016.com

@@ -89,11 +89,16 @@
 {% endmacro %}
 
 {% macro mainPage(type = 'url') %}{% spaceless %}
-    {{ main_page.url[app.request.locale] }}{{ type != 'url' ? main_page[type][app.request.locale] : '' }}
+    {{ _self.externalPage(main_page, type) }}
 {% endspaceless %}{% endmacro %}
 
-{% macro wydPage() %}{% spaceless %}
-    {{ wyd_page_url }}{{ app.request.locale != 'pl' ? '/' ~ app.request.locale : '' }}
+{% macro wydPage(type = 'url') %}{% spaceless %}
+    {{ _self.externalPage(wyd_page, type) }}
+{% endspaceless %}{% endmacro %}
+
+{% macro externalPage(data, type = 'url') %}{% spaceless %}
+    {% set currentLocale = app.request.locale in locales ? app.request.locale : defaultLocale %}
+    {{ data.url[currentLocale] }}{{ type != 'url' ? data[type][currentLocale] : '' }}
 {% endspaceless %}{% endmacro %}
 
 {% macro formInfo(text, tooltipPlacement = 'left') %}
