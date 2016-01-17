@@ -52,7 +52,7 @@
         {% if options.date is defined %}
             <div class="input-group date">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                {{ form_widget(element, {attr: {class: 'span2 form-control', size: 16, readonly: 'readonly'}}) }}
+                {{ form_widget(element, {attr: {class: 'span2 form-control', maxlength: 10, pattern: '[0-9]{4}-[0-9]{2}-[0-9]{2}', placeholder: 'YYYY-MM-DD'}}) }}
             </div>
         {% else %}
             {{ form_widget(element, {attr: {class: 'form-control'}}) }}

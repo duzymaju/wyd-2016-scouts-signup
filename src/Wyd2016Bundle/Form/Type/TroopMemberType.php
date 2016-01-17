@@ -32,10 +32,7 @@ class TroopMemberType extends AbstractType
     }
 
     /**
-     * Build form
-     *
-     * @param FormBuilderInterface $builder builder
-     * @param array                $options options
+     * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -72,9 +69,7 @@ class TroopMemberType extends AbstractType
     }
 
     /**
-     * Set default options
-     *
-     * @param OptionsResolverInterface $resolver resolver
+     * {@inheritdoc}
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
@@ -84,9 +79,7 @@ class TroopMemberType extends AbstractType
     }
 
     /**
-     * Get name
-     *
-     * @return string
+     * {@inheritdoc}
      */
     public function getName()
     {

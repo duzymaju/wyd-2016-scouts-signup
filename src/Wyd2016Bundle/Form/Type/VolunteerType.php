@@ -37,10 +37,7 @@ class VolunteerType extends AbstractType
     }
 
     /**
-     * Build form
-     *
-     * @param FormBuilderInterface $builder builder
-     * @param array                $options options
+     * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -134,9 +131,7 @@ class VolunteerType extends AbstractType
     }
 
     /**
-     * Get name
-     *
-     * @return string
+     * {@inheritdoc}
      */
     public function getName()
     {

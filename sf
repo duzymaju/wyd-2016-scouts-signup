@@ -1,0 +1,19 @@
+#!/bin/bash
+
+<<COMMENT
+
+app/console assets:install public_html
+
+app/console doctrine:migrations:diff
+app/console doctrine:migrations:migrate
+app/console doctrine:migrations:status
+
+app/console fos:user:create user --super-admin
+app/console fos:user:promote user ROLE_ADMIN
+
+app/console translation:extract --config=routes --keep pl en
+app/console translation:update --output-format=yml --dump-messages en SelectedBundle
+
+COMMENT
+
+app/console $@

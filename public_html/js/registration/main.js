@@ -161,6 +161,7 @@
     var addTools = function (range) {
         range.find('[data-toggle="tooltip"]').tooltip();
         range.find('.input-group.date').datepicker({
+            endDate: '0d',
             format: 'yyyy-mm-dd',
             language: $('html').attr('lang')
         });
