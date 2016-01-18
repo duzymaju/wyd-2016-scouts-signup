@@ -86,7 +86,6 @@ class RegistrationController extends Controller
             $group->setStatus(Group::STATUS_NOT_CONFIRMED)
                 ->setActivationHash($hash)
                 ->setCreatedAt($createdAt);
-            $usedEmails = array();
             foreach ($group->getMembers() as $i => $member) {
                 /** @var Pilgrim $member */
                 $isLeader = $member === $group->getLeader();
@@ -100,12 +99,6 @@ class RegistrationController extends Controller
 
                 /** @var FormInterface $memberView */
                 $memberView = $form->get('members')->get($i);
-                // Validates e-mail duplication
-                if (in_array($member->getEmail(), $usedEmails)) {
-                    $memberView->get('email')
-                        ->addError(new FormError($translator->trans('form.error.email_duplicated')));
-                }
-                $usedEmails[] = $member->getEmail();
                 // Validates age
                 $this->validateAge($member, $memberView->get('birthDate'),
                     $isLeader ? 'wyd2016.age.min_adult' : 'wyd2016.age.min_group_member');
@@ -252,8 +245,6 @@ class RegistrationController extends Controller
                 $languages->add($language);
             }
             $isPolish = $this->isPolish($form);
-            $usedEmails = array();
-            $usedPesels = array();
             foreach ($troop->getMembers() as $i => $member) {
                 /** @var Volunteer $member */
                 $isLeader = $member === $troop->getLeader();
@@ -281,12 +272,6 @@ class RegistrationController extends Controller
 
                 /** @var FormInterface $memberView */
                 $memberView = $form->get('members')->get($i);
-                // Validates e-mail duplication
-                if (in_array($member->getEmail(), $usedEmails)) {
-                    $memberView->get('email')
-                        ->addError(new FormError($translator->trans('form.error.email_duplicated')));
-                }
-                $usedEmails[] = $member->getEmail();
                 // Validates age
                 $this->validateAge($member, $memberView->get($isPolish ? 'pesel' : 'birthDate'),
                     $isLeader ? 'wyd2016.age.min_adult' : 'wyd2016.age.min_troop_member');
@@ -296,12 +281,6 @@ class RegistrationController extends Controller
                         $memberView->get('pesel')
                             ->addError(new FormError($translator->trans('form.error.pesel_empty')));
                     }
-                    // Validates PESEL duplication
-                    if (in_array($member->getPesel(), $usedPesels)) {
-                        $memberView->get('pesel')
-                            ->addError(new FormError($translator->trans('form.error.pesel_duplicated')));
-                    }
-                    $usedPesels[] = $member->getPesel();
                     if ($isLeader) {
                         // Validates leader grade
                         if ($member->getGradeId() == $registrationLists::GRADE_NO) {

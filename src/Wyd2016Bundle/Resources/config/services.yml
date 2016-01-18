@@ -3,3 +3,13 @@ services:
         arguments:
             -                           @translator
         class:                          Wyd2016Bundle\Form\RegistrationLists
+
+    wyd2016bundle.validator.unique_entities:
+        calls:
+            -                           [addRepository, [@wyd2016bundle.pilgrim.repository, Pilgrim]]
+            -                           [addRepository, [@wyd2016bundle.volunteer.repository, Volunteer]]
+        class:                          Wyd2016Bundle\Validator\Constraints\UniqueEntitiesValidator
+        tags:
+            -
+                name:                   validator.constraint_validator
+                alias:                  unique_entities

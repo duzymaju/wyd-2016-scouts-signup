@@ -4,12 +4,10 @@ namespace Wyd2016Bundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
-use UnexpectedValueException;
+use Symfony\Component\Validator\Exception\InvalidArgumentException;
 
 /**
- * Validator Constraints
- *
- * @Annotation
+ * Validator constraints
  */
 class ContainsPeselValidator extends ConstraintValidator
 {
@@ -27,7 +25,7 @@ class ContainsPeselValidator extends ConstraintValidator
 
         try {
             if (!preg_match('#^[0-9]{11}$#', $value)) {
-                throw new UnexpectedValueException($constraint->message);
+                throw new InvalidArgumentException($constraint->message);
             }
             $step = array(
                 1,
@@ -47,9 +45,9 @@ class ContainsPeselValidator extends ConstraintValidator
             }
             $sum2 = 10 - $sum1 % 10;
             if (($sum2 == 10 ? 0 : $sum2) != $value[10]) {
-                throw new UnexpectedValueException($constraint->message);
+                throw new InvalidArgumentException($constraint->message);
             }
-        } catch (UnexpectedValueException $e) {
+        } catch (InvalidArgumentException $e) {
             $this->context->buildViolation($e->getMessage())
                 ->addViolation();
         }

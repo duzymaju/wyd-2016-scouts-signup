@@ -6,6 +6,10 @@
                 <source>This is not a valid PESEL number.</source>
                 <target>To nie jest poprawny numer PESEL.</target>
             </trans-unit>
+            <trans-unit id="2">
+                <source>This value is already used.</source>
+                <target>Ta wartość jest już wykorzystywana.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

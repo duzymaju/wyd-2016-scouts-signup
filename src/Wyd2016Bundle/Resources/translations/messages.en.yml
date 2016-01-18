@@ -24,9 +24,7 @@ form.district:                          District
 form.error.age_too_high:                Maximum age is %age%.
 form.error.age_too_low:                 Minimum age is %age%.
 form.error.district_invalid:            Selected district doesn't belong to selected region.
-form.error.email_duplicated:            E-mail address can't be duplicated.
 form.error.grade_inproper:              Leader should have at least guide grade.
-form.error.pesel_duplicated:            PESEL can't be duplicated.
 form.error.pesel_empty:                 PESEL field can't be empty.
 form.error.services_duplicated:         Preferred services have to be different.
 form.exception.database:                An error occured during data saving - please try again.

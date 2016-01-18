@@ -24,9 +24,7 @@ form.district:                          Hufiec
 form.error.age_too_high:                Maksymalny wiek to %age% lat.
 form.error.age_too_low:                 Minimalny wiek to %age% lat.
 form.error.district_invalid:            Wybrany hufiec nie należy do wybranej chorągwi.
-form.error.email_duplicated:            Adres e-mail nie może być powtórzony.
 form.error.grade_inproper:              Patrolowy powinien posiadać przynajmniej stopień przewodnika.
-form.error.pesel_duplicated:            PESEL nie może być powtórzony.
 form.error.pesel_empty:                 Pole z PESELem nie może być puste.
 form.error.services_duplicated:         Preferowane służby muszą być różne.
 form.exception.database:                Wystąpił błąd podczas zapisu danych - prosimy spróbować ponownie.

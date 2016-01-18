@@ -5,9 +5,7 @@ namespace Wyd2016Bundle\Validator\Constraints;
 use Symfony\Component\Validator\Constraint;
 
 /**
- * Validator Constraints
- *
- * @Annotation
+ * Validator constraints
  */
 class ContainsPesel extends Constraint
 {
