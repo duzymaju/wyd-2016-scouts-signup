@@ -3,7 +3,7 @@
 ## Deployment:
 * all environments:
   * clear local caches,
-  * generate assets using `assets:install public_html` command,
+  * generate assets using `assetic:dump --env=prod` command,
   * temporarily change local `parameters.yml` to proper one,
   * pack `app`, `public_html`, `src` and `vendors` dirs, upload it and replace with existing ones, remember to copy data to `public_html` dir instead of replacing it,
   * make proper database migration (if manual, remember to add new migration versions to `migration_versions` table),

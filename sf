@@ -2,6 +2,8 @@
 
 <<COMMENT
 
+app/console assetic:dump --env=prod
+
 app/console assets:install public_html
 
 app/console doctrine:migrations:diff
