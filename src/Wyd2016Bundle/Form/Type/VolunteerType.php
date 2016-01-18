@@ -2,38 +2,23 @@
 
 namespace Wyd2016Bundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Wyd2016Bundle\Form\DataTransformer\LanguagesCollectionTransformer;
 use Wyd2016Bundle\Form\RegistrationLists;
 
 /*
- * Form Type
+ * Form type
  */
 class VolunteerType extends AbstractType
 {
-    /** @var TranslatorInterface */
-    protected $translator;
-
-    /** @var string */
-    protected $locale;
-
-    /** @var RegistrationLists */
-    protected $registrationLists;
-
     /**
-     * Constructor
-     *
-     * @param TranslatorInterface $translator        translator
-     * @param string              $locale            locale
-     * @param RegistrationLists   $registrationLists registration lists
+     * {@inheritdoc}
      */
-    public function __construct(TranslatorInterface $translator, $locale, RegistrationLists $registrationLists)
+    public function __construct(TranslatorInterface $translator, RegistrationLists $registrationLists)
     {
-        $this->translator = $translator;
-        $this->locale = $locale;
-        $this->registrationLists = $registrationLists;
+        parent::__construct($translator, $registrationLists);
+        $this->loadValidation('Volunteer');
     }
 
     /**
@@ -43,85 +28,85 @@ class VolunteerType extends AbstractType
     {
         unset($options);
 
-        $builder->add('firstName', 'text', array(
+        $builder->add('firstName', 'text', $this->mergeOptions('firstName', array(
             'label' => $this->translator->trans('form.first_name'),
-        ))
-        ->add('lastName', 'text', array(
+        )))
+        ->add('lastName', 'text', $this->mergeOptions('lastName', array(
             'label' => $this->translator->trans('form.last_name'),
-        ))
-        ->add('address', 'text', array(
+        )))
+        ->add('address', 'text', $this->mergeOptions('address', array(
             'label' => $this->translator->trans('form.address'),
-        ))
-        ->add('phone', 'text', array(
+        )))
+        ->add('phone', 'text', $this->mergeOptions('phone', array(
             'label' => $this->translator->trans('form.phone'),
-        ))
-        ->add('email', 'email', array(
+        )))
+        ->add('email', 'email', $this->mergeOptions('email', array(
             'label' => $this->translator->trans('form.email'),
-        ))
-        ->add('country', 'country', array(
+        )))
+        ->add('country', 'country', $this->mergeOptions('country', array(
             'label' => $this->translator->trans('form.country'),
             'preferred_choices' => array(
                 strtoupper($this->locale),
             ),
-        ))
-        ->add('birthDate', 'date', array(
+        )))
+        ->add('birthDate', 'date', $this->mergeOptions('birthDate', array(
             'label' => $this->translator->trans('form.birth_date'),
             'required' => false,
             'widget' => 'single_text',
-        ))
-        ->add('gradeId', 'choice', array(
+        )))
+        ->add('gradeId', 'choice', $this->mergeOptions('gradeId', array(
             'choices' => $this->registrationLists->getGrades(),
             'label' => $this->translator->trans('form.grade'),
-        ))
-        ->add('regionId', 'choice', array(
+        )))
+        ->add('regionId', 'choice', $this->mergeOptions('regionId', array(
             'choices' => $this->registrationLists->getRegions(),
             'label' => $this->translator->trans('form.region'),
-        ))
-        ->add('districtId', 'choice', array(
+        )))
+        ->add('districtId', 'choice', $this->mergeOptions('districtId', array(
             'choices' => $this->registrationLists->getDistricts(),
             'label' => $this->translator->trans('form.district'),
-        ))
-        ->add('pesel', 'text', array(
+        )))
+        ->add('pesel', 'text', $this->mergeOptions('pesel', array(
             'label' => $this->translator->trans('form.pesel'),
             'required' => false,
-        ))
-        ->add('serviceMainId', 'choice', array(
+        )))
+        ->add('serviceMainId', 'choice', $this->mergeOptions('serviceMainId', array(
             'choices' => $this->registrationLists->getServices(),
             'label' => $this->translator->trans('form.serviceMain'),
-        ))
-        ->add('serviceExtraId', 'choice', array(
+        )))
+        ->add('serviceExtraId', 'choice', $this->mergeOptions('serviceExtraId', array(
             'choices' => $this->registrationLists->getServices(),
             'label' => $this->translator->trans('form.serviceExtra'),
-        ))
-        ->add('languages', 'choice', array(
+        )))
+        ->add('languages', 'choice', $this->mergeOptions('languages', array(
             'choices' => $this->registrationLists->getLanguages(),
             'label' => $this->translator->trans('form.languages'),
             'multiple' => true,
             'required' => false,
-        ))
-        ->add('permissions', 'text', array(
+        )))
+        ->add('permissions', 'text', $this->mergeOptions('permissions', array(
             'label' => $this->translator->trans('form.permissions'),
             'required' => false,
-        ))
-        ->add('profession', 'text', array(
+        )))
+        ->add('profession', 'text', $this->mergeOptions('profession', array(
             'label' => $this->translator->trans('form.profession'),
             'required' => false,
-        ))
-        ->add('datesId', 'choice', array(
+        )))
+        ->add('datesId', 'choice', $this->mergeOptions('datesId', array(
             'choices' => $this->registrationLists->getVolunteerDates(),
             'label' => $this->translator->trans('form.dates'),
-        ))
-        ->add('comments', 'text', array(
+        )))
+        ->add('comments', 'text', $this->mergeOptions('comments', array(
             'label' => $this->translator->trans('form.comments'),
             'required' => false,
-        ))
-        ->add('personalData', 'checkbox', array(
+        )))
+        ->add('personalData', 'checkbox', $this->mergeOptions('personalData', array(
             'label' => $this->translator->trans('form.personal_data'),
             'mapped' => false,
-        ))
-        ->add('rules', 'checkbox', array(
+        )))
+        ->add('rules', 'checkbox', $this->mergeOptions('rules', array(
             'mapped' => false,
-        ))
+        )))
         ->add('save', 'submit', array(
             'label' => $this->translator->trans('form.save'),
         ));

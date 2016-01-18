@@ -2,33 +2,23 @@
 
 namespace Wyd2016Bundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Wyd2016Bundle\Form\RegistrationLists;
 
 /*
- * Form Type
+ * Form type
  */
 class TroopMemberType extends AbstractType
 {
-    /** @var TranslatorInterface */
-    protected $translator;
-
-    /** @var RegistrationLists */
-    protected $registrationLists;
-
     /**
-     * Constructor
-     *
-     * @param TranslatorInterface $translator        translator
-     * @param RegistrationLists   $registrationLists registration lists
+     * {@inheritdoc}
      */
     public function __construct(TranslatorInterface $translator, RegistrationLists $registrationLists)
     {
-        $this->translator = $translator;
-        $this->registrationLists = $registrationLists;
+        parent::__construct($translator, $registrationLists);
+        $this->loadValidation('Volunteer');
     }
 
     /**
@@ -38,34 +28,34 @@ class TroopMemberType extends AbstractType
     {
         unset($options);
 
-        $builder->add('firstName', 'text', array(
+        $builder->add('firstName', 'text', $this->mergeOptions('firstName', array(
             'label' => $this->translator->trans('form.first_name'),
-        ))
-        ->add('lastName', 'text', array(
+        )))
+        ->add('lastName', 'text', $this->mergeOptions('lastName', array(
             'label' => $this->translator->trans('form.last_name'),
-        ))
-        ->add('address', 'text', array(
+        )))
+        ->add('address', 'text', $this->mergeOptions('address', array(
             'label' => $this->translator->trans('form.address'),
-        ))
-        ->add('phone', 'text', array(
+        )))
+        ->add('phone', 'text', $this->mergeOptions('phone', array(
             'label' => $this->translator->trans('form.phone'),
-        ))
-        ->add('email', 'email', array(
+        )))
+        ->add('email', 'email', $this->mergeOptions('email', array(
             'label' => $this->translator->trans('form.email'),
-        ))
-        ->add('birthDate', 'date', array(
+        )))
+        ->add('birthDate', 'date', $this->mergeOptions('birthDate', array(
             'label' => $this->translator->trans('form.birth_date'),
             'required' => false,
             'widget' => 'single_text',
-        ))
-        ->add('pesel', 'text', array(
+        )))
+        ->add('pesel', 'text', $this->mergeOptions('pesel', array(
             'label' => $this->translator->trans('form.pesel'),
             'required' => false,
-        ))
-        ->add('gradeId', 'choice', array(
+        )))
+        ->add('gradeId', 'choice', $this->mergeOptions('gradeId', array(
             'choices' => $this->registrationLists->getGrades(),
             'label' => $this->translator->trans('form.grade'),
-        ));
+        )));
     }
 
     /**

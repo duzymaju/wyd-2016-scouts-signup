@@ -55,7 +55,7 @@ class RegistrationController extends Controller
         $translator = $this->get('translator');
         /** @var RegistrationLists $registrationLists */
         $registrationLists = $this->get('wyd2016bundle.registration.lists');
-        $formType = new GroupType($translator, $request->getLocale(), $registrationLists);
+        $formType = new GroupType($translator, $registrationLists);
 
         $group = new Group();
         $leader = new Pilgrim();
@@ -145,8 +145,7 @@ class RegistrationController extends Controller
      */
     public function pilgrimFormAction(Request $request)
     {
-        $formType = new PilgrimType($this->get('translator'), $request->getLocale(),
-            $this->get('wyd2016bundle.registration.lists'));
+        $formType = new PilgrimType($this->get('translator'), $this->get('wyd2016bundle.registration.lists'));
 
         $pilgrim = new Pilgrim();
         $form = $this->createForm($formType, $pilgrim, array(
@@ -206,7 +205,7 @@ class RegistrationController extends Controller
         $translator = $this->get('translator');
         /** @var RegistrationLists $registrationLists */
         $registrationLists = $this->get('wyd2016bundle.registration.lists');
-        $formType = new TroopType($translator, $request->getLocale(), $registrationLists);
+        $formType = new TroopType($translator, $registrationLists);
 
         $troop = new Troop();
         $leader = new Volunteer();
@@ -343,8 +342,7 @@ class RegistrationController extends Controller
         /** @var TranslatorInterface */
         $translator = $this->get('translator');
 
-        $formType = new VolunteerType($this->get('translator'), $request->getLocale(),
-            $this->get('wyd2016bundle.registration.lists'));
+        $formType = new VolunteerType($this->get('translator'), $this->get('wyd2016bundle.registration.lists'));
 
         $volunteer = new Volunteer();
         $form = $this->createForm($formType, $volunteer, array(

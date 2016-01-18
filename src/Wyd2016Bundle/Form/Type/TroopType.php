@@ -2,38 +2,23 @@
 
 namespace Wyd2016Bundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Wyd2016Bundle\Form\RegistrationLists;
 
 /*
- * Form Type
+ * Form type
  */
 class TroopType extends AbstractType
 {
-    /** @var TranslatorInterface */
-    protected $translator;
-
-    /** @var string */
-    protected $locale;
-
-    /** @var RegistrationLists */
-    protected $registrationLists;
-
     /**
-     * Constructor
-     *
-     * @param TranslatorInterface $translator        translator
-     * @param string              $locale            locale
-     * @param RegistrationLists   $registrationLists registration lists
+     * {@inheritdoc}
      */
-    public function __construct(TranslatorInterface $translator, $locale, RegistrationLists $registrationLists)
+    public function __construct(TranslatorInterface $translator, RegistrationLists $registrationLists)
     {
-        $this->translator = $translator;
-        $this->locale = $locale;
-        $this->registrationLists = $registrationLists;
+        parent::__construct($translator, $registrationLists);
+        $this->loadValidation('Troop');
     }
 
     /**
@@ -43,44 +28,44 @@ class TroopType extends AbstractType
     {
         unset($options);
 
-        $builder->add('name', 'text', array(
+        $builder->add('name', 'text', $this->mergeOptions('name', array(
             'label' => $this->translator->trans('form.troopName'),
-        ))
-        ->add('country', 'country', array(
+        )))
+        ->add('country', 'country', $this->mergeOptions('country', array(
             'label' => $this->translator->trans('form.country'),
             'mapped' => false,
             'preferred_choices' => array(
                 strtoupper($this->locale),
             ),
-        ))
-        ->add('regionId', 'choice', array(
+        )))
+        ->add('regionId', 'choice', $this->mergeOptions('regionId', array(
             'choices' => $this->registrationLists->getRegions(),
             'label' => $this->translator->trans('form.region'),
             'mapped' => false,
-        ))
-        ->add('districtId', 'choice', array(
+        )))
+        ->add('districtId', 'choice', $this->mergeOptions('districtId', array(
             'choices' => $this->registrationLists->getDistricts(),
             'label' => $this->translator->trans('form.district'),
             'mapped' => false,
-        ))
-        ->add('languages', 'choice', array(
+        )))
+        ->add('languages', 'choice', $this->mergeOptions('languages', array(
             'choices' => $this->registrationLists->getLanguages(),
             'label' => $this->translator->trans('form.languages'),
             'mapped' => false,
             'multiple' => true,
             'required' => false,
-        ))
-        ->add('permissions', 'text', array(
+        )))
+        ->add('permissions', 'text', $this->mergeOptions('permissions', array(
             'label' => $this->translator->trans('form.permissions'),
             'mapped' => false,
             'required' => false,
-        ))
-        ->add('profession', 'text', array(
+        )))
+        ->add('profession', 'text', $this->mergeOptions('profession', array(
             'label' => $this->translator->trans('form.profession'),
             'mapped' => false,
             'required' => false,
-        ))
-        ->add('members', 'collection', array(
+        )))
+        ->add('members', 'collection', $this->mergeOptions('members', array(
             'allow_add' => true,
             'allow_delete' => false,
             'by_reference' => false,
@@ -88,22 +73,22 @@ class TroopType extends AbstractType
             'validation_groups' => array(
                 'troopMember',
             ),
-        ))
-        ->add('datesId', 'choice', array(
+        )))
+        ->add('datesId', 'choice', $this->mergeOptions('datesId', array(
             'choices' => $this->registrationLists->getVolunteerDates(),
             'label' => $this->translator->trans('form.dates'),
-        ))
-        ->add('comments', 'text', array(
+        )))
+        ->add('comments', 'text', $this->mergeOptions('comments', array(
             'label' => $this->translator->trans('form.comments'),
             'required' => false,
-        ))
-        ->add('personalData', 'checkbox', array(
+        )))
+        ->add('personalData', 'checkbox', $this->mergeOptions('personalData', array(
             'label' => $this->translator->trans('form.personal_data'),
             'mapped' => false,
-        ))
-        ->add('rules', 'checkbox', array(
+        )))
+        ->add('rules', 'checkbox', $this->mergeOptions('rules', array(
             'mapped' => false,
-        ))
+        )))
         ->add('save', 'submit', array(
             'label' => $this->translator->trans('form.save'),
         ));

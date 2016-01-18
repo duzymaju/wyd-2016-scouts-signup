@@ -2,38 +2,23 @@
 
 namespace Wyd2016Bundle\Form\Type;
 
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Wyd2016Bundle\Form\RegistrationLists;
 
 /*
- * Form Type
+ * Form type
  */
 class GroupType extends AbstractType
 {
-    /** @var TranslatorInterface */
-    protected $translator;
-
-    /** @var string */
-    protected $locale;
-
-    /** @var RegistrationLists */
-    protected $registrationLists;
-
     /**
-     * Constructor
-     *
-     * @param TranslatorInterface $translator        translator
-     * @param string              $locale            locale
-     * @param RegistrationLists   $registrationLists registration lists
+     * {@inheritdoc}
      */
-    public function __construct(TranslatorInterface $translator, $locale, RegistrationLists $registrationLists)
+    public function __construct(TranslatorInterface $translator, RegistrationLists $registrationLists)
     {
-        $this->translator = $translator;
-        $this->locale = $locale;
-        $this->registrationLists = $registrationLists;
+        parent::__construct($translator, $registrationLists);
+        $this->loadValidation('Group');
     }
 
     /**
@@ -43,25 +28,25 @@ class GroupType extends AbstractType
     {
         unset($options);
 
-        $builder->add('name', 'text', array(
+        $builder->add('name', 'text', $this->mergeOptions('name', array(
             'label' => $this->translator->trans('form.groupName'),
-        ))
-        ->add('country', 'country', array(
+        )))
+        ->add('country', 'country', $this->mergeOptions('country', array(
             'label' => $this->translator->trans('form.country'),
             'mapped' => false,
             'preferred_choices' => array(
                 strtoupper($this->locale),
             ),
-        ))
-        ->add('datesId', 'choice', array(
+        )))
+        ->add('datesId', 'choice', $this->mergeOptions('datesId', array(
             'choices' => $this->registrationLists->getPilgrimDates(),
             'label' => $this->translator->trans('form.dates'),
-        ))
-        ->add('comments', 'text', array(
+        )))
+        ->add('comments', 'text', $this->mergeOptions('comments', array(
             'label' => $this->translator->trans('form.comments'),
             'required' => false,
-        ))
-        ->add('members', 'collection', array(
+        )))
+        ->add('members', 'collection', $this->mergeOptions('members', array(
             'allow_add' => true,
             'allow_delete' => false,
             'by_reference' => false,
@@ -69,14 +54,14 @@ class GroupType extends AbstractType
             'validation_groups' => array(
                 'groupMember',
             ),
-        ))
-        ->add('personalData', 'checkbox', array(
+        )))
+        ->add('personalData', 'checkbox', $this->mergeOptions('personalData', array(
             'label' => $this->translator->trans('form.personal_data'),
             'mapped' => false,
-        ))
-        ->add('rules', 'checkbox', array(
+        )))
+        ->add('rules', 'checkbox', $this->mergeOptions('rules', array(
             'mapped' => false,
-        ))
+        )))
         ->add('save', 'submit', array(
             'label' => $this->translator->trans('form.save'),
         ));

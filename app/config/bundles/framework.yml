@@ -24,4 +24,5 @@ framework:
     trusted_hosts:                      ~
     trusted_proxies:                    ~
     validation:
-        enable_annotations:             true
+        enable_annotations:             false
+        enabled:                        true
