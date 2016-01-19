@@ -1,9 +1,9 @@
-{% extends 'Wyd2016Bundle:registration:template.html.twig' %}
+{% extends 'Wyd2016Bundle:registration:_template.html.twig' %}
 {% import "Wyd2016Bundle:registration:_macro.html.twig" as macro %}
 
 {% set pageTitle = 'group.form.title'|trans %}
 
-{% block body %}
+{% block content %}
     {{ macro.flashBagMessages('error', true) }}
     <h1>{{ 'group.form.title'|trans }}</h1>
     <p>{{ 'group.form.description'|trans({'%age%': min_age_member, '%date%': age_limit, '%min_size%': min_size, '%max_size%': max_size}) }}</p>

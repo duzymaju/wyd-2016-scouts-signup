@@ -1,9 +1,9 @@
-{% extends 'Wyd2016Bundle:registration:template.html.twig' %}
+{% extends 'Wyd2016Bundle:registration:_template.html.twig' %}
 {% import "Wyd2016Bundle:registration:_macro.html.twig" as macro %}
 
 {% set pageTitle = 'success.title'|trans %}
 
-{% block body %}
+{% block content %}
     {{ macro.flashBagMessages('success', true) }}
     {{ macro.nextStepsBox() }}
 {% endblock %}
