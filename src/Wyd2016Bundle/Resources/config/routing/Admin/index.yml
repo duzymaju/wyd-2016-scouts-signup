@@ -1,0 +1,5 @@
+admin_index:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin:index
+    methods:                            [GET]
+    path:                               /admin

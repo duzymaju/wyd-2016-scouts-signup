@@ -1,11 +1,14 @@
-# Desc: /login_check
-fos_user_security_check: /login_check
+# Desc: /admin
+admin_index: /admin
 
-# Desc: /login
-fos_user_security_login: /login
+# Desc: /admin/login_check
+fos_user_security_check: /admin/login_check
 
-# Desc: /logout
-fos_user_security_logout: /logout
+# Desc: /admin/login
+fos_user_security_login: /admin/login
+
+# Desc: /admin/logout
+fos_user_security_logout: /admin/logout
 
 # Desc: /group/{hash}/confirm
 registration_group_confirm: '/grupa/{hash}/potwierdz'

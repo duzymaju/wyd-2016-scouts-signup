@@ -1,5 +1,9 @@
 _fos_user_security:
+    prefix:                             /admin
     resource:                           "@FOSUserBundle/Resources/config/routing/security.xml"
+
+_admin_index:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/index.yml"
 
 _registration_group_confirm:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/group_confirm.yml"

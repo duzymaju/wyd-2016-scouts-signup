@@ -20,7 +20,7 @@ security:
             requires_channel:           %requires_channel%
             role:                       IS_AUTHENTICATED_ANONYMOUSLY
     encoders:
-        FOS\UserBundle\Model\UserInterface: bcrypt
+        FOS\UserBundle\Model\UserInterface: sha512
     firewalls:
         internal:
             pattern:                    ^/(_(profiler|wdt)|css|images|js)/
@@ -30,13 +30,13 @@ security:
             form_login:
                 check_path:             fos_user_security_check
                 csrf_provider:          form.csrf_provider
-                default_target_path:    admin
+                default_target_path:    admin_index
                 login_path:             fos_user_security_login
                 provider:               fos_userbundle
                 use_referer:            true
             logout:
                 path:                   fos_user_security_logout
-                target:                 admin
+                target:                 fos_user_security_login
             pattern:                    ^/%locales_pattern%/admin
         default:
             anonymous:                  true
