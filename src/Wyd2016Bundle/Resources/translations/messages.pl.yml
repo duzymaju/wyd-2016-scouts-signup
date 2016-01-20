@@ -1,3 +1,10 @@
+admin.header:                           Panel administracyjny
+admin.login.password:                   Hasło
+admin.login.submit:                     Zaloguj
+admin.login.username:                   Nazwa użytkownika
+admin.logout.link:                      Wyloguj
+admin.title:                            Administracja ZHP ŚDM Kraków 2016
+
 confirmation.error:                     Twoja rejestracja została już potwierdzona lub posiadasz nieprawidłowy link potwierdzenia
 confirmation.success:                   Twoja rejestracja została prawidłowo potwierdzona
 confirmation.title:                     Potwierdzenie rejestracji

@@ -2,13 +2,13 @@
 admin_index: /admin
 
 # Desc: /admin/login_check
-fos_user_security_check: /admin/login_check
+fos_user_security_check: /admin/sprawdz
 
 # Desc: /admin/login
-fos_user_security_login: /admin/login
+fos_user_security_login: /admin/zaloguj
 
 # Desc: /admin/logout
-fos_user_security_logout: /admin/logout
+fos_user_security_logout: /admin/wyloguj
 
 # Desc: /group/{hash}/confirm
 registration_group_confirm: '/grupa/{hash}/potwierdz'

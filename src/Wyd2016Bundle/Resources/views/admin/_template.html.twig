@@ -1,5 +1,11 @@
 {% extends 'Wyd2016Bundle::_layout.html.twig' %}
 
+{% block title %}
+    {{ pageTitle is defined ? pageTitle ~ ' - ' }}{{ 'admin.title'|trans }}
+{% endblock %}
+
 {% block body %}
+    <h1>{{ 'admin.header'|trans }}</h1>
+    <a href="{{ path('fos_user_security_logout') }}">{{ 'admin.logout.link'|trans }}</a>
     {% block content %}{% endblock %}
 {% endblock %}

@@ -7,7 +7,7 @@ security:
             role:                       IS_AUTHENTICATED_ANONYMOUSLY
         # admin
         -
-            path:                       ^/%locales_pattern%/admin/(login|register|resetting)$
+            path:                       ^/%locales_pattern%/admin/(login|zaloguj)$
             requires_channel:           %requires_channel%
             role:                       IS_AUTHENTICATED_ANONYMOUSLY
         -
@@ -33,6 +33,7 @@ security:
                 default_target_path:    admin_index
                 login_path:             fos_user_security_login
                 provider:               fos_userbundle
+                remember_me:            false
                 use_referer:            true
             logout:
                 path:                   fos_user_security_logout

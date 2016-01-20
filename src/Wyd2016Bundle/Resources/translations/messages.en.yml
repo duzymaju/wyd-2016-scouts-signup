@@ -1,3 +1,10 @@
+admin.header:                           Administration panel
+admin.login.password:                   Password
+admin.login.submit:                     Log in
+admin.login.username:                   Username
+admin.logout.link:                      Logout
+admin.title:                            Administration ZHP WYD Krakow 2016
+
 confirmation.error:                     Your registration is already confirmed or you have wrong confirmation link
 confirmation.success:                   Your registration was successfully confirmed
 confirmation.title:                     Registration confirmation
