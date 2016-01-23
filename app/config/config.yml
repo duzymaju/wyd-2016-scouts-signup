@@ -20,8 +20,9 @@ parameters:
     locale:                             en
     locales:
         -                               en
+        -                               es
         -                               pl
-    locales_pattern:                    (en|pl)
+    locales_pattern:                    (en|es|pl)
     requires_channel:                   http
 
     wyd2016.admin.pack_size:            20

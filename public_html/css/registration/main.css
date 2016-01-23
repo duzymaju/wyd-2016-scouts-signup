@@ -28,6 +28,9 @@ span.header-locale-item {
 .header-locale-en {
     background-image: url('../img/flags/en.png');
 }
+.header-locale-es {
+    background-image: url('../img/flags/es.png');
+}
 .header-locale-pl {
     background-image: url('../img/flags/pl.png');
 }

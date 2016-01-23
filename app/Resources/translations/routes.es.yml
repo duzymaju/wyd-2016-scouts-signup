@@ -1,0 +1,65 @@
+# Desc: /admin/groups/{pageNo}
+admin_group_index: '/admin/groups/{pageNo}'
+
+# Desc: /admin/group/{id}
+admin_group_show: '/admin/group/{id}'
+
+# Desc: /admin
+admin_index: /admin
+
+# Desc: /admin/pilgrims/{pageNo}
+admin_pilgrim_index: '/admin/pilgrims/{pageNo}'
+
+# Desc: /admin/pilgrim/{id}
+admin_pilgrim_show: '/admin/pilgrim/{id}'
+
+# Desc: /admin/troops/{pageNo}
+admin_troop_index: '/admin/troops/{pageNo}'
+
+# Desc: /admin/troop/{id}
+admin_troop_show: '/admin/troop/{id}'
+
+# Desc: /admin/volunteers/{pageNo}
+admin_volunteer_index: '/admin/volunteers/{pageNo}'
+
+# Desc: /admin/volunteer/{id}
+admin_volunteer_show: '/admin/volunteer/{id}'
+
+# Desc: /admin/login_check
+fos_user_security_check: /admin/login_check
+
+# Desc: /admin/login
+fos_user_security_login: /admin/login
+
+# Desc: /admin/logout
+fos_user_security_logout: /admin/logout
+
+# Desc: /group/{hash}/confirm
+registration_group_confirm: '/grupo-peregrinos/{hash}/confirmar'
+
+# Desc: /group
+registration_group_form: /grupo-peregrinos
+
+# Desc: /
+registration_index: /
+
+# Desc: /pilgrim/{hash}/confirm
+registration_pilgrim_confirm: '/peregrino/{hash}/confirmar'
+
+# Desc: /pilgrim
+registration_pilgrim_form: /peregrino
+
+# Desc: /success
+registration_success: /exito
+
+# Desc: /troop/{hash}/confirm
+registration_troop_confirm: '/grupo-voluntarios/{hash}/confirmar'
+
+# Desc: /troop
+registration_troop_form: /grupo-voluntarios
+
+# Desc: /volunteer/{hash}/confirm
+registration_volunteer_confirm: '/voluntario/{hash}/confirmar'
+
+# Desc: /volunteer
+registration_volunteer_form: /voluntario

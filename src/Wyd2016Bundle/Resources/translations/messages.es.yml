@@ -1,0 +1,144 @@
+admin.age_at_limit:                     Age at %date%
+admin.country:                          Country
+admin.created_at:                       Created time
+admin.show:                             Show
+admin.group:                            Group
+admin.group_leader:                     troop leader
+admin.group_members:                    Group members (%count%)
+admin.groups:                           Groups
+admin.groups.widget:                    Groups (last %limit%)
+admin.header:                           ZHP WYD 2016
+admin.login.password:                   Password
+admin.login.submit:                     Log in
+admin.login.username:                   Username
+admin.logout.link:                      Logout <strong>%login%</strong>
+admin.name:                             Name
+admin.pilgrim:                          Pilgrim
+admin.pilgrims:                         Pilgrims
+admin.pilgrims.widget:                  Pilgrims (last %limit%)
+admin.title:                            Administration ZHP WYD Krakow 2016
+admin.troop:                            Troop
+admin.troop_leader:                     troop leader
+admin.troop_members:                    Troop members (%count%)
+admin.troops:                           Troops
+admin.troops.widget:                    Troops (last %limit%)
+admin.volunteer:                        Volunteer
+admin.volunteers:                       Volunteers
+admin.volunteers.widget:                Volunteers (last %limit%)
+
+confirmation.error:                     Su inscripción ya esta confirmada o tienes el vinculo caduco para la conformación
+confirmation.success:                   Su inscripción esta confirmada
+confirmation.title:                     Para confirmar la inscripción
+
+email.link:                             Clic para confirmar
+email.group.text:                       "Gracias por la inscripción del grupo de los peregrinos a la estancia en el campamento de la Asociación de los Scouts de Polonia (ZHP) durante JMJ en Cracovia. Para confirmar haz un click:"
+email.pligrim.text:                     "Gracias por la inscripción a la estancia en el campamento de la Asociación de los Scouts de Polonia (ZHP) durante JMJ en Cracovia. Para confirmar haz un click:"
+email.title:                            La inscripción al Asociación de los Scouts de Polonia (ZHP) durante JMJ 2016
+email.troop.text:                       "Gracias por su inscripción al grupo de los volutarios. Para confirmar haz clic en el vinculo:"
+email.volunteer.text:                   "Gracias por su inscripción como voluntario. Para confirmar haz clic en el vinculo:"
+
+form.address:                           La dirreción
+form.birth_date:                        La fecha del nacimiento
+form.comments:                          Las notas
+form.country:                           El país
+form.dates:                             Las fechas
+form.dates.pilgrim.1:                   "25.07 - 1.08 (el precio: 640 PLN por persona)"
+form.dates.volunteer.1:                 "18.07 - 1.08 (el precio: 420 PLN por persona)"
+form.dates.volunteer.2:                 "23.07 - 1.08 (el precio: 320 PLN por persona)"
+form.dates.volunteer.3:                 "23.07 - 6.08 (el precio: 420 PLN por persona)"
+form.dates.volunteer.4:                 "18.07 - 6.08 (el precio: 520 PLN por persona)"
+form.dates.volunteer.5:                 "23.07 - 1.08 (el precio: 50 PLN por persona sin alojamiento y sin comida)"
+form.district:                          La Asociación
+form.email:                             El correo electrónico
+form.error.age_too_high:                Edad maxima son %age% años.
+form.error.age_too_low:                 Edad minima son %age% años.
+form.error.district_invalid:            La Asociacón no es correcta.
+form.error.grade_inproper:              El líder tiene que ser el guía.
+form.error.pesel_empty:                 PESEL no puede quedarse vacío.
+form.error.services_duplicated:         Los tipos del servicio favorable tienen que ser diferente.
+form.errors:                            Una parte de los datos no esta correcta, cambialó antes de guardar.
+form.exception.database:                El error de la inscripción - prueba otra vez.
+form.exception.email:                   El error del correo - asegúrate que el correo esta correcto.
+form.first_name:                        Nombre
+form.grade:                             Grade
+form.grade.guide:                       guide
+form.grade.no:                          no
+form.grade.scoutmaster:                 scoutmaster
+form.grade.sub_scoutmaster:             sub-scoutmaster
+form.group_name:                        El nombre del grupo
+form.languages:                         La lengua (en el nivel comunicativo)
+form.languages.de:                      alemán
+form.languages.en:                      inglés
+form.languages.es:                      español
+form.languages.fr:                      francés
+form.languages.it:                      italiano
+form.languages.pl:                      polaco
+form.languages.pt:                      potugués
+form.last_name:                         El apellido
+form.own_tent_group:                    El grupo tiene sus propias tiendas de campaña (Los organizadores no tienen que garantizar las tiendas).
+form.own_tent_single:                   Tengo mi propia tienda de campaña (Los organizatores no tienen que garantizar las tiendas).
+form.permissions:                       Las calificaciónes
+form.personal_data:                     Estoy de acuerdo con la transferencia de mis datos personales por Związek Harcerstwa Polskiego para la organización de la JMJ en Cracovia 2016, según la ley de 29 de agosto 1997 (Dz. U. 2014, poz. 1882).
+form.pesel:                             El numero PESEL
+form.phone:                             El teléfono
+form.profession:                        La profesión/Las calificaciónes
+form.region:                            La Asociasión
+form.rules:                             Lo accepto <a href="%url%" target="_blank">la regla</a>.
+form.save:                              Guardaló
+form.service.information:               El servicio informativo
+form.service.kitchen:                   El servicio del aprovisionamiento
+form.service.medical:                   El servicio médico
+form.service.quartermaster:             El servicio de alojamiento
+form.service.security:                  El servicio ordinal
+form.service.underage:                  Los menores de edad
+form.service_extra:                     El Segundo servicio favorable
+form.service_main:                      El servicio favorable
+form.status:                            Estado
+form.status.confirmed:                  Confirmado
+form.status.not_confirmed:              No confirmado
+form.status.payed:                      Pagado
+form.tip.permissions:                   "Por ejemplo: el curso de los primeros auxilios etc."
+form.tip.service_extra_id:              Tiene que ser diferente
+form.tip.service_main_id:               La decisón pertenece a los organizadores
+form.troop_name:                        El nombre del grupo
+
+group.form.add_member:                  Para añadir el miembro del grupo siguiente
+group.form.description:                 La edad minima del miembro del grupo son %age% años cumplidos antes de %date%. El grupo se contiene de al menos %min_size% miembros, pero no mas que %max_size% miembros, el lider mayor de edad incluido.
+group.form.title:                       La inscripción para los peregrinos
+group.form.leader:                      El lider (mayor de edad)
+group.form.member:                      %no% miembro del grupo
+
+index.group:                            el lider del grupo de los peregrinos
+index.pilgrim:                          el peregrino mayor de edad
+index.title:                            Eres
+index.troop:                            el lider del grupo de los voluntarios
+index.volunteer:                        el voluntario mayor de edad
+
+layout.navigation.toggle:               Cambia la navigación
+layout.title:                           La inscripción para La Asociación de los Scouts de Polonia (ZHP) para JMJ Cracovia 2016
+layout.title_short:                     La inscripción
+
+next_steps.official_page:               La página oficial de la JMJ Cracovia 2016
+next_steps.register_group:              Para inscribir el grupo de los peregrinos siguiente
+next_steps.register_pilgrim:            Para inscribir el peregrino mayor de edad siguiente
+next_steps.register_troop:              La inscripción para el siguiente grupo de los voluntarios
+next_steps.register_volunteer:          La inscripción para el siguiente voluntario mayor de edad
+next_steps.title:                       Los proximos pasos
+next_steps.volunteers_page:             La página de los preparaciónes de JMJ Cracovia 2016 por La Asociación de los Scouts de Polonia (ZHP) para JMJ Cracovia 2016
+
+pilgrims.form.description:              La edad minima del peregrino son %age% años cumplidos antes de %date%
+pilgrims.form.title:                    La inscripción para los peregrinos mayores de edad
+
+success.message:                        Tus datos son ya guardados, para terminar la inscripción hay que confirmar con el link que te hemos enviado por el correo electrónico.
+success.title:                          Gracias por su inscripción
+
+troop.form.add_member:                  Para añadir el miembro del grupo de los voluntarios siguiente
+troop.form.description:                 La edad minima del miembro del grupo de los voluntarios son %age% años cumplidos antes de %date%. El grupo se contiene de al menos %min_size% miembros, pero no mas que %max_size% miembros, el lider mayor de edad incluido.
+troop.form.title:                       La inscripción para los voluntarios
+troop.form.leader:                      El lider del grupo (mayor de edad)
+troop.form.member:                      %no% miembro del grupo
+
+volunteer.form.description:             La edad minima del voluntario son %age% años cumplidos antes de %date%.
+volunteer.form.title:                   La inscripción para los voluntrios mayores de edad
+
+wyd_www.title:                          La Asociación de los Scouts de Polonia (ZHP) para JMJ Cracovia 2016
