@@ -108,7 +108,7 @@ class RegistrationController extends Controller
             if ($form->isValid()) {
                 try {
                     $this->mailSendingProcedure($leader->getEmail(), 'registration_group_confirm',
-                        'Wyd2016Bundle::registration/group_email.html.twig', $hash);
+                        'Wyd2016Bundle::registration/group/email.html.twig', $hash);
 
                     try {
                         $this->get('wyd2016bundle.group.repository')
@@ -126,7 +126,7 @@ class RegistrationController extends Controller
         }
         if (!isset($response)) {
             $this->addErrorMessage($form);
-            $response = $this->render('Wyd2016Bundle::registration/group_form.html.twig', array(
+            $response = $this->render('Wyd2016Bundle::registration/group/form.html.twig', array(
                 'form' => $form->createView(),
                 'max_size' => $groupMaxSize,
                 'min_age_member' => $this->getParameter('wyd2016.age.min_group_member'),
@@ -167,7 +167,7 @@ class RegistrationController extends Controller
             if ($form->isValid()) {
                 try {
                     $this->mailSendingProcedure($pilgrim->getEmail(), 'registration_pilgrim_confirm',
-                        'Wyd2016Bundle::registration/pilgrim_email.html.twig', $hash);
+                        'Wyd2016Bundle::registration/pilgrim/email.html.twig', $hash);
 
                     try {
                         $this->get('wyd2016bundle.pilgrim.repository')
@@ -185,7 +185,7 @@ class RegistrationController extends Controller
         }
         if (!isset($response)) {
             $this->addErrorMessage($form);
-            $response = $this->render('Wyd2016Bundle::registration/pilgrim_form.html.twig', array(
+            $response = $this->render('Wyd2016Bundle::registration/pilgrim/form.html.twig', array(
                 'form' => $form->createView(),
             ));
         }
@@ -297,7 +297,7 @@ class RegistrationController extends Controller
             if ($form->isValid()) {
                 try {
                     $this->mailSendingProcedure($leader->getEmail(), 'registration_troop_confirm',
-                        'Wyd2016Bundle::registration/troop_email.html.twig', $hash);
+                        'Wyd2016Bundle::registration/troop/email.html.twig', $hash);
 
                     try {
                         $this->get('wyd2016bundle.troop.repository')
@@ -320,7 +320,7 @@ class RegistrationController extends Controller
         }
         if (!isset($response)) {
             $this->addErrorMessage($form);
-            $response = $this->render('Wyd2016Bundle::registration/troop_form.html.twig', array(
+            $response = $this->render('Wyd2016Bundle::registration/troop/form.html.twig', array(
                 'form' => $form->createView(),
                 'max_size' => $troopMaxSize,
                 'min_age_member' => $this->getParameter('wyd2016.age.min_troop_member'),
@@ -386,7 +386,7 @@ class RegistrationController extends Controller
             if ($form->isValid()) {
                 try {
                     $this->mailSendingProcedure($volunteer->getEmail(), 'registration_volunteer_confirm',
-                        'Wyd2016Bundle::registration/volunteer_email.html.twig', $hash);
+                        'Wyd2016Bundle::registration/volunteer/email.html.twig', $hash);
 
                     try {
                         $volunteerRepository = $this->get('wyd2016bundle.volunteer.repository');
@@ -415,7 +415,7 @@ class RegistrationController extends Controller
         }
         if (!isset($response)) {
             $this->addErrorMessage($form);
-            $response = $this->render('Wyd2016Bundle::registration/volunteer_form.html.twig', array(
+            $response = $this->render('Wyd2016Bundle::registration/volunteer/form.html.twig', array(
                 'form' => $form->createView(),
             ));
         }

@@ -30,28 +30,28 @@ _admin_index:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/index.yml"
 
 _registration_group_confirm:
-    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/group_confirm.yml"
-
-_registration_pilgrim_confirm:
-    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/pilgrim_confirm.yml"
-
-_registration_troop_confirm:
-    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/troop_confirm.yml"
-
-_registration_volunteer_confirm:
-    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/volunteer_confirm.yml"
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/group/confirm.yml"
 
 _registration_group_form:
-    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/group_form.yml"
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/group/form.yml"
+
+_registration_pilgrim_confirm:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/pilgrim/confirm.yml"
 
 _registration_pilgrim_form:
-    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/pilgrim_form.yml"
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/pilgrim/form.yml"
+
+_registration_troop_confirm:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/troop/confirm.yml"
 
 _registration_troop_form:
-    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/troop_form.yml"
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/troop/form.yml"
+
+_registration_volunteer_confirm:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/volunteer/confirm.yml"
 
 _registration_volunteer_form:
-    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/volunteer_form.yml"
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/volunteer/form.yml"
 
 _registration_success:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/success.yml"
