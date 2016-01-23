@@ -15,7 +15,7 @@
         <tbody>
             {% for group in groups %}
                 <tr>
-                    <td>{{ group.name }}</td>
+                    <td><a href="{{ path('admin_group_show', {id: group.id}) }}">{{ group.name }}</a></td>
                     <td>{{ group.status|statusname }}</td>
                     <td>{{ group.createdAt|date('Y-m-d') }}</td>
                     <td>

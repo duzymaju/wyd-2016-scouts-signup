@@ -15,7 +15,7 @@
         <tbody>
             {% for troop in troops %}
                 <tr>
-                    <td>{{ troop.name }}</td>
+                    <td><a href="{{ path('admin_troop_show', {id: troop.id}) }}">{{ troop.name }}</a></td>
                     <td>{{ troop.status|statusname }}</td>
                     <td>{{ troop.createdAt|date('Y-m-d') }}</td>
                     <td>

@@ -16,7 +16,7 @@
         <tbody>
             {% for pilgrim in pilgrims %}
                 <tr>
-                    <td>{{ pilgrim.firstName }} {{ pilgrim.lastName }}</td>
+                    <td><a href="{{ path('admin_pilgrim_show', {id: pilgrim.id}) }}">{{ pilgrim.name }}</a></td>
                     <td>{{ pilgrim.country|localizedcountry }}</td>
                     <td>{{ pilgrim.status|statusname }}</td>
                     <td>{{ pilgrim.createdAt|date('Y-m-d') }}</td>

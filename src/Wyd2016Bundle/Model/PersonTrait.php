@@ -79,6 +79,16 @@ trait PersonTrait
     }
 
     /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->getFirstName() . ' ' . $this->getLastName();
+    }
+
+    /**
      * Get birth date
      *
      * @return DateTime

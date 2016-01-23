@@ -6,6 +6,7 @@ admin.group:                            Group
 admin.group_leader:                     troop leader
 admin.group_members:                    Group members (%count%)
 admin.groups:                           Groups
+admin.groups.widget:                    Groups (last %limit%)
 admin.header:                           ZHP WYD 2016
 admin.login.password:                   Password
 admin.login.submit:                     Log in
@@ -14,13 +15,16 @@ admin.logout.link:                      Logout <strong>%login%</strong>
 admin.name:                             Name
 admin.pilgrim:                          Pilgrim
 admin.pilgrims:                         Pilgrims
+admin.pilgrims.widget:                  Pilgrims (last %limit%)
 admin.title:                            Administration ZHP WYD Krakow 2016
 admin.troop:                            Troop
 admin.troop_leader:                     troop leader
 admin.troop_members:                    Troop members (%count%)
 admin.troops:                           Troops
+admin.troops.widget:                    Troops (last %limit%)
 admin.volunteer:                        Volunteer
 admin.volunteers:                       Volunteers
+admin.volunteers.widget:                Volunteers (last %limit%)
 
 confirmation.error:                     Your registration is already confirmed or you have wrong confirmation link
 confirmation.success:                   Your registration was successfully confirmed

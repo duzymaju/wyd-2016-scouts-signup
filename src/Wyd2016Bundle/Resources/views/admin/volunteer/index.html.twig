@@ -16,7 +16,7 @@
         <tbody>
             {% for volunteer in volunteers %}
                 <tr>
-                    <td>{{ volunteer.firstName }} {{ volunteer.lastName }}</td>
+                    <td><a href="{{ path('admin_volunteer_show', {id: volunteer.id}) }}">{{ volunteer.name }}</a></td>
                     <td>{{ volunteer.country|localizedcountry }}</td>
                     <td>{{ volunteer.status|statusname }}</td>
                     <td>{{ volunteer.createdAt|date('Y-m-d') }}</td>
