@@ -1,8 +1,8 @@
 admin_volunteer_index:
     defaults:
         _controller:                    Wyd2016Bundle:Admin/Volunteer:index
-        pageNo:                           1
+        pageNo:                         1
     methods:                            [GET]
-    path:                               /admin/volunteer/{pageNo}
+    path:                               /admin/volunteers/{pageNo}
     requirements:
-        pageNo:                           \d+
+        pageNo:                         \d+

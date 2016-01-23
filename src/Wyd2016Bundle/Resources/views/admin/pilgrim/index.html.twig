@@ -2,7 +2,7 @@
 {% import 'Wyd2016Bundle:admin:_macro.html.twig' as macro %}
 
 {% block content %}
-    <h1>{{ 'admin.volunteers'|trans }}</h1>
+    <h1>{{ 'admin.pilgrims'|trans }}</h1>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -14,14 +14,14 @@
             </tr>
         </thead>
         <tbody>
-            {% for volunteer in volunteers %}
+            {% for pilgrim in pilgrims %}
                 <tr>
-                    <td>{{ volunteer.firstName }} {{ volunteer.lastName }}</td>
-                    <td>{{ volunteer.country|localizedcountry }}</td>
-                    <td>{{ volunteer.status|statusname }}</td>
-                    <td>{{ volunteer.createdAt|date('Y-m-d') }}</td>
+                    <td>{{ pilgrim.firstName }} {{ pilgrim.lastName }}</td>
+                    <td>{{ pilgrim.country|localizedcountry }}</td>
+                    <td>{{ pilgrim.status|statusname }}</td>
+                    <td>{{ pilgrim.createdAt|date('Y-m-d') }}</td>
                     <td>
-                        <a href="{{ path('admin_volunteer_show', {id: volunteer.id}) }}" class="btn btn-default btn-xs"
+                        <a href="{{ path('admin_pilgrim_show', {id: pilgrim.id}) }}" class="btn btn-default btn-xs"
                             title="{{ 'admin.show'|trans }}">
                             <i class="glyphicon glyphicon-file"></i>
                         </a>
@@ -30,5 +30,5 @@
             {% endfor %}
         </tbody>
     </table>
-    {{ macro.pagination(volunteers) }}
+    {{ macro.pagination(pilgrims) }}
 {% endblock %}

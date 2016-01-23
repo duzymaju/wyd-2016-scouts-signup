@@ -1,0 +1,7 @@
+admin_group_show:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin/Group:show
+    methods:                            [GET]
+    path:                               /admin/group/{id}
+    requirements:
+        id:                             \d+

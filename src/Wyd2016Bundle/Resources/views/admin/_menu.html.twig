@@ -1,5 +1,20 @@
 <li{{ type is defined and type == 'presentation' ? ' role="presentation"' : '' }}>
     <a href="{{ path('admin_volunteer_index') }}"{{ type is defined and type == 'menu' ? ' class="navbar-link"' : '' }}>
-        {{ 'admin.volunteers.link'|trans }}
+        {{ 'admin.volunteers'|trans }}
+    </a>
+</li>
+<li{{ type is defined and type == 'presentation' ? ' role="presentation"' : '' }}>
+    <a href="{{ path('admin_troop_index') }}"{{ type is defined and type == 'menu' ? ' class="navbar-link"' : '' }}>
+        {{ 'admin.troops'|trans }}
+    </a>
+</li>
+<li{{ type is defined and type == 'presentation' ? ' role="presentation"' : '' }}>
+    <a href="{{ path('admin_pilgrim_index') }}"{{ type is defined and type == 'menu' ? ' class="navbar-link"' : '' }}>
+        {{ 'admin.pilgrims'|trans }}
+    </a>
+</li>
+<li{{ type is defined and type == 'presentation' ? ' role="presentation"' : '' }}>
+    <a href="{{ path('admin_group_index') }}"{{ type is defined and type == 'menu' ? ' class="navbar-link"' : '' }}>
+        {{ 'admin.groups'|trans }}
     </a>
 </li>

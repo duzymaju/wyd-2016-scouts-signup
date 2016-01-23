@@ -1,16 +1,26 @@
 admin.age_at_limit:                     Wiek na dzień %date%
 admin.country:                          Państwo
 admin.created_at:                       Czas utworzenia
-admin.edit:                             Edytuj
+admin.show:                             Pokaż
+admin.group:                            Grupa
+admin.group_leader:                     opiekun grupy
+admin.group_members:                    Członkowie grupy (%count%)
+admin.groups:                           Grupy
 admin.header:                           ZHP ŚDM 2016
 admin.login.password:                   Hasło
 admin.login.submit:                     Zaloguj
 admin.login.username:                   Nazwa użytkownika
 admin.logout.link:                      Wyloguj <strong>%login%</strong>
 admin.name:                             Nazwa
+admin.pilgrim:                          Pielgrzym
+admin.pilgrims:                         Pielgrzymi
 admin.title:                            Administracja ZHP ŚDM Kraków 2016
+admin.troop:                            Patrol
 admin.troop_leader:                     patrolowy
-admin.volunteers.link:                  Wolontariusze
+admin.troop_members:                    Członkowie patrolu (%count%)
+admin.troops:                           Patrole
+admin.volunteer:                        Wolontariusz
+admin.volunteers:                       Wolontariusze
 
 confirmation.error:                     Twoja rejestracja została już potwierdzona lub posiadasz nieprawidłowy link potwierdzenia
 confirmation.success:                   Twoja rejestracja została prawidłowo potwierdzona
@@ -51,7 +61,7 @@ form.grade.guide:                       przewodnik
 form.grade.no:                          brak
 form.grade.scoutmaster:                 harcmistrz
 form.grade.sub_scoutmaster:             podharcmistrz
-form.groupName:                         Nazwa grupy
+form.group_name:                        Nazwa grupy
 form.languages:                         Języki (komunikatywnie)
 form.languages.de:                      niemiecki
 form.languages.en:                      angielski
@@ -86,7 +96,7 @@ form.status.payed:                      Opłacony
 form.tip.permissions:                   Np. kurs pierwszej pomocy, członków służb ochrony imprez masowych itd.
 form.tip.service_extra_id:              Musi być inna niż poprzednio wybrana.
 form.tip.service_main_id:               Ostateczną decyzję o przydziale służby podejmują organizatorzy.
-form.troopName:                         Nazwa patrolu
+form.troop_name:                        Nazwa patrolu
 
 group.form.add_member:                  Dodaj kolejnego członka grupy
 group.form.description:                 Minimalny wiek członka grupy to %age% lat ukończone przed %date%. W skład grupy musi wchodzić od %min_size% do %max_size% członków, w tym pełnoletni opiekun.

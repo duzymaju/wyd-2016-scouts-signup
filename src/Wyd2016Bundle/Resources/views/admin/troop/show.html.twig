@@ -1,0 +1,49 @@
+{% extends 'Wyd2016Bundle:admin:_template.html.twig' %}
+
+{% block content %}
+    <h1>{{ 'admin.troop'|trans }}</h1>
+    <dl class="list">
+        <dt>{{ 'form.status'|trans }}:</dt>
+        <dd>{{ troop.status|statusname }}</dd>
+        <dt>{{ 'form.troop_name'|trans }}:</dt>
+        <dd>{{ troop.name }}</dd>
+        <dt>{{ 'form.country'|trans }}:</dt>
+        <dd>{{ troop.leader.country|localizedcountry }}</dd>
+        {% if troop.leader.regionId > 0 %}
+            <dt>{{ 'form.region'|trans }}:</dt>
+            <dd>{{ troop.leader.regionId|regionname }}</dd>
+        {% endif %}
+        {% if troop.leader.districtId > 0 %}
+            <dt>{{ 'form.district'|trans }}:</dt>
+            <dd>{{ troop.leader.districtId|districtname }}</dd>
+        {% endif %}
+        <dt>{{ 'form.languages'|trans }}:</dt>
+        <dd>
+            {% for language in troop.leader.languages %}
+                {{ language.slug|languagename }}{{ not loop.last ? ',' : '' }}
+            {% else %}
+                -
+            {% endfor %}
+        </dd>
+        <dt>{{ 'form.service_main'|trans }}:</dt>
+        <dd>{{ troop.leader.serviceMainId|servicename }}</dd>
+        <dt>{{ 'form.permissions'|trans }}:</dt>
+        <dd>{{ troop.leader.permissions is empty ? '-' : troop.leader.permissions }}</dd>
+        <dt>{{ 'form.profession'|trans }}:</dt>
+        <dd>{{ troop.leader.profession is empty ? '-' : troop.leader.profession }}</dd>
+        <dt>{{ 'form.dates'|trans }}:</dt>
+        <dd>{{ troop.datesId|volunteerdate }}</dd>
+        <dt>{{ 'form.comments'|trans }}:</dt>
+        <dd>{{ troop.comments is empty ? '-' : troop.comments }}</dd>
+        {% if troop.members.count > 0 %}
+            <dt>{{ 'admin.troop_members'|trans({'%count%': troop.members.count}) }}:</dt>
+            <dd>
+                {% for member in troop.members %}
+                    <a href="{{ path('admin_volunteer_show', {id: member.id}) }}">{{ member.firstName }} {{ member.lastName }}</a>{% if troop.leader.id == member.id %} ({{ 'admin.troop_leader'|trans }}){% endif %}{{ not loop.last ? ',' : '' }}
+                {% endfor %}
+            </dd>
+        {% endif %}
+        <dt>{{ 'admin.created_at'|trans }}:</dt>
+        <dd>{{ troop.createdAt|date('Y-m-d') }}</dd>
+    </dl>
+{% endblock %}

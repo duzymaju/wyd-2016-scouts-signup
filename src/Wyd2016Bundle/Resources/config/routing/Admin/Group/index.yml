@@ -1,0 +1,8 @@
+admin_group_index:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin/Group:index
+        pageNo:                         1
+    methods:                            [GET]
+    path:                               /admin/groups/{pageNo}
+    requirements:
+        pageNo:                         \d+

@@ -2,6 +2,24 @@ _fos_user_security:
     prefix:                             /admin
     resource:                           "@FOSUserBundle/Resources/config/routing/security.xml"
 
+_admin_group_show:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Group/show.yml"
+
+_admin_group_index:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Group/index.yml"
+
+_admin_pilgrim_show:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Pilgrim/show.yml"
+
+_admin_pilgrim_index:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Pilgrim/index.yml"
+
+_admin_troop_show:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Troop/show.yml"
+
+_admin_troop_index:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Troop/index.yml"
+
 _admin_volunteer_show:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Volunteer/show.yml"
 

@@ -1,0 +1,38 @@
+{% extends 'Wyd2016Bundle:admin:_template.html.twig' %}
+
+{% block content %}
+    <h1>{{ 'admin.pilgrim'|trans }}</h1>
+    <dl class="list">
+        <dt>{{ 'form.status'|trans }}:</dt>
+        <dd>{{ pilgrim.status|statusname }}</dd>
+        <dt>{{ 'form.first_name'|trans }}:</dt>
+        <dd>{{ pilgrim.firstName }}</dd>
+        <dt>{{ 'form.last_name'|trans }}:</dt>
+        <dd>{{ pilgrim.lastName }}</dd>
+        <dt>{{ 'form.address'|trans }}:</dt>
+        <dd>{{ pilgrim.address }}</dd>
+        <dt>{{ 'form.phone'|trans }}:</dt>
+        <dd>{{ pilgrim.phone }}</dd>
+        <dt>{{ 'form.email'|trans }}:</dt>
+        <dd><a href="mailto:{{ pilgrim.email }}">{{ pilgrim.email }}</a></dd>
+        <dt>{{ 'form.country'|trans }}:</dt>
+        <dd>{{ pilgrim.country|localizedcountry }}</dd>
+        <dt>{{ 'form.birth_date'|trans }}:</dt>
+        <dd>{{ pilgrim.birthDate|date('Y-m-d') }}</dd>
+        <dt>{{ 'admin.age_at_limit'|trans({'%date%': ageLimit}) }}:</dt>
+        <dd>{{ pilgrim.birthDate|ageatlimit }}</dd>
+        <dt>{{ 'form.dates'|trans }}:</dt>
+        <dd>{{ pilgrim.datesId|pilgrimdate }}</dd>
+        <dt>{{ 'form.comments'|trans }}:</dt>
+        <dd>{{ pilgrim.comments is empty ? '-' : pilgrim.comments }}</dd>
+        {% if pilgrim.group %}
+            <dt>{{ 'form.group_name'|trans }}:</dt>
+            <dd>
+                <a href="{{ path('admin_group_show', {id: pilgrim.group.id}) }}">{{ pilgrim.group.name }}</a>
+                {% if pilgrim.group.leader.id == pilgrim.id %}({{ 'admin.group_leader'|trans }}){% endif %}
+            </dd>
+        {% endif %}
+        <dt>{{ 'admin.created_at'|trans }}:</dt>
+        <dd>{{ pilgrim.createdAt|date('Y-m-d') }}</dd>
+    </dl>
+{% endblock %}

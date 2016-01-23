@@ -1,6 +1,7 @@
 {% extends 'Wyd2016Bundle:admin:_template.html.twig' %}
 
 {% block content %}
+    <h1>{{ 'admin.volunteer'|trans }}</h1>
     <dl class="list">
         <dt>{{ 'form.status'|trans }}:</dt>
         <dd>{{ volunteer.status|statusname }}</dd>
@@ -43,7 +44,13 @@
             <dd>{{ volunteer.serviceExtraId|servicename }}</dd>
         {% endif %}
         <dt>{{ 'form.languages'|trans }}:</dt>
-        <dd>{% for language in volunteer.languages %}{{ loop.index0 > 0 ? ', ' : '' }}{{ language.slug|languagename }}{% else %}-{% endfor %}</dd>
+        <dd>
+            {% for language in volunteer.languages %}
+                {{ language.slug|languagename }}{{ not loop.last ? ',' : '' }}
+            {% else %}
+                -
+            {% endfor %}
+        </dd>
         <dt>{{ 'form.permissions'|trans }}:</dt>
         <dd>{{ volunteer.permissions is empty ? '-' : volunteer.permissions }}</dd>
         <dt>{{ 'form.profession'|trans }}:</dt>
@@ -53,8 +60,11 @@
         <dt>{{ 'form.comments'|trans }}:</dt>
         <dd>{{ volunteer.comments is empty ? '-' : volunteer.comments }}</dd>
         {% if volunteer.troop %}
-            <dt>{{ 'form.troopName'|trans }}:</dt>
-            <dd><a href="#">{{ volunteer.troop.name }}</a>{% if volunteer.troop.leader.id == volunteer.id %} ({{ 'admin.troop_leader'|trans }}){% endif %}</dd>
+            <dt>{{ 'form.troop_name'|trans }}:</dt>
+            <dd>
+                <a href="{{ path('admin_troop_show', {id: volunteer.troop.id}) }}">{{ volunteer.troop.name }}</a>
+                {% if volunteer.troop.leader.id == volunteer.id %}({{ 'admin.troop_leader'|trans }}){% endif %}
+            </dd>
         {% endif %}
         <dt>{{ 'admin.created_at'|trans }}:</dt>
         <dd>{{ volunteer.createdAt|date('Y-m-d') }}</dd>

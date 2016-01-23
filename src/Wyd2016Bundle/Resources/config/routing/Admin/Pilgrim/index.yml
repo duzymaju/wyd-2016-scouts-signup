@@ -1,0 +1,8 @@
+admin_pilgrim_index:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin/Pilgrim:index
+        pageNo:                         1
+    methods:                            [GET]
+    path:                               /admin/pilgrims/{pageNo}
+    requirements:
+        pageNo:                         \d+

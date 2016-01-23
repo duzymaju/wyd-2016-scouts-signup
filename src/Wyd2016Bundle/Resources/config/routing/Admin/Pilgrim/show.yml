@@ -1,0 +1,7 @@
+admin_pilgrim_show:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin/Pilgrim:show
+    methods:                            [GET]
+    path:                               /admin/pilgrim/{id}
+    requirements:
+        id:                             \d+

@@ -1,0 +1,27 @@
+{% extends 'Wyd2016Bundle:admin:_template.html.twig' %}
+
+{% block content %}
+    <h1>{{ 'admin.group'|trans }}</h1>
+    <dl class="list">
+        <dt>{{ 'form.status'|trans }}:</dt>
+        <dd>{{ group.status|statusname }}</dd>
+        <dt>{{ 'form.group_name'|trans }}:</dt>
+        <dd>{{ group.name }}</dd>
+        <dt>{{ 'form.country'|trans }}:</dt>
+        <dd>{{ group.leader.country|localizedcountry }}</dd>
+        <dt>{{ 'form.dates'|trans }}:</dt>
+        <dd>{{ group.datesId|pilgrimdate }}</dd>
+        <dt>{{ 'form.comments'|trans }}:</dt>
+        <dd>{{ group.comments is empty ? '-' : group.comments }}</dd>
+        {% if group.members.count > 0 %}
+            <dt>{{ 'admin.group_members'|trans({'%count%': group.members.count}) }}:</dt>
+            <dd>
+                {% for member in group.members %}
+                    <a href="{{ path('admin_pilgrim_show', {id: member.id}) }}">{{ member.firstName }} {{ member.lastName }}</a>{% if group.leader.id == member.id %} ({{ 'admin.group_leader'|trans }}){% endif %}{{ not loop.last ? ',' : '' }}
+                {% endfor %}
+            </dd>
+        {% endif %}
+        <dt>{{ 'admin.created_at'|trans }}:</dt>
+        <dd>{{ group.createdAt|date('Y-m-d') }}</dd>
+    </dl>
+{% endblock %}

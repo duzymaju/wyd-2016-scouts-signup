@@ -29,7 +29,7 @@ class TroopType extends AbstractType
         unset($options);
 
         $builder->add('name', 'text', $this->mergeOptions('name', array(
-            'label' => $this->translator->trans('form.troopName'),
+            'label' => $this->translator->trans('form.troop_name'),
         )))
         ->add('country', 'country', $this->mergeOptions('country', array(
             'label' => $this->translator->trans('form.country'),

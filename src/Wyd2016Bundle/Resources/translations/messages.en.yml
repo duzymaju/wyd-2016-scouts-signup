@@ -1,16 +1,26 @@
 admin.age_at_limit:                     Age at %date%
 admin.country:                          Country
 admin.created_at:                       Created time
-admin.edit:                             Edit
+admin.show:                             Show
+admin.group:                            Group
+admin.group_leader:                     troop leader
+admin.group_members:                    Group members (%count%)
+admin.groups:                           Groups
 admin.header:                           ZHP WYD 2016
 admin.login.password:                   Password
 admin.login.submit:                     Log in
 admin.login.username:                   Username
 admin.logout.link:                      Logout <strong>%login%</strong>
 admin.name:                             Name
+admin.pilgrim:                          Pilgrim
+admin.pilgrims:                         Pilgrims
 admin.title:                            Administration ZHP WYD Krakow 2016
+admin.troop:                            Troop
 admin.troop_leader:                     troop leader
-admin.volunteers.link:                  Volunteers
+admin.troop_members:                    Troop members (%count%)
+admin.troops:                           Troops
+admin.volunteer:                        Volunteer
+admin.volunteers:                       Volunteers
 
 confirmation.error:                     Your registration is already confirmed or you have wrong confirmation link
 confirmation.success:                   Your registration was successfully confirmed
@@ -51,7 +61,7 @@ form.grade.guide:                       guide
 form.grade.no:                          no
 form.grade.scoutmaster:                 scoutmaster
 form.grade.sub_scoutmaster:             sub-scoutmaster
-form.groupName:                         Group name
+form.group_name:                        Group name
 form.languages:                         Languages (communicative)
 form.languages.de:                      German
 form.languages.en:                      English
@@ -86,7 +96,7 @@ form.status.payed:                      Payed
 form.tip.permissions:                   E.g. first aid course, security service course etc.
 form.tip.service_extra_id:              It have to be different than previously selected one.
 form.tip.service_main_id:               Organizers take final decission on the allocation of services.
-form.troopName:                         Troop name
+form.troop_name:                        Troop name
 
 group.form.add_member:                  Add another group member
 group.form.description:                 Group member must be over %age% years before %date%. Group has to contain from %min_size% to %max_size% members including adult leader.
