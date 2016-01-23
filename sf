@@ -12,6 +12,7 @@ app/console doctrine:migrations:status
 
 app/console fos:user:create user --super-admin
 app/console fos:user:promote user ROLE_ADMIN
+app/console fos:user:change-password user newpassword
 
 app/console translation:extract --config=routes --keep pl en
 app/console translation:update --output-format=yml --dump-messages en SelectedBundle
