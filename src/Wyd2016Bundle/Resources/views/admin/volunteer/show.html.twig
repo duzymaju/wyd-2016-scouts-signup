@@ -1,0 +1,62 @@
+{% extends 'Wyd2016Bundle:admin:_template.html.twig' %}
+
+{% block content %}
+    <dl class="list">
+        <dt>{{ 'form.status'|trans }}:</dt>
+        <dd>{{ volunteer.status|statusname }}</dd>
+        <dt>{{ 'form.first_name'|trans }}:</dt>
+        <dd>{{ volunteer.firstName }}</dd>
+        <dt>{{ 'form.last_name'|trans }}:</dt>
+        <dd>{{ volunteer.lastName }}</dd>
+        <dt>{{ 'form.address'|trans }}:</dt>
+        <dd>{{ volunteer.address }}</dd>
+        <dt>{{ 'form.phone'|trans }}:</dt>
+        <dd>{{ volunteer.phone }}</dd>
+        <dt>{{ 'form.email'|trans }}:</dt>
+        <dd><a href="mailto:{{ volunteer.email }}">{{ volunteer.email }}</a></dd>
+        <dt>{{ 'form.country'|trans }}:</dt>
+        <dd>{{ volunteer.country|localizedcountry }}</dd>
+        <dt>{{ 'form.birth_date'|trans }}:</dt>
+        <dd>{{ volunteer.birthDate|date('Y-m-d') }}</dd>
+        <dt>{{ 'admin.age_at_limit'|trans({'%date%': ageLimit}) }}:</dt>
+        <dd>{{ volunteer.birthDate|ageatlimit }}</dd>
+        {% if volunteer.gradeId > 0 %}
+            <dt>{{ 'form.grade'|trans }}:</dt>
+            <dd>{{ volunteer.gradeId|gradename }}</dd>
+        {% endif %}
+        {% if volunteer.regionId > 0 %}
+            <dt>{{ 'form.region'|trans }}:</dt>
+            <dd>{{ volunteer.regionId|regionname }}</dd>
+        {% endif %}
+        {% if volunteer.districtId > 0 %}
+            <dt>{{ 'form.district'|trans }}:</dt>
+            <dd>{{ volunteer.districtId|districtname }}</dd>
+        {% endif %}
+        {% if volunteer.pesel %}
+            <dt>{{ 'form.pesel'|trans }}:</dt>
+            <dd>{{ volunteer.pesel|peselmodify }}</dd>
+        {% endif %}
+        <dt>{{ 'form.service_main'|trans }}:</dt>
+        <dd>{{ volunteer.serviceMainId|servicename }}</dd>
+        {% if volunteer.serviceExtraId %}
+            <dt>{{ 'form.service_extra'|trans }}:</dt>
+            <dd>{{ volunteer.serviceExtraId|servicename }}</dd>
+        {% endif %}
+        <dt>{{ 'form.languages'|trans }}:</dt>
+        <dd>{% for language in volunteer.languages %}{{ loop.index0 > 0 ? ', ' : '' }}{{ language.slug|languagename }}{% else %}-{% endfor %}</dd>
+        <dt>{{ 'form.permissions'|trans }}:</dt>
+        <dd>{{ volunteer.permissions is empty ? '-' : volunteer.permissions }}</dd>
+        <dt>{{ 'form.profession'|trans }}:</dt>
+        <dd>{{ volunteer.profession is empty ? '-' : volunteer.profession }}</dd>
+        <dt>{{ 'form.dates'|trans }}:</dt>
+        <dd>{{ volunteer.datesId|volunteerdate }}</dd>
+        <dt>{{ 'form.comments'|trans }}:</dt>
+        <dd>{{ volunteer.comments is empty ? '-' : volunteer.comments }}</dd>
+        {% if volunteer.troop %}
+            <dt>{{ 'form.troopName'|trans }}:</dt>
+            <dd><a href="#">{{ volunteer.troop.name }}</a>{% if volunteer.troop.leader.id == volunteer.id %} ({{ 'admin.troop_leader'|trans }}){% endif %}</dd>
+        {% endif %}
+        <dt>{{ 'admin.created_at'|trans }}:</dt>
+        <dd>{{ volunteer.createdAt|date('Y-m-d') }}</dd>
+    </dl>
+{% endblock %}

@@ -1,0 +1,5 @@
+<li{{ type is defined and type == 'presentation' ? ' role="presentation"' : '' }}>
+    <a href="{{ path('admin_volunteer_index') }}"{{ type is defined and type == 'menu' ? ' class="navbar-link"' : '' }}>
+        {{ 'admin.volunteers.link'|trans }}
+    </a>
+</li>

@@ -12,6 +12,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Translation\TranslatorInterface;
 use Wyd2016Bundle\Entity\Group;
 use Wyd2016Bundle\Entity\Language;
 use Wyd2016Bundle\Entity\Pilgrim;
@@ -20,12 +21,12 @@ use Wyd2016Bundle\Entity\Troop;
 use Wyd2016Bundle\Entity\Volunteer;
 use Wyd2016Bundle\Exception\ExceptionInterface;
 use Wyd2016Bundle\Exception\RegistrationException;
-use Wyd2016Bundle\Model\PersonInterface;
 use Wyd2016Bundle\Form\RegistrationLists;
 use Wyd2016Bundle\Form\Type\GroupType;
 use Wyd2016Bundle\Form\Type\PilgrimType;
 use Wyd2016Bundle\Form\Type\TroopType;
 use Wyd2016Bundle\Form\Type\VolunteerType;
+use Wyd2016Bundle\Model\PersonInterface;
 
 /**
  * Controller
@@ -51,7 +52,7 @@ class RegistrationController extends Controller
      */
     public function groupFormAction(Request $request)
     {
-        /** @var TranslatorInterface */
+        /** @var TranslatorInterface $translator */
         $translator = $this->get('translator');
         /** @var RegistrationLists $registrationLists */
         $registrationLists = $this->get('wyd2016bundle.registration.lists');
@@ -201,7 +202,7 @@ class RegistrationController extends Controller
      */
     public function troopFormAction(Request $request)
     {
-        /** @var TranslatorInterface */
+        /** @var TranslatorInterface $translator */
         $translator = $this->get('translator');
         /** @var RegistrationLists $registrationLists */
         $registrationLists = $this->get('wyd2016bundle.registration.lists');
@@ -339,7 +340,7 @@ class RegistrationController extends Controller
      */
     public function volunteerFormAction(Request $request)
     {
-        /** @var TranslatorInterface */
+        /** @var TranslatorInterface $translator */
         $translator = $this->get('translator');
 
         $formType = new VolunteerType($this->get('translator'), $this->get('wyd2016bundle.registration.lists'));
@@ -597,7 +598,7 @@ class RegistrationController extends Controller
      */
     protected function validateAge(PersonInterface $person, FormInterface $ageField, $minAgeParamName)
     {
-        /** @var TranslatorInterface */
+        /** @var TranslatorInterface $translator */
         $translator = $this->get('translator');
 
         $ageMin = $this->getParameter($minAgeParamName);
@@ -626,7 +627,7 @@ class RegistrationController extends Controller
      */
     protected function validateStructure(Volunteer $volunteer, FormInterface $districtField)
     {
-        /** @var TranslatorInterface */
+        /** @var TranslatorInterface $translator */
         $translator = $this->get('translator');
         /** @var RegistrationLists $registrationLists */
         $registrationLists = $this->get('wyd2016bundle.registration.lists');

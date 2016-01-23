@@ -1,0 +1,12 @@
+@media all and (min-width: 768px) {
+    .navbar-fixed-top .navbar-right {
+        margin-right: 0;
+    }
+}
+
+dl.list > * {
+    padding: 3px 0;
+}
+dl.list > dd {
+    padding-left: 20px;
+}

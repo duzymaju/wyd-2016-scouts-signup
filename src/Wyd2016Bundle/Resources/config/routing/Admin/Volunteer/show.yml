@@ -1,0 +1,7 @@
+admin_volunteer_show:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin/Volunteer:show
+    methods:                            [GET]
+    path:                               /admin/volunteer/{id}
+    requirements:
+        id:                             \d+

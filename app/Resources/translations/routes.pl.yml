@@ -1,14 +1,20 @@
 # Desc: /admin
 admin_index: /admin
 
+# Desc: /admin/volunteer/{id}
+admin_volunteer_edit: '/admin/volunteer/{id}'
+
+# Desc: /admin/volunteers/{pageNo}
+admin_volunteer_index: '/admin/volunteers/{pageNo}'
+
 # Desc: /admin/login_check
-fos_user_security_check: /admin/sprawdz
+fos_user_security_check: /admin/login_check
 
 # Desc: /admin/login
-fos_user_security_login: /admin/zaloguj
+fos_user_security_login: /admin/login
 
 # Desc: /admin/logout
-fos_user_security_logout: /admin/wyloguj
+fos_user_security_logout: /admin/logout
 
 # Desc: /group/{hash}/confirm
 registration_group_confirm: '/grupa/{hash}/potwierdz'

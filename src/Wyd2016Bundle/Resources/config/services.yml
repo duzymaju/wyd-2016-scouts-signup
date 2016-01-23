@@ -13,3 +13,13 @@ services:
             -
                 name:                   validator.constraint_validator
                 alias:                  unique_entities
+
+    wyd2016bundle.twig_extension.wyd:
+        arguments:
+            -                           @translator
+            -                           %wyd2016.age.limit%
+        class:                          Wyd2016Bundle\Twig\WydExtension
+        public:                         false
+        tags:
+            -
+                name:                   twig.extension

@@ -1,9 +1,16 @@
-admin.header:                           Administration panel
+admin.age_at_limit:                     Age at %date%
+admin.country:                          Country
+admin.created_at:                       Created time
+admin.edit:                             Edit
+admin.header:                           ZHP WYD 2016
 admin.login.password:                   Password
 admin.login.submit:                     Log in
 admin.login.username:                   Username
-admin.logout.link:                      Logout
+admin.logout.link:                      Logout <strong>%login%</strong>
+admin.name:                             Name
 admin.title:                            Administration ZHP WYD Krakow 2016
+admin.troop_leader:                     troop leader
+admin.volunteers.link:                  Volunteers
 
 confirmation.error:                     Your registration is already confirmed or you have wrong confirmation link
 confirmation.success:                   Your registration was successfully confirmed
@@ -28,12 +35,14 @@ form.dates.volunteer.3:                 "Jul 23 - Aug 6 (price: 420 PLN per pers
 form.dates.volunteer.4:                 "Jul 18 - Aug 6 (price: 520 PLN per person)"
 form.dates.volunteer.5:                 "Jul 23 - Aug 1 (price: 50 PLN per person without meals and accommodation)"
 form.district:                          District
+form.email:                             E-mail address
 form.error.age_too_high:                Maximum age is %age%.
 form.error.age_too_low:                 Minimum age is %age%.
 form.error.district_invalid:            Selected district doesn't belong to selected region.
 form.error.grade_inproper:              Leader should have at least guide grade.
 form.error.pesel_empty:                 PESEL field can't be empty.
 form.error.services_duplicated:         Preferred services have to be different.
+form.errors:                            Some data is incorrect - change it before saving the form.
 form.exception.database:                An error occured during data saving - please try again.
 form.exception.email:                   An error occured during e-mail sending - check if an e-mail address is correct.
 form.first_name:                        First name
@@ -52,8 +61,6 @@ form.languages.it:                      Italian
 form.languages.pl:                      Polish
 form.languages.pt:                      Portuguese
 form.last_name:                         Last name
-form.email:                             E-mail address
-form.errors:                            Some data is incorrect - change it before saving the form.
 form.own_tent_group:                    Troop has its own tent for all participants (organizer doesn't have to provide us a tent).
 form.own_tent_single:                   I have my own tent (organizer doesn't have to provide me a tent).
 form.permissions:                       Permissions
@@ -70,8 +77,12 @@ form.service.medical:                   medical
 form.service.quartermaster:             quartermaster
 form.service.security:                  security
 form.service.underage:                  underage
-form.serviceExtra:                      Preferred alternative service
-form.serviceMain:                       Preferred service
+form.service_extra:                     Preferred alternative service
+form.service_main:                      Preferred service
+form.status:                            Status
+form.status.confirmed:                  Confirmed
+form.status.not_confirmed:              Not confirmed
+form.status.payed:                      Payed
 form.tip.permissions:                   E.g. first aid course, security service course etc.
 form.tip.service_extra_id:              It have to be different than previously selected one.
 form.tip.service_main_id:               Organizers take final decission on the allocation of services.

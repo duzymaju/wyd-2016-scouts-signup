@@ -72,11 +72,11 @@ class VolunteerType extends AbstractType
         )))
         ->add('serviceMainId', 'choice', $this->mergeOptions('serviceMainId', array(
             'choices' => $this->registrationLists->getServices(),
-            'label' => $this->translator->trans('form.serviceMain'),
+            'label' => $this->translator->trans('form.service_main'),
         )))
         ->add('serviceExtraId', 'choice', $this->mergeOptions('serviceExtraId', array(
             'choices' => $this->registrationLists->getServices(),
-            'label' => $this->translator->trans('form.serviceExtra'),
+            'label' => $this->translator->trans('form.service_extra'),
         )))
         ->add('languages', 'choice', $this->mergeOptions('languages', array(
             'choices' => $this->registrationLists->getLanguages(),

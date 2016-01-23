@@ -2,6 +2,12 @@ _fos_user_security:
     prefix:                             /admin
     resource:                           "@FOSUserBundle/Resources/config/routing/security.xml"
 
+_admin_volunteer_show:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Volunteer/show.yml"
+
+_admin_volunteer_index:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Volunteer/index.yml"
+
 _admin_index:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/index.yml"
 

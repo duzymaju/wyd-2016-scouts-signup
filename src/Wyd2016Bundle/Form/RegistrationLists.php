@@ -3,6 +3,7 @@
 namespace Wyd2016Bundle\Form;
 
 use Symfony\Component\Translation\TranslatorInterface;
+use Wyd2016Bundle\Model\ParticipantAbstract;
 
 /**
  * Form
@@ -47,11 +48,44 @@ class RegistrationLists
     }
 
     /**
-     * Get services
+     * Get statuses
      *
      * @return array
      */
-    public function getServices()
+    public function getStatuses()
+    {
+        $statuses = array(
+            ParticipantAbstract::STATUS_NOT_CONFIRMED => $this->translator->trans('form.status.not_confirmed'),
+            ParticipantAbstract::STATUS_CONFIRMED => $this->translator->trans('form.status.confirmed'),
+            ParticipantAbstract::STATUS_PAYED => $this->translator->trans('form.status.payed'),
+        );
+
+        return $statuses;
+    }
+
+    /**
+     * Get status
+     *
+     * @param integer $statusId status ID
+     *
+     * @return string|null
+     */
+    public function getStatus($statusId)
+    {
+        $statuses = $this->getStatuses();
+        $status = array_key_exists($statusId, $statuses) ? $statuses[$statusId] : null;
+
+        return $status;
+    }
+
+    /**
+     * Get services
+     *
+     * @param boolean $fullList full list
+     *
+     * @return array
+     */
+    public function getServices($fullList = false)
     {
         $services = array(
             self::SERVICE_KITCHEN => $this->translator->trans('form.service.kitchen'),
@@ -60,8 +94,26 @@ class RegistrationLists
             self::SERVICE_MEDICAL => $this->translator->trans('form.service.medical'),
             self::SERVICE_SECURITY => $this->translator->trans('form.service.security'),
         );
+        if ($fullList) {
+            $services[self::SERVICE_UNDERAGE] = $this->translator->trans('form.service.underage');
+        }
 
         return $services;
+    }
+
+    /**
+     * Get service
+     *
+     * @param integer $serviceId service ID
+     *
+     * @return string|null
+     */
+    public function getService($serviceId)
+    {
+        $services = $this->getServices(true);
+        $service = array_key_exists($serviceId, $services) ? $services[$serviceId] : null;
+
+        return $service;
     }
 
     /**
@@ -78,6 +130,21 @@ class RegistrationLists
         }
 
         return $regions;
+    }
+
+    /**
+     * Get region
+     *
+     * @param integer $regionId region ID
+     *
+     * @return string|null
+     */
+    public function getRegion($regionId)
+    {
+        $structure = $this->getStructure();
+        $region = array_key_exists($regionId, $structure) ? $structure[$regionId]['name'] : null;
+
+        return $region;
     }
 
     /**
@@ -100,6 +167,25 @@ class RegistrationLists
     }
 
     /**
+     * Get district
+     *
+     * @param integer $districtId district ID
+     *
+     * @return string|null
+     */
+    public function getDistrict($districtId)
+    {
+        $regionId = $this->getRegionId($districtId);
+        $districtKey = $this->getDistrictKey($districtId);
+        $structure = $this->getStructure();
+        $district = array_key_exists($regionId, $structure) &&
+            array_key_exists($districtKey, $structure[$regionId]['districts']) ?
+            $structure[$regionId]['districts'][$districtKey] : null;
+
+        return $district;
+    }
+
+    /**
      * Get grades
      *
      * @return array
@@ -117,6 +203,21 @@ class RegistrationLists
     }
 
     /**
+     * Get grade
+     *
+     * @param integer $gradeId grade ID
+     *
+     * @return string|null
+     */
+    public function getGrade($gradeId)
+    {
+        $grades = $this->getGrades();
+        $grade = array_key_exists($gradeId, $grades) ? $grades[$gradeId] : null;
+
+        return $grade;
+    }
+
+    /**
      * Get pilgrim dates
      *
      * @return array
@@ -128,6 +229,21 @@ class RegistrationLists
         );
 
         return $pilgrimDates;
+    }
+
+    /**
+     * Get pilgrim date
+     *
+     * @param integer $pilgrimDateId pilgrim date ID
+     *
+     * @return string|null
+     */
+    public function getPilgrimDate($pilgrimDateId)
+    {
+        $pilgrimDates = $this->getPilgrimDates();
+        $pilgrimDate = array_key_exists($pilgrimDateId, $pilgrimDates) ? $pilgrimDates[$pilgrimDateId] : null;
+
+        return $pilgrimDate;
     }
 
     /**
@@ -149,6 +265,21 @@ class RegistrationLists
     }
 
     /**
+     * Get volunteer date
+     *
+     * @param integer $volunteerDateId volunteer date ID
+     *
+     * @return string|null
+     */
+    public function getVolunteerDate($volunteerDateId)
+    {
+        $volunteerDates = $this->getVolunteerDates();
+        $volunteerDate = array_key_exists($volunteerDateId, $volunteerDates) ? $volunteerDates[$volunteerDateId] : null;
+
+        return $volunteerDate;
+    }
+
+    /**
      * Get languages
      *
      * @return array
@@ -166,6 +297,21 @@ class RegistrationLists
         );
 
         return $languages;
+    }
+
+    /**
+     * Get language
+     *
+     * @param string $languageId language ID
+     *
+     * @return string|null
+     */
+    public function getLanguage($languageId)
+    {
+        $languages = $this->getLanguages();
+        $language = array_key_exists($languageId, $languages) ? $languages[$languageId] : null;
+
+        return $language;
     }
 
     /**

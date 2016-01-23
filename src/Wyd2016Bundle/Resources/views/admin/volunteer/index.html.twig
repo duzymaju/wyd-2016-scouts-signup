@@ -1,0 +1,31 @@
+{% extends 'Wyd2016Bundle:admin:_template.html.twig' %}
+{% import 'Wyd2016Bundle:admin:_macro.html.twig' as macro %}
+
+{% block content %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{{ 'admin.name'|trans }}</th>
+                <th>{{ 'admin.country'|trans }}</th>
+                <th>{{ 'admin.created_at'|trans }}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for volunteer in volunteers %}
+                <tr>
+                    <td>{{ volunteer.firstName }} {{ volunteer.lastName }}</td>
+                    <td>{{ volunteer.country|localizedcountry }}</td>
+                    <td>{{ volunteer.createdAt|date('Y-m-d') }}</td>
+                    <td>
+                        <a href="{{ path('admin_volunteer_show', {id: volunteer.id}) }}" class="btn btn-default btn-xs"
+                            title="{{ 'admin.edit'|trans }}">
+                            <i class="glyphicon glyphicon-file"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {{ macro.pagination(volunteers) }}
+{% endblock %}

@@ -1,6 +1,12 @@
 # Desc: /admin
 admin_index: /admin
 
+# Desc: /admin/volunteer/{id}
+admin_volunteer_edit: '/admin/volunteer/{id}'
+
+# Desc: /admin/volunteers/{pageNo}
+admin_volunteer_index: '/admin/volunteers/{pageNo}'
+
 # Desc: /admin/login_check
 fos_user_security_check: /admin/login_check
 
