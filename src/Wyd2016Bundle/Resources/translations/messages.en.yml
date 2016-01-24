@@ -10,6 +10,7 @@ admin.groups.widget:                    Groups (last %limit%)
 admin.header:                           ZHP WYD 2016
 admin.login.password:                   Password
 admin.login.submit:                     Log in
+admin.login.title:                      Log in form
 admin.login.username:                   Username
 admin.logout.link:                      Logout <strong>%login%</strong>
 admin.name:                             Name

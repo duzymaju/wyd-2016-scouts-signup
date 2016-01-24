@@ -10,6 +10,7 @@ admin.groups.widget:                    Grupy (ostatnie %limit%)
 admin.header:                           ZHP ŚDM 2016
 admin.login.password:                   Hasło
 admin.login.submit:                     Zaloguj
+admin.login.title:                      Formularz logowania
 admin.login.username:                   Nazwa użytkownika
 admin.logout.link:                      Wyloguj <strong>%login%</strong>
 admin.name:                             Nazwa

@@ -33,38 +33,40 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a href="{{ path('admin_index') }}" class="navbar-brand navbar-brand-logo">
-                        <img src="{{ asset('img/logo.png') }}" alt="{{ 'admin.header'|trans }}">
+                        {{ 'admin.header'|trans }}
                     </a>
                 </div>
-                <div class="collapse navbar-collapse" id="navbar-collapse-menu">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="{{ path('admin_volunteer_index') }}" class="navbar-link">
-                                {{ 'admin.volunteers'|trans }}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_troop_index') }}" class="navbar-link">
-                                {{ 'admin.troops'|trans }}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_pilgrim_index') }}" class="navbar-link">
-                                {{ 'admin.pilgrims'|trans }}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ path('admin_group_index') }}" class="navbar-link">
-                                {{ 'admin.groups'|trans }}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ path('fos_user_security_logout') }}" class="navbar-link">
-                                {{ 'admin.logout.link'|trans({'%login%': app.user.username})|raw }}
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                {% if app.user %}
+                    <div class="collapse navbar-collapse" id="navbar-collapse-menu">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="{{ path('admin_volunteer_index') }}" class="navbar-link">
+                                    {{ 'admin.volunteers'|trans }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_troop_index') }}" class="navbar-link">
+                                    {{ 'admin.troops'|trans }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_pilgrim_index') }}" class="navbar-link">
+                                    {{ 'admin.pilgrims'|trans }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_group_index') }}" class="navbar-link">
+                                    {{ 'admin.groups'|trans }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('fos_user_security_logout') }}" class="navbar-link">
+                                    {{ 'admin.logout.link'|trans({'%login%': app.user.username})|raw }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                {% endif %}
             </div>
         </nav>
         {% block content %}{% endblock %}
