@@ -16,7 +16,7 @@ imports:
     - resource:                         @Wyd2016Bundle/Resources/config/services.yml
 
 parameters:
-    assets_version:                     16011701
+    assets_version:                     16012401
     locale:                             en
     locales:
         -                               en
