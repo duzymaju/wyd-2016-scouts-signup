@@ -12,6 +12,4 @@
 * stage:
   * copy everything from `public_html` to `private_html`,
   * uncomment first line in `.htaccess` in public_html` and `private_html`,
-  * optionally remove `.htaccess` and `php.ini` files from main dir,
-* production:
-  * change `requires_channel` parameter's value in `config_prod.yml` file to `http # change to "https" after domain change to sth like rejestracja-sdm.zhp.pl` (temporary).
+  * optionally remove `.htaccess` and `php.ini` files from main dir.
