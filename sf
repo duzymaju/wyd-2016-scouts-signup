@@ -10,7 +10,7 @@ app/console doctrine:migrations:diff
 app/console doctrine:migrations:migrate
 app/console doctrine:migrations:status
 
-app/console fos:user:create user --super-admin
+app/console fos:user:create user email password --super-admin
 app/console fos:user:promote user ROLE_ADMIN
 app/console fos:user:change-password user newpassword
 

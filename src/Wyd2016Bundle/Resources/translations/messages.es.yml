@@ -43,11 +43,11 @@ form.birth_date:                        La fecha del nacimiento
 form.comments:                          Las notas
 form.country:                           El país
 form.dates:                             Las fechas
-form.dates.pilgrim.1:                   "25.07 - 1.08 (el precio: 640 PLN por persona)"
-form.dates.volunteer.1:                 "18.07 - 1.08 (el precio: 420 PLN por persona)"
-form.dates.volunteer.2:                 "23.07 - 1.08 (el precio: 320 PLN por persona)"
-form.dates.volunteer.3:                 "23.07 - 6.08 (el precio: 420 PLN por persona)"
-form.dates.volunteer.4:                 "18.07 - 6.08 (el precio: 520 PLN por persona)"
+form.dates.pilgrim.1:                   "25.07 - 1.08 (el precio: 150 EUR por persona)"
+form.dates.volunteer.1:                 "18.07 - 1.08 (el precio: 100 EUR por persona)"
+form.dates.volunteer.2:                 "23.07 - 1.08 (el precio: 75 EUR por persona)"
+form.dates.volunteer.3:                 "23.07 - 6.08 (el precio: 100 EUR por persona)"
+form.dates.volunteer.4:                 "18.07 - 6.08 (el precio: 125 EUR por persona)"
 form.dates.volunteer.5:                 "23.07 - 1.08 (el precio: 50 PLN por persona sin alojamiento y sin comida)"
 form.district:                          La Asociación
 form.email:                             El correo electrónico

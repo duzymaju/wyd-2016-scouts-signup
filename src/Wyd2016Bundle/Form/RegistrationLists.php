@@ -258,8 +258,10 @@ class RegistrationLists
             2 => $this->translator->trans('form.dates.volunteer.2'),
             3 => $this->translator->trans('form.dates.volunteer.3'),
             4 => $this->translator->trans('form.dates.volunteer.4'),
-            5 => $this->translator->trans('form.dates.volunteer.5'),
         );
+        if ($this->translator->getLocale() == self::COUNTRY_POLAND) {
+            $volunteerDates[5] = $this->translator->trans('form.dates.volunteer.5');
+        }
 
         return $volunteerDates;
     }
