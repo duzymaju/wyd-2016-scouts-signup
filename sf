@@ -9,6 +9,8 @@ app/console assets:install public_html
 app/console doctrine:migrations:diff
 app/console doctrine:migrations:migrate
 app/console doctrine:migrations:status
+app/console doctrine:schema:update --force
+app/console doctrine:fixtures:load -vvv
 
 app/console fos:user:create user email password --super-admin
 app/console fos:user:promote user ROLE_ADMIN
