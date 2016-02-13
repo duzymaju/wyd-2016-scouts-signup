@@ -5,6 +5,7 @@ namespace Wyd2016Bundle\Form\Type;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Translation\TranslatorInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Wyd2016Bundle\Form\RegistrationLists;
 
 /*
@@ -56,10 +57,16 @@ class GroupType extends AbstractType
             ),
         )))
         ->add('personalData', 'checkbox', $this->mergeOptions('personalData', array(
+            'constraints' => array(
+                new NotBlank(),
+            ),
             'label' => $this->translator->trans('form.personal_data'),
             'mapped' => false,
         )))
         ->add('rules', 'checkbox', $this->mergeOptions('rules', array(
+            'constraints' => array(
+                new NotBlank(),
+            ),
             'mapped' => false,
         )))
         ->add('save', 'submit', array(
