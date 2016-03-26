@@ -88,6 +88,9 @@ Wyd2016Bundle\Entity\Volunteer:
         createdAt:
             name:                       created_at
             type:                       datetime
+        updatedAt:
+            name:                       updated_at
+            type:                       datetime
 
     manyToOne:
         troop:

@@ -86,7 +86,8 @@ class RegistrationController extends Controller
             $createdAt = new DateTime();
             $group->setStatus(Group::STATUS_NOT_CONFIRMED)
                 ->setActivationHash($hash)
-                ->setCreatedAt($createdAt);
+                ->setCreatedAt($createdAt)
+                ->setUpdatedAt($createdAt);
             foreach ($group->getMembers() as $i => $member) {
                 /** @var Pilgrim $member */
                 $isLeader = $member === $group->getLeader();
@@ -96,7 +97,8 @@ class RegistrationController extends Controller
                     ->setCountry($form->get('country')->getData())
                     ->setGroup($group)
                     ->setDatesId($group->getDatesId())
-                    ->setCreatedAt($createdAt);
+                    ->setCreatedAt($createdAt)
+                    ->setUpdatedAt($createdAt);
 
                 /** @var FormInterface $memberView */
                 $memberView = $form->get('members')->get($i);
@@ -157,9 +159,11 @@ class RegistrationController extends Controller
 
         if ($form->isValid()) {
             $hash = $this->generateActivationHash($pilgrim->getEmail());
+            $createdAt = new DateTime();
             $pilgrim->setStatus(Pilgrim::STATUS_NOT_CONFIRMED)
                 ->setActivationHash($hash)
-                ->setCreatedAt(new DateTime());
+                ->setCreatedAt($createdAt)
+                ->setUpdatedAt($createdAt);
 
             // Validates age
             $this->validateAge($pilgrim, $form->get('birthDate'), 'wyd2016.age.min_adult');
@@ -236,7 +240,8 @@ class RegistrationController extends Controller
             $createdAt = new DateTime();
             $troop->setStatus(Troop::STATUS_NOT_CONFIRMED)
                 ->setActivationHash($hash)
-                ->setCreatedAt($createdAt);
+                ->setCreatedAt($createdAt)
+                ->setUpdatedAt($createdAt);
             $languages = new ArrayCollection();
             foreach ($form->get('languages')->getData() as $slug) {
                 $language = new Language();
@@ -255,7 +260,8 @@ class RegistrationController extends Controller
                     ->setTroop($troop)
                     ->setServiceMainId($registrationLists::SERVICE_UNDERAGE)
                     ->setDatesId($troop->getDatesId())
-                    ->setCreatedAt($createdAt);
+                    ->setCreatedAt($createdAt)
+                    ->setUpdatedAt($createdAt);
                 if ($isLeader && $form->has('permissions')) {
                     $member->setPermissions($form->get('permissions')->getData());
                 }
@@ -355,9 +361,11 @@ class RegistrationController extends Controller
         if ($form->isValid()) {
             $hash = $this->generateActivationHash($volunteer->getEmail());
             $isPolish = $this->isPolish($form);
+            $createdAt = new DateTime();
             $volunteer->setStatus(Volunteer::STATUS_NOT_CONFIRMED)
                 ->setActivationHash($hash)
-                ->setCreatedAt(new DateTime());
+                ->setCreatedAt($createdAt)
+                ->setUpdatedAt($createdAt);
 
             // Removes grade, region and district from foreign volunteer
             if (!$isPolish) {

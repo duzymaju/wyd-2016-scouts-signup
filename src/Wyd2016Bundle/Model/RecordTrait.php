@@ -15,6 +15,9 @@ trait RecordTrait
     /** @var DateTime */
     protected $createdAt;
 
+    /** @var DateTime */
+    protected $updatedAt;
+
     /**
      * Get ID
      *
@@ -59,6 +62,30 @@ trait RecordTrait
     public function setCreatedAt(DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updated at
+     *
+     * @return DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Set updated at
+     *
+     * @param DateTime $updatedAt updated at
+     *
+     * @return self
+     */
+    public function setUpdatedAt(DateTime $updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

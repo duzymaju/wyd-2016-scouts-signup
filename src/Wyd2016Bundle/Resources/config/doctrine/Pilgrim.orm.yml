@@ -56,6 +56,9 @@ Wyd2016Bundle\Entity\Pilgrim:
         createdAt:
             name:                       created_at
             type:                       datetime
+        updatedAt:
+            name:                       updated_at
+            type:                       datetime
 
     manyToOne:
         group:
