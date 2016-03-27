@@ -44,10 +44,10 @@ form.comments:                          Uwagi
 form.country:                           Państwo
 form.dates:                             Terminy
 form.dates.pilgrim.1:                   "25.07 - 1.08 (cena: 640 PLN od osoby)"
-form.dates.volunteer.1:                 "18.07 - 1.08 (cena: 420 PLN od osoby)"
-form.dates.volunteer.2:                 "23.07 - 1.08 (cena: 320 PLN od osoby)"
-form.dates.volunteer.3:                 "23.07 - 6.08 (cena: 420 PLN od osoby)"
-form.dates.volunteer.4:                 "18.07 - 6.08 (cena: 520 PLN od osoby)"
+form.dates.volunteer.1:                 "18.07 - 1.08 (cena: 280 PLN od osoby)"
+form.dates.volunteer.2:                 "23.07 - 1.08 (cena: 180 PLN od osoby)"
+form.dates.volunteer.3:                 "23.07 - 6.08 (cena: 280 PLN od osoby)"
+form.dates.volunteer.4:                 "18.07 - 6.08 (cena: 380 PLN od osoby)"
 form.dates.volunteer.5:                 "23.07 - 1.08 (cena: 50 PLN od osoby bez wyżywienia i zakwaterowania)"
 form.district:                          Hufiec
 form.email:                             Adres e-mail
