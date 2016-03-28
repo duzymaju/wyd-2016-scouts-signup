@@ -1,10 +1,11 @@
 {% extends 'Wyd2016Bundle:registration:_template.html.twig' %}
 {% import 'Wyd2016Bundle:registration:_macro.html.twig' as macro %}
+{% import 'Wyd2016Bundle::_macro.html.twig' as globalMacro %}
 
 {% set pageTitle = 'troop.form.title'|trans %}
 
 {% block content %}
-    {{ macro.flashBagMessages('error', true) }}
+    {{ globalMacro.flashBagMessages('error', true) }}
     <h1>{{ 'troop.form.title'|trans }}</h1>
     <p>{{ 'troop.form.description'|trans({'%age%': min_age_member, '%date%': age_limit, '%min_size%': min_size, '%max_size%': max_size}) }}</p>
     {{ form_start(form, {'attr': {'class': 'registration-form registration-form-troop'}}) }}
