@@ -3,7 +3,7 @@
 namespace Wyd2016Bundle\Controller\Admin;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Wyd2016Bundle\Entity\Repository\TroopRepository;
 use Wyd2016Bundle\Entity\Troop;
@@ -11,7 +11,7 @@ use Wyd2016Bundle\Entity\Troop;
 /**
  * Admin controller
  */
-class TroopController extends Controller
+class TroopController extends AbstractController
 {
     /**
      * Index action
@@ -36,11 +36,12 @@ class TroopController extends Controller
     /**
      * Show action
      *
-     * @param integer $id ID
+     * @param Request $request request
+     * @param integer $id      ID
      *
      * @return Response
      */
-    public function showAction($id)
+    public function showAction(Request $request, $id)
     {
         /** @var Troop $troop */
         $troop = $this->getRepository()
@@ -48,10 +49,18 @@ class TroopController extends Controller
                 'id' => $id,
             ));
 
-        return $this->render('Wyd2016Bundle::admin/troop/show.html.twig', array(
-            'ageLimit' => $this->getParameter('wyd2016.age.limit'),
-            'troop' => $troop,
-        ));
+        $response = $this->sendReminderIfRequested($troop, $request, $this->getRepository(),
+            'registration_troop_confirm', 'Wyd2016Bundle::admin/troop/email.html.twig');
+
+        if (!isset($response)) {
+            $response = $this->render('Wyd2016Bundle::admin/troop/show.html.twig', array(
+                'ageLimit' => $this->getParameter('wyd2016.age.limit'),
+                'isReminderSendingPossible' => $this->isReminderSendingPossible($troop),
+                'troop' => $troop,
+            ));
+        }
+
+        return $response;
     }
 
     /**

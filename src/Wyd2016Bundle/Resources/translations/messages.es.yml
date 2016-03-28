@@ -17,6 +17,10 @@ admin.name:                             Name
 admin.pilgrim:                          Pilgrim
 admin.pilgrims:                         Pilgrims
 admin.pilgrims.widget:                  Pilgrims (last %limit%)
+admin.reminder.button:                  Send reminder
+admin.reminder.error:                   An error occures during reminder e-mail sending.
+admin.reminder.sent_date:               Last reminder was sent at %date%.
+admin.reminder.success:                 Reminder e-mail was sent successfully.
 admin.title:                            Administration ZHP WYD Krakow 2016
 admin.troop:                            Troop
 admin.troop_leader:                     troop leader
@@ -32,11 +36,21 @@ confirmation.success:                   Su inscripción esta confirmada
 confirmation.title:                     Para confirmar la inscripción
 
 email.link:                             Clic para confirmar
-email.group.text:                       "Gracias por la inscripción del grupo de los peregrinos a la estancia en el campamento de la Asociación de los Scouts de Polonia (ZHP) durante JMJ en Cracovia. Para confirmar haz un click:"
-email.pligrim.text:                     "Gracias por la inscripción a la estancia en el campamento de la Asociación de los Scouts de Polonia (ZHP) durante JMJ en Cracovia. Para confirmar haz un click:"
+email.group.registration_text:          "Gracias por la inscripción del grupo de los peregrinos a la estancia en el campamento de la Asociación de los Scouts de Polonia (ZHP) durante JMJ en Cracovia. Para confirmar haz un click:"
+email.pligrim.registration_text:        "Gracias por la inscripción a la estancia en el campamento de la Asociación de los Scouts de Polonia (ZHP) durante JMJ en Cracovia. Para confirmar haz un click:"
 email.title:                            La inscripción al Asociación de los Scouts de Polonia (ZHP) durante JMJ 2016
-email.troop.text:                       "Gracias por su inscripción al grupo de los volutarios. Para confirmar haz clic en el vinculo:"
-email.volunteer.text:                   "Gracias por su inscripción como voluntario. Para confirmar haz clic en el vinculo:"
+email.troop.registration_text:          "<p>Gracias por su inscripción al grupo de los volutarios. Para confirmar haz clic en el vinculo:</p>"
+email.troop.reminder_text:              "<p>Gracias por su inscripción al grupo de los volutarios. Para confirmar haz clic en el vinculo:</p>" # @TODO: change to reminder text
+email.volunteer.registration_text:      "<p>Gracias por su inscripción como voluntario. Para confirmar haz clic en el vinculo:</p>"
+email.volunteer.reminder_text:          "<p>Gracias por su inscripción como voluntario. Para confirmar haz clic en el vinculo:</p>" # @TODO: change to reminder text
+email.volunteers.footer:                |
+    <p>Estamos preparando todo, por eso te invitamos a sequir:</p>
+    <ul>
+    <li>nuestra página web <a href="http://es.sdm.zhp.pl">es.sdm.zhp.pl</a></li>
+    <li>el evento en Facebook <a href="https://www.facebook.com/events/1715088282056836">www.facebook.com/events/1715088282056836</a></li>
+    </ul>
+    <p>para que estes al dia en todo lo que estamos preparando</p>
+    <p>Tienes algunas dudas? Quieres preguntar algo? Escribe <a href="mailto:sdm@zhp.pl">sdm@zhp.pl</a>.</p>
 
 form.address:                           La dirreción
 form.birth_date:                        La fecha del nacimiento

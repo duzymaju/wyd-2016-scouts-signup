@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\Collection;
 /**
  * Model
  */
-class Group extends ParticipantAbstract
+class Group extends ParticipantAbstract implements BandInterface
 {
     /** @var string */
     protected $name;

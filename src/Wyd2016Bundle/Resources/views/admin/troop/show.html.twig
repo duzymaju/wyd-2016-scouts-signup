@@ -1,6 +1,14 @@
 {% extends 'Wyd2016Bundle:admin:_template.html.twig' %}
+{% import 'Wyd2016Bundle::_macro.html.twig' as globalMacro %}
 
 {% block content %}
+    {{ globalMacro.flashBagMessages('success', true) }}
+    {{ globalMacro.flashBagMessages('error', true) }}
+    {% if isReminderSendingPossible %}
+        <a href="{{ path('admin_troop_show', {id: troop.id, sendReminder: 'true'}) }}" class="btn btn-primary btn-small">{{ 'admin.reminder.button'|trans }}</a>
+    {% elseif not troop.confirmed and troop.createdAt != troop.updatedAt %}
+        {{ globalMacro.message('admin.reminder.sent_date'|trans({'%date%': troop.updatedAt|date('Y-m-d')}), 'message') }}
+    {% endif %}
     <h1>{{ 'admin.troop'|trans }}</h1>
     <dl class="list">
         <dt>{{ 'form.status'|trans }}:</dt>

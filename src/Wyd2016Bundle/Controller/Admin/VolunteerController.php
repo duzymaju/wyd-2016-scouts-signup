@@ -3,7 +3,7 @@
 namespace Wyd2016Bundle\Controller\Admin;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Wyd2016Bundle\Entity\Repository\VolunteerRepository;
 use Wyd2016Bundle\Entity\Volunteer;
@@ -11,7 +11,7 @@ use Wyd2016Bundle\Entity\Volunteer;
 /**
  * Admin controller
  */
-class VolunteerController extends Controller
+class VolunteerController extends AbstractController
 {
     /**
      * Index action
@@ -36,11 +36,12 @@ class VolunteerController extends Controller
     /**
      * Show action
      *
-     * @param integer $id ID
+     * @param Request $request request
+     * @param integer $id      ID
      *
      * @return Response
      */
-    public function showAction($id)
+    public function showAction(Request $request, $id)
     {
         /** @var Volunteer $volunteer */
         $volunteer = $this->getRepository()
@@ -48,10 +49,18 @@ class VolunteerController extends Controller
                 'id' => $id,
             ));
 
-        return $this->render('Wyd2016Bundle::admin/volunteer/show.html.twig', array(
-            'ageLimit' => $this->getParameter('wyd2016.age.limit'),
-            'volunteer' => $volunteer,
-        ));
+        $response = $this->sendReminderIfRequested($volunteer, $request, $this->getRepository(),
+            'registration_volunteer_confirm', 'Wyd2016Bundle::admin/volunteer/email.html.twig');
+
+        if (!isset($response)) {
+            $response = $this->render('Wyd2016Bundle::admin/volunteer/show.html.twig', array(
+                'ageLimit' => $this->getParameter('wyd2016.age.limit'),
+                'isReminderSendingPossible' => $this->isReminderSendingPossible($volunteer) && !$volunteer->getTroop(),
+                'volunteer' => $volunteer,
+            ));
+        }
+
+        return $response;
     }
 
     /**

@@ -17,6 +17,10 @@ admin.name:                             Name
 admin.pilgrim:                          Pilgrim
 admin.pilgrims:                         Pilgrims
 admin.pilgrims.widget:                  Pilgrims (last %limit%)
+admin.reminder.button:                  Send reminder
+admin.reminder.error:                   An error occures during reminder e-mail sending.
+admin.reminder.sent_date:               Last reminder was sent at %date%.
+admin.reminder.success:                 Reminder e-mail was sent successfully.
 admin.title:                            Administration ZHP WYD Krakow 2016
 admin.troop:                            Troop
 admin.troop_leader:                     troop leader
@@ -32,11 +36,21 @@ confirmation.success:                   Your registration was successfully confi
 confirmation.title:                     Registration confirmation
 
 email.link:                             Click here to confirm registration
-email.group.text:                       "Thank you for registration a group of pilgrims staying in a place prepaired by Polish Scouting Organization during WYD Krakow 2016. To confirm your registration process please click the link below:"
-email.pligrim.text:                     "Thank you for registration your stay in a place prepaired by Polish Scouting Organization during WYD Krakow 2016. To confirm your registration process please click the link below:"
+email.group.registration_text:          "Thank you for registration a group of pilgrims staying in a place prepaired by Polish Scouting Organization during WYD Krakow 2016. To confirm your registration process please click the link below:"
+email.pligrim.registration_text:        "Thank you for registration your stay in a place prepaired by Polish Scouting Organization during WYD Krakow 2016. To confirm your registration process please click the link below:"
 email.title:                            Registration for ZHP WYD Krakow 2016
-email.troop.text:                       "Thank you for registration a troop of volunteers for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:"
-email.volunteer.text:                   "Thank you for registration as a volunteer for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:"
+email.troop.registration_text:          "<p>Thank you for registration a troop of volunteers for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:</p>"
+email.troop.reminder_text:              "<p>Thank you for registration a troop of volunteers for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:</p>" # @TODO: change to reminder text
+email.volunteer.registration_text:      "<p>Thank you for registration as a volunteer for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:</p>"
+email.volunteer.reminder_text:          "<p>Thank you for registration as a volunteer for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:</p>" # @TODO: change to reminder text
+email.volunteers.footer:                |
+    <p>Preperation are in full swing, to keep up we invite you to follow:</p>
+    <ul>
+    <li>our website <a href="http://en.sdm.zhp.pl">en.sdm.zhp.pl</a></li>
+    <li>facbook event (in Polish) <a href="https://www.facebook.com/events/1715088282056836">www.facebook.com/events/1715088282056836</a></li>
+    </ul>
+    <p>You have any questions? doubts? email us: <a href="mailto:sdm@zhp.pl">sdm@zhp.pl</a> we will not leave you long unanswered</p>
+    <p>Yours in Scouting!</p>
 
 form.address:                           Address
 form.birth_date:                        Birth date
