@@ -2,6 +2,7 @@
 {% import 'Wyd2016Bundle:admin:_macro.html.twig' as macro %}
 
 {% block content %}
+    <a href="{{ path('admin_volunteer_list') }}" class="btn btn-primary btn-small">{{ 'admin.get_list'|trans }}</a>
     <h1>{{ 'admin.volunteers'|trans }}</h1>
     <table class="table table-striped">
         <thead>

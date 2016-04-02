@@ -19,7 +19,6 @@ services:
             -                           @translator
             -                           %wyd2016.age.limit%
         class:                          Wyd2016Bundle\Twig\WydExtension
-        public:                         false
         tags:
             -
                 name:                   twig.extension

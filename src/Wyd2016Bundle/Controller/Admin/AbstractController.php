@@ -121,4 +121,47 @@ abstract class AbstractController extends Controller
 
         return $locale;
     }
+
+    /**
+     * Get CSV from array
+     * 
+     * @param array $data data
+     *
+     * @return string
+     */
+    protected function getCsvFromArray(array $data)
+    {
+        $lines = array();
+        foreach ($data as $row) {
+            foreach ($row as $i => $cell) {
+                if (strpos($cell, '"') !== false || strpos($cell, ' ') !== false || strpos($cell, ',') !== false) {
+                    $row[$i] = '"' . str_replace('"', '""', $cell) . '"';
+                }
+            }
+            $lines[] = implode(',', $row);
+        }
+
+        return implode("\r\n", $lines);
+    }
+
+    /**
+     * Get CSV response
+     *
+     * @param array  $data     data
+     * @param string $fileName file name
+     *
+     * @return Response
+     */
+    protected function getCsvResponse(array $data, $fileName = 'list')
+    {
+        $csv = $this->getCsvFromArray($data);
+
+        return new Response($csv, Response::HTTP_OK, array(
+            'Cache-Control' => 'no-cache, no-store, must-revalidate',
+            'Content-Disposition' => 'attachment; filename=' . $fileName . '_' . date('Y-m-d') . '.csv',
+            'Content-Type' => 'text/csv, charset=UTF-8',
+            'Expires' => '0',
+            'Pragma' => 'no-cache',
+        ));
+    }
 }

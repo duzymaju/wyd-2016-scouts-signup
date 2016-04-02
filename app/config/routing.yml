@@ -11,6 +11,9 @@ _admin_group_index:
 _admin_pilgrim_show:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Pilgrim/show.yml"
 
+_admin_pilgrim_list:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Pilgrim/list.yml"
+
 _admin_pilgrim_index:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Pilgrim/index.yml"
 
@@ -22,6 +25,9 @@ _admin_troop_index:
 
 _admin_volunteer_show:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Volunteer/show.yml"
+
+_admin_volunteer_list:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Volunteer/list.yml"
 
 _admin_volunteer_index:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Volunteer/index.yml"

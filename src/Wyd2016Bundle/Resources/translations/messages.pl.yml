@@ -2,6 +2,7 @@ admin.age_at_limit:                     Wiek na dzień %date%
 admin.country:                          Państwo
 admin.created_at:                       Czas utworzenia
 admin.show:                             Pokaż
+admin.get_list:                         Pobierz listę (CSV)
 admin.group:                            Grupa
 admin.group_leader:                     opiekun grupy
 admin.group_members:                    Członkowie grupy (%count%)

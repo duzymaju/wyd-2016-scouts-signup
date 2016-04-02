@@ -1,0 +1,5 @@
+admin_volunteer_list:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin/Volunteer:list
+    methods:                            [GET]
+    path:                               /admin/volunteers/list

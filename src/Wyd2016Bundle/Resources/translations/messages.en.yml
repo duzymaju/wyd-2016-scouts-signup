@@ -2,6 +2,7 @@ admin.age_at_limit:                     Age at %date%
 admin.country:                          Country
 admin.created_at:                       Created time
 admin.show:                             Show
+admin.get_list:                         Get list (CSV)
 admin.group:                            Group
 admin.group_leader:                     troop leader
 admin.group_members:                    Group members (%count%)

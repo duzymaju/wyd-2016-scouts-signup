@@ -1,0 +1,5 @@
+admin_pilgrim_list:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin/Pilgrim:list
+    methods:                            [GET]
+    path:                               /admin/pilgrims/list
