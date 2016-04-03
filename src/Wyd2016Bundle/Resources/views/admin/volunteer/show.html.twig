@@ -29,6 +29,8 @@
         <dd>{{ volunteer.birthDate|date('Y-m-d') }}</dd>
         <dt>{{ 'admin.age_at_limit'|trans({'%date%': ageLimit}) }}:</dt>
         <dd>{{ volunteer.birthDate|ageatlimit }}</dd>
+        <dt>{{ 'form.sex'|trans }}:</dt>
+        <dd>{{ volunteer.sex|sexname }}</dd>
         {% if volunteer.gradeId > 0 %}
             <dt>{{ 'form.grade'|trans }}:</dt>
             <dd>{{ volunteer.gradeId|gradename }}</dd>
@@ -45,6 +47,8 @@
             <dt>{{ 'form.pesel'|trans }}:</dt>
             <dd>{{ volunteer.pesel|peselmodify }}</dd>
         {% endif %}
+        <dt>{{ 'form.shirt_size'|trans }}:</dt>
+        <dd>{{ volunteer.shirtSize ? volunteer.shirtSize|shirtsizename : '-' }}</dd>
         <dt>{{ 'form.service_main'|trans }}:</dt>
         <dd>{{ volunteer.serviceMainId|servicename }}</dd>
         {% if volunteer.serviceExtraId %}

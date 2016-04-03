@@ -83,6 +83,8 @@ class PilgrimController extends AbstractController
             $translator->trans('admin.age_at_limit', [
                 '%date%' => $this->getParameter('wyd2016.age.limit'),
             ]),
+            $translator->trans('form.sex'),
+            $translator->trans('form.shirtSize'),
             $translator->trans('form.dates'),
             $translator->trans('form.comments'),
             $translator->trans('form.group_name'),
@@ -101,6 +103,8 @@ class PilgrimController extends AbstractController
                 $pilgrim->getBirthDate()
                     ->format('Y-m-d'),
                 $filters->ageAtLimitFilter($pilgrim->getBirthDate()),
+                $filters->sexNameFilter($pilgrim->getSex()),
+                $pilgrim->getShirtSize() > 0 ? $filters->shirtSizeNameFilter($pilgrim->getShirtSize()) : '-',
                 $filters->pilgrimDateFilter($pilgrim->getDatesId()),
                 empty($pilgrim->getComments()) ? '-' : $pilgrim->getComments(),
                 $pilgrim->getGroup() ? $pilgrim->getGroup()

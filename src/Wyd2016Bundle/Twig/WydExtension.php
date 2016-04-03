@@ -49,6 +49,8 @@ class WydExtension extends Twig_Extension
             new Twig_SimpleFilter('pilgrimdate', array($this, 'pilgrimDateFilter')),
             new Twig_SimpleFilter('regionname', array($this, 'regionNameFilter')),
             new Twig_SimpleFilter('servicename', array($this, 'serviceNameFilter')),
+            new Twig_SimpleFilter('sexname', array($this, 'sexNameFilter')),
+            new Twig_SimpleFilter('shirtsizename', array($this, 'shirtSizeNameFilter')),
             new Twig_SimpleFilter('statusname', array($this, 'statusNameFilter')),
             new Twig_SimpleFilter('volunteerdate', array($this, 'volunteerDateFilter')),
         );
@@ -182,6 +184,34 @@ class WydExtension extends Twig_Extension
         $serviceName = $this->registrationLists->getService($serviceId);
 
         return $serviceName;
+    }
+
+    /**
+     * Sex name filter
+     *
+     * @param string $sexId sex ID
+     *
+     * @return string|null
+     */
+    public function sexNameFilter($sexId)
+    {
+        $sexName = $this->registrationLists->getSex($sexId);
+
+        return $sexName;
+    }
+
+    /**
+     * Shirt size name filter
+     *
+     * @param integer $shirtSizeId shirt size ID
+     *
+     * @return string|null
+     */
+    public function shirtSizeNameFilter($shirtSizeId)
+    {
+        $shirtSizeName = $this->registrationLists->getShirtSize($shirtSizeId);
+
+        return $shirtSizeName;
     }
 
     /**

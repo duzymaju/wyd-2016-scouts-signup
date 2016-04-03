@@ -21,6 +21,10 @@
         <dd>{{ pilgrim.birthDate|date('Y-m-d') }}</dd>
         <dt>{{ 'admin.age_at_limit'|trans({'%date%': ageLimit}) }}:</dt>
         <dd>{{ pilgrim.birthDate|ageatlimit }}</dd>
+        <dt>{{ 'form.sex'|trans }}:</dt>
+        <dd>{{ pilgrim.sex|sexname }}</dd>
+        <dt>{{ 'form.shirt_size'|trans }}:</dt>
+        <dd>{{ pilgrim.shirtSize ? pilgrim.shirtSize|shirtsizename : '-' }}</dd>
         <dt>{{ 'form.dates'|trans }}:</dt>
         <dd>{{ pilgrim.datesId|pilgrimdate }}</dd>
         <dt>{{ 'form.comments'|trans }}:</dt>
