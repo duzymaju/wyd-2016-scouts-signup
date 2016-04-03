@@ -18,7 +18,7 @@ class Version20160403203426 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE volunteer CHANGE pesel pesel BIGINT DEFAULT NULL, CHANGE permissions other_permissions VARCHAR(255) DEFAULT NULL');
+        $this->addSql('ALTER TABLE volunteer CHANGE permissions other_permissions VARCHAR(255) DEFAULT NULL');
     }
 
     /**
@@ -29,6 +29,6 @@ class Version20160403203426 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE volunteer CHANGE pesel pesel VARCHAR(255) DEFAULT NULL, CHANGE other_permissions permissions VARCHAR(255) DEFAULT NULL');
+        $this->addSql('ALTER TABLE volunteer CHANGE other_permissions permissions VARCHAR(255) DEFAULT NULL');
     }
 }
