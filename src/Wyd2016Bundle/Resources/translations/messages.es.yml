@@ -93,7 +93,7 @@ form.languages.pt:                      potugués
 form.last_name:                         El apellido
 form.own_tent_group:                    El grupo tiene sus propias tiendas de campaña (Los organizadores no tienen que garantizar las tiendas).
 form.own_tent_single:                   Tengo mi propia tienda de campaña (Los organizatores no tienen que garantizar las tiendas).
-form.permissions:                       Las calificaciónes
+form.other_permissions:                 Las calificaciónes
 form.personal_data:                     Estoy de acuerdo con la transferencia de mis datos personales por Związek Harcerstwa Polskiego para la organización de la JMJ en Cracovia 2016, según la ley de 29 de agosto 1997 (Dz. U. 2014, poz. 1882).
 form.pesel:                             El numero PESEL
 form.phone:                             El teléfono
@@ -123,7 +123,7 @@ form.status:                            Estado
 form.status.confirmed:                  Confirmado
 form.status.not_confirmed:              No confirmado
 form.status.payed:                      Pagado
-form.tip.permissions:                   "Por ejemplo: el curso de los primeros auxilios etc."
+form.tip.other_permissions:             "Por ejemplo: el curso de los primeros auxilios etc."
 form.tip.service_extra_id:              Tiene que ser diferente
 form.tip.service_main_id:               La decisón pertenece a los organizadores
 form.troop_name:                        El nombre del grupo

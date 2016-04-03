@@ -50,7 +50,7 @@ Wyd2016Bundle\Entity\Volunteer:
             - Wyd2016Bundle\Validator\Constraints\ContainsPesel:
                 groups:
                     -                   troopMember
-        permissions:
+        otherPermissions:
             - Length:
                 max:                    255
         profession:

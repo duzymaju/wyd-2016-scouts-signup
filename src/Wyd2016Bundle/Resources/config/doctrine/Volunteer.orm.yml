@@ -79,7 +79,7 @@ Wyd2016Bundle\Entity\Volunteer:
             name:                       service_extra_id
             nullable:                   true
             type:                       smallint
-        permissions:
+        otherPermissions:
             length:                     255
             nullable:                   true
             type:                       string

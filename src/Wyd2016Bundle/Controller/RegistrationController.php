@@ -262,8 +262,8 @@ class RegistrationController extends Controller
                     ->setDatesId($troop->getDatesId())
                     ->setCreatedAt($createdAt)
                     ->setUpdatedAt($createdAt);
-                if ($isLeader && $form->has('permissions')) {
-                    $member->setPermissions($form->get('permissions')->getData());
+                if ($isLeader && $form->has('otherPermissions')) {
+                    $member->setOtherPermissions($form->get('otherPermissions')->getData());
                 }
                 if ($isLeader && $form->has('profession')) {
                     $member->setProfession($form->get('profession')->getData());

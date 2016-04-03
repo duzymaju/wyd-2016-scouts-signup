@@ -35,7 +35,7 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
     protected $serviceExtraId;
 
     /** @var string|null */
-    protected $permissions;
+    protected $otherPermissions;
 
     /** @var ArrayCollection */
     protected $languages;
@@ -276,25 +276,25 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
     }
 
     /**
-     * Get permissions
+     * Get other permissions
      *
      * @return string|null
      */
-    public function getPermissions()
+    public function getOtherPermissions()
     {
-        return $this->permissions;
+        return $this->otherPermissions;
     }
 
     /**
-     * Set permissions
+     * Set other permissions
      *
-     * @param string|null $permissions permissions
+     * @param string|null $otherPermissions other permissions
      *
      * @return self
      */
-    public function setPermissions($permissions = null)
+    public function setOtherPermissions($otherPermissions = null)
     {
-        $this->permissions = $permissions;
+        $this->otherPermissions = $otherPermissions;
 
         return $this;
     }

@@ -93,7 +93,7 @@ form.languages.pt:                      Portuguese
 form.last_name:                         Last name
 form.own_tent_group:                    Troop has its own tent for all participants (organizer doesn't have to provide us a tent).
 form.own_tent_single:                   I have my own tent (organizer doesn't have to provide me a tent).
-form.permissions:                       Permissions
+form.other_permissions:                 Permissions
 form.personal_data:                     "I hereby give consent for the above personal data to be processed by Polish Scouting Organization to prepare my participation in ZHP WYD Krakow 2016, in accordance with the Personal Data Protection Act dated Aug 29 1997 (uniform text: Journal of Laws of the Republic of Poland 2014, item 1182)."
 form.pesel:                             PESEL
 form.phone:                             Phone no
@@ -123,7 +123,7 @@ form.status:                            Status
 form.status.confirmed:                  Confirmed
 form.status.not_confirmed:              Not confirmed
 form.status.payed:                      Payed
-form.tip.permissions:                   E.g. first aid course, security service course etc.
+form.tip.other_permissions:             E.g. first aid course, security service course etc.
 form.tip.service_extra_id:              It have to be different than previously selected one.
 form.tip.service_main_id:               Organizers take final decission on the allocation of services.
 form.troop_name:                        Troop name
