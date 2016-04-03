@@ -268,10 +268,11 @@ class RegistrationController extends Controller
                 if ($isLeader && $form->has('profession')) {
                     $member->setProfession($form->get('profession')->getData());
                 }
-                // Adds region and district to Polish volunteer or removes grade from foreigner
+                // Adds region, district and sex to Polish volunteer or removes grade from foreigner
                 if ($isPolish) {
                     $member->setRegionId($form->get('regionId')->getData())
-                        ->setDistrictId($form->get('districtId')->getData());
+                        ->setDistrictId($form->get('districtId')->getData())
+                        ->setSex($member->getSexFromPesel());
                 } else {
                     $member->setGradeId();
                 }
@@ -367,8 +368,10 @@ class RegistrationController extends Controller
                 ->setCreatedAt($createdAt)
                 ->setUpdatedAt($createdAt);
 
-            // Removes grade, region and district from foreign volunteer
-            if (!$isPolish) {
+            // Adds sex to Polish volunteer or removes grade, region and district from foreigner
+            if ($isPolish) {
+                $volunteer->setSex($volunteer->getSexFromPesel());
+            } else {
                 $volunteer->setGradeId()
                     ->setRegionId()
                     ->setDistrictId();

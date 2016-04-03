@@ -109,6 +109,16 @@ form.service.security:                  El servicio ordinal
 form.service.underage:                  Los menores de edad
 form.service_extra:                     El Segundo servicio favorable
 form.service_main:                      El servicio favorable
+form.sex:                               Sexo
+form.sex.female:                        Mujer
+form.sex.male:                          Hombre
+form.shirt_size:                        Talla de camisa
+form.shirt_size.xs:                     XS
+form.shirt_size.s:                      S
+form.shirt_size.m:                      M
+form.shirt_size.l:                      L
+form.shirt_size.xl:                     XL
+form.shirt_size.xxl:                    XXL
 form.status:                            Estado
 form.status.confirmed:                  Confirmado
 form.status.not_confirmed:              No confirmado

@@ -57,6 +57,8 @@
         {{ _self.formRow(member.phone) }}
         {{ _self.formRow(member.email) }}
         {{ _self.formRow(member.birthDate, {date: true}) }}
+        {{ _self.formRow(member.sex) }}
+        {{ _self.formRow(member.shirtSize) }}
     </div>
 {% endmacro %}
 
@@ -69,8 +71,10 @@
         {{ _self.formRow(member.phone) }}
         {{ _self.formRow(member.email) }}
         {{ _self.formRow(member.birthDate, {locale: '', date: true}) }}
+        {{ _self.formRow(member.sex, {locale: ''}) }}
         {{ _self.formRow(member.pesel, {locale: 'PL'}) }}
         {{ _self.formRow(member.gradeId, {locale: 'PL'}) }}
+        {{ _self.formRow(member.shirtSize) }}
     </div>
 {% endmacro %}
 

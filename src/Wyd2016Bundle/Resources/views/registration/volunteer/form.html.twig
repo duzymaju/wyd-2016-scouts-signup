@@ -16,10 +16,12 @@
         {{ macro.formRow(form.email) }}
         {{ macro.formRow(form.country) }}
         {{ macro.formRow(form.birthDate, {locale: '', date: true}) }}
+        {{ macro.formRow(form.sex, {locale: ''}) }}
         {{ macro.formRow(form.gradeId, {locale: 'PL'}) }}
         {{ macro.formRow(form.regionId, {locale: 'PL'}) }}
         {{ macro.formRow(form.districtId, {locale: 'PL'}) }}
         {{ macro.formRow(form.pesel, {locale: 'PL'}) }}
+        {{ macro.formRow(form.shirtSize) }}
         {{ macro.formRow(form.serviceMainId, {info: 'form.tip.service_main_id'|trans}) }}
         {{ macro.formRow(form.serviceExtraId, {info: 'form.tip.service_extra_id'|trans}) }}
         {{ macro.formRow(form.languages) }}

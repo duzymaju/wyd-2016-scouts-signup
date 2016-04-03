@@ -19,6 +19,9 @@ trait PersonTrait
     protected $birthDate;
 
     /** @var string */
+    protected $sex;
+
+    /** @var string */
     protected $country;
 
     /** @var string */
@@ -29,6 +32,9 @@ trait PersonTrait
 
     /** @var string */
     protected $email;
+
+    /** @var integer */
+    protected $shirtSize;
 
     /**
      * Get first name
@@ -110,6 +116,30 @@ trait PersonTrait
         if (isset($birthDate)) {
             $this->birthDate = $birthDate;
         }
+
+        return $this;
+    }
+
+    /**
+     * Get sex
+     *
+     * @return string
+     */
+    public function getSex()
+    {
+        return $this->sex;
+    }
+
+    /**
+     * Set sex
+     *
+     * @param string $sex sex
+     *
+     * @return self
+     */
+    public function setSex($sex)
+    {
+        $this->sex = $sex;
 
         return $this;
     }
@@ -206,6 +236,30 @@ trait PersonTrait
     public function setEmail($email)
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get shirt size
+     *
+     * @return integer|null
+     */
+    public function getShirtSize()
+    {
+        return $this->shirtSize;
+    }
+
+    /**
+     * Set shirt size
+     *
+     * @param integer|null $shirtSize shirt size
+     *
+     * @return self
+     */
+    public function setShirtSize($shirtSize = null)
+    {
+        $this->shirtSize = $shirtSize;
 
         return $this;
     }

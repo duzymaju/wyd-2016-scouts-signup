@@ -109,6 +109,16 @@ form.service.security:                  security
 form.service.underage:                  underage
 form.service_extra:                     Preferred alternative service
 form.service_main:                      Preferred service
+form.sex:                               Sex
+form.sex.female:                        Female
+form.sex.male:                          Male
+form.shirt_size:                        Shirt size
+form.shirt_size.xs:                     XS
+form.shirt_size.s:                      S
+form.shirt_size.m:                      M
+form.shirt_size.l:                      L
+form.shirt_size.xl:                     XL
+form.shirt_size.xxl:                    XXL
 form.status:                            Status
 form.status.confirmed:                  Confirmed
 form.status.not_confirmed:              Not confirmed

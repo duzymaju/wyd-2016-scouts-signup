@@ -48,6 +48,10 @@ class TroopMemberType extends AbstractType
             'required' => false,
             'widget' => 'single_text',
         )))
+        ->add('sex', 'choice', $this->mergeOptions('sex', array(
+            'choices' => $this->registrationLists->getSexes(),
+            'label' => $this->translator->trans('form.sex'),
+        )))
         ->add('pesel', 'text', $this->mergeOptions('pesel', array(
             'label' => $this->translator->trans('form.pesel'),
             'required' => false,
@@ -55,6 +59,10 @@ class TroopMemberType extends AbstractType
         ->add('gradeId', 'choice', $this->mergeOptions('gradeId', array(
             'choices' => $this->registrationLists->getGrades(),
             'label' => $this->translator->trans('form.grade'),
+        )))
+        ->add('shirtSize', 'choice', $this->mergeOptions('shirtSize', array(
+            'choices' => $this->registrationLists->getShirtSizes(),
+            'label' => $this->translator->trans('form.shirt_size'),
         )));
     }
 

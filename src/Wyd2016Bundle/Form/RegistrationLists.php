@@ -4,6 +4,7 @@ namespace Wyd2016Bundle\Form;
 
 use Symfony\Component\Translation\TranslatorInterface;
 use Wyd2016Bundle\Model\ParticipantAbstract;
+use Wyd2016Bundle\Model\PersonInterface;
 
 /**
  * Form
@@ -76,6 +77,70 @@ class RegistrationLists
         $status = array_key_exists($statusId, $statuses) ? $statuses[$statusId] : null;
 
         return $status;
+    }
+
+    /**
+     * Get sexes
+     *
+     * @return array
+     */
+    public function getSexes()
+    {
+        $sexes = array(
+            PersonInterface::SEX_MALE => $this->translator->trans('form.sex.male'),
+            PersonInterface::SEX_FEMALE => $this->translator->trans('form.sex.female'),
+        );
+
+        return $sexes;
+    }
+
+    /**
+     * Get sex
+     *
+     * @param integer $sexId sex ID
+     *
+     * @return string|null
+     */
+    public function getSex($sexId)
+    {
+        $sexes = $this->getSexes();
+        $sex = array_key_exists($sexId, $sexes) ? $sexes[$sexId] : null;
+
+        return $sex;
+    }
+
+    /**
+     * Get shirt sizes
+     *
+     * @return array
+     */
+    public function getShirtSizes()
+    {
+        $sexes = array(
+            PersonInterface::SHIRT_SIZE_XS => $this->translator->trans('form.shirt_size.xs'),
+            PersonInterface::SHIRT_SIZE_S => $this->translator->trans('form.shirt_size.s'),
+            PersonInterface::SHIRT_SIZE_M => $this->translator->trans('form.shirt_size.m'),
+            PersonInterface::SHIRT_SIZE_L => $this->translator->trans('form.shirt_size.l'),
+            PersonInterface::SHIRT_SIZE_XL => $this->translator->trans('form.shirt_size.xl'),
+            PersonInterface::SHIRT_SIZE_XXL => $this->translator->trans('form.shirt_size.xxl'),
+        );
+
+        return $sexes;
+    }
+
+    /**
+     * Get shirt size
+     *
+     * @param integer $shirtSizeId shirt size ID
+     *
+     * @return string|null
+     */
+    public function getShirtSize($shirtSizeId)
+    {
+        $shirtSizes = $this->getShirtSizes();
+        $shirtSize = array_key_exists($shirtSizeId, $shirtSizes) ? $shirtSizes[$shirtSizeId] : null;
+
+        return $shirtSize;
     }
 
     /**

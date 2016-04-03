@@ -55,6 +55,10 @@ class VolunteerType extends AbstractType
             'required' => false,
             'widget' => 'single_text',
         )))
+        ->add('sex', 'choice', $this->mergeOptions('sex', array(
+            'choices' => $this->registrationLists->getSexes(),
+            'label' => $this->translator->trans('form.sex'),
+        )))
         ->add('gradeId', 'choice', $this->mergeOptions('gradeId', array(
             'choices' => $this->registrationLists->getGrades(),
             'label' => $this->translator->trans('form.grade'),
@@ -70,6 +74,10 @@ class VolunteerType extends AbstractType
         ->add('pesel', 'text', $this->mergeOptions('pesel', array(
             'label' => $this->translator->trans('form.pesel'),
             'required' => false,
+        )))
+        ->add('shirtSize', 'choice', $this->mergeOptions('shirtSize', array(
+            'choices' => $this->registrationLists->getShirtSizes(),
+            'label' => $this->translator->trans('form.shirt_size'),
         )))
         ->add('serviceMainId', 'choice', $this->mergeOptions('serviceMainId', array(
             'choices' => $this->registrationLists->getServices(),

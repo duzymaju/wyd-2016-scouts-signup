@@ -37,10 +37,14 @@
             var locale = '' + $(this).data('specific-locale');
             if (locale === selectedLocale || ($.inArray(selectedLocale, availableLocales) === -1 && locale === '')) {
                 $(this).show()
-                    .children('.form-control').prop('required', true);
+                    .find('.form-control')
+                    .prop('required', true);
             } else {
                 $(this).hide()
-                    .children('.form-control').prop('required', false);
+                    .find('.form-control')
+                    .prop('required', false)
+                    .filter('input[type="text"], input[type="date"]')
+                    .val('');
             }
         });
 
@@ -118,7 +122,7 @@
     };
 
     /**
-     * Manage services
+     * Manage subforms
      *
      * @param {jQuery}   form     form
      * @param {function} callback callback

@@ -119,6 +119,16 @@ form.service.security:                  zabezpieczenia
 form.service.underage:                  niepełnoletni
 form.service_extra:                     Preferowana służba alternatywna
 form.service_main:                      Preferowana służba
+form.sex:                               Płeć
+form.sex.female:                        Kobieta
+form.sex.male:                          Mężczyzna
+form.shirt_size:                        Rozmiar koszulki
+form.shirt_size.xs:                     XS
+form.shirt_size.s:                      S
+form.shirt_size.m:                      M
+form.shirt_size.l:                      L
+form.shirt_size.xl:                     XL
+form.shirt_size.xxl:                    XXL
 form.status:                            Status
 form.status.confirmed:                  Potwierdzony
 form.status.not_confirmed:              Niepotwierdzony

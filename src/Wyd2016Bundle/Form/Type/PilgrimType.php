@@ -53,6 +53,14 @@ class PilgrimType extends AbstractType
             'label' => $this->translator->trans('form.birth_date'),
             'widget' => 'single_text',
         )))
+        ->add('sex', 'choice', $this->mergeOptions('sex', array(
+            'choices' => $this->registrationLists->getSexes(),
+            'label' => $this->translator->trans('form.sex'),
+        )))
+        ->add('shirtSize', 'choice', $this->mergeOptions('shirtSize', array(
+            'choices' => $this->registrationLists->getShirtSizes(),
+            'label' => $this->translator->trans('form.shirt_size'),
+        )))
         ->add('datesId', 'choice', $this->mergeOptions('datesId', array(
             'choices' => $this->registrationLists->getPilgrimDates(),
             'label' => $this->translator->trans('form.dates'),

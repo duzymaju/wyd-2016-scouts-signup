@@ -38,6 +38,15 @@ Wyd2016Bundle\Entity\Volunteer:
             length:                     40
             type:                       string
             unique:                     true
+        shirtSize:
+            name:                       shirt_size
+            nullable:                   true
+            type:                       smallint
+        sex:
+            length:                     1
+            options:
+                fixed:                  true
+            type:                       string
         country:
             length:                     2
             options:

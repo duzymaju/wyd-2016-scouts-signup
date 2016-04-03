@@ -168,9 +168,28 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
     {
         $this->pesel = $pesel;
 
-        $year = (integer) substr($pesel, 0, 2);
-        $month = (integer) substr($pesel, 2, 2);
-        $day = (integer) substr($pesel, 4, 2);
+        if (!empty($pesel)) {
+            $this->setBirthDate($this->getBirthDateFromPesel());
+            $this->setSex($this->getSexFromPesel());
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get birth date from PESEL
+     * 
+     * @return DateTime|null
+     */
+    public function getBirthDateFromPesel()
+    {
+        if (empty($this->pesel)) {
+            return null;
+        }
+
+        $year = (integer) substr($this->pesel, 0, 2);
+        $month = (integer) substr($this->pesel, 2, 2);
+        $day = (integer) substr($this->pesel, 4, 2);
 
         if ($month > 20 && $month < 33) {
             $month -= 20;
@@ -187,11 +206,25 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
         } else {
             $year += 1900;
         }
-
         $birthDate = new DateTime($year . '-' . $month . '-' . $day);
-        $this->setBirthDate($birthDate);
 
-        return $this;
+        return $birthDate;
+    }
+
+    /**
+     * Get sex from PESEL
+     *
+     * @return string|null
+     */
+    public function getSexFromPesel()
+    {
+        if (empty($this->pesel)) {
+            return null;
+        }
+
+        $sex = preg_match('#^[02468]$#', substr($this->pesel, 9, 1)) ? self::SEX_FEMALE : self::SEX_MALE;
+
+        return $sex;
     }
 
     /**

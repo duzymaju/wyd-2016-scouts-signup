@@ -7,6 +7,30 @@ namespace Wyd2016Bundle\Model;
  */
 interface PersonInterface
 {
+    /** @const string */
+    const SEX_MALE = 'm';
+
+    /** @const string */
+    const SEX_FEMALE = 'f';
+
+    /** @const integer */
+    const SHIRT_SIZE_XS = 1;
+
+    /** @const integer */
+    const SHIRT_SIZE_S = 2;
+
+    /** @const integer */
+    const SHIRT_SIZE_M = 3;
+
+    /** @const integer */
+    const SHIRT_SIZE_L = 4;
+
+    /** @const integer */
+    const SHIRT_SIZE_XL = 5;
+
+    /** @const integer */
+    const SHIRT_SIZE_XXL = 6;
+
     /**
      * Get first name
      *
@@ -27,6 +51,13 @@ interface PersonInterface
      * @return DateTime
      */
     public function getBirthDate();
+
+    /**
+     * Get sex
+     *
+     * @return string
+     */
+    public function getSex();
 
     /**
      * Get country
@@ -55,4 +86,11 @@ interface PersonInterface
      * @return string
      */
     public function getEmail();
+
+    /**
+     * Get shirt size
+     *
+     * @return integer|null
+     */
+    public function getShirtSize();
 }
