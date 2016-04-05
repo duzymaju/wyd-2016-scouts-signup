@@ -105,13 +105,13 @@ class WydExtension extends Twig_Extension
     /**
      * Language name filter
      *
-     * @param string $languageId language ID
+     * @param string $languageSlug language slug
      *
      * @return string|null
      */
-    public function languageNameFilter($languageId)
+    public function languageNameFilter($languageSlug)
     {
-        $languageName = $this->registrationLists->getLanguage($languageId);
+        $languageName = $this->registrationLists->getLanguage($languageSlug);
 
         return $languageName;
     }

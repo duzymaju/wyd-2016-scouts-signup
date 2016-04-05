@@ -38,7 +38,7 @@ class Language
     }
 
     /**
-     * Get volunteer
+     * Get slug
      *
      * @return string
      */
