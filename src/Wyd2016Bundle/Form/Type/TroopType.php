@@ -56,6 +56,13 @@ class TroopType extends AbstractType
             'multiple' => true,
             'required' => false,
         )))
+        ->add('permissions', 'choice', $this->mergeOptions('permissions', array(
+            'choices' => $this->registrationLists->getPermissions(),
+            'label' => $this->translator->trans('form.permissions'),
+            'mapped' => false,
+            'multiple' => true,
+            'required' => false,
+        )))
         ->add('otherPermissions', 'text', $this->mergeOptions('otherPermissions', array(
             'label' => $this->translator->trans('form.other_permissions'),
             'mapped' => false,

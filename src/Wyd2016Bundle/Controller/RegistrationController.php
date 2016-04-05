@@ -15,6 +15,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Wyd2016Bundle\Entity\Group;
 use Wyd2016Bundle\Entity\Language;
+use Wyd2016Bundle\Entity\Permission;
 use Wyd2016Bundle\Entity\Pilgrim;
 use Wyd2016Bundle\Entity\Repository\BaseRepositoryInterface;
 use Wyd2016Bundle\Entity\Troop;
@@ -249,6 +250,13 @@ class RegistrationController extends Controller
                     ->setSlug($slug);
                 $languages->add($language);
             }
+            $permissions = new ArrayCollection();
+            foreach ($form->get('permissions')->getData() as $id) {
+                $permission = new Permission();
+                $permission->setVolunteer($leader)
+                    ->setId($id);
+                $permissions->add($permission);
+            }
             $isPolish = $this->isPolish($form);
             foreach ($troop->getMembers() as $i => $member) {
                 /** @var Volunteer $member */
@@ -310,8 +318,9 @@ class RegistrationController extends Controller
                         $this->get('wyd2016bundle.troop.repository')
                             ->insert($troop, true);
 
-                        // Add languages to leader after save him because of Doctrine requirements
-                        $leader->setLanguages($languages);
+                        // Add languages and permissions to leader after save him because of Doctrine requirements
+                        $leader->setLanguages($languages)
+                            ->setPermissions($permissions);
                         $this->get('wyd2016bundle.volunteer.repository')
                             ->insert($leader, true);
                     } catch (Exception $e) {
@@ -402,15 +411,22 @@ class RegistrationController extends Controller
                     try {
                         $volunteerRepository = $this->get('wyd2016bundle.volunteer.repository');
 
-                        // Save volunteer before save its languages because of Doctrine requirements
+                        // Save volunteer before save its languages and permissions because of Doctrine requirements
                         $languages = $volunteer->getLanguages();
                         foreach ($languages as $language) {
                             /** @var Language $language */
                             $language->setVolunteer($volunteer);
                         }
-                        $volunteer->setLanguages(new ArrayCollection());
+                        $permissions = $volunteer->getPermissions();
+                        foreach ($permissions as $permission) {
+                            /** @var Permission $permission */
+                            $permission->setVolunteer($volunteer);
+                        }
+                        $volunteer->setLanguages(new ArrayCollection())
+                            ->setPermissions(new ArrayCollection());
                         $volunteerRepository->insert($volunteer, true);
-                        $volunteer->setLanguages($languages);
+                        $volunteer->setLanguages($languages)
+                            ->setPermissions($permissions);
 
                         $volunteerRepository->insert($volunteer, true);
                     } catch (Exception $e) {

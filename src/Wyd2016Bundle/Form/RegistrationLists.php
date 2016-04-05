@@ -382,6 +382,40 @@ class RegistrationLists
     }
 
     /**
+     * Get permissions
+     *
+     * @return array
+     */
+    public function getPermissions()
+    {
+        $permissions = array(
+            11 => $this->translator->trans('form.permissions.11'),
+            12 => $this->translator->trans('form.permissions.12'),
+            21 => $this->translator->trans('form.permissions.21'),
+            22 => $this->translator->trans('form.permissions.22'),
+            23 => $this->translator->trans('form.permissions.23'),
+            24 => $this->translator->trans('form.permissions.24'),
+        );
+
+        return $permissions;
+    }
+
+    /**
+     * Get permission
+     *
+     * @param integer $permissionId permission ID
+     *
+     * @return string|null
+     */
+    public function getPermission($permissionId)
+    {
+        $permissions = $this->getPermissions();
+        $permission = array_key_exists($permissionId, $permissions) ? $permissions[$permissionId] : null;
+
+        return $permission;
+    }
+
+    /**
      * Region contains district
      *
      * @param integer $regionId   region ID

@@ -1,0 +1,19 @@
+Wyd2016Bundle\Entity\Permission:
+    options:
+        collate:                        utf8_general_ci
+    repositoryClass:                    Wyd2016Bundle\Entity\Repository\PermissionRepository
+    table:                              permission
+    type:                               entity
+
+    id:
+        volunteer:
+            associationKey:             true
+        id:
+            type:                       integer
+
+    manyToOne:
+        volunteer:
+            cascade:
+                -                       persist
+            inversedBy:                 permissions
+            targetEntity:               Wyd2016Bundle\Entity\Volunteer

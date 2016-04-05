@@ -91,9 +91,16 @@ form.languages.it:                      Italian
 form.languages.pl:                      Polish
 form.languages.pt:                      Portuguese
 form.last_name:                         Last name
+form.other_permissions:                 Other permissions
 form.own_tent_group:                    Troop has its own tent for all participants (organizer doesn't have to provide us a tent).
 form.own_tent_single:                   I have my own tent (organizer doesn't have to provide me a tent).
-form.other_permissions:                 Permissions
+form.permissions:                       Permissions
+form.permissions.11:                    Wędrowniczy Kurs Pierwszej Pomocy (PL)
+form.permissions.12:                    Kwalifikowany Kurs Pierwszej Pomocy (PL)
+form.permissions.21:                    kurs Harcerskiej Służby Zabezpieczenia (PL)
+form.permissions.22:                    kurs szefów służb ochrony imprez masowych (PL)
+form.permissions.23:                    kurs członków służb ochrony imprez masowych (PL)
+form.permissions.24:                    kurs kierowania ruchem (PL)
 form.personal_data:                     "I hereby give consent for the above personal data to be processed by Polish Scouting Organization to prepare my participation in ZHP WYD Krakow 2016, in accordance with the Personal Data Protection Act dated Aug 29 1997 (uniform text: Journal of Laws of the Republic of Poland 2014, item 1182)."
 form.pesel:                             PESEL
 form.phone:                             Phone no

@@ -114,6 +114,11 @@ Wyd2016Bundle\Entity\Volunteer:
                 -                       persist
             mappedBy:                   volunteer
             targetEntity:               Wyd2016Bundle\Entity\Language
+        permissions:
+            cascade:
+                -                       persist
+            mappedBy:                   volunteer
+            targetEntity:               Wyd2016Bundle\Entity\Permission
 
     indexes:
         v_index_1:

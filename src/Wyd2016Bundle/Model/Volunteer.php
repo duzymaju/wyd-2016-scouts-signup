@@ -34,6 +34,9 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
     /** @var integer|null */
     protected $serviceExtraId;
 
+    /** @var ArrayCollection */
+    protected $permissions;
+
     /** @var string|null */
     protected $otherPermissions;
 
@@ -276,6 +279,62 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
     }
 
     /**
+     * Get permissions
+     *
+     * @return ArrayCollection
+     */
+    public function getPermissions()
+    {
+        return $this->permissions;
+    }
+
+    /**
+     * Add permission
+     *
+     * @param Permission $permission permission
+     *
+     * @return self
+     */
+    public function addPermission(Permission $permission)
+    {
+        if (!$this->permissions->contains($permission)) {
+            $this->permissions->add($permission);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove permission
+     *
+     * @param Permission $permission permission
+     *
+     * @return self
+     */
+    public function removePermission(Permission $permission)
+    {
+        if ($this->permissions->contains($permission)) {
+            $this->permissions->removeElement($permission);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Set permissions
+     *
+     * @param ArrayCollection $permissions permissions
+     *
+     * @return self
+     */
+    public function setPermissions(ArrayCollection $permissions)
+    {
+        $this->permissions = $permissions;
+
+        return $this;
+    }
+
+    /**
      * Get other permissions
      *
      * @return string|null
@@ -386,6 +445,9 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
     {
         if (!($this->languages instanceof Collection)) {
             $this->languages = new ArrayCollection();
+        }
+        if (!($this->permissions instanceof Collection)) {
+            $this->permissions = new ArrayCollection();
         }
     }
 }

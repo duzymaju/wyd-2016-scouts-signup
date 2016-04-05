@@ -6,6 +6,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Wyd2016Bundle\Form\DataTransformer\LanguagesCollectionTransformer;
+use Wyd2016Bundle\Form\DataTransformer\PermissionsCollectionTransformer;
 use Wyd2016Bundle\Form\RegistrationLists;
 
 /*
@@ -93,6 +94,12 @@ class VolunteerType extends AbstractType
             'multiple' => true,
             'required' => false,
         )))
+        ->add('permissions', 'choice', $this->mergeOptions('permissions', array(
+            'choices' => $this->registrationLists->getPermissions(),
+            'label' => $this->translator->trans('form.permissions'),
+            'multiple' => true,
+            'required' => false,
+        )))
         ->add('otherPermissions', 'text', $this->mergeOptions('otherPermissions', array(
             'label' => $this->translator->trans('form.other_permissions'),
             'required' => false,
@@ -128,6 +135,8 @@ class VolunteerType extends AbstractType
 
         $builder->get('languages')
             ->addModelTransformer(new LanguagesCollectionTransformer());
+        $builder->get('permissions')
+            ->addModelTransformer(new PermissionsCollectionTransformer());
     }
 
     /**

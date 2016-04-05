@@ -63,6 +63,14 @@
                 -
             {% endfor %}
         </dd>
+        <dt>{{ 'form.permissions'|trans }}:</dt>
+        <dd>
+            {% for permission in volunteer.permissions %}
+                {{ permission.id|permissionname }}{{ not loop.last ? ',' : '' }}
+            {% else %}
+                -
+            {% endfor %}
+        </dd>
         <dt>{{ 'form.other_permissions'|trans }}:</dt>
         <dd>{{ volunteer.otherPermissions is empty ? '-' : volunteer.otherPermissions }}</dd>
         <dt>{{ 'form.profession'|trans }}:</dt>
