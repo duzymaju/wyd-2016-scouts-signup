@@ -47,3 +47,27 @@
         </ul>
     {% endif %}
 {% endmacro %}
+
+{% macro languagesList(person) %}
+    {% if person.languages|length > 0 %}
+        <ul>
+            {% for language in person.languages %}
+                <li>{{ language.slug|languagename }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        -
+    {% endif %}
+{% endmacro %}
+
+{% macro permissionsList(person) %}
+    {% if person.permissions|length > 0 %}
+        <ul>
+            {% for permission in person.permissions %}
+                <li>{{ permission.id|permissionname }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        -
+    {% endif %}
+{% endmacro %}

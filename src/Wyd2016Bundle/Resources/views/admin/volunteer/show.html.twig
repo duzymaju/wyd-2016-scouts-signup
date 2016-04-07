@@ -1,4 +1,5 @@
 {% extends 'Wyd2016Bundle:admin:_template.html.twig' %}
+{% import 'Wyd2016Bundle:admin:_macro.html.twig' as macro %}
 {% import 'Wyd2016Bundle::_macro.html.twig' as globalMacro %}
 
 {% block content %}
@@ -56,21 +57,9 @@
             <dd>{{ volunteer.serviceExtraId|servicename }}</dd>
         {% endif %}
         <dt>{{ 'form.languages'|trans }}:</dt>
-        <dd>
-            {% for language in volunteer.languages %}
-                {{ language.slug|languagename }}{{ not loop.last ? ',' : '' }}
-            {% else %}
-                -
-            {% endfor %}
-        </dd>
+        <dd>{{ macro.languagesList(volunteer) }}</dd>
         <dt>{{ 'form.permissions'|trans }}:</dt>
-        <dd>
-            {% for permission in volunteer.permissions %}
-                {{ permission.id|permissionname }}{{ not loop.last ? ',' : '' }}
-            {% else %}
-                -
-            {% endfor %}
-        </dd>
+        <dd>{{ macro.permissionsList(volunteer) }}</dd>
         <dt>{{ 'form.other_permissions'|trans }}:</dt>
         <dd>{{ volunteer.otherPermissions is empty ? '-' : volunteer.otherPermissions }}</dd>
         <dt>{{ 'form.profession'|trans }}:</dt>
