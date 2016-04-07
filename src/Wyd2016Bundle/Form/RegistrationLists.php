@@ -389,6 +389,9 @@ class RegistrationLists
     public function getPermissions()
     {
         $permissions = array(
+            13 => $this->translator->trans('form.permissions.13'),
+            14 => $this->translator->trans('form.permissions.14'),
+            15 => $this->translator->trans('form.permissions.15'),
             11 => $this->translator->trans('form.permissions.11'),
             12 => $this->translator->trans('form.permissions.12'),
             21 => $this->translator->trans('form.permissions.21'),

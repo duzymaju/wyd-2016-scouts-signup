@@ -107,6 +107,9 @@ form.own_tent_single:                   Posiadam własny namiot (organizator nie
 form.permissions:                       Uprawnienia
 form.permissions.11:                    Wędrowniczy Kurs Pierwszej Pomocy
 form.permissions.12:                    Kwalifikowany Kurs Pierwszej Pomocy
+form.permissions.13:                    lekarz
+form.permissions.14:                    pielęgniarka
+form.permissions.15:                    ratownik medyczny
 form.permissions.21:                    kurs Harcerskiej Służby Zabezpieczenia
 form.permissions.22:                    kurs szefów służb ochrony imprez masowych
 form.permissions.23:                    kurs członków służb ochrony imprez masowych
