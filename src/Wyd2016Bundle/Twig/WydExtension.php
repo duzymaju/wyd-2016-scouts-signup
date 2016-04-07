@@ -45,7 +45,7 @@ class WydExtension extends Twig_Extension
             new Twig_SimpleFilter('gradename', array($this, 'gradeNameFilter')),
             new Twig_SimpleFilter('languagename', array($this, 'languageNameFilter')),
             new Twig_SimpleFilter('localizedcountry', array($this, 'localizedCountryFilter')),
-            new Twig_SimpleFilter('permissionname', array($this, 'permissionModifyFilter')),
+            new Twig_SimpleFilter('permissionname', array($this, 'permissionNameFilter')),
             new Twig_SimpleFilter('peselmodify', array($this, 'peselModifyFilter')),
             new Twig_SimpleFilter('pilgrimdate', array($this, 'pilgrimDateFilter')),
             new Twig_SimpleFilter('regionname', array($this, 'regionNameFilter')),
@@ -138,7 +138,7 @@ class WydExtension extends Twig_Extension
      *
      * @return string|null
      */
-    public function permissionModifyFilter($permissionId)
+    public function permissionNameFilter($permissionId)
     {
         $permissionName = $this->registrationLists->getPermission($permissionId);
 

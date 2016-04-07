@@ -23,7 +23,9 @@ class VolunteerRepository extends EntityRepository implements BaseRepositoryInte
         /** @var QueryBuilder $qb */
         $qb = $this->createQueryBuilder('v')
             ->select('v, t')
-            ->leftJoin('v.troop', 't');
+            ->leftJoin('v.troop', 't')
+            ->leftJoin('v.languages', 'l')
+            ->leftJoin('v.permissions', 'p');
         foreach ($orderBy as $column => $direction) {
             $qb->addOrderBy('v.' . $column, $direction);
         }

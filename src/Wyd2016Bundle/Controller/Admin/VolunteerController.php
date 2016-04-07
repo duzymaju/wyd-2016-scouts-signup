@@ -2,11 +2,15 @@
 
 namespace Wyd2016Bundle\Controller\Admin;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Translation\TranslatorInterface;
 use Wyd2016Bundle\Entity\Repository\VolunteerRepository;
 use Wyd2016Bundle\Entity\Volunteer;
+use Wyd2016Bundle\Model\Language;
+use Wyd2016Bundle\Model\Permission;
 use Wyd2016Bundle\Twig\WydExtension;
 
 /**
@@ -98,11 +102,11 @@ class VolunteerController extends AbstractController
             $translator->trans('form.region'),
             $translator->trans('form.district'),
             $translator->trans('form.pesel'),
-            $translator->trans('form.shirtSize'),
+            $translator->trans('form.shirt_size'),
             $translator->trans('form.service_main'),
             $translator->trans('form.service_extra'),
-//            $translator->trans('form.languages'),
-//            $translator->trans('form.permissions'),
+            $translator->trans('form.languages'),
+            $translator->trans('form.permissions'),
             $translator->trans('form.other_permissions'),
             $translator->trans('form.profession'),
             $translator->trans('form.dates'),
@@ -131,8 +135,8 @@ class VolunteerController extends AbstractController
                 $volunteer->getShirtSize() > 0 ? $filters->shirtSizeNameFilter($volunteer->getShirtSize()) : '-',
                 $filters->serviceNameFilter($volunteer->getServiceMainId()),
                 $volunteer->getServiceExtraId() ? $filters->serviceNameFilter($volunteer->getServiceExtraId()) : '-',
-//                '',
-//                '',
+                $this->getLanguagesList($volunteer->getLanguages(), $filters),
+                $this->getPermissionsList($volunteer->getPermissions(), $filters),
                 $volunteer->getOtherPermissions(),
                 $volunteer->getProfession(),
                 $filters->pilgrimDateFilter($volunteer->getDatesId()),
@@ -145,6 +149,60 @@ class VolunteerController extends AbstractController
         }
 
         return $this->getCsvResponse($data, 'volunteer_list');
+    }
+
+    /**
+     * Get languages list
+     *
+     * @param Collection   $languages languages
+     * @param WydExtension $filters   filters
+     *
+     * @return string
+     */
+    protected function getLanguagesList(Collection $languages, WydExtension $filters)
+    {
+        $list = array();
+        if ($languages->count() > 0) {
+            foreach ($languages as $language) {
+                /** @var Language $language */
+                $languageName = $filters->languageNameFilter($language->getSlug());
+                if (!empty($languageName)) {
+                    $list[] = $languageName;
+                }
+            }
+        }
+        if (count($list) < 1) {
+            $list[] = '-';
+        }
+
+        return implode(', ', $list);
+    }
+
+    /**
+     * Get permissions list
+     *
+     * @param Collection   $permissions permissions
+     * @param WydExtension $filters     filters
+     *
+     * @return string
+     */
+    protected function getPermissionsList(Collection $permissions, WydExtension $filters)
+    {
+        $list = array();
+        if ($permissions->count() > 0) {
+            foreach ($permissions as $permission) {
+                /** @var Permission $permission */
+                $permissionName = $filters->permissionNameFilter($permission->getId());
+                if (!empty($permissionName)) {
+                    $list[] = $permissionName;
+                }
+            }
+        }
+        if (count($list) < 1) {
+            $list[] = '-';
+        }
+
+        return implode(', ', $list);
     }
 
     /**
