@@ -11,7 +11,7 @@ DirectoryIndex app.php
 
     # require with subdomain (prod)
     RewriteCond         %{HTTPS}s                   on(s)|
-    RewriteCond         %{HTTP_HOST}                ^.+\.(rejestracja\.sdm\.zhp\.pl)$ [NC]
+    RewriteCond         %{HTTP_HOST}                ^.+\.(rejestracja-sdm\.zhp\.pl)$ [NC]
     RewriteRule         ^(.*)$                      http%2://%1/$1 [L,NC,R=301]
 
     # require without the www
