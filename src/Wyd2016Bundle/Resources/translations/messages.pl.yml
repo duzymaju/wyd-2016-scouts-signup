@@ -175,6 +175,17 @@ next_steps.volunteers_page:             Strona przygotowań do ŚDM Kraków 2016
 pilgrims.form.description:              Minimalny wiek pielgrzyma to %age% lat ukończone przed %date%.
 pilgrims.form.title:                    Formularz dla pełnoletnich pielgrzymów
 
+region_email.content.district:          Hufiec %district_name%
+region_email.content.empty:             W danym okresie z tej chorągwi nie zgłosił się ani jeden wolontariusz.
+region_email.content.title:             "Chorągiew %region_name% - podsumowianie zgłoszeń %date%:"
+region_email.date.day:                  w dniu %time%
+region_email.date.month:                w dniach od %timeFrom% do %timeTo%
+region_email.date.week:                 w dniach od %timeFrom% do %timeTo%
+region_email.service:                   "preferowana służba:"
+region_email.title.day:                 ŚDM 2016 - podsumowanie wczorajszych zgłoszeń z chorągwi
+region_email.title.month:               ŚDM 2016 - podsumowanie zgłoszeń z chorągwi w zeszłym miesiącu
+region_email.title.week:                ŚDM 2016 - podsumowanie zgłoszeń z chorągwi w zeszłym tygodniu
+
 success.message:                        Twoje dane zostały pomyślnie zapisane. Aby dokończyć rejestrację odbierz wiadomość e-mail, którą Ci wysłaliśmy i kliknij w link potwierdzenia.
 success.title:                          Dziękujemy za rejestrację
 

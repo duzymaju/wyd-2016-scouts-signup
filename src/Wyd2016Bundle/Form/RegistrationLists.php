@@ -487,7 +487,7 @@ class RegistrationLists
      *
      * @return array
      */
-    protected function getStructure()
+    public function getStructure()
     {
         $structure = array(
             20 => array(
@@ -502,6 +502,7 @@ class RegistrationLists
                     8 => 'Sokółka',
                     9 => 'Suwałki',
                 ),
+                'email' => null,
             ),
             2 => array(
                 'name' => 'Dolnośląska',
@@ -534,6 +535,7 @@ class RegistrationLists
                     30 => 'Złotoryja',
                     32 => 'Żórawina',
                 ),
+                'email' => null,
             ),
             22 => array(
                 'name' => 'Gdańska',
@@ -561,6 +563,7 @@ class RegistrationLists
                     25 => 'Wejherowo',
                     19 => 'Ziemi Słupskiej',
                 ),
+                'email' => null,
             ),
             26 => array(
                 'name' => 'Kielecka',
@@ -582,6 +585,7 @@ class RegistrationLists
                     14 => 'Staszów',
                     15 => 'Szczekocińsko-Włoszczowski',
                 ),
+                'email' => null,
             ),
             12 => array(
                 'name' => 'Krakowska',
@@ -609,6 +613,7 @@ class RegistrationLists
                     24 => 'Wieliczka',
                     28 => 'Ziemi Wadowickiej',
                 ),
+                'email' => null,
             ),
             4 => array(
                 'name' => 'Kujawsko-Pomorska',
@@ -636,6 +641,7 @@ class RegistrationLists
                     5 => 'Włocławek - Powiat',
                     22 => 'Włocławek - Miasto',
                 ),
+                'email' => null,
             ),
             6 => array(
                 'name' => 'Lubelska',
@@ -651,6 +657,7 @@ class RegistrationLists
                     15 => 'Tomaszów Lubelski',
                     17 => 'Zamość',
                 ),
+                'email' => null,
             ),
             10 => array(
                 'name' => 'Łódzka',
@@ -681,6 +688,7 @@ class RegistrationLists
                     25 => 'Zgierz',
                     27 => 'Żychlin',
                 ),
+                'email' => null,
             ),
             14 => array(
                 'name' => 'Mazowiecka',
@@ -712,6 +720,7 @@ class RegistrationLists
                     32 => 'Żuromin',
                     33 => 'Żyrardów',
                 ),
+                'email' => null,
             ),
             16 => array(
                 'name' => 'Opolska',
@@ -726,6 +735,7 @@ class RegistrationLists
                     12 => 'Opole',
                     14 => 'Praszka',
                 ),
+                'email' => null,
             ),
             18 => array(
                 'name' => 'Podkarpacka',
@@ -754,6 +764,7 @@ class RegistrationLists
                     23 => 'Ziemi Rzeszowskiej',
                     24 => 'Ziemi Sanockiej',
                 ),
+                'email' => null,
             ),
             34 => array(
                 'name' => 'Stołeczna',
@@ -786,6 +797,7 @@ class RegistrationLists
                     19 => 'Ząbki',
                     20 => 'Zielonka',
                 ),
+                'email' => null,
             ),
             24 => array(
                 'name' => 'Śląska',
@@ -825,6 +837,7 @@ class RegistrationLists
                     33 => 'Żory',
                     34 => 'Żywiec',
                 ),
+                'email' => null,
             ),
             28 => array(
                 'name' => 'Warmińsko-Mazurska',
@@ -851,6 +864,7 @@ class RegistrationLists
                     22 => 'Warmiński',
                     23 => 'Wegorzewo',
                 ),
+                'email' => null,
             ),
             30 => array(
                 'name' => 'Wielkopolska',
@@ -894,6 +908,7 @@ class RegistrationLists
                     5 => 'Ziemi Ostrzeszowskiej',
                     41 => 'Złotów',
                 ),
+                'email' => null,
             ),
             32 => array(
                 'name' => 'Zachodniopomorska',
@@ -911,6 +926,7 @@ class RegistrationLists
                     5 => 'Ziemi Koszalińskiej',
                     13 => 'Ziemi Wolińskiej',
                 ),
+                'email' => null,
             ),
             8 => array(
                 'name' => 'Ziemi Lubuskiej',
@@ -929,6 +945,7 @@ class RegistrationLists
                     13 => 'Żagań',
                     14 => 'Żary',
                 ),
+                'email' => null,
             ),
         );
 
