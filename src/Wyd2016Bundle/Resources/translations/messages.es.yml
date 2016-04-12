@@ -91,7 +91,7 @@ form.languages.it:                      italiano
 form.languages.pl:                      polaco
 form.languages.pt:                      potugués
 form.last_name:                         El apellido
-form.other_permissions:                 Otras calificaciónes
+form.other_permissions:                 Las otras calificaciónes
 form.own_tent_group:                    El grupo tiene sus propias tiendas de campaña (Los organizadores no tienen que garantizar las tiendas).
 form.own_tent_single:                   Tengo mi propia tienda de campaña (Los organizatores no tienen que garantizar las tiendas).
 form.permissions:                       Las calificaciónes
