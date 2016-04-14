@@ -35,6 +35,11 @@ _admin_volunteer_index:
 _admin_index:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/index.yml"
 
+_admin_main:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/main.yml"
+    options:
+        i18n:                           false
+
 _registration_group_confirm:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/group/confirm.yml"
 

@@ -65,4 +65,14 @@ class AdminController extends Controller
             ),
         ));
     }
+
+    /**
+     * Main action
+     *
+     * @return Response
+     */
+    public function mainAction()
+    {
+        return $this->redirect($this->generateUrl('admin_index'));
+    }
 }

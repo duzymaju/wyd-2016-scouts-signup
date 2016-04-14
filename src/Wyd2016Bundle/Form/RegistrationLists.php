@@ -398,6 +398,7 @@ class RegistrationLists
             22 => $this->translator->trans('form.permissions.22'),
             23 => $this->translator->trans('form.permissions.23'),
             24 => $this->translator->trans('form.permissions.24'),
+            31 => $this->translator->trans('form.permissions.31'),
         );
 
         return $permissions;
