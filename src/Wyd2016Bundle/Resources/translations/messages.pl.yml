@@ -7,7 +7,7 @@ admin.group:                            Grupa
 admin.group_leader:                     opiekun grupy
 admin.group_members:                    Członkowie grupy (%count%)
 admin.groups:                           Grupy
-admin.groups.counter:                   (ostatnie %limit%)
+admin.groups.counter:                   (ostatnie %limit% z %totalNumber%)
 admin.header:                           ZHP ŚDM 2016
 admin.login.password:                   Hasło
 admin.login.submit:                     Zaloguj
@@ -17,7 +17,7 @@ admin.logout.link:                      Wyloguj <strong>%login%</strong>
 admin.name:                             Nazwa
 admin.pilgrim:                          Pielgrzym
 admin.pilgrims:                         Pielgrzymi
-admin.pilgrims.counter:                 (ostatnich %limit%)
+admin.pilgrims.counter:                 (ostatnich %limit% z %totalNumber%)
 admin.reminder.button:                  Wyślij przypomnienie
 admin.reminder.error:                   Wystąpił błąd podczas wysyłania wiadomości e-mail z przypomnieniem.
 admin.reminder.sent_date:               Ostatnie przypomnienie zostało wysłane %date%.
@@ -27,10 +27,10 @@ admin.troop:                            Patrol
 admin.troop_leader:                     patrolowy
 admin.troop_members:                    Członkowie patrolu (%count%)
 admin.troops:                           Patrole
-admin.troops.counter:                   (ostatnie %limit%)
+admin.troops.counter:                   (ostatnie %limit% z %totalNumber%)
 admin.volunteer:                        Wolontariusz
 admin.volunteers:                       Wolontariusze
-admin.volunteers.counter:               (ostatnich %limit%)
+admin.volunteers.counter:               (ostatnich %limit% z %totalNumber%)
 
 confirmation.error:                     Twoja rejestracja została już potwierdzona lub posiadasz nieprawidłowy link potwierdzenia
 confirmation.success:                   Twoja rejestracja została prawidłowo potwierdzona

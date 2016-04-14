@@ -7,7 +7,7 @@ admin.group:                            Group
 admin.group_leader:                     troop leader
 admin.group_members:                    Group members (%count%)
 admin.groups:                           Groups
-admin.groups.counter:                   (last %limit%)
+admin.groups.counter:                   (last %limit% of %totalNumber%)
 admin.header:                           ZHP WYD 2016
 admin.login.password:                   Password
 admin.login.submit:                     Log in
@@ -17,7 +17,7 @@ admin.logout.link:                      Logout <strong>%login%</strong>
 admin.name:                             Name
 admin.pilgrim:                          Pilgrim
 admin.pilgrims:                         Pilgrims
-admin.pilgrims.counter:                 (last %limit%)
+admin.pilgrims.counter:                 (last %limit% of %totalNumber%)
 admin.reminder.button:                  Send reminder
 admin.reminder.error:                   An error occures during reminder e-mail sending.
 admin.reminder.sent_date:               Last reminder was sent at %date%.
@@ -27,10 +27,10 @@ admin.troop:                            Troop
 admin.troop_leader:                     troop leader
 admin.troop_members:                    Troop members (%count%)
 admin.troops:                           Troops
-admin.troops.counter:                   (last %limit%)
+admin.troops.counter:                   (last %limit% of %totalNumber%)
 admin.volunteer:                        Volunteer
 admin.volunteers:                       Volunteers
-admin.volunteers.counter:               (last %limit%)
+admin.volunteers.counter:               (last %limit% of %totalNumber%)
 
 confirmation.error:                     Your registration is already confirmed or you have wrong confirmation link
 confirmation.success:                   Your registration was successfully confirmed

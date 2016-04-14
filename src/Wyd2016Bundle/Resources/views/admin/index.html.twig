@@ -8,7 +8,7 @@
         <div class="col-sm-6">
             <h3>
                 <a href="{{ path(list.routeIndex) }}">{{ list.title|trans }}</a>
-                {{ list.counter|trans({'%limit%': limit}) }}
+                {{ list.counter|trans({'%limit%': limit, '%totalNumber%': list.totalNumber}) }}
             </h3>
             <table class="table table-striped">
                 <tbody>
