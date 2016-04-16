@@ -165,7 +165,7 @@ next_steps.volunteers_page:             La página de los preparaciónes de JMJ 
 pilgrims.form.description:              La edad minima del peregrino son %age% años cumplidos antes de %date%
 pilgrims.form.title:                    La inscripción para los peregrinos mayores de edad
 
-region_email.content.district:          %district_name% District
+region_email.content.district:          "%district_name% District:"
 region_email.content.empty:             There is no volunteer registered from this district in this time period.
 region_email.content.title:             "%region_name% Region - applications summary %date%:"
 region_email.date.day:                  on %time%

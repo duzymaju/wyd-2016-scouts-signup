@@ -165,7 +165,7 @@ next_steps.volunteers_page:             Page of preparation to WYD Krakow 2016 m
 pilgrims.form.description:              Pligrim must be over %age% years before %date%.
 pilgrims.form.title:                    Form for adult pilgrims
 
-region_email.content.district:          %district_name% District
+region_email.content.district:          "%district_name% District:"
 region_email.content.empty:             There is no volunteer registered from this district in this time period.
 region_email.content.title:             "%region_name% Region - applications summary %date%:"
 region_email.date.day:                  on %time%
