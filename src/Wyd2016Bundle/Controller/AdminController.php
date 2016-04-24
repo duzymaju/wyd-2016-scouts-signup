@@ -63,6 +63,11 @@ class AdminController extends Controller
                     'totalNumber' => $groupRepository->getTotalNumber(),
                 ),
             ),
+            'stats' => array(
+                'countries' => $volunteerRepository->countByCountries(),
+                'regions' => $volunteerRepository->countByRegions(),
+                'services' => $volunteerRepository->countByServices(),
+            ),
         ));
     }
 

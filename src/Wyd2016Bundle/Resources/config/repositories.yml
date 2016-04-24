@@ -23,5 +23,7 @@ services:
     wyd2016bundle.volunteer.repository:
         arguments:
             -                           Wyd2016Bundle\Entity\Volunteer
+        calls:
+            -                           [setRegistrationLists, [@wyd2016bundle.registration.lists]]
         class:                          Wyd2016Bundle\Entity\Repository\VolunteerRepository
         factory:                        [@wyd2016bundle.alias.manager_service, getRepository]

@@ -22,6 +22,10 @@ admin.reminder.button:                  Wyślij przypomnienie
 admin.reminder.error:                   Wystąpił błąd podczas wysyłania wiadomości e-mail z przypomnieniem.
 admin.reminder.sent_date:               Ostatnie przypomnienie zostało wysłane %date%.
 admin.reminder.success:                 Pomyślnie wysłano wiadomość e-mail z przypomnieniem.
+admin.stats.countries:                  Wolontariusze po państwie
+admin.stats.regions:                    Wolontariusze po chorągwi
+admin.stats.services:                   Wolontariusze po służbie
+admin.stats.services_counters:          %main% jako główna / ogółem %all%
 admin.title:                            Administracja ZHP ŚDM Kraków 2016
 admin.troop:                            Patrol
 admin.troop_leader:                     patrolowy

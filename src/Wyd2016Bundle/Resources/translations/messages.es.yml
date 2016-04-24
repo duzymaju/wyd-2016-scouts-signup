@@ -22,6 +22,10 @@ admin.reminder.button:                  Send reminder
 admin.reminder.error:                   An error occures during reminder e-mail sending.
 admin.reminder.sent_date:               Last reminder was sent at %date%.
 admin.reminder.success:                 Reminder e-mail was sent successfully.
+admin.stats.countries:                  Volunteers by country
+admin.stats.regions:                    Volunteers by region
+admin.stats.services:                   Volunteers by service
+admin.stats.services_counters:          %main% as main / %all% all
 admin.title:                            Administration ZHP WYD Krakow 2016
 admin.troop:                            Troop
 admin.troop_leader:                     troop leader
