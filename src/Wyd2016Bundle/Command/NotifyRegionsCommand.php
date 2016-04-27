@@ -104,14 +104,13 @@ class NotifyRegionsCommand extends ContainerAwareCommand
      * @param DateTime        $timeFrom   time from
      * @param DateTime        $timeTo     time to
      * @param integer         $regionId   region ID
-     * @param string          $regionName region name
      * @param string          $email      email
      * @param string          $period     period
      *
      * @return integer
      */
     protected function executeRegion(OutputInterface $output, DateTime $timeFrom, DateTime $timeTo, $regionId,
-        $regionName, $email, $period)
+        $email, $period)
     {
         $container = $this->getContainer();
         $volunteers = $container->get('wyd2016bundle.volunteer.repository')
@@ -159,7 +158,6 @@ class NotifyRegionsCommand extends ContainerAwareCommand
             ->render('Wyd2016Bundle::region/email.html.twig', array(
                 'byDistricts' => $volunteersByDistricts,
                 'date' => $date,
-                'regionName' => $regionName,
             ));
 
         $message = Swift_Message::newInstance()

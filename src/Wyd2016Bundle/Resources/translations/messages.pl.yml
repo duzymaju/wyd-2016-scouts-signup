@@ -177,7 +177,7 @@ pilgrims.form.title:                    Formularz dla pełnoletnich pielgrzymów
 
 region_email.content.district:          "Hufiec %district_name%:"
 region_email.content.empty:             W danym okresie z tej chorągwi nie zgłosił się ani jeden wolontariusz.
-region_email.content.title:             "Chorągiew %region_name% - podsumowanie zgłoszeń %date%:"
+region_email.content.title:             "Podsumowanie zgłoszeń %date%:"
 region_email.date.day:                  w dniu %time%
 region_email.date.month:                w dniach od %timeFrom% do %timeTo%
 region_email.date.week:                 w dniach od %timeFrom% do %timeTo%

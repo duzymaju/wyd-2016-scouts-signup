@@ -1,4 +1,4 @@
-<p>{{ 'region_email.content.title'|trans({'%date%': date, '%region_name%': regionName}) }}</p>
+<p>{{ 'region_email.content.title'|trans({'%date%': date}) }}</p>
 {% for districtId, volunteers in byDistricts %}
     <p>{{ 'region_email.content.district'|trans({'%district_name%': districtId|districtname}) }}</p>
     <ul>

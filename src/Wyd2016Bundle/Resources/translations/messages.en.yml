@@ -167,7 +167,7 @@ pilgrims.form.title:                    Form for adult pilgrims
 
 region_email.content.district:          "%district_name% District:"
 region_email.content.empty:             There is no volunteer registered from this district in this time period.
-region_email.content.title:             "%region_name% Region - applications summary %date%:"
+region_email.content.title:             "Applications summary %date%:"
 region_email.date.day:                  on %time%
 region_email.date.month:                from %timeFrom% to %timeTo%
 region_email.date.week:                 from %timeFrom% to %timeTo%
