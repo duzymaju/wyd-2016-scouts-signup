@@ -8,7 +8,7 @@
         <div class="col-sm-6">
             <h3>
                 <a href="{{ path(list.routeIndex) }}">{{ list.title|trans }}</a>
-                {{ list.counter|trans({'%limit%': limit}) }}
+                {{ list.counter|trans({'%limit%': limit > list.totalNumber ? list.totalNumber : limit, '%totalNumber%': list.totalNumber}) }}
             </h3>
             <table class="table table-striped">
                 <tbody>
@@ -25,4 +25,53 @@
             </div>
         {% endif %}
     {% endfor %}
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>
+                {{ 'admin.stats.services'|trans }}
+            </h3>
+            <table class="table table-striped">
+                <tbody>
+                    {% for service, counters in stats.services %}
+                        <tr>
+                            <td>{{ service|servicename }}</td>
+                            <td>{{ 'admin.stats.services_counters'|trans({'%all%': counters.main + counters.extra, '%main%': counters.main}) }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-6">
+            <h3>
+                {{ 'admin.stats.countries'|trans }}
+            </h3>
+            <table class="table table-striped">
+                <tbody>
+                    {% for country, counter in stats.countries %}
+                        <tr>
+                            <td>{{ country|localizedcountry }}</td>
+                            <td>{{ counter }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>
+                {{ 'admin.stats.regions'|trans }}
+            </h3>
+            <table class="table table-striped">
+                <tbody>
+                    {% for region, counter in stats.regions %}
+                        <tr>
+                            <td>{{ region|regionname }}</td>
+                            <td>{{ counter }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

@@ -90,12 +90,14 @@ class VolunteerType extends AbstractType
         )))
         ->add('languages', 'choice', $this->mergeOptions('languages', array(
             'choices' => $this->registrationLists->getLanguages(),
+            'expanded' => true,
             'label' => $this->translator->trans('form.languages'),
             'multiple' => true,
             'required' => false,
         )))
         ->add('permissions', 'choice', $this->mergeOptions('permissions', array(
             'choices' => $this->registrationLists->getPermissions(),
+            'expanded' => true,
             'label' => $this->translator->trans('form.permissions'),
             'multiple' => true,
             'required' => false,

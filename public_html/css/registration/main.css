@@ -38,6 +38,18 @@ span.header-locale-item {
 .registration-form .form-control {
     display: inline-block;
 }
+.registration-form div.form-control {
+    height: auto;
+}
+.registration-form .form-control input {
+    clear: left;
+    float: left;
+}
+.registration-form .form-control label {
+    float: left;
+    font-weight: normal;
+    margin: 0 6px;
+}
 .registration-form .form-info > .form-control {
     width: calc(100% - 35px);
 }

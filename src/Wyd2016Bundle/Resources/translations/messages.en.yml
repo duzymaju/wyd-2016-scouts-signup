@@ -7,7 +7,7 @@ admin.group:                            Group
 admin.group_leader:                     troop leader
 admin.group_members:                    Group members (%count%)
 admin.groups:                           Groups
-admin.groups.counter:                   (last %limit%)
+admin.groups.counter:                   (last %limit% of %totalNumber%)
 admin.header:                           ZHP WYD 2016
 admin.login.password:                   Password
 admin.login.submit:                     Log in
@@ -17,20 +17,24 @@ admin.logout.link:                      Logout <strong>%login%</strong>
 admin.name:                             Name
 admin.pilgrim:                          Pilgrim
 admin.pilgrims:                         Pilgrims
-admin.pilgrims.counter:                 (last %limit%)
+admin.pilgrims.counter:                 (last %limit% of %totalNumber%)
 admin.reminder.button:                  Send reminder
 admin.reminder.error:                   An error occures during reminder e-mail sending.
 admin.reminder.sent_date:               Last reminder was sent at %date%.
 admin.reminder.success:                 Reminder e-mail was sent successfully.
+admin.stats.countries:                  Volunteers by country
+admin.stats.regions:                    Volunteers by region
+admin.stats.services:                   Volunteers by service
+admin.stats.services_counters:          %main% as main / %all% all
 admin.title:                            Administration ZHP WYD Krakow 2016
 admin.troop:                            Troop
 admin.troop_leader:                     troop leader
 admin.troop_members:                    Troop members (%count%)
 admin.troops:                           Troops
-admin.troops.counter:                   (last %limit%)
+admin.troops.counter:                   (last %limit% of %totalNumber%)
 admin.volunteer:                        Volunteer
 admin.volunteers:                       Volunteers
-admin.volunteers.counter:               (last %limit%)
+admin.volunteers.counter:               (last %limit% of %totalNumber%)
 
 confirmation.error:                     Your registration is already confirmed or you have wrong confirmation link
 confirmation.success:                   Your registration was successfully confirmed
@@ -104,6 +108,7 @@ form.permissions.21:                    kurs Harcerskiej Służby Zabezpieczenia
 form.permissions.22:                    kurs szefów służb ochrony imprez masowych (PL)
 form.permissions.23:                    kurs członków służb ochrony imprez masowych (PL)
 form.permissions.24:                    kurs kierowania ruchem (PL)
+form.permissions.31:                    priest / cleric
 form.personal_data:                     "I hereby give consent for the above personal data to be processed by Polish Scouting Organization to prepare my participation in ZHP WYD Krakow 2016, in accordance with the Personal Data Protection Act dated Aug 29 1997 (uniform text: Journal of Laws of the Republic of Poland 2014, item 1182)."
 form.pesel:                             PESEL
 form.phone:                             Phone no

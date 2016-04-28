@@ -51,6 +51,7 @@ class TroopType extends AbstractType
         )))
         ->add('languages', 'choice', $this->mergeOptions('languages', array(
             'choices' => $this->registrationLists->getLanguages(),
+            'expanded' => true,
             'label' => $this->translator->trans('form.languages'),
             'mapped' => false,
             'multiple' => true,
@@ -58,6 +59,7 @@ class TroopType extends AbstractType
         )))
         ->add('permissions', 'choice', $this->mergeOptions('permissions', array(
             'choices' => $this->registrationLists->getPermissions(),
+            'expanded' => true,
             'label' => $this->translator->trans('form.permissions'),
             'mapped' => false,
             'multiple' => true,

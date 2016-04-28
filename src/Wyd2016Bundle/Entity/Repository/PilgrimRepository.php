@@ -32,4 +32,22 @@ class PilgrimRepository extends EntityRepository implements BaseRepositoryInterf
 
         return $results;
     }
+
+    /**
+     * Get total number
+     *
+     * @return integer
+     */
+    public function getTotalNumber()
+    {
+        $qb = $this->getEntityManager()
+            ->createQueryBuilder();
+        $qb->select('count(p.id)');
+        $qb->from('Wyd2016Bundle:Pilgrim', 'p');
+
+        $count = $qb->getQuery()
+            ->getSingleScalarResult();
+
+        return $count;
+    }
 }
