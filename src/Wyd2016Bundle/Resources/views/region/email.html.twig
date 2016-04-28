@@ -1,4 +1,4 @@
-<p>{{ 'region_email.content.title'|trans({'%date%': date}) }}</p>
+{{ description|raw }}
 {% for districtId, volunteers in byDistricts %}
     <p>{{ 'region_email.content.district'|trans({'%district_name%': districtId|districtname}) }}</p>
     <ul>
@@ -13,3 +13,4 @@
 {% else %}
     <p>{{ 'region_email.content.empty'|trans }}</p>
 {% endfor %}
+{{ 'region_email.content.footer'|trans|raw }}
