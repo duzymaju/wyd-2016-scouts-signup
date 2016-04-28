@@ -81,11 +81,14 @@
 
         var changeDistricts = function () {
             var regionId = parseInt(regionsField.val(), 10);
-            allDistricts.hide();
+            allDistricts.hide()
+                .prop('disabled', true);
             if (typeof districts[regionId] !== undefinedType) {
-                districts[regionId].show();
+                districts[regionId].show()
+                    .prop('disabled', false);
             }
-            allDistricts.filter(':visible:first').prop('selected', true);
+            allDistricts.filter(':not(:disabled):first')
+                .prop('selected', true);
         };
         
         regionsField.on('change', changeDistricts);
