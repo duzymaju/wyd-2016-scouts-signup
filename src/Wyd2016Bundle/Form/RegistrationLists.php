@@ -503,8 +503,12 @@ class RegistrationLists
                     9 => 'Suwałki',
                 ),
                 'emails' => array(
-                    'commander' => array(),
-                    'coordinator' => array(),
+                    'commander' => array(
+                        'h.horodenska@bialostocka.zhp.pl',
+                    ),
+                    'coordinator' => array(
+                        'tomkozlowski@op.pl',
+                    ),
                 ),
             ),
             2 => array(
@@ -539,8 +543,13 @@ class RegistrationLists
                     32 => 'Żórawina',
                 ),
                 'emails' => array(
-                    'commander' => array(),
-                    'coordinator' => array(),
+                    'commander' => array(
+                        'komendant@dolnoslaska.zhp.pl',
+                        'zpskupinski@dolnoslaska.zhp.pl',
+                    ),
+                    'coordinator' => array(
+                        'daniel.rydz@zhp.net.pl',
+                    ),
                 ),
             ),
             22 => array(
@@ -570,8 +579,12 @@ class RegistrationLists
                     19 => 'Ziemi Słupskiej',
                 ),
                 'emails' => array(
-                    'commander' => array(),
-                    'coordinator' => array(),
+                    'commander' => array(
+                        'komendant@gdanska.zhp.pl',
+                    ),
+                    'coordinator' => array(
+                        'aniadeptula@o2.pl',
+                    ),
                 ),
             ),
             26 => array(
@@ -595,8 +608,12 @@ class RegistrationLists
                     15 => 'Szczekocińsko-Włoszczowski',
                 ),
                 'emails' => array(
-                    'commander' => array(),
-                    'coordinator' => array(),
+                    'commander' => array(
+                        'komendant@kielecka.zhp.pl',
+                    ),
+                    'coordinator' => array(
+                        'martyna.wypych@kielecka.zhp.pl',
+                    ),
                 ),
             ),
             12 => array(
@@ -626,7 +643,9 @@ class RegistrationLists
                     28 => 'Ziemi Wadowickiej',
                 ),
                 'emails' => array(
-                    'commander' => array(),
+                    'commander' => array(
+                        'komendant@krakowska.zhp.pl',
+                    ),
                     'coordinator' => array(),
                 ),
             ),
@@ -657,8 +676,12 @@ class RegistrationLists
                     22 => 'Włocławek - Miasto',
                 ),
                 'emails' => array(
-                    'commander' => array(),
-                    'coordinator' => array(),
+                    'commander' => array(
+                        'j.gebara@kp.zhp.pl',
+                    ),
+                    'coordinator' => array(
+                        'k.lenska18@gmail.com',
+                    ),
                 ),
             ),
             6 => array(
@@ -676,7 +699,9 @@ class RegistrationLists
                     17 => 'Zamość',
                 ),
                 'emails' => array(
-                    'commander' => array(),
+                    'commander' => array(
+                        'komendant@lubelska.zhp.pl',
+                    ),
                     'coordinator' => array(),
                 ),
             ),
@@ -710,8 +735,12 @@ class RegistrationLists
                     27 => 'Żychlin',
                 ),
                 'emails' => array(
-                    'commander' => array(),
-                    'coordinator' => array(),
+                    'commander' => array(
+                        'komendant@lodzka.zhp.pl',
+                    ),
+                    'coordinator' => array(
+                        'piotr.dziewulski@zhp.net.pl',
+                    ),
                 ),
             ),
             14 => array(
@@ -745,8 +774,12 @@ class RegistrationLists
                     33 => 'Żyrardów',
                 ),
                 'emails' => array(
-                    'commander' => array(),
-                    'coordinator' => array(),
+                    'commander' => array(
+                        'komendant@mazowiecka.zhp.pl',
+                    ),
+                    'coordinator' => array(
+                        'joanna.banasiak@mazowiecka.zhp.pl',
+                    ),
                 ),
             ),
             16 => array(
@@ -763,8 +796,12 @@ class RegistrationLists
                     14 => 'Praszka',
                 ),
                 'emails' => array(
-                    'commander' => array(),
-                    'coordinator' => array(),
+                    'commander' => array(
+                        'komendant@opolska.zhp.pl',
+                    ),
+                    'coordinator' => array(
+                        'danutasokolowska@interia.pl',
+                    ),
                 ),
             ),
             18 => array(
@@ -795,8 +832,12 @@ class RegistrationLists
                     24 => 'Ziemi Sanockiej',
                 ),
                 'emails' => array(
-                    'commander' => array(),
-                    'coordinator' => array(),
+                    'commander' => array(
+                        'komendant@podkarpacka.zhp.pl',
+                    ),
+                    'coordinator' => array(
+                        'witoldrzasa@zhp.net.pl',
+                    ),
                 ),
             ),
             34 => array(
@@ -831,8 +872,12 @@ class RegistrationLists
                     20 => 'Zielonka',
                 ),
                 'emails' => array(
-                    'commander' => array(),
-                    'coordinator' => array(),
+                    'commander' => array(
+                        'komendantka@stoleczna.zhp.pl',
+                    ),
+                    'coordinator' => array(
+                        'kapelan@stoleczna.zhp.pl',
+                    ),
                 ),
             ),
             24 => array(
@@ -874,8 +919,12 @@ class RegistrationLists
                     34 => 'Żywiec',
                 ),
                 'emails' => array(
-                    'commander' => array(),
-                    'coordinator' => array(),
+                    'commander' => array(
+                        'komendant@slaska.zhp.pl',
+                    ),
+                    'coordinator' => array(
+                        'kwiathb@tlen.pl',
+                    ),
                 ),
             ),
             28 => array(
@@ -904,8 +953,12 @@ class RegistrationLists
                     23 => 'Wegorzewo',
                 ),
                 'emails' => array(
-                    'commander' => array(),
-                    'coordinator' => array(),
+                    'commander' => array(
+                        'jakub.ziety@zhp.net.pl',
+                    ),
+                    'coordinator' => array(
+                        'przekop.przemek@zhp.net.pl',
+                    ),
                 ),
             ),
             30 => array(
@@ -951,7 +1004,9 @@ class RegistrationLists
                     41 => 'Złotów',
                 ),
                 'emails' => array(
-                    'commander' => array(),
+                    'commander' => array(
+                        'komendant@zhp.wlkp.pl',
+                    ),
                     'coordinator' => array(),
                 ),
             ),
@@ -972,8 +1027,12 @@ class RegistrationLists
                     13 => 'Ziemi Wolińskiej',
                 ),
                 'emails' => array(
-                    'commander' => array(),
-                    'coordinator' => array(),
+                    'commander' => array(
+                        'komendant@zachpom.zhp.pl',
+                    ),
+                    'coordinator' => array(
+                        'walopiatek25@gmail.com',
+                    ),
                 ),
             ),
             8 => array(
@@ -994,8 +1053,13 @@ class RegistrationLists
                     14 => 'Żary',
                 ),
                 'emails' => array(
-                    'commander' => array(),
-                    'coordinator' => array(),
+                    'commander' => array(
+                        'komendant@lubuska.zhp.pl',
+                        'a.dolinski@zhp.net.pl',
+                    ),
+                    'coordinator' => array(
+                        'michal.glawdel@zhp.net.pl',
+                    ),
                 ),
             ),
         );
