@@ -506,6 +506,8 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'h.horodenska@bialostocka.zhp.pl',
+                        'biuro@bialostocka.zhp.pl',
+                        'w.kosowicz@bialostocka.zhp.pl',
                     ),
                     'coordinator' => array(
                         'tomkozlowski@op.pl',
@@ -547,6 +549,7 @@ class RegistrationLists
                     'commander' => array(
                         'komendant@dolnoslaska.zhp.pl',
                         'zpskupinski@dolnoslaska.zhp.pl',
+                        'dolnoslaska@zhp.pl',
                     ),
                     'coordinator' => array(
                         'daniel.rydz@zhp.net.pl',
@@ -582,6 +585,7 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'komendant@gdanska.zhp.pl',
+                        'sekretariat@gdanska.zhp.pl',
                     ),
                     'coordinator' => array(
                         'aniadeptula@o2.pl',
@@ -611,6 +615,7 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'komendant@kielecka.zhp.pl',
+                        'kielecka@zhp.pl',
                     ),
                     'coordinator' => array(
                         'martyna.wypych@kielecka.zhp.pl',
@@ -646,6 +651,7 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'komendant@krakowska.zhp.pl',
+                        'sekretariat@krakowska.zhp.pl',
                     ),
                     'coordinator' => array(),
                 ),
@@ -679,6 +685,8 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'j.gebara@kp.zhp.pl',
+                        'sekretariat@kp.zhp.pl',
+                        'kujawskopomorska@zhp.pl',
                     ),
                     'coordinator' => array(
                         'k.lenska18@gmail.com',
@@ -702,6 +710,7 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'komendant@lubelska.zhp.pl',
+                        'biuro@lubelska.zhp.pl',
                     ),
                     'coordinator' => array(),
                 ),
@@ -738,6 +747,7 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'komendant@lodzka.zhp.pl',
+                        'lodzka@zhp.net.pl',
                     ),
                     'coordinator' => array(
                         'piotr.dziewulski@zhp.net.pl',
@@ -777,6 +787,8 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'komendant@mazowiecka.zhp.pl',
+                        'mazowiecka@zhp.pl',
+                        'biuro@mazowiecka.zhp.pl',
                     ),
                     'coordinator' => array(
                         'joanna.banasiak@mazowiecka.zhp.pl',
@@ -799,6 +811,7 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'komendant@opolska.zhp.pl',
+                        'opolska@zhp.net.pl',
                     ),
                     'coordinator' => array(
                         'danutasokolowska@interia.pl',
@@ -835,6 +848,7 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'komendant@podkarpacka.zhp.pl',
+                        'podkarpacka@zhp.pl',
                     ),
                     'coordinator' => array(
                         'witoldrzasa@zhp.net.pl',
@@ -875,6 +889,7 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'komendantka@stoleczna.zhp.pl',
+                        'choragiew@stoleczna.zhp.pl',
                     ),
                     'coordinator' => array(
                         'kapelan@stoleczna.zhp.pl',
@@ -922,6 +937,7 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'komendant@slaska.zhp.pl',
+                        'biuro@slaska.zhp.pl',
                     ),
                     'coordinator' => array(
                         'kwiathb@tlen.pl',
@@ -956,6 +972,7 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'jakub.ziety@zhp.net.pl',
+                        'warminskomazurska@zhp.pl',
                     ),
                     'coordinator' => array(
                         'przekop.przemek@zhp.net.pl',
@@ -1007,6 +1024,8 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'komendant@zhp.wlkp.pl',
+                        'wielkopolska@zhp.pl',
+                        'biuro@zhp.wlkp.pl',
                     ),
                     'coordinator' => array(),
                 ),
@@ -1030,6 +1049,7 @@ class RegistrationLists
                 'emails' => array(
                     'commander' => array(
                         'komendant@zachpom.zhp.pl',
+                        'biuro@zachpom.zhp.pl',
                     ),
                     'coordinator' => array(
                         'walopiatek25@gmail.com',
@@ -1057,6 +1077,8 @@ class RegistrationLists
                     'commander' => array(
                         'komendant@lubuska.zhp.pl',
                         'a.dolinski@zhp.net.pl',
+                        'lubuska@zhp.pl',
+                        'biuro@lubuska.zhp.pl',
                     ),
                     'coordinator' => array(
                         'michal.glawdel@zhp.net.pl',
