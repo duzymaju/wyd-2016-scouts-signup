@@ -32,6 +32,11 @@ _admin_volunteer_list:
 _admin_volunteer_index:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Volunteer/index.yml"
 
+_admin_notify_regions:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/notify_regions.yml"
+    options:
+        i18n:                           false
+
 _admin_index:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/index.yml"
 

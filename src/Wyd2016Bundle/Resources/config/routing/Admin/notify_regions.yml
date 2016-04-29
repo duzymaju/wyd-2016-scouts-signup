@@ -1,0 +1,7 @@
+admin_notify_regions:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin:notifyRegions
+    methods:                            [GET]
+    path:                               /admin/notify-regions/{period}
+    requirements:
+        period:                         "^[0-9a-z-]+$"
