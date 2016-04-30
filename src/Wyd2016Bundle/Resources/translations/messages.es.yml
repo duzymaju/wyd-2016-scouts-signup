@@ -170,6 +170,24 @@ next_steps.volunteers_page:             La página de los preparaciónes de JMJ 
 pilgrims.form.description:              La edad minima del peregrino son %age% años cumplidos antes de %date%
 pilgrims.form.title:                    La inscripción para los peregrinos mayores de edad
 
+region_email.content.commander_title:   |
+    <p>Applications summary %date%:</p>
+region_email.content.coordinator_title: |
+    <p>Applications summary %date%:</p>
+region_email.content.district:          "%district_name% District:"
+region_email.content.empty:             There is no volunteer registered from this district in this time period.
+region_email.content.footer:            |
+    <p>Yours in Scouting!</p>
+region_email.date.custom:               from %timeFrom% to %timeTo%
+region_email.date.day:                  on %time%
+region_email.date.month:                from %timeFrom% to %timeTo%
+region_email.date.week:                 from %timeFrom% to %timeTo%
+region_email.service:                   "preferred service:"
+region_email.title.custom:              ŚDM 2016 - summary of last applications from region
+region_email.title.day:                 WYD 2016 - summary of yesterdays applications from region
+region_email.title.month:               WYD 2016 - summary of applications from region last month
+region_email.title.week:                WYD 2016 - summary of applications from region last week
+
 success.message:                        Tus datos son ya guardados, para terminar la inscripción hay que confirmar con el link que te hemos enviado por el correo electrónico.
 success.title:                          Gracias por su inscripción
 

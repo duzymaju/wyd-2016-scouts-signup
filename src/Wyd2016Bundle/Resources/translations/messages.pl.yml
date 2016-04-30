@@ -180,6 +180,29 @@ next_steps.volunteers_page:             Strona przygotowań do ŚDM Kraków 2016
 pilgrims.form.description:              Minimalny wiek pielgrzyma to %age% lat ukończone przed %date%.
 pilgrims.form.title:                    Formularz dla pełnoletnich pielgrzymów
 
+region_email.content.commander_title:   |
+    <p>Druhny i Druhowie<br>
+    Komendantki i Komendanci Chorągwi ZHP</p>
+    <p>&nbsp; &nbsp; Poniżej znajduje się lista zarejestrowanych %date% harcerzy i Instruktorów z Waszej Chorągwi na służbę podczas ŚDM:</p>
+region_email.content.coordinator_title: |
+    <p>Druhni i Druhowie<br>
+    Koordynatorzy Chorągwi ZHP ds. Światowych Dni Młodzieży</p>
+    <p>&nbsp; &nbsp; Poniżej znajduje się lista zarejestrowanych %date% harcerzy i Instruktorów z Waszej Chorągwi na służbę podczas ŚDM:</p>
+region_email.content.district:          "Hufiec %district_name%:"
+region_email.content.empty:             W danym okresie z tej chorągwi nie zgłosił się ani jeden wolontariusz.
+region_email.content.footer:            |
+    <p>Czuwaj!<br>
+    Komenda Zlotu ZHP na Światowe Dni Młodzieży Kraków 2016</p>
+region_email.date.custom:               w dniach od %timeFrom% do %timeTo%
+region_email.date.day:                  w dniu %time%
+region_email.date.month:                w dniach od %timeFrom% do %timeTo%
+region_email.date.week:                 w dniach od %timeFrom% do %timeTo%
+region_email.service:                   "preferowana służba:"
+region_email.title.custom:              ŚDM 2016 - podsumowanie ostatnich zgłoszeń z chorągwi
+region_email.title.day:                 ŚDM 2016 - podsumowanie wczorajszych zgłoszeń z chorągwi
+region_email.title.month:               ŚDM 2016 - podsumowanie zgłoszeń z chorągwi w zeszłym miesiącu
+region_email.title.week:                ŚDM 2016 - podsumowanie zgłoszeń z chorągwi w zeszłym tygodniu
+
 success.message:                        Twoje dane zostały pomyślnie zapisane. Aby dokończyć rejestrację odbierz wiadomość e-mail, którą Ci wysłaliśmy i kliknij w link potwierdzenia.
 success.title:                          Dziękujemy za rejestrację
 

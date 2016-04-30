@@ -1,0 +1,16 @@
+{{ description|raw }}
+{% for districtId, volunteers in byDistricts %}
+    <p>{{ 'region_email.content.district'|trans({'%district_name%': districtId|districtname}) }}</p>
+    <ul>
+        {% for volunteer in volunteers %}
+            <li>
+                {{ volunteer.firstName }} {{ volunteer.lastName }} -
+                {{ 'region_email.service'|trans }} {{ volunteer.serviceMainId|servicename }}
+                {% if volunteer.serviceExtraId %}/ {{ volunteer.serviceExtraId|servicename }}{% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>{{ 'region_email.content.empty'|trans }}</p>
+{% endfor %}
+{{ 'region_email.content.footer'|trans|raw }}

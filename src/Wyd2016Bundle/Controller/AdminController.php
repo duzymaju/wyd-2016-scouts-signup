@@ -2,7 +2,14 @@
 
 namespace Wyd2016Bundle\Controller;
 
+use SensioLabs\AnsiConverter\AnsiToHtmlConverter;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\BufferedOutput;
+use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Controller
@@ -69,6 +76,40 @@ class AdminController extends Controller
                 'services' => $volunteerRepository->countByServices(),
             ),
         ));
+    }
+
+    /**
+     * Notify regions action
+     *
+     * @param Request $request request
+     * @param string  $period  period
+     *
+     * @return Response
+     */
+    public function notifyRegionsAction(Request $request, $period)
+    {
+        $kernel = $this->get('kernel');
+        $application = new Application($kernel);
+        $application->setAutoExit(false);
+
+        $command = array(
+           'command' => 'regions:notify',
+           '--period' => $period,
+        );
+
+        $receiver = $request->query->get('receiver');
+        if (!empty($receiver)) {
+            $command['--receiver'] = $receiver;
+        }
+
+        $input = new ArrayInput($command);
+        $output = new BufferedOutput(OutputInterface::VERBOSITY_NORMAL, true);
+        $application->run($input, $output);
+
+        $converter = new AnsiToHtmlConverter();
+        $content = $output->fetch();
+
+        return new Response($converter->convert($content));
     }
 
     /**
