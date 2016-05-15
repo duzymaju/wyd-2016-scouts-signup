@@ -68,6 +68,7 @@ form.dates.volunteer.2:                 "23.07 - 1.08 (el precio: 75 EUR por per
 form.dates.volunteer.3:                 "23.07 - 6.08 (el precio: 100 EUR por persona)"
 form.dates.volunteer.4:                 "18.07 - 6.08 (el precio: 125 EUR por persona)"
 form.dates.volunteer.5:                 "23.07 - 1.08 (el precio: 50 PLN por persona sin alojamiento y sin comida)"
+form.dates.volunteer.6:                 "25.07 - 2.08 (el precio: 15 EUR por persona)"
 form.district:                          La Asociación
 form.email:                             El correo electrónico
 form.error.age_too_high:                Edad maxima son %age% años.

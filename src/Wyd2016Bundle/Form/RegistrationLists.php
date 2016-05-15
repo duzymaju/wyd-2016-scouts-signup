@@ -314,18 +314,23 @@ class RegistrationLists
     /**
      * Get volunteer dates
      *
+     * @param boolean $forceAll force all
+     *
      * @return array
      */
-    public function getVolunteerDates()
+    public function getVolunteerDates($forceAll = false)
     {
         $volunteerDates = array(
-            1 => $this->translator->trans('form.dates.volunteer.1'),
-            2 => $this->translator->trans('form.dates.volunteer.2'),
-            3 => $this->translator->trans('form.dates.volunteer.3'),
-            4 => $this->translator->trans('form.dates.volunteer.4'),
+            6 => $this->translator->trans('form.dates.volunteer.6'),
         );
-        if ($this->translator->getLocale() == self::COUNTRY_POLAND) {
-            $volunteerDates[5] = $this->translator->trans('form.dates.volunteer.5');
+        if ($forceAll) {
+            $volunteerDates[1] = $this->translator->trans('form.dates.volunteer.1');
+            $volunteerDates[2] = $this->translator->trans('form.dates.volunteer.2');
+            $volunteerDates[3] = $this->translator->trans('form.dates.volunteer.3');
+            $volunteerDates[4] = $this->translator->trans('form.dates.volunteer.4');
+            if ($this->translator->getLocale() == self::COUNTRY_POLAND) {
+                $volunteerDates[5] = $this->translator->trans('form.dates.volunteer.5');
+            }
         }
 
         return $volunteerDates;
@@ -340,7 +345,7 @@ class RegistrationLists
      */
     public function getVolunteerDate($volunteerDateId)
     {
-        $volunteerDates = $this->getVolunteerDates();
+        $volunteerDates = $this->getVolunteerDates(true);
         $volunteerDate = array_key_exists($volunteerDateId, $volunteerDates) ? $volunteerDates[$volunteerDateId] : null;
 
         return $volunteerDate;
