@@ -190,7 +190,7 @@ region_email.content.coordinator_title: |
     Koordynatorzy Chorągwi ZHP ds. Światowych Dni Młodzieży</p>
     <p>&nbsp; &nbsp; Poniżej znajduje się lista zarejestrowanych %date% harcerzy i Instruktorów z Waszej Chorągwi na służbę podczas ŚDM:</p>
 region_email.content.district:          "Hufiec %district_name%:"
-region_email.content.empty:             W danym okresie z tej chorągwi nie zgłosił się ani jeden wolontariusz.
+region_email.content.empty:             W danym okresie z tej chorągwi nie zgłosił się ani jeden wolontariusz - lista zgłoszeń jest więc pusta.
 region_email.content.footer:            |
     <p>Czuwaj!<br>
     Komenda Zlotu ZHP na Światowe Dni Młodzieży Kraków 2016</p>

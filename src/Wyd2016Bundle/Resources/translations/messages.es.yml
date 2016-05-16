@@ -176,7 +176,7 @@ region_email.content.commander_title:   |
 region_email.content.coordinator_title: |
     <p>Applications summary %date%:</p>
 region_email.content.district:          "%district_name% District:"
-region_email.content.empty:             There is no volunteer registered from this district in this time period.
+region_email.content.empty:             There is no volunteer registered from this district in this time period, so this list is empty.
 region_email.content.footer:            |
     <p>Yours in Scouting!</p>
 region_email.date.custom:               from %timeFrom% to %timeTo%
