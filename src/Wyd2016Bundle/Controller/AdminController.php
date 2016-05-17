@@ -34,6 +34,9 @@ class AdminController extends Controller
         $pilgrimRepository = $this->get('wyd2016bundle.pilgrim.repository');
         $groupRepository = $this->get('wyd2016bundle.group.repository');
 
+        $languageRepository = $this->get('wyd2016bundle.language.repository');
+        $permissionRepository = $this->get('wyd2016bundle.permission.repository');
+
         return $this->render('Wyd2016Bundle::admin/index.html.twig', array(
             'limit' => $limit,
             'lists' => array(
@@ -72,6 +75,8 @@ class AdminController extends Controller
             ),
             'stats' => array(
                 'countries' => $volunteerRepository->countByCountries(),
+                'languages' => $languageRepository->countByTypes(),
+                'permissions' => $permissionRepository->countByTypes(),
                 'regions' => $volunteerRepository->countByRegions(),
                 'services' => $volunteerRepository->countByServices(),
             ),

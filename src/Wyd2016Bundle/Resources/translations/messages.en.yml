@@ -23,6 +23,8 @@ admin.reminder.error:                   An error occures during reminder e-mail 
 admin.reminder.sent_date:               Last reminder was sent at %date%.
 admin.reminder.success:                 Reminder e-mail was sent successfully.
 admin.stats.countries:                  Volunteers by country
+admin.stats.languages:                  Volunteers by languages
+admin.stats.permissions:                Volunteers by permissions
 admin.stats.regions:                    Volunteers by region
 admin.stats.services:                   Volunteers by service
 admin.stats.services_counters:          %main% as main / %all% all

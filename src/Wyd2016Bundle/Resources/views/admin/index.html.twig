@@ -60,6 +60,38 @@
     <div class="row">
         <div class="col-sm-6">
             <h3>
+                {{ 'admin.stats.permissions'|trans }}
+            </h3>
+            <table class="table table-striped">
+                <tbody>
+                    {% for permission, counter in stats.permissions %}
+                        <tr>
+                            <td>{{ permission|permissionname }}</td>
+                            <td>{{ counter }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-6">
+            <h3>
+                {{ 'admin.stats.languages'|trans }}
+            </h3>
+            <table class="table table-striped">
+                <tbody>
+                    {% for language, counter in stats.languages %}
+                        <tr>
+                            <td>{{ language|languagename }}</td>
+                            <td>{{ counter }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>
                 {{ 'admin.stats.regions'|trans }}
             </h3>
             <table class="table table-striped">

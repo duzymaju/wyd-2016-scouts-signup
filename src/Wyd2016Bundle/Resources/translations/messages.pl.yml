@@ -23,6 +23,8 @@ admin.reminder.error:                   Wystąpił błąd podczas wysyłania wia
 admin.reminder.sent_date:               Ostatnie przypomnienie zostało wysłane %date%.
 admin.reminder.success:                 Pomyślnie wysłano wiadomość e-mail z przypomnieniem.
 admin.stats.countries:                  Wolontariusze po państwie
+admin.stats.languages:                  Wolontariusze po języku
+admin.stats.permissions:                Wolontariusze po uprawnieniach
 admin.stats.regions:                    Wolontariusze po chorągwi
 admin.stats.services:                   Wolontariusze po służbie
 admin.stats.services_counters:          %main% jako główna / ogółem %all%
