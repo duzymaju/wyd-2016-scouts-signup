@@ -26,7 +26,7 @@ parameters:
     requires_channel:                   http
 
     wyd2016.admin.pack_size:            20
-    wyd2016.age.limit:                  "2016-07-20"
+    wyd2016.age.limit:                  "2016-07-25"
     wyd2016.age.max:                    120
     wyd2016.age.min_adult:              18
     wyd2016.age.min_group_member:       15
