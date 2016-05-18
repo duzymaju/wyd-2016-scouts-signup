@@ -7,6 +7,7 @@ use Symfony\Component\Intl\Intl;
 use Symfony\Component\Translation\TranslatorInterface;
 use Twig_Extension;
 use Twig_SimpleFilter;
+use Wyd2016Bundle\Entity\Repository\VolunteerRepository;
 use Wyd2016Bundle\Form\RegistrationLists;
 
 /**
@@ -31,6 +32,20 @@ class WydExtension extends Twig_Extension
     {
         $this->registrationLists = new RegistrationLists($translator, $shortTermLimit);
         $this->ageLimit = (new DateTime($ageLimit))->modify('-1 day');
+    }
+
+    /**
+     * Set volunteer repository
+     *
+     * @param VolunteerRepository $volunteerRepository volunteer repository
+     *
+     * @return self
+     */
+    public function setVolunteerRepository(VolunteerRepository $volunteerRepository)
+    {
+        $this->registrationLists->setVolunteerRepository($volunteerRepository);
+
+        return $this;
     }
 
     /**
