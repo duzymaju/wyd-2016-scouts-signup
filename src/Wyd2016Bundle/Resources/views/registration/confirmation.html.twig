@@ -7,5 +7,5 @@
 {% block content %}
     {{ globalMacro.flashBagMessages('success', true) }}
     {{ globalMacro.flashBagMessages('error', true) }}
-    {{ macro.nextStepsBox() }}
+    {{ macro.nextStepsBox(limitsExceeded) }}
 {% endblock %}

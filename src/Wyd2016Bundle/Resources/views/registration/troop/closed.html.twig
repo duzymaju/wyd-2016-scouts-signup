@@ -2,9 +2,9 @@
 {% import 'Wyd2016Bundle:registration:_macro.html.twig' as macro %}
 {% import 'Wyd2016Bundle::_macro.html.twig' as globalMacro %}
 
-{% set pageTitle = 'success.title'|trans %}
+{% set pageTitle = 'troop.closed.title'|trans %}
 
 {% block content %}
-    {{ globalMacro.flashBagMessages('success', true) }}
+    {{ globalMacro.message('troop.closed.message', 'message', true) }}
     {{ macro.nextStepsBox(limitsExceeded) }}
 {% endblock %}

@@ -41,7 +41,9 @@ class RegistrationController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('Wyd2016Bundle::registration/index.html.twig');
+        return $this->render('Wyd2016Bundle::registration/index.html.twig', array(
+            'limitsExceeded' => $this->limitsExceeded(),
+        ));
     }
 
     /**
@@ -207,6 +209,12 @@ class RegistrationController extends Controller
      */
     public function troopFormAction(Request $request)
     {
+        if ($this->limitsExceeded()) {
+            return $this->render('Wyd2016Bundle::registration/troop/closed.html.twig', array(
+                'limitsExceeded' => $this->limitsExceeded(),
+            ));
+        }
+
         /** @var TranslatorInterface $translator */
         $translator = $this->get('translator');
         /** @var RegistrationLists $registrationLists */
@@ -356,6 +364,12 @@ class RegistrationController extends Controller
      */
     public function volunteerFormAction(Request $request)
     {
+        if ($this->limitsExceeded()) {
+            return $this->render('Wyd2016Bundle::registration/volunteer/closed.html.twig', array(
+                'limitsExceeded' => $this->limitsExceeded(),
+            ));
+        }
+
         /** @var TranslatorInterface $translator */
         $translator = $this->get('translator');
 
@@ -457,7 +471,9 @@ class RegistrationController extends Controller
      */
     public function successAction()
     {
-        return $this->render('Wyd2016Bundle::registration/success.html.twig');
+        return $this->render('Wyd2016Bundle::registration/success.html.twig', array(
+            'limitsExceeded' => $this->limitsExceeded(),
+        ));
     }
 
     /**
@@ -575,7 +591,9 @@ class RegistrationController extends Controller
             $this->addMessage('confirmation.success', 'success');
         }
 
-        return $this->render('Wyd2016Bundle::registration/confirmation.html.twig');
+        return $this->render('Wyd2016Bundle::registration/confirmation.html.twig', array(
+            'limitsExceeded' => $this->limitsExceeded(),
+        ));
     }
 
     /**
@@ -613,7 +631,9 @@ class RegistrationController extends Controller
             $this->addMessage('confirmation.success', 'success');
         }
 
-        return $this->render('Wyd2016Bundle::registration/confirmation.html.twig');
+        return $this->render('Wyd2016Bundle::registration/confirmation.html.twig', array(
+            'limitsExceeded' => $this->limitsExceeded(),
+        ));
     }
 
     /**
@@ -723,5 +743,26 @@ class RegistrationController extends Controller
             ->add($type, $message);
 
         return $this;
+    }
+
+    /**
+     * Limits exceeded
+     *
+     * @return boolean
+     */
+    protected function limitsExceeded()
+    {
+        $timeLimit = new DateTime($this->getParameter('wyd2016.time.limit'));
+        if (new DateTime('now') > $timeLimit) {
+            return true;
+        }
+
+        $numberTotalLimit = $this->getParameter('wyd2016.number.total_limit');
+        $volunteerRepository = $this->get('wyd2016bundle.volunteer.repository');
+        if ($volunteerRepository->getTotalNumber() >= $numberTotalLimit) {
+            return true;
+        }
+
+        return false;
     }
 }

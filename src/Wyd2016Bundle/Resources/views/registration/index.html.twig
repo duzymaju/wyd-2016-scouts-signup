@@ -3,8 +3,10 @@
 {% block content %}
     <h1>{{ 'index.title'|trans }}:</h1>
     <div class="btn-group-vertical btn-group-lg">
-        <a href="{{ path('registration_volunteer_form') }}" class="btn btn-default">{{ 'index.volunteer'|trans }}</a>
-        <a href="{{ path('registration_troop_form') }}" class="btn btn-default">{{ 'index.troop'|trans }}</a>
+        {% if not limitsExceeded %}
+            <a href="{{ path('registration_volunteer_form') }}" class="btn btn-default">{{ 'index.volunteer'|trans }}</a>
+            <a href="{{ path('registration_troop_form') }}" class="btn btn-default">{{ 'index.troop'|trans }}</a>
+        {% endif %}
         <a href="{{ path('registration_pilgrim_form') }}" class="btn btn-default">{{ 'index.pilgrim'|trans }}</a>
         <a href="{{ path('registration_group_form') }}" class="btn btn-default">{{ 'index.group'|trans }}</a>
     </div>

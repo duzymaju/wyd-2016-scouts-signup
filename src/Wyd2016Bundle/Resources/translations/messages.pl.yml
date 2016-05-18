@@ -210,12 +210,16 @@ region_email.title.week:                ŚDM 2016 - podsumowanie zgłoszeń z ch
 success.message:                        Twoje dane zostały pomyślnie zapisane. Aby dokończyć rejestrację odbierz wiadomość e-mail, którą Ci wysłaliśmy i kliknij w link potwierdzenia.
 success.title:                          Dziękujemy za rejestrację
 
+troop.closed.message:                   Rejestracja patroli wolontariuszy została zakończona.
+troop.closed.title:                     Rejestracja zakończona
 troop.form.add_member:                  Dodaj kolejnego członka patrolu
 troop.form.description:                 Minimalny wiek członka patrolu to %age% lat ukończone przed %date%. W skład patrolu musi wchodzić od %min_size% do %max_size% członków, w tym pełnoletni patrolowy.
 troop.form.title:                       Formularz dla patroli wolontariuszy
 troop.form.leader:                      Patrolowy (pełnoletni)
 troop.form.member:                      %no%. członek patrolu
 
+volunteer.closed.message:               Rejestracja pełnoletnich wolontariuszy została zakończona.
+volunteer.closed.title:                 Rejestracja zakończona
 volunteer.form.description:             Minimalny wiek wolontariusza to %age% lat ukończone przed %date%.
 volunteer.form.title:                   Formularz dla pełnoletnich wolontariuszy
 

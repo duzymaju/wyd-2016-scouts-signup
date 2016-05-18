@@ -195,12 +195,16 @@ region_email.title.week:                WYD 2016 - summary of applications from 
 success.message:                        Tus datos son ya guardados, para terminar la inscripción hay que confirmar con el link que te hemos enviado por el correo electrónico.
 success.title:                          Gracias por su inscripción
 
+troop.closed.message:                   Registration of volunteer troops is finished.
+troop.closed.title:                     Registration finished
 troop.form.add_member:                  Para añadir el miembro del grupo de los voluntarios siguiente
 troop.form.description:                 La edad minima del miembro del grupo de los voluntarios son %age% años cumplidos antes de %date%. El grupo se contiene de al menos %min_size% miembros, pero no mas que %max_size% miembros, el lider mayor de edad incluido.
 troop.form.title:                       La inscripción para los voluntarios
 troop.form.leader:                      El lider del grupo (mayor de edad)
 troop.form.member:                      %no% miembro del grupo
 
+volunteer.closed.message:               Registration of adult volunteers is finished.
+volunteer.closed.title:                 Registration finished
 volunteer.form.description:             La edad minima del voluntario son %age% años cumplidos antes de %date%.
 volunteer.form.title:                   La inscripción para los voluntrios mayores de edad
 
