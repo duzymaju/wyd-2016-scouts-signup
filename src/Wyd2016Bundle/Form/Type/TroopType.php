@@ -49,6 +49,16 @@ class TroopType extends AbstractType
             'label' => $this->translator->trans('form.district'),
             'mapped' => false,
         )))
+        ->add('serviceMainId', 'choice', $this->mergeOptions('serviceMainId', array(
+            'choices' => $this->registrationLists->getServices(),
+            'label' => $this->translator->trans('form.service_main'),
+            'mapped' => false,
+        )))
+        ->add('serviceExtraId', 'choice', $this->mergeOptions('serviceExtraId', array(
+            'choices' => $this->registrationLists->getServices(),
+            'label' => $this->translator->trans('form.service_extra'),
+            'mapped' => false,
+        )))
         ->add('languages', 'choice', $this->mergeOptions('languages', array(
             'choices' => $this->registrationLists->getLanguages(),
             'expanded' => true,

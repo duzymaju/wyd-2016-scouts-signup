@@ -240,105 +240,114 @@ class RegistrationController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $members = $troop->getMembers();
-            if ($members->count() > $troopMaxSize) {
-                $troop->setMembers(new ArrayCollection($members->slice(0, $troopMaxSize)));
-            }
-            unset($members);
-            $hash = $this->generateActivationHash($leader->getEmail());
-            $createdAt = new DateTime();
-            $troop->setStatus(Troop::STATUS_NOT_CONFIRMED)
-                ->setActivationHash($hash)
-                ->setCreatedAt($createdAt)
-                ->setUpdatedAt($createdAt);
-            $languages = new ArrayCollection();
-            foreach ($form->get('languages')->getData() as $slug) {
-                $language = new Language();
-                $language->setVolunteer($leader)
-                    ->setSlug($slug);
-                $languages->add($language);
-            }
-            $permissions = new ArrayCollection();
-            foreach ($form->get('permissions')->getData() as $id) {
-                $permission = new Permission();
-                $permission->setVolunteer($leader)
-                    ->setId($id);
-                $permissions->add($permission);
-            }
-            $isPolish = $this->isPolish($form);
-            foreach ($troop->getMembers() as $i => $member) {
-                /** @var Volunteer $member */
-                $isLeader = $member === $troop->getLeader();
-                // Copies data from form to each volunteer
-                $member->setStatus(Volunteer::STATUS_NOT_CONFIRMED)
-                    ->setActivationHash($this->generateActivationHash($member->getEmail()))
-                    ->setCountry($form->get('country')->getData())
-                    ->setTroop($troop)
-                    ->setServiceMainId($registrationLists::SERVICE_UNDERAGE)
-                    ->setDatesId($troop->getDatesId())
-                    ->setCreatedAt($createdAt)
-                    ->setUpdatedAt($createdAt);
-                if ($isLeader && $form->has('otherPermissions')) {
-                    $member->setOtherPermissions($form->get('otherPermissions')->getData());
-                }
-                if ($isLeader && $form->has('profession')) {
-                    $member->setProfession($form->get('profession')->getData());
-                }
-                // Adds region, district and sex to Polish volunteer or removes grade from foreigner
-                if ($isPolish) {
-                    $member->setRegionId($form->get('regionId')->getData())
-                        ->setDistrictId($form->get('districtId')->getData())
-                        ->setSex($member->getSexFromPesel());
-                } else {
-                    $member->setGradeId();
-                }
-
-                /** @var FormInterface $memberView */
-                $memberView = $form->get('members')->get($i);
-                // Validates age
-                $this->validateAge($member, $memberView->get($isPolish ? 'pesel' : 'birthDate'),
-                    $isLeader ? 'wyd2016.age.min_adult' : 'wyd2016.age.min_troop_member');
-                if ($isPolish) {
-                    // Validates PESEL existance
-                    if ($member->getPesel() == null) {
-                        $memberView->get('pesel')
-                            ->addError(new FormError($translator->trans('form.error.pesel_empty')));
-                    }
-                    if ($isLeader) {
-                        // Validates leader grade
-                        if ($member->getGradeId() == $registrationLists::GRADE_NO) {
-                            $memberView->get('gradeId')
-                                ->addError(new FormError($translator->trans('form.error.grade_inproper')));
-                        }
-                        // Validates structure
-                        // For leader only to check it only once
-                        $this->validateStructure($member, $form->get('districtId'));
-                    }
-                }
+            // Validates services
+            if ($form->get('serviceMainId')->getData() == $form->get('serviceExtraId')->getData()) {
+                $form->get('serviceExtraId')
+                    ->addError(new FormError($translator->trans('form.error.services_duplicated')));
             }
 
             if ($form->isValid()) {
-                try {
-                    $this->mailSendingProcedure($leader->getEmail(), 'registration_troop_confirm',
-                        'Wyd2016Bundle::registration/troop/email.html.twig', $hash);
-
-                    try {
-                        $this->get('wyd2016bundle.troop.repository')
-                            ->insert($troop, true);
-
-                        // Add languages and permissions to leader after save him because of Doctrine requirements
-                        $leader->setLanguages($languages)
-                            ->setPermissions($permissions);
-                        $this->get('wyd2016bundle.volunteer.repository')
-                            ->insert($leader, true);
-                    } catch (Exception $e) {
-                        throw new RegistrationException('form.exception.database', 0, $e);
+                $members = $troop->getMembers();
+                if ($members->count() > $troopMaxSize) {
+                    $troop->setMembers(new ArrayCollection($members->slice(0, $troopMaxSize)));
+                }
+                unset($members);
+                $hash = $this->generateActivationHash($leader->getEmail());
+                $createdAt = new DateTime();
+                $troop->setStatus(Troop::STATUS_NOT_CONFIRMED)
+                    ->setActivationHash($hash)
+                    ->setCreatedAt($createdAt)
+                    ->setUpdatedAt($createdAt);
+                $languages = new ArrayCollection();
+                foreach ($form->get('languages')->getData() as $slug) {
+                    $language = new Language();
+                    $language->setVolunteer($leader)
+                        ->setSlug($slug);
+                    $languages->add($language);
+                }
+                $permissions = new ArrayCollection();
+                foreach ($form->get('permissions')->getData() as $id) {
+                    $permission = new Permission();
+                    $permission->setVolunteer($leader)
+                        ->setId($id);
+                    $permissions->add($permission);
+                }
+                $isPolish = $this->isPolish($form);
+                foreach ($troop->getMembers() as $i => $member) {
+                    /** @var Volunteer $member */
+                    $isLeader = $member === $troop->getLeader();
+                    // Copies data from form to each volunteer
+                    $member->setStatus(Volunteer::STATUS_NOT_CONFIRMED)
+                        ->setActivationHash($this->generateActivationHash($member->getEmail()))
+                        ->setCountry($form->get('country')->getData())
+                        ->setTroop($troop)
+                        ->setServiceMainId($form->get('serviceMainId')->getData())
+                        ->setServiceExtraId($form->get('serviceExtraId')->getData())
+                        ->setDatesId($troop->getDatesId())
+                        ->setCreatedAt($createdAt)
+                        ->setUpdatedAt($createdAt);
+                    if ($isLeader && $form->has('otherPermissions')) {
+                        $member->setOtherPermissions($form->get('otherPermissions')->getData());
+                    }
+                    if ($isLeader && $form->has('profession')) {
+                        $member->setProfession($form->get('profession')->getData());
+                    }
+                    // Adds region, district and sex to Polish volunteer or removes grade from foreigner
+                    if ($isPolish) {
+                        $member->setRegionId($form->get('regionId')->getData())
+                            ->setDistrictId($form->get('districtId')->getData())
+                            ->setSex($member->getSexFromPesel());
+                    } else {
+                        $member->setGradeId();
                     }
 
-                    $this->addMessage('success.message', 'success');
-                    $response = $this->redirect($this->generateUrl('registration_success'));
-                } catch (ExceptionInterface $e) {
-                    $this->addMessage($e->getMessage(), 'error');
+                    /** @var FormInterface $memberView */
+                    $memberView = $form->get('members')->get($i);
+                    // Validates age
+                    $this->validateAge($member, $memberView->get($isPolish ? 'pesel' : 'birthDate'),
+                        $isLeader ? 'wyd2016.age.min_adult' : 'wyd2016.age.min_troop_member');
+                    if ($isPolish) {
+                        // Validates PESEL existance
+                        if ($member->getPesel() == null) {
+                            $memberView->get('pesel')
+                                ->addError(new FormError($translator->trans('form.error.pesel_empty')));
+                        }
+                        if ($isLeader) {
+                            // Validates leader grade
+                            if ($member->getGradeId() == $registrationLists::GRADE_NO) {
+                                $memberView->get('gradeId')
+                                    ->addError(new FormError($translator->trans('form.error.grade_inproper')));
+                            }
+                            // Validates structure
+                            // For leader only to check it only once
+                            $this->validateStructure($member, $form->get('districtId'));
+                        }
+                    }
+                }
+
+                if ($form->isValid()) {
+                    try {
+                        $this->mailSendingProcedure($leader->getEmail(), 'registration_troop_confirm',
+                            'Wyd2016Bundle::registration/troop/email.html.twig', $hash);
+
+                        try {
+                            $this->get('wyd2016bundle.troop.repository')
+                                ->insert($troop, true);
+
+                            // Add languages and permissions to leader after save him because of Doctrine requirements
+                            $leader->setLanguages($languages)
+                                ->setPermissions($permissions);
+                            $this->get('wyd2016bundle.volunteer.repository')
+                                ->insert($leader, true);
+                        } catch (Exception $e) {
+                            throw new RegistrationException('form.exception.database', 0, $e);
+                        }
+
+                        $this->addMessage('success.message', 'success');
+                        $response = $this->redirect($this->generateUrl('registration_success'));
+                    } catch (ExceptionInterface $e) {
+                        $this->addMessage($e->getMessage(), 'error');
+                    }
                 }
             }
         }
