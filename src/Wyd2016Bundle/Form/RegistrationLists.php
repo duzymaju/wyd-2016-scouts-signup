@@ -3,6 +3,7 @@
 namespace Wyd2016Bundle\Form;
 
 use Symfony\Component\Translation\TranslatorInterface;
+use Wyd2016Bundle\Entity\Repository\VolunteerRepository;
 use Wyd2016Bundle\Model\ParticipantAbstract;
 use Wyd2016Bundle\Model\PersonInterface;
 
@@ -38,14 +39,36 @@ class RegistrationLists
     /** @var TranslatorInterface */
     protected $translator;
 
+    /** @var integer */
+    protected $shortTermLimit;
+
+    /** @var VolunteerRepository */
+    protected $volunteerRepository;
+
     /**
      * Constructor
      *
-     * @param TranslatorInterface $translator translator
+     * @param TranslatorInterface $translator     translator
+     * @param integer             $shortTermLimit short term limit
      */
-    public function __construct(TranslatorInterface $translator)
+    public function __construct(TranslatorInterface $translator, $shortTermLimit)
     {
         $this->translator = $translator;
+        $this->shortTermLimit = $shortTermLimit;
+    }
+
+    /**
+     * Set volunteer repository
+     *
+     * @param VolunteerRepository $volunteerRepository volunteer repository
+     *
+     * @return self
+     */
+    public function setVolunteerRepository(VolunteerRepository $volunteerRepository)
+    {
+        $this->volunteerRepository = $volunteerRepository;
+
+        return $this;
     }
 
     /**
@@ -323,6 +346,9 @@ class RegistrationLists
         $volunteerDates = array(
             6 => $this->translator->trans('form.dates.volunteer.6'),
         );
+        if ($this->volunteerRepository->getTotalNumber() < $this->shortTermLimit) {
+            $volunteerDates[7] = $this->translator->trans('form.dates.volunteer.7');
+        }
         if ($forceAll) {
             $volunteerDates[1] = $this->translator->trans('form.dates.volunteer.1');
             $volunteerDates[2] = $this->translator->trans('form.dates.volunteer.2');

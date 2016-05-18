@@ -71,6 +71,7 @@ form.dates.volunteer.3:                 "Jul 23 - Aug 6 (price: 100 EUR per pers
 form.dates.volunteer.4:                 "Jul 18 - Aug 6 (price: 125 EUR per person)"
 form.dates.volunteer.5:                 "Jul 23 - Aug 1 (price: 50 PLN per person without meals and accommodation)"
 form.dates.volunteer.6:                 "Jul 25 - Aug 1 (price: 15 EUR per person)"
+form.dates.volunteer.7:                 "Jul 29 - Jul 31 (price: 15 EUR per person)"
 form.district:                          District
 form.email:                             E-mail address
 form.error.age_too_high:                Maximum age is %age%.

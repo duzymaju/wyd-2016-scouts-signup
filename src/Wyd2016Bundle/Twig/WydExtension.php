@@ -23,12 +23,13 @@ class WydExtension extends Twig_Extension
     /**
      * Constructor
      *
-     * @param TranslatorInterface $translator translator
-     * @param string              $ageLimit   age limit
+     * @param TranslatorInterface $translator     translator
+     * @param integer             $shortTermLimit short term limit
+     * @param string              $ageLimit       age limit
      */
-    public function __construct(TranslatorInterface $translator, $ageLimit)
+    public function __construct(TranslatorInterface $translator, $shortTermLimit, $ageLimit)
     {
-        $this->registrationLists = new RegistrationLists($translator);
+        $this->registrationLists = new RegistrationLists($translator, $shortTermLimit);
         $this->ageLimit = (new DateTime($ageLimit))->modify('-1 day');
     }
 

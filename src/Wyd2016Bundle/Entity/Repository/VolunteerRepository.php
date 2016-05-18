@@ -16,6 +16,9 @@ class VolunteerRepository extends EntityRepository implements BaseRepositoryInte
     /** @var RegistrationLists */
     protected $registrationLists;
 
+    /** @var integer */
+    protected $totalNumber;
+
     /**
      * Set registration lists
      *
@@ -83,19 +86,23 @@ class VolunteerRepository extends EntityRepository implements BaseRepositoryInte
     /**
      * Get total number
      *
+     * @param boolean $force force
+     *
      * @return integer
      */
-    public function getTotalNumber()
+    public function getTotalNumber($force = false)
     {
-        $qb = $this->getEntityManager()
-            ->createQueryBuilder();
-        $qb->select('count(v.id)');
-        $qb->from('Wyd2016Bundle:Volunteer', 'v');
+        if (!isset($this->totalNumber) || $force) {
+            $qb = $this->getEntityManager()
+                ->createQueryBuilder();
+            $qb->select('count(v.id)');
+            $qb->from('Wyd2016Bundle:Volunteer', 'v');
 
-        $count = $qb->getQuery()
-            ->getSingleScalarResult();
+            $this->totalNumber = $qb->getQuery()
+                ->getSingleScalarResult();
+        }
 
-        return $count;
+        return $this->totalNumber;
     }
 
     /**

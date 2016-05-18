@@ -2,6 +2,9 @@ services:
     wyd2016bundle.registration.lists:
         arguments:
             -                           @translator
+            -                           %wyd2016.number.short_term_limit%
+        calls:
+            -                           [setVolunteerRepository, [@wyd2016bundle.volunteer.repository]]
         class:                          Wyd2016Bundle\Form\RegistrationLists
 
     wyd2016bundle.validator.unique_entities:
@@ -17,6 +20,7 @@ services:
     wyd2016bundle.twig_extension.wyd:
         arguments:
             -                           @translator
+            -                           %wyd2016.number.short_term_limit%
             -                           %wyd2016.age.limit%
         class:                          Wyd2016Bundle\Twig\WydExtension
         tags:
