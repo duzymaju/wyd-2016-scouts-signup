@@ -170,7 +170,7 @@ class WydExtension extends Twig_Extension
      */
     public function peselModifyFilter($pesel)
     {
-        $modifiedPesel = substr($pesel, 0, 6) . '*****';
+        $modifiedPesel = substr(str_repeat('0', 11 - strlen($pesel)) . $pesel, 0, 6) . '*****';
 
         return $modifiedPesel;
     }
