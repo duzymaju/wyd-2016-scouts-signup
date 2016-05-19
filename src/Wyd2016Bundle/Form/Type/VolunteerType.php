@@ -51,6 +51,10 @@ class VolunteerType extends AbstractType
                 strtoupper($this->locale),
             ),
         )))
+        ->add('associationName', 'text', $this->mergeOptions('associationName', array(
+            'label' => $this->translator->trans('form.association_name'),
+            'required' => false,
+        )))
         ->add('birthDate', 'date', $this->mergeOptions('birthDate', array(
             'label' => $this->translator->trans('form.birth_date'),
             'required' => false,

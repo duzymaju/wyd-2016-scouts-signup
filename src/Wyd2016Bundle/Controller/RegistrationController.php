@@ -240,6 +240,15 @@ class RegistrationController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $isPolish = $this->isPolish($form);
+            if (!$isPolish) {
+                // Validates association name existance
+                if ($form->get('associationName')->getData() == null) {
+                    $form->get('associationName')
+                        ->addError(new FormError($translator->trans('form.error.association_name_empty')));
+                }
+            }
+
             // Validates services
             if ($form->get('serviceMainId')->getData() == $form->get('serviceExtraId')->getData()) {
                 $form->get('serviceExtraId')
@@ -272,7 +281,6 @@ class RegistrationController extends Controller
                         ->setId($id);
                     $permissions->add($permission);
                 }
-                $isPolish = $this->isPolish($form);
                 foreach ($troop->getMembers() as $i => $member) {
                     /** @var Volunteer $member */
                     $isLeader = $member === $troop->getLeader();
@@ -292,13 +300,15 @@ class RegistrationController extends Controller
                     if ($isLeader && $form->has('profession')) {
                         $member->setProfession($form->get('profession')->getData());
                     }
-                    // Adds region, district and sex to Polish volunteer or removes grade from foreigner
+                    // Adds region, district and sex to Polish volunteer or adds association name and removes grade
+                    // from foreigner
                     if ($isPolish) {
                         $member->setRegionId($form->get('regionId')->getData())
                             ->setDistrictId($form->get('districtId')->getData())
                             ->setSex($member->getSexFromPesel());
                     } else {
-                        $member->setGradeId();
+                        $member->setAssociationName($form->get('associationName')->getData())
+                            ->setGradeId();
                     }
 
                     /** @var FormInterface $memberView */
@@ -424,6 +434,12 @@ class RegistrationController extends Controller
                 }
                 // Validates structure
                 $this->validateStructure($volunteer, $form->get('districtId'));
+            } else {
+                // Validates association name existance
+                if ($volunteer->getAssociationName() == null) {
+                    $form->get('associationName')
+                        ->addError(new FormError($translator->trans('form.error.association_name_empty')));
+                }
             }
 
             if ($form->isValid()) {

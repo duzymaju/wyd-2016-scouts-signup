@@ -26,6 +26,10 @@
         <dd><a href="mailto:{{ volunteer.email }}">{{ volunteer.email }}</a></dd>
         <dt>{{ 'form.country'|trans }}:</dt>
         <dd>{{ volunteer.country|localizedcountry }}</dd>
+        {% if volunteer.associationName %}
+            <dt>{{ 'form.association_name'|trans }}:</dt>
+            <dd>{{ volunteer.associationName }}</dd>
+        {% endif %}
         <dt>{{ 'form.birth_date'|trans }}:</dt>
         <dd>{{ volunteer.birthDate|date('Y-m-d') }}</dd>
         <dt>{{ 'admin.age_at_limit'|trans({'%date%': ageLimit}) }}:</dt>

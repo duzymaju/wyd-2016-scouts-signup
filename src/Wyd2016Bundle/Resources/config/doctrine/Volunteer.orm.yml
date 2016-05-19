@@ -52,6 +52,11 @@ Wyd2016Bundle\Entity\Volunteer:
             options:
                 fixed:                  true
             type:                       string
+        associationName:
+            length:                     60
+            name:                       association_name
+            nullable:                   true
+            type:                       string
         birthDate:
             name:                       birth_date
             type:                       date

@@ -39,6 +39,11 @@ class TroopType extends AbstractType
                 strtoupper($this->locale),
             ),
         )))
+        ->add('associationName', 'text', $this->mergeOptions('associationName', array(
+            'label' => $this->translator->trans('form.association_name'),
+            'mapped' => false,
+            'required' => false,
+        )))
         ->add('regionId', 'choice', $this->mergeOptions('regionId', array(
             'choices' => $this->registrationLists->getRegions(),
             'label' => $this->translator->trans('form.region'),

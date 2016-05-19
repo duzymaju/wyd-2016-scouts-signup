@@ -13,6 +13,9 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
 {
     use PersonTrait;
 
+    /** @var string|null */
+    protected $associationName;
+
     /** @var integer|null */
     protected $gradeId;
 
@@ -52,6 +55,30 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
     public function __construct()
     {
         $this->initializeCollections();
+    }
+
+    /**
+     * Get association name
+     *
+     * @return string|null
+     */
+    public function getAssociationName()
+    {
+        return $this->associationName;
+    }
+
+    /**
+     * Set association name
+     *
+     * @param string|null $associationName association name
+     *
+     * @return self
+     */
+    public function setAssociationName($associationName = null)
+    {
+        $this->associationName = $associationName;
+
+        return $this;
     }
 
     /**

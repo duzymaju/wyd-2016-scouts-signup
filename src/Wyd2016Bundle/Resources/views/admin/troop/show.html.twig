@@ -18,6 +18,10 @@
         <dd>{{ troop.name }}</dd>
         <dt>{{ 'form.country'|trans }}:</dt>
         <dd>{{ troop.leader.country|localizedcountry }}</dd>
+        {% if troop.leader.associationName %}
+            <dt>{{ 'form.association_name'|trans }}:</dt>
+            <dd>{{ troop.leader.associationName }}</dd>
+        {% endif %}
         {% if troop.leader.regionId > 0 %}
             <dt>{{ 'form.region'|trans }}:</dt>
             <dd>{{ troop.leader.regionId|regionname }}</dd>

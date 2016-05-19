@@ -60,6 +60,7 @@ email.volunteers.footer:                |
     <p>Tienes algunas dudas? Quieres preguntar algo? Escribe: <a href="mailto:sdm@zhp.pl">sdm@zhp.pl</a>.</p>
 
 form.address:                           La dirreción
+form.association_name:                  El nombre de la asociacíon de guías/scouts
 form.birth_date:                        La fecha del nacimiento
 form.comments:                          Las notas
 form.country:                           El país
@@ -76,6 +77,7 @@ form.district:                          La Asociación
 form.email:                             El correo electrónico
 form.error.age_too_high:                Edad maxima son %age% años.
 form.error.age_too_low:                 Edad minima son %age% años.
+form.error.association_name_empty:      El nombre de la asociacíon de guías/scouts no puede quedarse vacío.
 form.error.district_invalid:            La Asociacón no es correcta.
 form.error.grade_inproper:              El líder tiene que ser el guía.
 form.error.pesel_empty:                 PESEL no puede quedarse vacío.
