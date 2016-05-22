@@ -43,8 +43,8 @@ confirmation.success:                   Your registration was successfully confi
 confirmation.title:                     Registration confirmation
 
 email.link:                             Click here to confirm registration
-email.group.registration_text:          "Thank you for registration a group of pilgrims staying in a place prepaired by Polish Scouting Organization during WYD Krakow 2016. To confirm your registration process please click the link below:"
-email.pligrim.registration_text:        "Thank you for registration your stay in a place prepaired by Polish Scouting Organization during WYD Krakow 2016. To confirm your registration process please click the link below:"
+email.group.registration_text:          "Thank you for registration a group of pilgrims staying in a place prepaired by Polish Scouting and Guiding Association during WYD Krakow 2016. To confirm your registration process please click the link below:"
+email.pligrim.registration_text:        "Thank you for registration your stay in a place prepaired by Polish Scouting and Guiding Association during WYD Krakow 2016. To confirm your registration process please click the link below:"
 email.title:                            Registration for ZHP WYD Krakow 2016
 email.troop.registration_text:          "<p>Thank you for registration a troop of volunteers for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:</p>"
 email.troop.reminder_text:              "<p>Thank you for registration a troop of volunteers for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:</p>" # @TODO: change to reminder text
@@ -115,7 +115,7 @@ form.permissions.22:                    kurs szefów służb ochrony imprez maso
 form.permissions.23:                    kurs członków służb ochrony imprez masowych (PL)
 form.permissions.24:                    kurs kierowania ruchem (PL)
 form.permissions.31:                    priest / cleric
-form.personal_data:                     "I hereby give consent for the above personal data to be processed by Polish Scouting Organization to prepare my participation in ZHP WYD Krakow 2016, in accordance with the Personal Data Protection Act dated Aug 29 1997 (uniform text: Journal of Laws of the Republic of Poland 2014, item 1182)."
+form.personal_data:                     "I hereby give consent for the above personal data to be processed by Polish Scouting and Guiding Association to prepare my participation in ZHP WYD Krakow 2016, in accordance with the Personal Data Protection Act dated Aug 29 1997 (uniform text: Journal of Laws of the Republic of Poland 2014, item 1182)."
 form.pesel:                             PESEL
 form.phone:                             Phone no
 form.profession:                        Profession/Skills
@@ -171,7 +171,7 @@ next_steps.register_pilgrim:            Register another adult pilgrim
 next_steps.register_troop:              Register another troop of volunteers
 next_steps.register_volunteer:          Register another adult volunteer
 next_steps.title:                       Next steps
-next_steps.volunteers_page:             Page of preparation to WYD Krakow 2016 make by Polish Scouting Organization
+next_steps.volunteers_page:             Page of preparation to WYD Krakow 2016 make by Polish Scouting and Guiding Association
 
 pilgrims.form.description:              Pligrim must be over %age% years before %date%.
 pilgrims.form.title:                    Form for adult pilgrims
