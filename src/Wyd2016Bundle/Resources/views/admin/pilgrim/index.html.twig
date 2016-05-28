@@ -3,7 +3,7 @@
 
 {% block content %}
     <a href="{{ path('admin_pilgrim_list') }}" class="btn btn-primary btn-small">{{ 'admin.get_list'|trans }}</a>
-    <h1>{{ 'admin.pilgrims'|trans }}</h1>
+    <h1>{{ 'admin.pilgrims'|trans }} - {{ 'admin.people_number'|transchoice(pilgrims.count) }}</h1>
     <table class="table table-striped">
         <thead>
             <tr>

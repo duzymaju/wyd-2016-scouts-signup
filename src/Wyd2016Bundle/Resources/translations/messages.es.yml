@@ -17,6 +17,7 @@ admin.login.title:                      Log in form
 admin.login.username:                   Username
 admin.logout.link:                      Logout <strong>%login%</strong>
 admin.name:                             Name
+admin.people_number:                    %count% person|%count% people
 admin.pilgrim:                          Pilgrim
 admin.pilgrims:                         Pilgrims
 admin.pilgrims.counter:                 (last %limit% of %totalNumber%)

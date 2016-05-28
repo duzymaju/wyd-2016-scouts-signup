@@ -10,6 +10,7 @@
         {% elseif criteria.districtId is defined %}
             ({{ 'admin.district'|trans }} {{ criteria.districtId|districtname }})
         {% endif %}
+        - {{ 'admin.people_number'|transchoice(volunteers.count) }}
     </h1>
     <table class="table table-striped">
         <thead>

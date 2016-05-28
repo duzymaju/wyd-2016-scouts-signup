@@ -17,6 +17,7 @@ admin.login.title:                      Formularz logowania
 admin.login.username:                   Nazwa użytkownika
 admin.logout.link:                      Wyloguj <strong>%login%</strong>
 admin.name:                             Nazwa
+admin.people_number:                    %count% osoba|%count% osoby|%count% osób
 admin.pilgrim:                          Pielgrzym
 admin.pilgrims:                         Pielgrzymi
 admin.pilgrims.counter:                 (ostatnich %limit% z %totalNumber%)
