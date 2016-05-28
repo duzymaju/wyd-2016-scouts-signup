@@ -1,0 +1,5 @@
+admin_format_data:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin:formatData
+    methods:                            [GET]
+    path:                               /admin/format-data

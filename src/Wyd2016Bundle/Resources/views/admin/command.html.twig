@@ -1,0 +1,21 @@
+{% extends 'Wyd2016Bundle::_layout.html.twig' %}
+
+{% block title %}
+    {{ 'admin.command'|trans({'%name%': name}) }} - {{ 'admin.title'|trans }}
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        body {
+            background: #000;
+            font-family: monospace;
+        }
+        span {
+            white-space: pre;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    {{ content|raw }}
+{% endblock %}

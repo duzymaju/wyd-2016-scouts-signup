@@ -93,19 +93,60 @@ class AdminController extends Controller
      */
     public function notifyRegionsAction(Request $request, $period)
     {
-        $kernel = $this->get('kernel');
-        $application = new Application($kernel);
-        $application->setAutoExit(false);
-
-        $command = array(
-           'command' => 'regions:notify',
-           '--period' => $period,
+        $options = array(
+           'period' => $period,
         );
 
         $receiver = $request->query->get('receiver');
         if (!empty($receiver)) {
-            $command['--receiver'] = $receiver;
+            $options['receiver'] = $receiver;
         }
+
+        return $this->executeCommand('regions:notify', array(), $options);
+    }
+
+    /**
+     * Format data action
+     *
+     * @param Request $request request
+     *
+     * @return Response
+     */
+    public function formatDataAction(Request $request)
+    {
+        $options = array(
+            'countryCodeAdd' => $request->query->getBoolean('countryCodeAdd', false),
+            'update' => $request->query->getBoolean('update', false),
+        );
+
+        return $this->executeCommand('data:format', array(), $options);
+    }
+
+    /**
+     * Execute command
+     * 
+     * @param string $name      name
+     * @param array  $arguments arguments
+     * @param array  $options   options
+     * 
+     * @return Response
+     */
+    protected function executeCommand($name, array $arguments = array(), array $options = array())
+    {
+        $command = array();
+        foreach ($options as $optionName => $optionValue) {
+            $optionName = ltrim($optionName, '-');
+            $id = strlen($optionName) == 1 ? '-' . $optionName : '--' . $optionName;
+            $command[$id] = $optionValue;
+        }
+        foreach ($arguments as $argumentName => $argumentValue) {
+            $command[ltrim($argumentName, '-')] = $argumentValue;
+        }
+        $command['command'] = $name;
+
+        $kernel = $this->get('kernel');
+        $application = new Application($kernel);
+        $application->setAutoExit(false);
 
         $input = new ArrayInput($command);
         $output = new BufferedOutput(OutputInterface::VERBOSITY_NORMAL, true);
@@ -114,7 +155,10 @@ class AdminController extends Controller
         $converter = new AnsiToHtmlConverter();
         $content = $output->fetch();
 
-        return new Response($converter->convert($content));
+        return $this->render('Wyd2016Bundle::admin/command.html.twig', array(
+            'content' => $converter->convert($content),
+            'name' => $name,
+        ));
     }
 
     /**

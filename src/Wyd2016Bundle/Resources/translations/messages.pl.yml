@@ -1,4 +1,5 @@
 admin.age_at_limit:                     Wiek na dzień %date%
+admin.command:                          Komenda %name%
 admin.country:                          Państwo
 admin.created_at:                       Czas utworzenia
 admin.district:                         Hufiec
