@@ -50,6 +50,8 @@ confirmation.title:                     Registration confirmation
 email.link:                             Click here to confirm registration
 email.group.registration_text:          "Thank you for registration a group of pilgrims staying in a place prepaired by Polish Scouting and Guiding Association during WYD Krakow 2016. To confirm your registration process please click the link below:"
 email.pligrim.registration_text:        "Thank you for registration your stay in a place prepaired by Polish Scouting and Guiding Association during WYD Krakow 2016. To confirm your registration process please click the link below:"
+email.scout_apostrophe.f:               Madam
+email.scout_apostrophe.m:               Sir
 email.title:                            Registration for ZHP WYD Krakow 2016
 email.troop.registration_text:          "<p>Thank you for registration a troop of volunteers for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:</p>"
 email.troop.reminder_text:              "<p>Thank you for registration a troop of volunteers for ZHP WYD Krakow 2016. To confirm your registration process please click the link below:</p>" # @TODO: change to reminder text

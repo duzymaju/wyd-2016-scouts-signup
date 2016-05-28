@@ -45,9 +45,11 @@ abstract class AbstractController extends Controller
                 if ($participant instanceof BandInterface) {
                     $leader = $participant->getLeader();
                     $email = $leader->getEmail();
+                    $sex = $leader->getSex();
                     $locale = $this->getLocale($leader->getCountry());
                 } else {
                     $email = $participant->getEmail();
+                    $sex = $participant->getSex();
                     $locale = $this->getLocale($participant->getCountry());
                 }
 
@@ -57,10 +59,11 @@ abstract class AbstractController extends Controller
                     ->setTo($email)
                     ->setBody($this->renderView($emailView, array(
                         'confirmationUrl' => $this->generateUrl($confirmRoute, array(
-                            '_locale' => $locale,
-                            'hash' => $participant->getActivationHash(),
-                        ), UrlGeneratorInterface::ABSOLUTE_URL),
+                                '_locale' => $locale,
+                                'hash' => $participant->getActivationHash(),
+                            ), UrlGeneratorInterface::ABSOLUTE_URL),
                         'locale' => $locale,
+                        'sex' => $sex,
                     )), 'text/html');
 
                 $mailer = $this->get('mailer');

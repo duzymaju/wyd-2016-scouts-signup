@@ -338,7 +338,7 @@ class RegistrationController extends Controller
                 if ($form->isValid()) {
                     try {
                         $this->mailSendingProcedure($leader->getEmail(), 'registration_troop_confirm',
-                            'Wyd2016Bundle::registration/troop/email.html.twig', $hash);
+                            'Wyd2016Bundle::registration/troop/email.html.twig', $hash, $leader->getSex());
 
                         try {
                             $this->get('wyd2016bundle.troop.repository')
@@ -445,7 +445,7 @@ class RegistrationController extends Controller
             if ($form->isValid()) {
                 try {
                     $this->mailSendingProcedure($volunteer->getEmail(), 'registration_volunteer_confirm',
-                        'Wyd2016Bundle::registration/volunteer/email.html.twig', $hash);
+                        'Wyd2016Bundle::registration/volunteer/email.html.twig', $hash, $volunteer->getSex());
 
                     try {
                         $volunteerRepository = $this->get('wyd2016bundle.volunteer.repository');
@@ -565,14 +565,15 @@ class RegistrationController extends Controller
     /**
      * Mail sending procedure
      *
-     * @param string $email        e-mail
-     * @param string $confirmRoute confirm route
-     * @param string $emailView    email view
-     * @param string $hash         hash
+     * @param string      $email        e-mail
+     * @param string      $confirmRoute confirm route
+     * @param string      $emailView    email view
+     * @param string      $hash         hash
+     * @param string|null $sex          sex
      *
      * @throws RegistrationException
      */
-    protected function mailSendingProcedure($email, $confirmRoute, $emailView, $hash)
+    protected function mailSendingProcedure($email, $confirmRoute, $emailView, $hash, $sex = null)
     {
         $translator = $this->get('translator');
 
@@ -582,8 +583,9 @@ class RegistrationController extends Controller
             ->setTo($email)
             ->setBody($this->renderView($emailView, array(
                 'confirmationUrl' => $this->generateUrl($confirmRoute, array(
-                    'hash' => $hash,
-                ), UrlGeneratorInterface::ABSOLUTE_URL),
+                        'hash' => $hash,
+                    ), UrlGeneratorInterface::ABSOLUTE_URL),
+                'sex' => $sex,
             )), 'text/html');
 
         $mailer = $this->get('mailer');

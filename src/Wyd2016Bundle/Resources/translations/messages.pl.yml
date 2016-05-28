@@ -50,18 +50,20 @@ confirmation.title:                     Potwierdzenie rejestracji
 email.link:                             Kliknij tutaj aby potwierdzić rejestrację
 email.group.registration_text:          "Dziękujemy za rejestrację pobytu grupy pielgrzymów miejscu przygotowywanym przez Związek Harcerstwa Polskiego podczas Światowych Dni Młodzieży 2016 w Krakowie. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
 email.pligrim.registration_text:        "Dziękujemy za rejestrację swojego pobytu w miejscu przygotowywanym przez Związek Harcerstwa Polskiego podczas Światowych Dni Młodzieży 2016 w Krakowie. Aby potwierdzić proces rejestracji, kliknij w poniższy link:"
+email.scout_apostrophe.f:               Druhno
+email.scout_apostrophe.m:               Druhu
 email.title:                            Rejestracja na ZHP ŚDM Kraków 2016
 email.troop.registration_text:          |
-    <p>Druhno/Druhu,</p>
+    <p>%apostrophe%,</p>
     <p>Dziękujemy za rejestrację patrolu wolontariuszy na Białą Służbę podczas Światowych Dni Młodzieży 2016 w Krakowie. Aby potwierdzić proces rejestracji, kliknij w poniższy link:</p>
 email.troop.reminder_text:              |
-    <p>Druhno/Druhu,</p>
+    <p>%apostrophe%,</p>
     <p>Dziękujemy za rejestrację patrolu wolontariuszy na Białą Służbę podczas Światowych Dni Młodzieży 2016 w Krakowie. Ponieważ nie otrzymaliśmy od Ciebie potwierdzenia rejestracji, poniżej znajdziesz link aktywacyjny. Wystarczy tylko na niego kliknąć, abyśmy odnotowali je w naszym systemie:</p>
 email.volunteer.registration_text:      |
-    <p>Druhno/Druhu,</p>
+    <p>%apostrophe%,</p>
     <p>Dziękujemy za rejestrację jako wolontariusz na Białą Służbę podczas Światowych Dni Młodzieży 2016 w Krakowie. Aby potwierdzić proces rejestracji, kliknij w poniższy link:</p>
 email.volunteer.reminder_text:          |
-    <p>Druhno/Druhu,</p>
+    <p>%apostrophe%,</p>
     <p>Dziękujemy za rejestrację jako wolontariusz na Białą Służbę podczas Światowych Dni Młodzieży 2016 w Krakowie. Ponieważ nie otrzymaliśmy od Ciebie potwierdzenia rejestracji, poniżej znajdziesz link aktywacyjny. Wystarczy tylko na niego kliknąć, abyśmy odnotowali je w naszym systemie:</p>
 email.volunteers.footer:                |
     <p>Przygotowania idą pełną parą, dlatego zapraszamy Cię do śledzenia:</p>

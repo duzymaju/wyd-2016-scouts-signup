@@ -50,6 +50,8 @@ confirmation.title:                     Para confirmar la inscripción
 email.link:                             Clic para confirmar
 email.group.registration_text:          "Gracias por la inscripción del grupo de los peregrinos a la estancia en el campamento de la Asociación de los Scouts de Polonia (ZHP) durante JMJ en Cracovia. Para confirmar haz un click:"
 email.pligrim.registration_text:        "Gracias por la inscripción a la estancia en el campamento de la Asociación de los Scouts de Polonia (ZHP) durante JMJ en Cracovia. Para confirmar haz un click:"
+email.scout_apostrophe.f:               Madam
+email.scout_apostrophe.m:               Sir
 email.title:                            La inscripción al Asociación de los Scouts de Polonia (ZHP) durante JMJ 2016
 email.troop.registration_text:          "<p>Gracias por su inscripción al grupo de los volutarios. Para confirmar haz clic en el vinculo:</p>"
 email.troop.reminder_text:              "<p>Gracias por su inscripción al grupo de los volutarios. Para confirmar haz clic en el vinculo:</p>" # @TODO: change to reminder text
