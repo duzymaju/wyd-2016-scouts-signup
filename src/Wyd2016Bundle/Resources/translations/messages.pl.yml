@@ -217,7 +217,7 @@ region_email.title.day:                 ŚDM 2016 - podsumowanie wczorajszych zg
 region_email.title.month:               ŚDM 2016 - podsumowanie zgłoszeń z chorągwi w zeszłym miesiącu
 region_email.title.week:                ŚDM 2016 - podsumowanie zgłoszeń z chorągwi w zeszłym tygodniu
 
-success.message:                        Twoje dane zostały pomyślnie zapisane. Aby dokończyć rejestrację odbierz wiadomość e-mail, którą Ci wysłaliśmy i kliknij w link potwierdzenia.
+success.message:                        Twoje dane zostały pomyślnie zapisane. Aby dokończyć rejestrację odbierz wiadomość e-mail, którą wysłaliśmy Ci na adres %email% i kliknij w link potwierdzenia. Jeśli podany adres e-mail jest niepoprawny, skontaktuj się z nami w celu skorygowania błędu.
 success.title:                          Dziękujemy za rejestrację
 
 troop.closed.message:                   Rejestracja patroli wolontariuszy została zakończona.

@@ -202,7 +202,7 @@ region_email.title.day:                 WYD 2016 - summary of yesterdays applica
 region_email.title.month:               WYD 2016 - summary of applications from region last month
 region_email.title.week:                WYD 2016 - summary of applications from region last week
 
-success.message:                        Your data were successfuly saved. To complete your registration please receive e-mail message we've send to you and click confirmation link.
+success.message:                        Your data were successfuly saved. To complete your registration please receive e-mail message we've send to you on %email% and click confirmation link. If the address is wrong, please contact us in order to correct it.
 success.title:                          Thank you for registration
 
 troop.closed.message:                   Registration of volunteer troops is finished.

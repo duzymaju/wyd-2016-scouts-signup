@@ -122,7 +122,10 @@ class RegistrationController extends Controller
                         throw new RegistrationException('form.exception.database', 0, $e);
                     }
 
-                    $this->addMessage('success.message', 'success');
+                    $successMessage = $translator->trans('success.message', array(
+                        '%email%' => $leader->getEmail(),
+                    ));
+                    $this->addMessage($successMessage, 'success');
                     $response = $this->redirect($this->generateUrl('registration_success'));
                 } catch (ExceptionInterface $e) {
                     $this->addMessage($e->getMessage(), 'error');
@@ -151,6 +154,8 @@ class RegistrationController extends Controller
      */
     public function pilgrimFormAction(Request $request)
     {
+        /** @var TranslatorInterface $translator */
+        $translator = $this->get('translator');
         $formType = new PilgrimType($this->get('translator'), $this->get('wyd2016bundle.registration.lists'));
 
         $pilgrim = new Pilgrim();
@@ -183,7 +188,10 @@ class RegistrationController extends Controller
                         throw new RegistrationException('form.exception.database', 0, $e);
                     }
 
-                    $this->addMessage('success.message', 'success');
+                    $successMessage = $translator->trans('success.message', array(
+                        '%email%' => $pilgrim->getEmail(),
+                    ));
+                    $this->addMessage($successMessage, 'success');
                     $response = $this->redirect($this->generateUrl('registration_success'));
                 } catch (ExceptionInterface $e) {
                     $this->addMessage($e->getMessage(), 'error');
@@ -353,7 +361,10 @@ class RegistrationController extends Controller
                             throw new RegistrationException('form.exception.database', 0, $e);
                         }
 
-                        $this->addMessage('success.message', 'success');
+                        $successMessage = $translator->trans('success.message', array(
+                            '%email%' => $leader->getEmail(),
+                        ));
+                        $this->addMessage($successMessage, 'success');
                         $response = $this->redirect($this->generateUrl('registration_success'));
                     } catch (ExceptionInterface $e) {
                         $this->addMessage($e->getMessage(), 'error');
@@ -472,7 +483,10 @@ class RegistrationController extends Controller
                         throw new RegistrationException('form.exception.database', 0, $e);
                     }
 
-                    $this->addMessage('success.message', 'success');
+                    $successMessage = $translator->trans('success.message', array(
+                        '%email%' => $volunteer->getEmail(),
+                    ));
+                    $this->addMessage($successMessage, 'success');
                     $response = $this->redirect($this->generateUrl('registration_success'));
                 } catch (ExceptionInterface $e) {
                     $this->addMessage($e->getMessage(), 'error');
