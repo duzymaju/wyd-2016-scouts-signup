@@ -161,6 +161,7 @@ form.status:                            Status
 form.status.confirmed:                  Potwierdzony
 form.status.not_confirmed:              Niepotwierdzony
 form.status.payed:                      Opłacony
+form.tip.email:                         Na ten adres wyślemy link do potwierdzenia rejestracji - upewnij się, że podany adres jest poprawny.
 form.tip.other_permissions:             Uprawnienia inne niż wymienione powyżej.
 form.tip.service_extra_id:              Musi być inna niż poprzednio wybrana.
 form.tip.service_main_id:               Ostateczną decyzję o przydziale służby podejmują organizatorzy.

@@ -13,7 +13,7 @@
         {{ macro.formRow(form.lastName) }}
         {{ macro.formRow(form.address) }}
         {{ macro.formRow(form.phone) }}
-        {{ macro.formRow(form.email) }}
+        {{ macro.formRow(form.email, {info: 'form.tip.email'|trans}) }}
         {{ macro.formRow(form.country) }}
         {{ macro.formRow(form.birthDate, {date: true}) }}
         {{ macro.formRow(form.sex) }}

@@ -151,6 +151,7 @@ form.status:                            Estado
 form.status.confirmed:                  Confirmado
 form.status.not_confirmed:              No confirmado
 form.status.payed:                      Pagado
+form.tip.email:                         We will use this e-mail address to send you confirmation link - make sure that this address is correct.
 form.tip.other_permissions:             "Por ejemplo: el curso de los primeros auxilios etc."
 form.tip.service_extra_id:              Tiene que ser diferente
 form.tip.service_main_id:               La decisón pertenece a los organizadores

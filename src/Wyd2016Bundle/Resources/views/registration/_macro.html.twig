@@ -51,13 +51,14 @@
 {% endmacro %}
 
 {% macro groupMember(member, no = 1, leaderData = null) %}
+    {% set isLeader = leaderData and leaderData is same as (member.vars.data) %}
     <div class="col-sm-6 member">
-        <h2>{{ leaderData and leaderData is same as (member.vars.data) ? 'group.form.leader'|trans : 'group.form.member'|trans({'%no%': no}) }}</h2>
+        <h2>{{ isLeader ? 'group.form.leader'|trans : 'group.form.member'|trans({'%no%': no}) }}</h2>
         {{ _self.formRow(member.firstName) }}
         {{ _self.formRow(member.lastName) }}
         {{ _self.formRow(member.address) }}
         {{ _self.formRow(member.phone) }}
-        {{ _self.formRow(member.email) }}
+        {{ _self.formRow(member.email, isLeader ? {info: 'form.tip.email'|trans} : {}) }}
         {{ _self.formRow(member.birthDate, {date: true}) }}
         {{ _self.formRow(member.sex) }}
         {{ _self.formRow(member.shirtSize) }}
@@ -65,13 +66,14 @@
 {% endmacro %}
 
 {% macro troopMember(member, no = 1, leaderData = null) %}
+    {% set isLeader = leaderData and leaderData is same as (member.vars.data) %}
     <div class="col-sm-6 member">
-        <h2>{{ leaderData and leaderData is same as (member.vars.data) ? 'troop.form.leader'|trans : 'troop.form.member'|trans({'%no%': no}) }}</h2>
+        <h2>{{ isLeader ? 'troop.form.leader'|trans : 'troop.form.member'|trans({'%no%': no}) }}</h2>
         {{ _self.formRow(member.firstName) }}
         {{ _self.formRow(member.lastName) }}
         {{ _self.formRow(member.address) }}
         {{ _self.formRow(member.phone) }}
-        {{ _self.formRow(member.email) }}
+        {{ _self.formRow(member.email, isLeader ? {info: 'form.tip.email'|trans} : {}) }}
         {{ _self.formRow(member.birthDate, {locale: '', date: true}) }}
         {{ _self.formRow(member.sex, {locale: ''}) }}
         {{ _self.formRow(member.pesel, {locale: 'PL'}) }}
