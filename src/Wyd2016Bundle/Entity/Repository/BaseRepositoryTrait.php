@@ -152,7 +152,7 @@ trait BaseRepositoryTrait
     public function getPackOrException($pageNo, $packSize, array $criteria = array(), array $orderBy = array())
     {
         $result = $this->getPack($pageNo, $packSize, $criteria, $orderBy);
-        if ($result->getIterator()->count() == 0) {
+        if ($pageNo > 1 && $result->getIterator()->count() == 0) {
             throw new NotFoundHttpException();
         }
 

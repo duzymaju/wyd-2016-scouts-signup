@@ -98,7 +98,11 @@
                 <tbody>
                     {% for region, counter in stats.regions %}
                         <tr>
-                            <td>{{ region|regionname }}</td>
+                            <td>
+                                <a href="{{ path('admin_volunteer_index', {regionId: region}) }}">
+                                    {{ region|regionname }}
+                                </a>
+                            </td>
                             <td>{{ counter }}</td>
                         </tr>
                     {% endfor %}

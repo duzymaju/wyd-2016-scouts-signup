@@ -21,19 +21,46 @@ class VolunteerController extends AbstractController
     /**
      * Index action
      *
-     * @param integer $pageNo page no
+     * @param Request $request request
+     * @param integer $pageNo  page no
      *
      * @return Response
      */
-    public function indexAction($pageNo)
+    public function indexAction(Request $request, $pageNo)
     {
+        $criteria = array();
+        $orderBy = array(
+            'createdAt' => 'DESC',
+        );
+
+        $registrationLists = $this->get('wyd2016bundle.registration.lists');
+
+        $regionId = (integer) $request->query->get('regionId');
+        if ($regionId > 0 && $registrationLists->getRegion($regionId)) {
+            $criteria['regionId'] = $regionId;
+            $orderBy = array_merge(array(
+                'districtId' => 'ASC',
+            ), $orderBy);
+        } else {
+            $regionId = null;
+        }
+
+        $districtId = null;
+        if (!isset($regionId)) {
+            $districtId = (integer) $request->query->get('districtId');
+            if ($districtId > 0 && $registrationLists->getDistrict($districtId)) {
+                $criteria['districtId'] = $districtId;
+            } else {
+                $districtId = null;
+            }
+        }
+
         /** @var Paginator $volunteers */
         $volunteers = $this->getRepository()
-            ->getPackOrException($pageNo, $this->getParameter('wyd2016.admin.pack_size'), array(), array(
-                'createdAt' => 'DESC',
-            ));
+            ->getPackOrException($pageNo, $this->getParameter('wyd2016.admin.pack_size'), $criteria, $orderBy);
 
         return $this->render('Wyd2016Bundle::admin/volunteer/index.html.twig', array(
+            'criteria' => $criteria,
             'volunteers' => $volunteers->setRouteName('admin_volunteer_index'),
         ));
     }

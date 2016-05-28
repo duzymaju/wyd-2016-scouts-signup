@@ -1,6 +1,7 @@
 admin.age_at_limit:                     Wiek na dzień %date%
 admin.country:                          Państwo
 admin.created_at:                       Czas utworzenia
+admin.district:                         Hufiec
 admin.show:                             Pokaż
 admin.get_list:                         Pobierz listę (CSV)
 admin.group:                            Grupa
@@ -9,6 +10,7 @@ admin.group_members:                    Członkowie grupy (%count%)
 admin.groups:                           Grupy
 admin.groups.counter:                   (ostatnie %limit% z %totalNumber%)
 admin.header:                           ZHP ŚDM 2016
+admin.list.empty:                       Ta lista jest pusta
 admin.login.password:                   Hasło
 admin.login.submit:                     Zaloguj
 admin.login.title:                      Formularz logowania
@@ -18,6 +20,7 @@ admin.name:                             Nazwa
 admin.pilgrim:                          Pielgrzym
 admin.pilgrims:                         Pielgrzymi
 admin.pilgrims.counter:                 (ostatnich %limit% z %totalNumber%)
+admin.region:                           Chorągiew
 admin.reminder.button:                  Wyślij przypomnienie
 admin.reminder.error:                   Wystąpił błąd podczas wysyłania wiadomości e-mail z przypomnieniem.
 admin.reminder.sent_date:               Ostatnie przypomnienie zostało wysłane %date%.

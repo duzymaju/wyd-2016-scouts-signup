@@ -1,6 +1,7 @@
 admin.age_at_limit:                     Age at %date%
 admin.country:                          Country
 admin.created_at:                       Created time
+admin.district:                         District
 admin.show:                             Show
 admin.get_list:                         Get list (CSV)
 admin.group:                            Group
@@ -9,6 +10,7 @@ admin.group_members:                    Group members (%count%)
 admin.groups:                           Groups
 admin.groups.counter:                   (last %limit% of %totalNumber%)
 admin.header:                           ZHP WYD 2016
+admin.list.empty:                       This list is empty
 admin.login.password:                   Password
 admin.login.submit:                     Log in
 admin.login.title:                      Log in form
@@ -18,6 +20,7 @@ admin.name:                             Name
 admin.pilgrim:                          Pilgrim
 admin.pilgrims:                         Pilgrims
 admin.pilgrims.counter:                 (last %limit% of %totalNumber%)
+admin.region:                           Region
 admin.reminder.button:                  Send reminder
 admin.reminder.error:                   An error occures during reminder e-mail sending.
 admin.reminder.sent_date:               Last reminder was sent at %date%.
