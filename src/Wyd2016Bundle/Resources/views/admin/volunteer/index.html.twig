@@ -29,7 +29,14 @@
         <tbody>
             {% for volunteer in volunteers %}
                 <tr>
-                    <td><a href="{{ path('admin_volunteer_show', {id: volunteer.id}) }}">{{ volunteer.name }}</a></td>
+                    <td>
+                        <a href="{{ path('admin_volunteer_show', {id: volunteer.id}) }}">{{ volunteer.name }}</a>
+                        {% if volunteer.troop %}
+                            (<a href="{{ path('admin_troop_show', {id: volunteer.troop.id}) }}">
+                                {{- volunteer.troop.name -}}
+                            </a>)
+                        {% endif %}
+                    </td>
                     <td>{{ volunteer.country|localizedcountry }}</td>
                     {% if criteria.regionId is defined %}
                         <td>

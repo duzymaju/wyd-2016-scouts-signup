@@ -24,11 +24,19 @@
         {% endif %}
         {% if troop.leader.regionId > 0 %}
             <dt>{{ 'form.region'|trans }}:</dt>
-            <dd>{{ troop.leader.regionId|regionname }}</dd>
+            <dd>
+                <a href="{{ path('admin_volunteer_index', {regionId: troop.leader.regionId}) }}">
+                    {{ troop.leader.regionId|regionname }}
+                </a>
+            </dd>
         {% endif %}
         {% if troop.leader.districtId > 0 %}
             <dt>{{ 'form.district'|trans }}:</dt>
-            <dd>{{ troop.leader.districtId|districtname }}</dd>
+            <dd>
+                <a href="{{ path('admin_volunteer_index', {districtId: troop.leader.districtId}) }}">
+                    {{ troop.leader.districtId|districtname }}
+                </a>
+            </dd>
         {% endif %}
         <dt>{{ 'form.languages'|trans }}:</dt>
         <dd>{{ macro.languagesList(troop.leader) }}</dd>

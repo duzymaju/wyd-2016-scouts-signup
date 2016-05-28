@@ -57,7 +57,9 @@ class VolunteerController extends AbstractController
 
         /** @var Paginator $volunteers */
         $volunteers = $this->getRepository()
-            ->getPackOrException($pageNo, $this->getParameter('wyd2016.admin.pack_size'), $criteria, $orderBy);
+            ->getPackOrException($pageNo, $this->getParameter('wyd2016.admin.pack_size'), $criteria, $orderBy, array(
+                't' => 'troop',
+            ));
 
         return $this->render('Wyd2016Bundle::admin/volunteer/index.html.twig', array(
             'criteria' => $criteria,

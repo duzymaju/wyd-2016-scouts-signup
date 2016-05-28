@@ -42,11 +42,19 @@
         {% endif %}
         {% if volunteer.regionId > 0 %}
             <dt>{{ 'form.region'|trans }}:</dt>
-            <dd>{{ volunteer.regionId|regionname }}</dd>
+            <dd>
+                <a href="{{ path('admin_volunteer_index', {regionId: volunteer.regionId}) }}">
+                    {{ volunteer.regionId|regionname }}
+                </a>
+            </dd>
         {% endif %}
         {% if volunteer.districtId > 0 %}
             <dt>{{ 'form.district'|trans }}:</dt>
-            <dd>{{ volunteer.districtId|districtname }}</dd>
+            <dd>
+                <a href="{{ path('admin_volunteer_index', {districtId: volunteer.districtId}) }}">
+                    {{ volunteer.districtId|districtname }}
+                </a>
+            </dd>
         {% endif %}
         {% if volunteer.pesel %}
             <dt>{{ 'form.pesel'|trans }}:</dt>

@@ -110,17 +110,25 @@ trait BaseRepositoryTrait
     /**
      * Get pack
      *
-     * @param integer $pageNo   page no
-     * @param integer $packSize pack size
-     * @param array   $criteria criteria
-     * @param array   $orderBy  order by
+     * @param integer $pageNo    page no
+     * @param integer $packSize  pack size
+     * @param array   $criteria  criteria
+     * @param array   $orderBy   order by
+     * @param array   $leftJoins left joins
      *
      * @return Paginator
      */
-    public function getPack($pageNo, $packSize, array $criteria = array(), array $orderBy = array())
+    public function getPack($pageNo, $packSize, array $criteria = array(), array $orderBy = array(),
+        array $leftJoins = array())
     {
-        $alias = 't';
+        $alias = 'xt';
+        $selection = $alias;
         $qb = $this->createQueryBuilder($alias);
+        foreach ($leftJoins as $joinedAlias => $joinedColumn) {
+            $qb->leftJoin((strpos($joinedColumn, '.') === false ? $alias . '.' : '') . $joinedColumn, $joinedAlias);
+            $selection .= ', ' . $joinedAlias;
+        }
+        $qb->select($selection);
         foreach ($criteria as $column => $value) {
             $qb->andWhere($alias . '.' . $column . ' = :' . $column)
                 ->setParameter($column, $value);
@@ -140,18 +148,20 @@ trait BaseRepositoryTrait
     /**
      * Get pack or throw NotFoundHttpException
      *
-     * @param integer $pageNo   page no
-     * @param integer $packSize pack size
-     * @param array   $criteria criteria
-     * @param array   $orderBy  order by
+     * @param integer $pageNo    page no
+     * @param integer $packSize  pack size
+     * @param array   $criteria  criteria
+     * @param array   $orderBy   order by
+     * @param array   $leftJoins left joins
      *
      * @return Paginator
      *
      * @throws NotFoundHttpException
      */
-    public function getPackOrException($pageNo, $packSize, array $criteria = array(), array $orderBy = array())
+    public function getPackOrException($pageNo, $packSize, array $criteria = array(), array $orderBy = array(),
+        array $leftJoins = array())
     {
-        $result = $this->getPack($pageNo, $packSize, $criteria, $orderBy);
+        $result = $this->getPack($pageNo, $packSize, $criteria, $orderBy, $leftJoins);
         if ($pageNo > 1 && $result->getIterator()->count() == 0) {
             throw new NotFoundHttpException();
         }

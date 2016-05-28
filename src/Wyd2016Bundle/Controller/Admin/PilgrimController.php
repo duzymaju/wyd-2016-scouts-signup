@@ -26,6 +26,8 @@ class PilgrimController extends AbstractController
         $pilgrims = $this->getRepository()
             ->getPackOrException($pageNo, $this->getParameter('wyd2016.admin.pack_size'), array(), array(
                 'createdAt' => 'DESC',
+            ), array(
+                'g' => 'group',
             ));
 
         return $this->render('Wyd2016Bundle::admin/pilgrim/index.html.twig', array(
