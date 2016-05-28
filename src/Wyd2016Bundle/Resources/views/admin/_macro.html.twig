@@ -1,4 +1,4 @@
-{% macro pagination(items, params) %}
+{% macro pagination(items, params = {}) %}
     {% if items.pagesNumber > 1 %}
         <ul class="pagination">
             {% if items.prev %}
