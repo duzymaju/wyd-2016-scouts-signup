@@ -218,9 +218,7 @@ class RegistrationController extends Controller
     public function troopFormAction(Request $request)
     {
         if ($this->limitsExceeded()) {
-            return $this->render('Wyd2016Bundle::registration/troop/closed.html.twig', array(
-                'limitsExceeded' => $this->limitsExceeded(),
-            ));
+            return $this->render('Wyd2016Bundle::registration/troop/closed.html.twig');
         }
 
         /** @var TranslatorInterface $translator */
@@ -395,9 +393,7 @@ class RegistrationController extends Controller
     public function volunteerFormAction(Request $request)
     {
         if ($this->limitsExceeded()) {
-            return $this->render('Wyd2016Bundle::registration/volunteer/closed.html.twig', array(
-                'limitsExceeded' => $this->limitsExceeded(),
-            ));
+            return $this->render('Wyd2016Bundle::registration/volunteer/closed.html.twig');
         }
 
         /** @var TranslatorInterface $translator */
