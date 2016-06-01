@@ -346,16 +346,17 @@ class RegistrationLists
         $volunteerDates = array(
             6 => $this->translator->trans('form.dates.volunteer.6'),
         );
-        if ($this->volunteerRepository->getTotalNumber() < $this->shortTermLimit) {
+        if ($forceAll || $this->volunteerRepository->getTotalNumber() < $this->shortTermLimit) {
             $volunteerDates[7] = $this->translator->trans('form.dates.volunteer.7');
-        }
-        if ($forceAll) {
-            $volunteerDates[1] = $this->translator->trans('form.dates.volunteer.1');
-            $volunteerDates[2] = $this->translator->trans('form.dates.volunteer.2');
-            $volunteerDates[3] = $this->translator->trans('form.dates.volunteer.3');
-            $volunteerDates[4] = $this->translator->trans('form.dates.volunteer.4');
-            if ($this->translator->getLocale() == self::COUNTRY_POLAND) {
-                $volunteerDates[5] = $this->translator->trans('form.dates.volunteer.5');
+
+            if ($forceAll) {
+                $volunteerDates[1] = $this->translator->trans('form.dates.volunteer.1');
+                $volunteerDates[2] = $this->translator->trans('form.dates.volunteer.2');
+                $volunteerDates[3] = $this->translator->trans('form.dates.volunteer.3');
+                $volunteerDates[4] = $this->translator->trans('form.dates.volunteer.4');
+                if ($this->translator->getLocale() == self::COUNTRY_POLAND) {
+                    $volunteerDates[5] = $this->translator->trans('form.dates.volunteer.5');
+                }
             }
         }
 
