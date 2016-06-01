@@ -29,11 +29,11 @@ parameters:
     wyd2016.age.limit:                  "2016-07-25"
     wyd2016.age.max:                    120
     wyd2016.age.min_adult:              18
-    wyd2016.age.min_group_member:       15
+    wyd2016.age.min_group_member:       14
     wyd2016.age.min_troop_member:       16
     wyd2016.number.short_term_limit:    400
     wyd2016.number.total_limit:         1050
-    wyd2016.time.limit:                 "2016-06-01 06:00:00"
+    wyd2016.time.limit:                 "2016-07-01 00:00:00"
     wyd2016.main_page:
         rules_pilgrim:
             en:                         /terms-and-conditions-for-pilgrims
