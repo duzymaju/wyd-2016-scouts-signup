@@ -31,7 +31,7 @@ parameters:
     wyd2016.age.min_adult:              18
     wyd2016.age.min_group_member:       14
     wyd2016.age.min_troop_member:       16
-    wyd2016.number.short_term_limit:    400
+    wyd2016.number.short_term_limit:    1050
     wyd2016.number.total_limit:         1050
     wyd2016.time.limit:                 "2016-06-07 00:00:00"
     wyd2016.main_page:
