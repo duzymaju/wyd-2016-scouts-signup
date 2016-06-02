@@ -689,17 +689,21 @@ class RegistrationController extends Controller
         $ageMax = $this->getParameter('wyd2016.age.max');
         $ageLimit = new DateTime($this->getParameter('wyd2016.age.limit'));
 
-        $age = (integer) $person->getBirthDate()
-            ->diff($ageLimit->modify('-1 day'))
-            ->format('%y');
-        if ($age < $ageMin) {
-            $ageField->addError(new FormError($translator->trans('form.error.age_too_low', array(
-                '%age%' => $ageMin,
-            ))));
-        } elseif ($age > $ageMax) {
-            $ageField->addError(new FormError($translator->trans('form.error.age_too_high', array(
-                '%age%' => $ageMax,
-            ))));
+        $birthDate = $person->getBirthDate();
+        if (!isset($birthDate)) {
+            $ageField->addError(new FormError($translator->trans('form.error.birth_date_not_specified')));
+        } else {
+            $age = (integer) $birthDate->diff($ageLimit->modify('-1 day'))
+                ->format('%y');
+            if ($age < $ageMin) {
+                $ageField->addError(new FormError($translator->trans('form.error.age_too_low', array(
+                    '%age%' => $ageMin,
+                ))));
+            } elseif ($age > $ageMax) {
+                $ageField->addError(new FormError($translator->trans('form.error.age_too_high', array(
+                    '%age%' => $ageMax,
+                ))));
+            }
         }
     }
 

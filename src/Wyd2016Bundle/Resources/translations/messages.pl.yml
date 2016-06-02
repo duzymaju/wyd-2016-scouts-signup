@@ -95,6 +95,7 @@ form.email:                             Adres e-mail
 form.error.age_too_high:                Maksymalny wiek to %age% lat.
 form.error.age_too_low:                 Minimalny wiek to %age% lat.
 form.error.association_name_empty:      Pole z nazwą organizacji skautowej nie może być puste.
+form.error.birth_date_not_specified:    Nie podano podano daty urodzenia.
 form.error.district_invalid:            Wybrany hufiec nie należy do wybranej chorągwi.
 form.error.grade_inproper:              Patrolowy powinien posiadać przynajmniej stopień przewodnika.
 form.error.pesel_empty:                 Pole z PESELem nie może być puste.

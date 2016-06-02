@@ -87,8 +87,10 @@
                 districts[regionId].show()
                     .prop('disabled', false);
             }
-            allDistricts.filter(':not(:disabled):first')
-                .prop('selected', true);
+            if (allDistricts.filter(':selected').is(':disabled')) {
+                allDistricts.filter(':not(:disabled):first')
+                    .prop('selected', true);
+            }
         };
         
         regionsField.on('change', changeDistricts);
@@ -115,8 +117,10 @@
             toHide.hide();
 
             if (toHide.is(':selected')) {
-                toHide.prop('selected', false);
-                serviceExtraOptions.filter(':visible:first').prop('selected', true);
+                toHide.hide()
+                    .prop('selected', false);
+                serviceExtraOptions.filter(':visible:first').show()
+                    .prop('selected', true);
             }
         };
 

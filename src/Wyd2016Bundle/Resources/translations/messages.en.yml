@@ -85,6 +85,7 @@ form.email:                             E-mail address
 form.error.age_too_high:                Maximum age is %age%.
 form.error.age_too_low:                 Minimum age is %age%.
 form.error.association_name_empty:      Name of scout/guide association field can't be empty.
+form.error.birth_date_not_specified:    Birth date has to be specified.
 form.error.district_invalid:            Selected district doesn't belong to selected region.
 form.error.grade_inproper:              Leader should have at least guide grade.
 form.error.pesel_empty:                 PESEL field can't be empty.
