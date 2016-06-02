@@ -5,6 +5,7 @@ namespace Wyd2016Bundle\Model;
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Exception;
 
 /**
  * Model
@@ -236,7 +237,11 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
         } else {
             $year += 1900;
         }
-        $birthDate = new DateTime($year . '-' . $month . '-' . $day);
+        try {
+            $birthDate = new DateTime($year . '-' . $month . '-' . $day);
+        } catch (Exception $e) {
+            $birthDate = null;
+        }
 
         return $birthDate;
     }

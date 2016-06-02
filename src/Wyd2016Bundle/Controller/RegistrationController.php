@@ -329,11 +329,11 @@ class RegistrationController extends Controller
                                 ->addError(new FormError($translator->trans('form.error.pesel_empty')));
                         }
                         if ($isLeader) {
-                            // Validates leader grade
-                            if ($member->getGradeId() == $registrationLists::GRADE_NO) {
-                                $memberView->get('gradeId')
-                                    ->addError(new FormError($translator->trans('form.error.grade_inproper')));
-                            }
+                            // Validates leader grade - disabled
+//                            if ($member->getGradeId() == $registrationLists::GRADE_NO) {
+//                                $memberView->get('gradeId')
+//                                    ->addError(new FormError($translator->trans('form.error.grade_inproper')));
+//                            }
                             // Validates structure
                             // For leader only to check it only once
                             $this->validateStructure($member, $form->get('districtId'));
