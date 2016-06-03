@@ -2,12 +2,15 @@
 
 namespace Wyd2016Bundle\Controller;
 
+use Doctrine\Common\Collections\Collection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Wyd2016Bundle\Model\Language;
 use Wyd2016Bundle\Model\User;
 use Wyd2016Bundle\Model\Volunteer;
+use Wyd2016Bundle\Twig\WydExtension;
 
 /**
  * Controller
@@ -43,14 +46,50 @@ class ApiController extends Controller
             return $this->getJsonResponse(Response::HTTP_NOT_FOUND);
         }
 
+        /** @var WydExtension $filters */
+        $filters = $this->get('wyd2016bundle.twig_extension.wyd');
+
         $volunteerData = array(
+            'id' => $volunteer->getId(),
+            'status' => $volunteer->getStatus(),
             'firstName' => $volunteer->getFirstName(),
             'lastName' => $volunteer->getLastName(),
+            'birthDate' => $volunteer->getBirthDate() != null ? $volunteer->getBirthDate()
+                ->format('Y-m-d') : null,
+            'sex' => $volunteer->getSex(),
+            'country' => $volunteer->getCountry(),
+            'address' => $volunteer->getAddress(),
+            'phone' => $volunteer->getPhone(),
+            'email' => $volunteer->getEmail(),
+            'emailAlias' => str_replace('{id}', $volunteer->getId(), $this->getEmailAlias('volunteer')),
+            'shirtSize' => $filters->shirtSizeNameFilter($volunteer->getShirtSize()),
+            'regionId' => $filters->regionNameFilter($volunteer->getRegionId()),
+            'districtId' => $filters->districtNameFilter($volunteer->getDistrictId()),
+            'pesel' => $filters->peselModifyFilter($volunteer->getPesel(), true),
+            'languages' => $this->getLanguages($volunteer->getLanguages()),
         );
 
         return $this->getJsonResponse(Response::HTTP_OK, array(
             'volunteer' => $volunteerData,
         ));
+    }
+
+    /**
+     * Get languages
+     *
+     * @param Collection $languages languages
+     *
+     * @return array
+     */
+    protected function getLanguages(Collection $languages)
+    {
+        $list = array();
+        /** @var Language $language */
+        foreach ($languages as $language) {
+            $list[] = $language->getSlug();
+        }
+
+        return $list;
     }
 
     /**
@@ -77,6 +116,21 @@ class ApiController extends Controller
         }
 
         return true;
+    }
+
+    /**
+     * Get e-mail alias
+     *
+     * @param string $type type
+     *
+     * @return string
+     */
+    protected function getEmailAlias($type)
+    {
+        $emailAliases = $this->getParameter('wyd2016.email_alias');
+        $emailAlias = array_key_exists($type, $emailAliases) ? $emailAliases[$type] : null;
+
+        return $emailAlias;
     }
 
     /**

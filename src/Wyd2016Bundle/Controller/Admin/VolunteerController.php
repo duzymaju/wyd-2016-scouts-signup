@@ -164,7 +164,7 @@ class VolunteerController extends AbstractController
                 $volunteer->getGradeId() > 0 ? $filters->gradeNameFilter($volunteer->getGradeId()) : '-',
                 $volunteer->getRegionId() > 0 ? $filters->regionNameFilter($volunteer->getRegionId()) : '-',
                 $volunteer->getDistrictId() > 0 ? $filters->districtNameFilter($volunteer->getDistrictId()) : '-',
-                $volunteer->getPesel() > 0 ? ($showPesel ? $volunteer->getPesel() : $filters->peselModifyFilter($volunteer->getPesel())) : '-',
+                $volunteer->getPesel() > 0 ? $filters->peselModifyFilter($volunteer->getPesel(), $showPesel) : '-',
                 $volunteer->getShirtSize() > 0 ? $filters->shirtSizeNameFilter($volunteer->getShirtSize()) : '-',
                 $filters->serviceNameFilter($volunteer->getServiceMainId()),
                 $volunteer->getServiceExtraId() ? $filters->serviceNameFilter($volunteer->getServiceExtraId()) : '-',

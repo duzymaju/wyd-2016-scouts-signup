@@ -164,13 +164,19 @@ class WydExtension extends Twig_Extension
     /**
      * PESEL modify filter
      *
-     * @param string $pesel PESEL
+     * @param string  $pesel     PESEL
+     * @param boolean $showWhole show whole
      *
-     * @return string
+     * @return string|null
      */
-    public function peselModifyFilter($pesel)
+    public function peselModifyFilter($pesel, $showWhole = false)
     {
-        $modifiedPesel = substr(str_repeat('0', 11 - strlen($pesel)) . $pesel, 0, 6) . '*****';
+        if (empty($pesel)) {
+            $modifiedPesel = null;
+        } else {
+            $formattedPesel = str_repeat('0', 11 - strlen($pesel)) . $pesel;
+            $modifiedPesel = $showWhole ? $formattedPesel : substr($formattedPesel, 0, 6) . '*****';
+        }
 
         return $modifiedPesel;
     }
