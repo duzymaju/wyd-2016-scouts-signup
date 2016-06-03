@@ -1,7 +1,7 @@
 api_index:
     defaults:
         _controller:                    Wyd2016Bundle:Api:volunteer
-    methods:                            [POST]
+    methods:                            [GET]
     path:                               /api/v1/volunteer/{id}
     requirements:
         id:                             \d+

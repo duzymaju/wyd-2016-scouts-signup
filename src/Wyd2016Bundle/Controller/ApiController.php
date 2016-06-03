@@ -101,8 +101,8 @@ class ApiController extends Controller
      */
     protected function hasAccess(Request $request)
     {
-        $userName = $request->request->get('user');
-        $token = $request->request->get('token');
+        $userName = $request->query->get('user');
+        $token = $request->query->get('token');
 
         if (empty($userName) || empty($token) || !preg_match('#^[0-9a-f]{32}$#i', $token)) {
             return false;
@@ -145,7 +145,11 @@ class ApiController extends Controller
     protected function getJsonResponse($status, array $data = array(), array $headers = array())
     {
         $data['status'] = $status == Response::HTTP_OK ? 'success' : 'error';
+        $mergedHeaders = array_merge(array(
+            'Access-Control-Allow-Methods' => 'GET',
+            'Access-Control-Allow-Origin' => '*',
+        ), $headers);
 
-        return new JsonResponse($data, $status, $headers);
+        return new JsonResponse($data, $status, $mergedHeaders);
     }
 }
