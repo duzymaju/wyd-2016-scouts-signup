@@ -10,3 +10,11 @@ Wyd2016Bundle\Entity\User:
             generator:
                 strategy:               AUTO
             type:                       integer
+    fields:
+        apiToken:
+            length:                     32
+            name:                       api_token
+            nullable:                   true
+            options:
+                fixed:                  true
+            type:                       string

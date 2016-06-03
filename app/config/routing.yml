@@ -46,6 +46,11 @@ _admin_main:
     options:
         i18n:                           false
 
+_api_volunteer:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Api/volunteer.yml"
+    options:
+        i18n:                           false
+
 _registration_group_confirm:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/group/confirm.yml"
 
