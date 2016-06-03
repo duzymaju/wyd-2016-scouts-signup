@@ -55,7 +55,7 @@ class ApiController extends Controller
             'firstName' => $volunteer->getFirstName(),
             'lastName' => $volunteer->getLastName(),
             'birthDate' => $volunteer->getBirthDate() != null ? $volunteer->getBirthDate()
-                ->format('Y-m-d') : null,
+                ->format('d/m/Y') : null,
             'sex' => $volunteer->getSex(),
             'country' => $volunteer->getCountry(),
             'address' => $volunteer->getAddress(),
