@@ -63,8 +63,8 @@ class ApiController extends Controller
             'email' => $volunteer->getEmail(),
             'emailAlias' => str_replace('{id}', $volunteer->getId(), $this->getEmailAlias('volunteer')),
             'shirtSize' => $filters->shirtSizeNameFilter($volunteer->getShirtSize()),
-            'regionId' => $filters->regionNameFilter($volunteer->getRegionId()),
-            'districtId' => $filters->districtNameFilter($volunteer->getDistrictId()),
+            'region' => $filters->regionNameFilter($volunteer->getRegionId()),
+            'district' => $filters->districtNameFilter($volunteer->getDistrictId()),
             'pesel' => $filters->peselModifyFilter($volunteer->getPesel(), true),
             'languages' => $this->getLanguages($volunteer->getLanguages()),
         );
