@@ -17,6 +17,9 @@ use Wyd2016Bundle\Twig\WydExtension;
  */
 class ApiController extends Controller
 {
+    /** @const string */
+    const ASSOCIATION_NAME_DEFAULT = 'Związek Harcerstwa Polskiego';
+
     /** @var User */
     protected $user;
 
@@ -58,6 +61,8 @@ class ApiController extends Controller
                 ->format('d/m/Y') : null,
             'sex' => $volunteer->getSex(),
             'country' => $volunteer->getCountry(),
+            'associationName' => $volunteer->getAssociationName() ? $volunteer->getAssociationName() :
+                self::ASSOCIATION_NAME_DEFAULT,
             'address' => $volunteer->getAddress(),
             'phone' => $volunteer->getPhone(),
             'email' => $volunteer->getEmail(),
