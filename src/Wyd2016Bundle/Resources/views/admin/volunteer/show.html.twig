@@ -60,6 +60,8 @@
             <dt>{{ 'form.pesel'|trans }}:</dt>
             <dd>{{ volunteer.pesel|peselmodify }}</dd>
         {% endif %}
+        <dt>{{ 'form.father_name'|trans }}:</dt>
+        <dd>{{ volunteer.fatherName is empty ? '-' : volunteer.fatherName }}</dd>
         <dt>{{ 'form.shirt_size'|trans }}:</dt>
         <dd>{{ volunteer.shirtSize ? volunteer.shirtSize|shirtsizename : '-' }}</dd>
         <dt>{{ 'form.service_main'|trans }}:</dt>

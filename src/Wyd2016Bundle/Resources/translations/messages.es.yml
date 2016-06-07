@@ -93,6 +93,7 @@ form.error.services_duplicated:         Los tipos del servicio favorable tienen 
 form.errors:                            Una parte de los datos no esta correcta, cambialó antes de guardar.
 form.exception.database:                El error de la inscripción - prueba otra vez.
 form.exception.email:                   El error del correo - asegúrate que el correo esta correcto.
+form.father_name:                       Nombre del padre
 form.first_name:                        Nombre
 form.grade:                             Grade
 form.grade.guide:                       guide

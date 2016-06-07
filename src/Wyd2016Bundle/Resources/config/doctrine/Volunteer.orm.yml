@@ -77,6 +77,11 @@ Wyd2016Bundle\Entity\Volunteer:
         pesel:
             nullable:                   true
             type:                       bigint
+        fatherName:
+            length:                     50
+            name:                       father_name
+            nullable:                   true
+            type:                       string
         serviceMainId:
             name:                       service_main_id
             type:                       smallint
@@ -98,6 +103,13 @@ Wyd2016Bundle\Entity\Volunteer:
         comments:
             length:                     255
             nullable:                   true
+            type:                       string
+        wydFormPassword:
+            length:                     20
+            name:                       wyd_form_password
+            nullable:                   true
+            options:
+                fixed:                  true
             type:                       string
         createdAt:
             name:                       created_at

@@ -67,10 +67,12 @@ class ApiController extends Controller
             'phone' => $volunteer->getPhone(),
             'email' => $volunteer->getEmail(),
             'emailAlias' => str_replace('{id}', $volunteer->getId(), $this->getEmailAlias('volunteer')),
+            'wydFormPassword' => $volunteer->getWydFormPassword(),
             'shirtSize' => $filters->shirtSizeNameFilter($volunteer->getShirtSize()),
             'region' => $filters->regionNameFilter($volunteer->getRegionId()),
             'district' => $filters->districtNameFilter($volunteer->getDistrictId()),
             'pesel' => $filters->peselModifyFilter($volunteer->getPesel(), true),
+            'fatherName' => $volunteer->getFatherName(),
             'languages' => $this->getLanguages($volunteer->getLanguages()),
         );
 

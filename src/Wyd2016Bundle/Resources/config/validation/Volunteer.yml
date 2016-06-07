@@ -50,6 +50,12 @@ Wyd2016Bundle\Entity\Volunteer:
             - Wyd2016Bundle\Validator\Constraints\ContainsPesel:
                 groups:
                     -                   troopMember
+        fatherName:
+            - Length:
+                groups:
+                    -                   troopMember
+                min:                    2
+                max:                    50
         otherPermissions:
             - Length:
                 max:                    255

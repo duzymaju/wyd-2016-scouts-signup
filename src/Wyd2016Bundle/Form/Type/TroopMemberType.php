@@ -56,6 +56,9 @@ class TroopMemberType extends AbstractType
             'label' => $this->translator->trans('form.pesel'),
             'required' => false,
         )))
+        ->add('fatherName', 'text', $this->mergeOptions('fatherName', array(
+            'label' => $this->translator->trans('form.father_name'),
+        )))
         ->add('gradeId', 'choice', $this->mergeOptions('gradeId', array(
             'choices' => $this->registrationLists->getGrades(),
             'label' => $this->translator->trans('form.grade'),

@@ -103,6 +103,7 @@ form.error.services_duplicated:         Preferowane służby muszą być różne
 form.errors:                            Część danych jest niepoprawna - zmień je przed zapisaniem formularza.
 form.exception.database:                Wystąpił błąd podczas zapisu danych - prosimy spróbować ponownie.
 form.exception.email:                   Wystąpił błąd podczas wysyłania wiadomości e-mail - sprawdź poprawność podanego adresu e-mail.
+form.father_name:                       Imię ojca
 form.first_name:                        Imię
 form.grade:                             Stopień
 form.grade.guide:                       przewodnik

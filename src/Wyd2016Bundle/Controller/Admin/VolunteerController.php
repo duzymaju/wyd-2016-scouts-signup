@@ -126,6 +126,7 @@ class VolunteerController extends AbstractController
             $translator->trans('form.phone'),
             $translator->trans('form.email'),
             $translator->trans('form.country'),
+            $translator->trans('form.association_name'),
             $translator->trans('form.birth_date'),
             $translator->trans('admin.age_at_limit', [
                 '%date%' => $this->getParameter('wyd2016.age.limit'),
@@ -135,6 +136,7 @@ class VolunteerController extends AbstractController
             $translator->trans('form.region'),
             $translator->trans('form.district'),
             $translator->trans('form.pesel'),
+            $translator->trans('form.father_name'),
             $translator->trans('form.shirt_size'),
             $translator->trans('form.service_main'),
             $translator->trans('form.service_extra'),
@@ -157,6 +159,7 @@ class VolunteerController extends AbstractController
                 $volunteer->getPhone(),
                 $volunteer->getEmail(),
                 $filters->localizedCountryFilter($volunteer->getCountry()),
+                $volunteer->getAssociationName(),
                 $volunteer->getBirthDate()
                     ->format('Y-m-d'),
                 $filters->ageAtLimitFilter($volunteer->getBirthDate()),
@@ -165,6 +168,7 @@ class VolunteerController extends AbstractController
                 $volunteer->getRegionId() > 0 ? $filters->regionNameFilter($volunteer->getRegionId()) : '-',
                 $volunteer->getDistrictId() > 0 ? $filters->districtNameFilter($volunteer->getDistrictId()) : '-',
                 $volunteer->getPesel() > 0 ? $filters->peselModifyFilter($volunteer->getPesel(), $showPesel) : '-',
+                $volunteer->getFatherName() ? $volunteer->getFatherName() : '-',
                 $volunteer->getShirtSize() > 0 ? $filters->shirtSizeNameFilter($volunteer->getShirtSize()) : '-',
                 $filters->serviceNameFilter($volunteer->getServiceMainId()),
                 $volunteer->getServiceExtraId() ? $filters->serviceNameFilter($volunteer->getServiceExtraId()) : '-',

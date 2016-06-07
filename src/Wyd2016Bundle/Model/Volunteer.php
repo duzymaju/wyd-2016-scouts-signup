@@ -32,6 +32,9 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
     /** @var string|null */
     protected $pesel;
 
+    /** @var string|null */
+    protected $fatherName;
+
     /** @var integer */
     protected $serviceMainId;
 
@@ -49,6 +52,9 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
 
     /** @var string|null */
     protected $profession;
+
+    /** @var string|null */
+    protected $wydFormPassword;
 
     /**
      * Construct
@@ -287,6 +293,30 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
     }
 
     /**
+     * Get father name
+     *
+     * @return string|null
+     */
+    public function getFatherName()
+    {
+        return $this->fatherName;
+    }
+
+    /**
+     * Set father name
+     *
+     * @param string|null $fatherName father name
+     *
+     * @return self
+     */
+    public function setFatherName($fatherName = null)
+    {
+        $this->fatherName = $fatherName;
+
+        return $this;
+    }
+
+    /**
      * Get service extra ID
      *
      * @return integer|null
@@ -466,6 +496,30 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
     public function setProfession($profession = null)
     {
         $this->profession = $profession;
+
+        return $this;
+    }
+
+    /**
+     * Get WYD form password
+     *
+     * @return string|null
+     */
+    public function getWydFormPassword()
+    {
+        return $this->wydFormPassword;
+    }
+
+    /**
+     * Set WYD form password
+     *
+     * @param string|null $wydFormPassword WYD form password
+     *
+     * @return self
+     */
+    public function setWydFormPassword($wydFormPassword = null)
+    {
+        $this->wydFormPassword = $wydFormPassword;
 
         return $this;
     }

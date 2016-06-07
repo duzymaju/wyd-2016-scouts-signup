@@ -80,6 +80,9 @@ class VolunteerType extends AbstractType
             'label' => $this->translator->trans('form.pesel'),
             'required' => false,
         )))
+        ->add('fatherName', 'text', $this->mergeOptions('fatherName', array(
+            'label' => $this->translator->trans('form.father_name'),
+        )))
         ->add('shirtSize', 'choice', $this->mergeOptions('shirtSize', array(
             'choices' => $this->registrationLists->getShirtSizes(),
             'label' => $this->translator->trans('form.shirt_size'),
