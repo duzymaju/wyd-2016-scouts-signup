@@ -122,7 +122,7 @@ class RegistrationController extends Controller
                         throw new RegistrationException('form.exception.database', 0, $e);
                     }
 
-                    $successMessage = $translator->trans('success.message', array(
+                    $successMessage = $translator->trans('success.registration.message', array(
                         '%email%' => $leader->getEmail(),
                     ));
                     $this->addMessage($successMessage, 'success');
@@ -188,7 +188,7 @@ class RegistrationController extends Controller
                         throw new RegistrationException('form.exception.database', 0, $e);
                     }
 
-                    $successMessage = $translator->trans('success.message', array(
+                    $successMessage = $translator->trans('success.registration.message', array(
                         '%email%' => $pilgrim->getEmail(),
                     ));
                     $this->addMessage($successMessage, 'success');
@@ -359,7 +359,7 @@ class RegistrationController extends Controller
                             throw new RegistrationException('form.exception.database', 0, $e);
                         }
 
-                        $successMessage = $translator->trans('success.message', array(
+                        $successMessage = $translator->trans('success.registration.message', array(
                             '%email%' => $leader->getEmail(),
                         ));
                         $this->addMessage($successMessage, 'success');
@@ -479,7 +479,7 @@ class RegistrationController extends Controller
                         throw new RegistrationException('form.exception.database', 0, $e);
                     }
 
-                    $successMessage = $translator->trans('success.message', array(
+                    $successMessage = $translator->trans('success.registration.message', array(
                         '%email%' => $volunteer->getEmail(),
                     ));
                     $this->addMessage($successMessage, 'success');

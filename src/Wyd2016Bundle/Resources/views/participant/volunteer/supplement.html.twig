@@ -1,0 +1,38 @@
+{% extends 'Wyd2016Bundle:registration:_template.html.twig' %}
+{% import 'Wyd2016Bundle:registration:_macro.html.twig' as macro %}
+{% import 'Wyd2016Bundle::_macro.html.twig' as globalMacro %}
+
+{% set pageTitle = 'volunteer.supplement.title'|trans %}
+
+{% block content %}
+    {{ globalMacro.flashBagMessages('error', true) }}
+    {% if not volunteer.confirmed %}
+        {{ globalMacro.message('volunteer.supplement.confirmation', 'error', true) }}
+    {% endif %}
+    <h1>{{ 'volunteer.supplement.title'|trans({'%name%': volunteer.firstName ~ ' ' ~ volunteer.lastName}) }}</h1>
+    <p>{{ 'volunteer.supplement.incomplete'|trans }}</p>
+    {{ form_start(form, {'attr': {'class': 'registration-form registration-form-volunteer'}}) }}
+        {% if form.fatherName is defined %}
+            <div class="form-group" style="margin-bottom:5px">
+                {{ 'volunteer.supplement.father_name'|trans }}
+            </div>
+            {{ macro.formRow(form.fatherName) }}
+        {% endif %}
+        {% if form.districtId is defined %}
+            <div class="form-group" style="margin-bottom:5px">
+                {{ 'volunteer.supplement.district'|trans({'%region%': volunteer.regionId|regionname}) }}
+            </div>
+            {{ macro.formRow(form.districtId) }}
+        {% endif %}
+        {% if form.serviceMainId is defined and form.serviceExtraId is defined %}
+            <div class="form-group" style="margin-bottom:5px">
+                {{ 'volunteer.supplement.service'|trans }}
+            </div>
+            {{ macro.formRow(form.serviceMainId, {info: 'form.tip.service_main_id'|trans}) }}
+            {{ macro.formRow(form.serviceExtraId, {info: 'form.tip.service_extra_id'|trans}) }}
+        {% endif %}
+        <div class="form-group">
+            {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+        </div>
+    {{ form_end(form) }}
+{% endblock %}

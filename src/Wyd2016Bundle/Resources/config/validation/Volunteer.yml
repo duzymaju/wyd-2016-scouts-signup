@@ -9,26 +9,38 @@ Wyd2016Bundle\Entity\Volunteer:
             - Length:
                 groups:
                     -                   troopMember
-                min:                    2
                 max:                    50
+                min:                    2
+            - NotBlank:
+                groups:
+                    -                   troopMember
         lastName:
             - Length:
                 groups:
                     -                   troopMember
-                min:                    2
                 max:                    50
+                min:                    2
+            - NotBlank:
+                groups:
+                    -                   troopMember
         address:
             - Length:
                 groups:
                     -                   troopMember
-                min:                    10
                 max:                    255
+                min:                    10
+            - NotBlank:
+                groups:
+                    -                   troopMember
         phone:
             - Length:
                 groups:
                     -                   troopMember
-                min:                    8
                 max:                    15
+                min:                    8
+            - NotBlank:
+                groups:
+                    -                   troopMember
             - Regex:
                 groups:
                     -                   troopMember
@@ -40,8 +52,11 @@ Wyd2016Bundle\Entity\Volunteer:
             - Length:
                 groups:
                     -                   troopMember
-                min:                    3
                 max:                    40
+                min:                    3
+            - NotBlank:
+                groups:
+                    -                   troopMember
         birthDate:
             - DateTime:
                 groups:
@@ -53,9 +68,14 @@ Wyd2016Bundle\Entity\Volunteer:
         fatherName:
             - Length:
                 groups:
+                    -                   supplement
                     -                   troopMember
-                min:                    2
                 max:                    50
+                min:                    2
+            - NotBlank:
+                groups:
+                    -                   supplement
+                    -                   troopMember
         otherPermissions:
             - Length:
                 max:                    255

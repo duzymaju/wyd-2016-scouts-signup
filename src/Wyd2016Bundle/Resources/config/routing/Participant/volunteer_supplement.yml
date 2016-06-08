@@ -1,0 +1,7 @@
+participant_volunteer_supplement:
+    defaults:
+        _controller:                    Wyd2016Bundle:Participant:volunteerSupplement
+    methods:                            [GET|POST]
+    path:                               /volunteer/{hash}/supplement
+    requirements:
+        hash:                           "[0-9a-f]{32}$"

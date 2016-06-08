@@ -1,0 +1,13 @@
+{% extends 'Wyd2016Bundle:registration:_template.html.twig' %}
+{% import 'Wyd2016Bundle::_macro.html.twig' as globalMacro %}
+
+{% set pageTitle = 'volunteer.supplement.title'|trans %}
+
+{% block content %}
+    {{ globalMacro.flashBagMessages('error', true) }}
+    {% if not volunteer.confirmed %}
+        {{ globalMacro.message('volunteer.supplement.confirmation', 'error', true) }}
+    {% endif %}
+    <h1>{{ 'volunteer.supplement.title'|trans({'%name%': volunteer.firstName ~ ' ' ~ volunteer.lastName}) }}</h1>
+    <p>{{ 'volunteer.supplement.complete'|trans }}</p>
+{% endblock %}

@@ -51,6 +51,9 @@ _api_volunteer:
     options:
         i18n:                           false
 
+_participant_volunteer_supplement:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Participant/volunteer_supplement.yml"
+
 _registration_group_confirm:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Registration/group/confirm.yml"
 

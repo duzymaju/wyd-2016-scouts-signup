@@ -238,16 +238,20 @@ class RegistrationLists
     /**
      * Get districts
      *
+     * @param integer|null $regionId region ID
+     *
      * @return array
      */
-    public function getDistricts()
+    public function getDistricts($regionId = null)
     {
         $districts = array();
 
-        foreach ($this->getStructure() as $regionId => $region) {
-            foreach ($region['districts'] as $districtKey => $district) {
-                $districtId = $this->getDistrictId($regionId, $districtKey);
-                $districts[$districtId] = $district;
+        foreach ($this->getStructure() as $id => $region) {
+            if (!isset($regionId) || $id == $regionId) {
+                foreach ($region['districts'] as $districtKey => $district) {
+                    $districtId = $this->getDistrictId($id, $districtKey);
+                    $districts[$districtId] = $district;
+                }
             }
         }
 

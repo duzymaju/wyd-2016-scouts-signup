@@ -204,7 +204,8 @@ region_email.title.day:                 WYD 2016 - summary of yesterdays applica
 region_email.title.month:               WYD 2016 - summary of applications from region last month
 region_email.title.week:                WYD 2016 - summary of applications from region last week
 
-success.message:                        Your data were successfuly saved. To complete your registration please receive e-mail message we've send to you on %email% and click confirmation link. If the address is wrong, please contact us in order to correct it.
+success.registration.message:           Your data were successfuly saved. To complete your registration please receive e-mail message we've send to you on %email% and click confirmation link. If the address is wrong, please contact us in order to correct it.
+success.supplement.message:             Your data was save successfully - thank you for adding necessary information.
 success.title:                          Thank you for registration
 
 troop.closed.message:                   Registration of volunteer troops is finished.
@@ -219,5 +220,12 @@ volunteer.closed.message:               Registration of adult volunteers is fini
 volunteer.closed.title:                 Registration finished
 volunteer.form.description:             Volunteer must be over %age% years before %date%.
 volunteer.form.title:                   Form for adult volunteers
+volunteer.supplement.complete:          All necessary data have been added.
+volunteer.supplement.confirmation:      Your registration wasn't confirmed by clicking confirmation link which you received on your e-mail address given during registration process. To confirm your registration click this link or contact us.
+volunteer.supplement.district:          "Select again district from a list of districts in your region (%region%):"
+volunteer.supplement.father_name:       "Father's name is required by security service:"
+volunteer.supplement.incomplete:        Not all necessary data have been added. Please, add information specified beneath.
+volunteer.supplement.service:           "Because of changes in a list of available services, please select preferred and alternative service:"
+volunteer.supplement.title:             Data supplement of volunteer %name%
 
 wyd_www.title:                          ZHP WYD Krakow 2016

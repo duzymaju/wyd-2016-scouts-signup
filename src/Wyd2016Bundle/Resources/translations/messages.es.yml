@@ -204,7 +204,8 @@ region_email.title.day:                 WYD 2016 - summary of yesterdays applica
 region_email.title.month:               WYD 2016 - summary of applications from region last month
 region_email.title.week:                WYD 2016 - summary of applications from region last week
 
-success.message:                        Tus datos son ya guardados, para terminar la inscripción hay que confirmar con el link que te hemos enviado por el correo electrónico.
+success.registration.message:           Tus datos son ya guardados, para terminar la inscripción hay que confirmar con el link que te hemos enviado por el correo electrónico.
+success.supplement.message:             Your data was save successfully - thank you for adding necessary information.
 success.title:                          Gracias por su inscripción
 
 troop.closed.message:                   Registration of volunteer troops is finished.
@@ -219,5 +220,12 @@ volunteer.closed.message:               Registration of adult volunteers is fini
 volunteer.closed.title:                 Registration finished
 volunteer.form.description:             La edad minima del voluntario son %age% años cumplidos antes de %date%.
 volunteer.form.title:                   La inscripción para los voluntrios mayores de edad
+volunteer.supplement.complete:          All necessary data have been added.
+volunteer.supplement.confirmation:      Your registration wasn't confirmed by clicking confirmation link which you received on your e-mail address given during registration process. To confirm your registration click this link or contact us.
+volunteer.supplement.district:          "Select again district from a list of districts in your region (%region%):"
+volunteer.supplement.father_name:       "Father's name is required by security service:"
+volunteer.supplement.incomplete:        Not all necessary data have been added. Please, add information specified beneath.
+volunteer.supplement.service:           "Because of changes in a list of available services, please select preferred and alternative service:"
+volunteer.supplement.title:             Data supplement of volunteer %name%
 
 wyd_www.title:                          La Asociación de los Scouts de Polonia (ZHP) para JMJ Cracovia 2016

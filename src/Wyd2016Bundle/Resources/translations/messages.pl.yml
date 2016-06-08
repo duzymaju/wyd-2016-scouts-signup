@@ -219,7 +219,8 @@ region_email.title.day:                 ŚDM 2016 - podsumowanie wczorajszych zg
 region_email.title.month:               ŚDM 2016 - podsumowanie zgłoszeń z chorągwi w zeszłym miesiącu
 region_email.title.week:                ŚDM 2016 - podsumowanie zgłoszeń z chorągwi w zeszłym tygodniu
 
-success.message:                        Twoje dane zostały pomyślnie zapisane. Aby dokończyć rejestrację odbierz wiadomość e-mail, którą wysłaliśmy Ci na adres %email% i kliknij w link potwierdzenia. Jeśli podany adres e-mail jest niepoprawny, skontaktuj się z nami w celu skorygowania błędu.
+success.registration.message:           Twoje dane zostały pomyślnie zapisane. Aby dokończyć rejestrację odbierz wiadomość e-mail, którą wysłaliśmy Ci na adres %email% i kliknij w link potwierdzenia. Jeśli podany adres e-mail jest niepoprawny, skontaktuj się z nami w celu skorygowania błędu.
+success.supplement.message:             Twoje dane zostały pomyślnie zapisane - dziękujemy za uzupełnienie niezbędnych informacji.
 success.title:                          Dziękujemy za rejestrację
 
 troop.closed.message:                   Rejestracja patroli wolontariuszy została zakończona.
@@ -234,5 +235,12 @@ volunteer.closed.message:               Rejestracja pełnoletnich wolontariuszy 
 volunteer.closed.title:                 Rejestracja zakończona
 volunteer.form.description:             Minimalny wiek wolontariusza to %age% lat ukończone przed %date%.
 volunteer.form.title:                   Formularz dla pełnoletnich wolontariuszy
+volunteer.supplement.complete:          Wszystkie niezbędne dane zostały już uzupełnione.
+volunteer.supplement.confirmation:      Zgłoszenie nie zostało jeszcze potwierdzone poprzez kliknięcie w link wysłany na adres pocztowy podany podczas rejestracji. Aby potwierdzić zgłoszenie kliknij w link potwierdzenia lub skontaktuj się z nami.
+volunteer.supplement.district:          "W związku z problemami przy wyborze właściwego hufca, jakich doświadczyła niewielka część użytkowników (porównując kilka parametrów stwierdziliśmy, że możesz znajdować się w tej grupie), prosimy o wybór właściwego hufca spośród wszystkich w Twojej chorągwi (%region%):"
+volunteer.supplement.father_name:       "Podanie imienia ojca wolontariusza jest wymagane przez służby bezpieczeństwa:"
+volunteer.supplement.incomplete:        Nie wszystkie niezbędne dane zostały uzupełnione. Prosimy o dodanie danych wyszczególnionych poniżej.
+volunteer.supplement.service:           "Ponieważ zmieniły się dostępne pola służby, prosimy o wybór służby preferowanej i alternatywnej:"
+volunteer.supplement.title:             Uzupełnienie danych wolontariusza %name%
 
 wyd_www.title:                          ZHP ŚDM Kraków 2016

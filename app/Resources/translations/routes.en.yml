@@ -1,3 +1,6 @@
+# Desc: /admin/format-data
+admin_format_data: /admin/format-data
+
 # Desc: /admin/groups/{pageNo}
 admin_group_index: '/admin/groups/{pageNo}'
 
@@ -7,8 +10,14 @@ admin_group_show: '/admin/group/{id}'
 # Desc: /admin
 admin_index: /admin
 
+# Desc: /admin/notify-regions/{period}
+admin_notify_regions: '/admin/notify-regions/{period}'
+
 # Desc: /admin/pilgrims/{pageNo}
 admin_pilgrim_index: '/admin/pilgrims/{pageNo}'
+
+# Desc: /admin/pilgrims/list
+admin_pilgrim_list: /admin/pilgrims/list
 
 # Desc: /admin/pilgrim/{id}
 admin_pilgrim_show: '/admin/pilgrim/{id}'
@@ -22,6 +31,9 @@ admin_troop_show: '/admin/troop/{id}'
 # Desc: /admin/volunteers/{pageNo}
 admin_volunteer_index: '/admin/volunteers/{pageNo}'
 
+# Desc: /admin/volunteers/list
+admin_volunteer_list: /admin/volunteers/list
+
 # Desc: /admin/volunteer/{id}
 admin_volunteer_show: '/admin/volunteer/{id}'
 
@@ -33,6 +45,9 @@ fos_user_security_login: /admin/login
 
 # Desc: /admin/logout
 fos_user_security_logout: /admin/logout
+
+# Desc: /volunteer/{hash}/supplement
+participant_volunteer_supplement: '/volunteer/{hash}/supplement'
 
 # Desc: /group/{hash}/confirm
 registration_group_confirm: '/group/{hash}/confirm'
