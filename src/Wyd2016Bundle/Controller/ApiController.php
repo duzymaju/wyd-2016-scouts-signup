@@ -51,6 +51,7 @@ class ApiController extends Controller
 
         /** @var WydExtension $filters */
         $filters = $this->get('wyd2016bundle.twig_extension.wyd');
+        $emergencyContact = $this->getParameter('wyd2016.emergency_contact');
 
         $volunteerData = array(
             'id' => $volunteer->getId(),
@@ -74,6 +75,12 @@ class ApiController extends Controller
             'pesel' => $filters->peselModifyFilter($volunteer->getPesel(), true),
             'fatherName' => $volunteer->getFatherName(),
             'languages' => $this->getLanguages($volunteer->getLanguages()),
+            'emergencyContactCountry' => $emergencyContact['country'],
+            'emergencyContactEmail' => $emergencyContact['email'],
+            'emergencyContactFirstName' => $emergencyContact['first_name'],
+            'emergencyContactLastName' => $emergencyContact['last_name'],
+            'emergencyContactPhone' => $emergencyContact['phone'],
+            'emergencyContactRelationship' => $emergencyContact['relationship'],
         );
 
         return $this->getJsonResponse(Response::HTTP_OK, array(
