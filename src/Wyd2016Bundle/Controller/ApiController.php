@@ -51,6 +51,7 @@ class ApiController extends Controller
 
         /** @var WydExtension $filters */
         $filters = $this->get('wyd2016bundle.twig_extension.wyd');
+        $defaultPrefix = $this->getParameter('wyd2016.default_prefix');
         $emergencyContact = $this->getParameter('wyd2016.emergency_contact');
 
         $volunteerData = array(
@@ -65,7 +66,7 @@ class ApiController extends Controller
             'associationName' => $volunteer->getAssociationName() ? $volunteer->getAssociationName() :
                 self::ASSOCIATION_NAME_DEFAULT,
             'address' => $volunteer->getAddress(),
-            'phone' => $volunteer->getPhone(),
+            'phone' => (strpos($volunteer->getPhone(), '+') !== 0 ? $defaultPrefix : '') . $volunteer->getPhone(),
             'email' => $volunteer->getEmail(),
             'emailAlias' => str_replace('{id}', $volunteer->getId(), $this->getEmailAlias('volunteer')),
             'wydFormPassword' => $volunteer->getWydFormPassword(),
