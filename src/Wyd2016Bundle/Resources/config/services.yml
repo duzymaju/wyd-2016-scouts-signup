@@ -7,6 +7,11 @@ services:
             -                           [setVolunteerRepository, [@wyd2016bundle.volunteer.repository]]
         class:                          Wyd2016Bundle\Form\RegistrationLists
 
+    wyd2016bundle.manager.supplement:
+        calls:
+            -                           [setRegistrationLists, [@wyd2016bundle.registration.lists]]
+        class:                          Wyd2016Bundle\Manager\SupplementManager
+
     wyd2016bundle.validator.unique_entities:
         calls:
             -                           [addRepository, [@wyd2016bundle.pilgrim.repository, Pilgrim]]

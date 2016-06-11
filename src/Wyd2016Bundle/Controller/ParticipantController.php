@@ -37,12 +37,9 @@ class ParticipantController extends Controller
             'activationHash' => $hash,
         ));
 
-        $askForDistrict = $this->ifAskForDistrict($volunteer);
-        $askForFatherName = $this->ifAskForFatherName($volunteer);
-        $askForService = $this->ifAskForService($volunteer);
-        $askForShirtSize = $this->ifAskForShirtSize($volunteer);
-
-        if (!$askForDistrict && !$askForFatherName && !$askForService && !$askForShirtSize) {
+        $supplement = $this->get('wyd2016bundle.manager.supplement')
+            ->getVolunteerSupplement($volunteer);
+        if (!$supplement->ifAskForAnything()) {
             return $this->render('Wyd2016Bundle::participant/volunteer/complete.html.twig', array(
                 'volunteer' => $volunteer,
             ));
@@ -52,12 +49,7 @@ class ParticipantController extends Controller
         $translator = $this->get('translator');
         /** @var RegistrationLists $registrationLists */
         $registrationLists = $this->get('wyd2016bundle.registration.lists');
-        $formType = new VolunteerSupplementType($translator, $registrationLists, $volunteer, array(
-            'district' => $askForDistrict,
-            'fatherName' => $askForFatherName,
-            'service' => $askForService,
-            'shirtSize' => $askForShirtSize,
-        ));
+        $formType = new VolunteerSupplementType($translator, $registrationLists, $volunteer, $supplement);
 
         $form = $this->createForm($formType, $volunteer, array(
             'action' => $this->generateUrl('participant_volunteer_supplement', array(
@@ -79,17 +71,17 @@ class ParticipantController extends Controller
                     $now = new DateTime();
                     $volunteer->setUpdatedAt($now);
                     $volunteerRepository->update($volunteer, true);
-                    if ($askForDistrict || $askForService) {
+                    if ($supplement->ifAskForDistrict() || $supplement->ifAskForService()) {
                         $troop = $volunteer->getTroop();
                         /** @var Volunteer $member */
                         foreach ($troop->getMembers() as $member) {
                             if ($member == $volunteer) {
                                 continue;
                             }
-                            if ($askForDistrict) {
+                            if ($supplement->ifAskForDistrict()) {
                                 $member->setDistrictId($form->get('districtId')->getData());
                             }
-                            if ($askForService) {
+                            if ($supplement->ifAskForService()) {
                                 $member->setServiceMainId($form->get('serviceMainId')->getData())
                                     ->setServiceExtraId($form->get('serviceExtraId')->getData());
                             }
@@ -115,108 +107,6 @@ class ParticipantController extends Controller
         }
 
         return $response;
-    }
-
-    /**
-     * If ask for district
-     *
-     * @param Volunteer $volunteer volunteer
-     *
-     * @return boolean
-     */
-    protected function ifAskForDistrict(Volunteer $volunteer)
-    {
-        $districtId = $volunteer->getDistrictId();
-        if (empty($districtId)) {
-            return false;
-        }
-
-        if ($volunteer->getUpdatedAt() >= new DateTime('2016-06-03 02:00:00')) {
-            return false;
-        }
-
-        /** @var RegistrationLists $registrationLists */
-        $registrationLists = $this->get('wyd2016bundle.registration.lists');
-        $districts = $registrationLists->getDistricts($volunteer->getRegionId());
-        $districtIds = array_keys($districts);
-        if (array_shift($districtIds) != $districtId) {
-            return false;
-        }
-
-        if (!$this->isTroopLeader($volunteer)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * If ask for father name
-     *
-     * @param Volunteer $volunteer volunteer
-     *
-     * @return boolean
-     */
-    protected function ifAskForFatherName(Volunteer $volunteer)
-    {
-        $fatherName = $volunteer->getFatherName();
-        if (!empty($fatherName)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * If ask for service
-     *
-     * @param Volunteer $volunteer volunteer
-     *
-     * @return boolean
-     */
-    protected function ifAskForService(Volunteer $volunteer)
-    {
-        if ($volunteer->getServiceMainId() != RegistrationLists::SERVICE_UNDERAGE) {
-            return false;
-        }
-
-        if (!$this->isTroopLeader($volunteer)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * If ask for shirt size
-     *
-     * @param Volunteer $volunteer volunteer
-     *
-     * @return boolean
-     */
-    protected function ifAskForShirtSize(Volunteer $volunteer)
-    {
-        $shirtSize = $volunteer->getShirtSize();
-        if (!empty($shirtSize)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * Is troop leader
-     *
-     * @param Volunteer $volunteer volunteer
-     *
-     * @return boolean
-     */
-    protected function isTroopLeader(Volunteer $volunteer)
-    {
-        $troop = $volunteer->getTroop();
-        $isTroopLeader = isset($troop) && $troop->getLeader() == $volunteer;
-
-        return $isTroopLeader;
     }
 
     /**
