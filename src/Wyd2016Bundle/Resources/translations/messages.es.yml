@@ -226,6 +226,7 @@ volunteer.supplement.district:          "Select again district from a list of di
 volunteer.supplement.father_name:       "Father's name is required by security service:"
 volunteer.supplement.incomplete:        Not all necessary data have been added. Please, add information specified beneath.
 volunteer.supplement.service:           "Because of changes in a list of available services, please select preferred and alternative service:"
+volunteer.supplement.shirt_size:        "Please select shirt size:"
 volunteer.supplement.title:             Data supplement of volunteer %name%
 
 wyd_www.title:                          La Asociación de los Scouts de Polonia (ZHP) para JMJ Cracovia 2016

@@ -64,6 +64,12 @@ class VolunteerSupplementType extends AbstractType
                 'label' => $this->translator->trans('form.service_extra'),
             )));
         }
+        if (array_key_exists('shirtSize', $this->conditions) && $this->conditions['shirtSize']) {
+            $builder->add('shirtSize', 'choice', $this->mergeOptions('shirtSize', array(
+                'choices' => $this->registrationLists->getShirtSizes(),
+                'label' => $this->translator->trans('form.shirt_size'),
+            )));
+        }
         $builder->add('save', 'submit', array(
             'label' => $this->translator->trans('form.save'),
         ));

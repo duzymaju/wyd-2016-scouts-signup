@@ -241,6 +241,7 @@ volunteer.supplement.district:          "W związku z problemami przy wyborze w�
 volunteer.supplement.father_name:       "Podanie imienia ojca wolontariusza jest wymagane przez służby bezpieczeństwa:"
 volunteer.supplement.incomplete:        Nie wszystkie niezbędne dane zostały uzupełnione. Prosimy o dodanie danych wyszczególnionych poniżej.
 volunteer.supplement.service:           "Ponieważ zmieniły się dostępne pola służby, prosimy o wybór służby preferowanej i alternatywnej:"
+volunteer.supplement.shirt_size:        "Prosimy o wybranie rozmiaru koszulki:"
 volunteer.supplement.title:             Uzupełnienie danych wolontariusza %name%
 
 wyd_www.title:                          ZHP ŚDM Kraków 2016

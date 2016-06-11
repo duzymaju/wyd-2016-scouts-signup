@@ -18,6 +18,12 @@
             </div>
             {{ macro.formRow(form.fatherName) }}
         {% endif %}
+        {% if form.shirtSize is defined %}
+            <div class="form-group" style="margin-bottom:5px">
+                {{ 'volunteer.supplement.shirt_size'|trans }}
+            </div>
+            {{ macro.formRow(form.shirtSize) }}
+        {% endif %}
         {% if form.districtId is defined %}
             <div class="form-group" style="margin-bottom:5px">
                 {{ 'volunteer.supplement.district'|trans({'%region%': volunteer.regionId|regionname}) }}

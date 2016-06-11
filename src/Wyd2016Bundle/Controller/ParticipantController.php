@@ -40,8 +40,9 @@ class ParticipantController extends Controller
         $askForDistrict = $this->ifAskForDistrict($volunteer);
         $askForFatherName = $this->ifAskForFatherName($volunteer);
         $askForService = $this->ifAskForService($volunteer);
+        $askForShirtSize = $this->ifAskForShirtSize($volunteer);
 
-        if (!$askForDistrict && !$askForFatherName && !$askForService) {
+        if (!$askForDistrict && !$askForFatherName && !$askForService && !$askForShirtSize) {
             return $this->render('Wyd2016Bundle::participant/volunteer/complete.html.twig', array(
                 'volunteer' => $volunteer,
             ));
@@ -55,6 +56,7 @@ class ParticipantController extends Controller
             'district' => $askForDistrict,
             'fatherName' => $askForFatherName,
             'service' => $askForService,
+            'shirtSize' => $askForShirtSize,
         ));
 
         $form = $this->createForm($formType, $volunteer, array(
@@ -179,6 +181,23 @@ class ParticipantController extends Controller
         }
 
         if (!$this->isTroopLeader($volunteer)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * If ask for shirt size
+     *
+     * @param Volunteer $volunteer volunteer
+     *
+     * @return boolean
+     */
+    protected function ifAskForShirtSize(Volunteer $volunteer)
+    {
+        $shirtSize = $volunteer->getShirtSize();
+        if (!empty($shirtSize)) {
             return false;
         }
 
