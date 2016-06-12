@@ -43,7 +43,7 @@ parameters:
         relationship:                   komendant
     wyd2016.number.short_term_limit:    1050
     wyd2016.number.total_limit:         1050
-    wyd2016.time.limit:                 "2016-06-13 00:00:00"
+    wyd2016.time.limit:                 "2016-06-14 00:00:00"
     wyd2016.main_page:
         rules_pilgrim:
             en:                         /terms-and-conditions-for-pilgrims
