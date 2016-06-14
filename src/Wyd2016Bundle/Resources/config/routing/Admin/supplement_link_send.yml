@@ -1,0 +1,7 @@
+admin_supplement_link_send:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin:supplementLinkSend
+    methods:                            [GET]
+    path:                               /admin/supplement-link-send/{set}
+    requirements:
+        set:                            "^[a-z]+$"

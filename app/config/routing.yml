@@ -38,6 +38,9 @@ _admin_format_data:
 _admin_notify_regions:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/notify_regions.yml"
 
+_admin_supplement_link_send:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/supplement_link_send.yml"
+
 _admin_index:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/index.yml"
 

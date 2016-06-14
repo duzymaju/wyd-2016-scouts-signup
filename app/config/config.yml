@@ -62,6 +62,10 @@ parameters:
     wyd2016.size.min_group:             2
     wyd2016.size.min_troop:             2
     wyd2016.wyd_page:
+        login:
+            en:                         https://register.wyd.va/vol/login?lang=en
+            es:                         https://register.wyd.va/vol/login?lang=es
+            pl:                         https://register.wyd.va/vol/login?lang=pl
         url:
             en:                         http://www.krakow2016.com/en
             es:                         http://www.krakow2016.com/es

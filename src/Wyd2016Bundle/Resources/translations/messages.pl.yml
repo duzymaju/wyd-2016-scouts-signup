@@ -223,6 +223,20 @@ success.registration.message:           Twoje dane zostały pomyślnie zapisane.
 success.supplement.message:             Twoje dane zostały pomyślnie zapisane - dziękujemy za uzupełnienie niezbędnych informacji.
 success.title:                          Dziękujemy za rejestrację
 
+supplement.footer:                      |
+    <p>Czuwaj!<br>
+    Komenda Zlotu ZHP na Światowe Dni Młodzieży Kraków 2016</p>
+supplement.title:                       ZHP ŚDM Kraków 2016 - prośba o uzupełnienie danych
+supplement.troop.header:                |
+    <p>W związku z pilną potrzebą uzupełnienia danych wolontariuszy, bardzo prosimy o uważne i możliwie najszybsze zapoznanie się z poniższymi informacjami i dodanie brakujących danych we wszystkich formularzach. Z góry dziękujemy za sprawne przeprowadzenie tego procesu. W razie jakichkolwiek pytań prosimy o kontakt telefoniczny lub mailowy (<a href="mailto:sdm@zhp.pl">sdm@zhp.pl</a>).</p>
+supplement.troop.supplement.description: "Poniżej znajduje się lista osób z Twojego patrolu, których dane należy uzupełnić - prosimy o kliknięcie w każdy z linków i uzupełnienie danych:"
+supplement.troop.wyd_form.description:  "Ponieważ organizatorzy Światowych Dni Młodzieży wymagają wprowadzenia danych wszystkich pełnoletnich wolontariuszy do ich własnego systemu rejestracji, wpisaliśmy już posiadane przez nas dane pełnoletnich osób z Twojego patrolu. Prosimy o skorzystanie z poniższych adresów e-mail (adresy te są aliasami dla adresów członków patrolu podanych przy rejestracji) i haseł (ciągi znaków obok adresów, oddzielone slashem) do zalogowania do formularza na stronie ŚDM (link przesyłamy poniżej) i uzupełnienia wymaganych danych członków patrolu - przede wszystkim dodanie zdjęć oraz skanów i danych z dowodów tożsamości:"
+supplement.volunteer.header:            |
+    <p>W związku z pilną potrzebą uzupełnienia danych wolontariuszy, bardzo prosimy o uważne i możliwie najszybsze zapoznanie się z poniższymi informacjami i dodanie brakujących danych. Z góry dziękujemy za sprawne przeprowadzenie tego procesu. W razie jakichkolwiek pytań prosimy o kontakt telefoniczny lub mailowy (<a href="mailto:sdm@zhp.pl">sdm@zhp.pl</a>).</p>
+supplement.volunteer.supplement.description: "Poniżej znajduje się link do dodatkowego formularza na dane, o których uzupełnienie prosimy:"
+supplement.volunteer.wyd_form.description: "Ponieważ organizatorzy Światowych Dni Młodzieży wymagają wprowadzenia danych wszystkich pełnoletnich wolontariuszy do ich własnego systemu rejestracji, wpisaliśmy już posiadane przez nas dane. Prosimy o skorzystanie z poniższego adresu e-mail (adres ten jest aliasem dla Twojego adresu podanego przy rejestracji) i hasła (ciąg znaków obok adresu, oddzielony slashem) do zalogowania do formularza na stronie ŚDM (link przesyłamy poniżej) i uzupełnienia wymaganych danych - przede wszystkim dodanie zdjęcia oraz skanu i danych z dowodu tożsamości:"
+supplement.wyd_form.link:               "link do formularza:"
+
 troop.closed.message:                   Rejestracja patroli wolontariuszy została zakończona.
 troop.closed.title:                     Rejestracja zakończona
 troop.form.add_member:                  Dodaj kolejnego członka patrolu

@@ -208,6 +208,19 @@ success.registration.message:           Tus datos son ya guardados, para termina
 success.supplement.message:             Your data was save successfully - thank you for adding necessary information.
 success.title:                          Gracias por su inscripción
 
+supplement.footer:                      |
+    <p>Yours in Scouting!</p>
+supplement.title:                       ZHP WYD 2016 - an ask for data completion
+supplement.troop.header:                |
+    <p></p>
+supplement.troop.supplement.description: " "
+supplement.troop.wyd_form.description:  " "
+supplement.volunteer.header:            |
+    <p></p>
+supplement.volunteer.supplement.description: " "
+supplement.volunteer.wyd_form.description: " "
+supplement.wyd_form.link:               "link to a form:"
+
 troop.closed.message:                   Registration of volunteer troops is finished.
 troop.closed.title:                     Registration finished
 troop.form.add_member:                  Para añadir el miembro del grupo de los voluntarios siguiente

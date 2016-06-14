@@ -10,6 +10,7 @@ use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Wyd2016Bundle\Command\SupplementLinkSendCommand;
 
 /**
  * Controller
@@ -123,6 +124,32 @@ class AdminController extends Controller
     }
 
     /**
+     * Supplement link send action
+     *
+     * @param Request $request request
+     * @param string  $set     set
+     *
+     * @return Response
+     */
+    public function supplementLinkSendAction(Request $request, $set)
+    {
+        $arguments = array(
+            'type' => SupplementLinkSendCommand::TYPE_VOLUNTEER,
+            'set' => $set,
+        );
+        $options = array(
+            'test' => $request->query->getBoolean('test', false),
+        );
+
+        $receiver = $request->query->get('receiver');
+        if (!empty($receiver)) {
+            $options['receiver'] = $receiver;
+        }
+
+        return $this->executeCommand('supplement:link:send', $arguments, $options);
+    }
+
+    /**
      * Execute command
      * 
      * @param string $name      name
@@ -133,16 +160,22 @@ class AdminController extends Controller
      */
     protected function executeCommand($name, array $arguments = array(), array $options = array())
     {
-        $command = array();
+        $command = array(
+            'command' => $name,
+        );
+        foreach ($arguments as $argumentName => $argumentValue) {
+            $argumentName = ltrim($argumentName, '-');
+            if (!array_key_exists($argumentName, $command)) {
+                $command[$argumentName] = $argumentValue;
+            }
+        }
         foreach ($options as $optionName => $optionValue) {
             $optionName = ltrim($optionName, '-');
-            $id = strlen($optionName) == 1 ? '-' . $optionName : '--' . $optionName;
-            $command[$id] = $optionValue;
+            if (!array_key_exists($optionName, $command)) {
+                $id = strlen($optionName) == 1 ? '-' . $optionName : '--' . $optionName;
+                $command[$id] = $optionValue;
+            }
         }
-        foreach ($arguments as $argumentName => $argumentValue) {
-            $command[ltrim($argumentName, '-')] = $argumentValue;
-        }
-        $command['command'] = $name;
 
         $kernel = $this->get('kernel');
         $application = new Application($kernel);

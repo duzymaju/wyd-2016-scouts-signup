@@ -1,0 +1,15 @@
+{{ 'supplement.volunteer.header'|trans|raw }}
+{% if supportSupplement %}
+    <p>{{ 'supplement.volunteer.supplement.description'|trans }}</p>
+    {% set link = url('participant_volunteer_supplement', {_locale: locale, hash: volunteer.activationHash}) %}
+    <p><a href="{{ link }}" target="_blank">{{ link }}</a></p>
+{% endif %}
+{% if supportWydForm %}
+    <p>{{ 'supplement.volunteer.wyd_form.description'|trans }}</p>
+    <p>{{ emailAlias|replace({'{id}': volunteer.id}) }} / {{ volunteer.wydFormPassword }}</p>
+    <p>
+        {{ 'supplement.wyd_form.link'|trans }}:
+        <a href="{{ loginPage[locale] }}" target="_blank">{{ loginPage[locale] }}</a>
+    </p>
+{% endif %}
+{{ 'supplement.footer'|trans|raw }}

@@ -1,0 +1,27 @@
+{{ 'supplement.troop.header'|trans|raw }}
+{% if supplementVolunteers|length > 0 %}
+    <p>{{ 'supplement.troop.supplement.description'|trans }}</p>
+    <ul>
+        {% for volunteer in supplementVolunteers %}
+            {% set link = url('participant_volunteer_supplement', {_locale: locale, hash: volunteer.activationHash}) %}
+            <li>
+                {{ volunteer.name }}: <a href="{{ link }}" target="_blank">{{ link }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% if wydFormVolunteers|length > 0 %}
+    <p>{{ 'supplement.troop.wyd_form.description'|trans }}</p>
+    <ul>
+        {% for volunteer in wydFormVolunteers %}
+            <li>
+                {{ volunteer.name }}: {{ emailAlias|replace({'{id}': volunteer.id}) }} / {{ volunteer.wydFormPassword }}
+            </li>
+        {% endfor %}
+    </ul>
+    <p>
+        {{ 'supplement.wyd_form.link'|trans }}:
+        <a href="{{ loginPage[locale] }}" target="_blank">{{ loginPage[locale] }}</a>
+    </p>
+{% endif %}
+{{ 'supplement.footer'|trans|raw }}
