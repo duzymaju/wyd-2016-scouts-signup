@@ -133,11 +133,21 @@ class AdminController extends Controller
      */
     public function supplementLinkSendAction(Request $request, $set)
     {
+        $name = 'supplement:link:send';
+        $page = $request->query->getInt('page');
+        if ($page < 1) {
+            return $this->render('Wyd2016Bundle::admin/command_loop.html.twig', array(
+                'name' => $name,
+            ));
+        }
+
         $arguments = array(
             'type' => SupplementLinkSendCommand::TYPE_VOLUNTEER,
             'set' => $set,
         );
         $options = array(
+            'pack' => $set == SupplementLinkSendCommand::SET_TROOPS ? 10 : 20,
+            'page' => $page,
             'test' => $request->query->getBoolean('test', false),
         );
 
@@ -146,19 +156,20 @@ class AdminController extends Controller
             $options['receiver'] = $receiver;
         }
 
-        return $this->executeCommand('supplement:link:send', $arguments, $options);
+        return $this->executeCommand($name, $arguments, $options);
     }
 
     /**
      * Execute command
      * 
-     * @param string $name      name
-     * @param array  $arguments arguments
-     * @param array  $options   options
+     * @param string  $name      name
+     * @param array   $arguments arguments
+     * @param array   $options   options
+     * @param boolean $wholeView whole view
      * 
      * @return Response
      */
-    protected function executeCommand($name, array $arguments = array(), array $options = array())
+    protected function executeCommand($name, array $arguments = array(), array $options = array(), $wholeView = true)
     {
         $command = array(
             'command' => $name,
@@ -188,10 +199,14 @@ class AdminController extends Controller
         $converter = new AnsiToHtmlConverter();
         $content = $output->fetch();
 
-        return $this->render('Wyd2016Bundle::admin/command.html.twig', array(
-            'content' => $converter->convert($content),
-            'name' => $name,
-        ));
+        if ($wholeView) {
+            return $this->render('Wyd2016Bundle::admin/command.html.twig', array(
+                'content' => $converter->convert($content),
+                'name' => $name,
+            ));
+        } else {
+            return new Response($converter->convert($content));
+        }
     }
 
     /**

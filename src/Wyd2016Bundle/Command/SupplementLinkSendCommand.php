@@ -37,6 +37,12 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
     /** @var string|null */
     protected $receiver;
 
+    /** @var integer */
+    protected $limit;
+
+    /** @var integer */
+    protected $offset;
+
     /**
      * Configure
      */
@@ -47,7 +53,9 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
             ->addArgument('type', InputArgument::REQUIRED, 'Type of supplement.')
             ->addArgument('set', InputArgument::REQUIRED, 'Set of elements to work with.')
             ->addOption('test', 't', InputOption::VALUE_REQUIRED, 'Testing (without sending e-mails).', false)
-            ->addOption('receiver', 'r', InputOption::VALUE_REQUIRED, 'Test receiver.');
+            ->addOption('receiver', 'r', InputOption::VALUE_REQUIRED, 'Test receiver.')
+            ->addOption('page', 'p', InputOption::VALUE_REQUIRED, 'Page number.', 1)
+            ->addOption('pack', 'k', InputOption::VALUE_REQUIRED, 'Pack size.', 20);
     }
 
     /**
@@ -64,6 +72,8 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
 
         $this->isTest = $input->getOption('test');
         $this->receiver = $input->getOption('receiver');
+        $this->limit = +$input->getOption('pack');
+        $this->offset = $this->limit * ($input->getOption('page') - 1);
 
         $container = $this->getContainer();
         $emailAliases = $container->getParameter('wyd2016.email_alias');
@@ -101,7 +111,7 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
                 'troop' => null,
             ), array(
                 'id' => 'ASC',
-            ));
+            ), $this->limit, $this->offset);
 
         $count = 0;
         /** @var Volunteer $volunteer */
@@ -151,9 +161,9 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
     {
         $container = $this->getContainer();
         $troops = $container->get('wyd2016bundle.troop.repository')
-            ->getAllOrderedBy(array(
+            ->findBy(array(), array(
                 'id' => 'ASC',
-            ));
+            ), $this->limit, $this->offset);
 
         $count = 0;
         /** @var Troop $troop */

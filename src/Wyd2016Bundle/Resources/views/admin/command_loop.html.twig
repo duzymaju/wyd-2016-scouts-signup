@@ -1,0 +1,37 @@
+{% extends 'Wyd2016Bundle:admin:command.html.twig' %}
+
+{% block body %}
+    <style>
+        #stop {
+            background: transparent;
+            border: 1px solid #fff;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+            margin: 0 10px 10px;
+        }
+    </style>
+    <button id="stop">Stop</button>
+    <div id="content"></div>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var content = $('#content'),
+                progress = true;
+            $('#stop').on('click', function () {
+                progress = false;
+                $(this).hide();
+            });
+            function loadAnotherPage(no) {
+                $.ajax(window.location.href + (window.location.href.indexOf('?') === -1 ? '?' : '&') + 'page=' + no)
+                    .done(function (data) {
+                        content.append(data);
+                        if (progress) {
+                            loadAnotherPage(no + 1);
+                        }
+                    });
+            }
+            loadAnotherPage(1);
+        });
+    </script>
+{% endblock %}

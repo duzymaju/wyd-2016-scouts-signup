@@ -12,28 +12,6 @@ class TroopRepository extends EntityRepository implements BaseRepositoryInterfac
     use BaseRepositoryTrait;
 
     /**
-     * Get all ordered by
-     *
-     * @param array|null $orderBy order by
-     *
-     * @return array
-     */
-    public function getAllOrderedBy(array $orderBy = null)
-    {
-        /** @var QueryBuilder $qb */
-        $qb = $this->createQueryBuilder('t')
-            ->select('t, v')
-            ->leftJoin('t.members', 'v');
-        foreach ($orderBy as $column => $direction) {
-            $qb->addOrderBy('t.' . $column, $direction);
-        }
-        $results = $qb->getQuery()
-            ->getResult();
-
-        return $results;
-    }
-
-    /**
      * Get total number
      *
      * @return integer
