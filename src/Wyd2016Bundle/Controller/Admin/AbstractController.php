@@ -57,6 +57,7 @@ abstract class AbstractController extends Controller
                     ->setSubject($translator->trans('email.title', array(), null, $locale))
                     ->setFrom($this->getParameter('mailer_user'))
                     ->setTo($email)
+                    ->setReplyTo($this->getParameter('wyd2016.email.reply_to'))
                     ->setBody($this->renderView($emailView, array(
                         'confirmationUrl' => $this->generateUrl($confirmRoute, array(
                                 '_locale' => $locale,

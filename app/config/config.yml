@@ -32,6 +32,7 @@ parameters:
     wyd2016.age.min_group_member:       14
     wyd2016.age.min_troop_member:       15
     wyd2016.default_prefix:             "+48"
+    wyd2016.email.reply_to:             sdm@zhp.net.pl
     wyd2016.email_alias:
         volunteer:                      wolontariusz{id}@sdm.krakowska.zhp.pl
     wyd2016.emergency_contact:
@@ -41,9 +42,6 @@ parameters:
         last_name:                      Siudek
         phone:                          "+48606601633"
         relationship:                   komendant
-    wyd2016.number.short_term_limit:    1050
-    wyd2016.number.total_limit:         1050
-    wyd2016.time.limit:                 "2016-06-19 00:00:00"
     wyd2016.main_page:
         rules_pilgrim:
             en:                         /terms-and-conditions-for-pilgrims
@@ -57,10 +55,13 @@ parameters:
             en:                         http://en.sdm.zhp.pl
             es:                         http://es.sdm.zhp.pl
             pl:                         http://sdm.zhp.pl
+    wyd2016.number.short_term_limit:    1050
+    wyd2016.number.total_limit:         1050
     wyd2016.size.max_group:             15
     wyd2016.size.max_troop:             6
     wyd2016.size.min_group:             2
     wyd2016.size.min_troop:             2
+    wyd2016.time.limit:                 "2016-06-19 00:00:00"
     wyd2016.wyd_page:
         login:
             en:                         https://register.wyd.va/vol/login?lang=en

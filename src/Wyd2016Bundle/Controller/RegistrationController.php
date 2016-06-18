@@ -591,6 +591,7 @@ class RegistrationController extends Controller
             ->setSubject($translator->trans('email.title'))
             ->setFrom($this->getParameter('mailer_user'))
             ->setTo($email)
+            ->setReplyTo($this->getParameter('wyd2016.email.reply_to'))
             ->setBody($this->renderView($emailView, array(
                 'confirmationUrl' => $this->generateUrl($confirmRoute, array(
                         'hash' => $hash,

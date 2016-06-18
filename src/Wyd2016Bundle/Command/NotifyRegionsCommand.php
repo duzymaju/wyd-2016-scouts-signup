@@ -193,6 +193,7 @@ class NotifyRegionsCommand extends ContainerAwareCommand
             ->setSubject($title)
             ->setFrom($container->getParameter('mailer_user'))
             ->setTo($emails)
+            ->setReplyTo($container->getParameter('wyd2016.email.reply_to'))
             ->setBody($body, 'text/html');
         $mailer = $container->get('mailer');
 
