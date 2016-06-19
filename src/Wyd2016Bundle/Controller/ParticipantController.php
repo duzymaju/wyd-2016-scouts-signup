@@ -71,8 +71,15 @@ class ParticipantController extends Controller
                     $now = new DateTime();
                     $volunteer->setUpdatedAt($now);
                     $volunteerRepository->update($volunteer, true);
-                    if ($supplement->ifAskForDistrict() || $supplement->ifAskForService()) {
+                    if (($supplement->ifAskForDistrict() || $supplement->ifAskForService() ||
+                        $supplement->ifAskForDates()) && $volunteer->isTroopLeader())
+                    {
                         $troop = $volunteer->getTroop();
+                        if ($supplement->ifAskForDates()) {
+                            $troop->setDatesId($form->get('datesId')->getData());
+                            $this->get('wyd2016bundle.troop.repository')
+                                ->update($troop, true);
+                        }
                         /** @var Volunteer $member */
                         foreach ($troop->getMembers() as $member) {
                             if ($member == $volunteer) {
@@ -84,6 +91,9 @@ class ParticipantController extends Controller
                             if ($supplement->ifAskForService()) {
                                 $member->setServiceMainId($form->get('serviceMainId')->getData())
                                     ->setServiceExtraId($form->get('serviceExtraId')->getData());
+                            }
+                            if ($supplement->ifAskForDates()) {
+                                $member->setDatesId($form->get('datesId')->getData());
                             }
                             $member->setUpdatedAt($now);
                             $volunteerRepository->update($member);

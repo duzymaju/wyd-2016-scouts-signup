@@ -42,7 +42,8 @@ class SupplementManager
         $volunteerSupplement->setAskForDistrict($this->ifAskForDistrict($volunteer))
             ->setAskForFatherName($this->ifAskForFatherName($volunteer))
             ->setAskForService($this->ifAskForService($volunteer))
-            ->setAskForShirtSize($this->ifAskForShirtSize($volunteer));
+            ->setAskForShirtSize($this->ifAskForShirtSize($volunteer))
+            ->setAskForDates($this->ifAskForDates($volunteer));
 
         return $volunteerSupplement;
     }
@@ -71,7 +72,7 @@ class SupplementManager
             return false;
         }
 
-        if (!$this->isTroopLeader($volunteer)) {
+        if ($volunteer->isTroopMember() && !$volunteer->isTroopLeader()) {
             return false;
         }
 
@@ -108,7 +109,7 @@ class SupplementManager
             return false;
         }
 
-        if (!$this->isTroopLeader($volunteer)) {
+        if ($volunteer->isTroopMember() && !$volunteer->isTroopLeader()) {
             return false;
         }
 
@@ -133,17 +134,23 @@ class SupplementManager
     }
 
     /**
-     * Is troop leader
+     * If ask for dates
      *
      * @param Volunteer $volunteer volunteer
      *
      * @return boolean
      */
-    protected function isTroopLeader(Volunteer $volunteer)
+    protected function ifAskForDates(Volunteer $volunteer)
     {
-        $troop = $volunteer->getTroop();
-        $isTroopLeader = isset($troop) && $troop->getLeader() == $volunteer;
+        $dates = array_keys($this->registrationLists->getVolunteerDates());
+        if (in_array($volunteer->getDatesId(), $dates)) {
+            return false;
+        }
 
-        return $isTroopLeader;
+        if ($volunteer->isTroopMember() && !$volunteer->isTroopLeader()) {
+            return false;
+        }
+
+        return true;
     }
 }

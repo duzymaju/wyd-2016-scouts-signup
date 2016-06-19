@@ -72,14 +72,14 @@ form.birth_date:                        Birth date
 form.comments:                          Comments
 form.country:                           Country
 form.dates:                             Dates
-form.dates.pilgrim.1:                   "Jul 25 - Aug 1 (price: 150 EUR per person)"
-form.dates.volunteer.1:                 "Jul 18 - Aug 1 (price: 100 EUR per person)"
-form.dates.volunteer.2:                 "Jul 23 - Aug 1 (price: 75 EUR per person)"
-form.dates.volunteer.3:                 "Jul 23 - Aug 6 (price: 100 EUR per person)"
-form.dates.volunteer.4:                 "Jul 18 - Aug 6 (price: 125 EUR per person)"
-form.dates.volunteer.5:                 "Jul 23 - Aug 1 (price: 50 PLN per person without meals and accommodation)"
-form.dates.volunteer.6:                 "Jul 25 - Aug 1 (price: 15 EUR per person)"
-form.dates.volunteer.7:                 "Jul 29 - Jul 31 (price: 15 EUR per person)"
+form.dates.pilgrim.1:                   "Jul 25 - Aug 1; price: 150 EUR per person"
+form.dates.volunteer.1:                 "Jul 18 - Aug 1; price: 100 EUR per person"
+form.dates.volunteer.2:                 "Jul 23 - Aug 1; price: 75 EUR per person"
+form.dates.volunteer.3:                 "Jul 23 - Aug 6; price: 100 EUR per person"
+form.dates.volunteer.4:                 "Jul 18 - Aug 6; price: 125 EUR per person"
+form.dates.volunteer.5:                 "Jul 23 - Aug 1; price: 50 PLN per person without meals and accommodation"
+form.dates.volunteer.6:                 "Jul 25 - Aug 1; price: 15 EUR per person"
+form.dates.volunteer.7:                 "Jul 29 - Jul 31; price: 15 EUR per person"
 form.district:                          District
 form.email:                             E-mail address
 form.error.age_too_high:                Maximum age is %age%.
@@ -235,6 +235,7 @@ volunteer.form.description:             Volunteer must be over %age% years befor
 volunteer.form.title:                   Form for adult volunteers
 volunteer.supplement.complete:          All necessary data have been added.
 volunteer.supplement.confirmation:      Your registration wasn't confirmed by clicking confirmation link which you received on your e-mail address given during registration process. To confirm your registration click this link or contact us.
+volunteer.supplement.dates:             "Dates and price you've selected (%dates%) are obsolete. Please select new ones:"
 volunteer.supplement.district:          "Select again district from a list of districts in your region (%region%):"
 volunteer.supplement.father_name:       "Father's name is required by security service:"
 volunteer.supplement.incomplete:        Not all necessary data have been added. Please, add information specified beneath.

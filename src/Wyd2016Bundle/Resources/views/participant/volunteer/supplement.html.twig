@@ -2,14 +2,14 @@
 {% import 'Wyd2016Bundle:registration:_macro.html.twig' as macro %}
 {% import 'Wyd2016Bundle::_macro.html.twig' as globalMacro %}
 
-{% set pageTitle = 'volunteer.supplement.title'|trans %}
+{% set pageTitle = 'volunteer.supplement.title'|trans({'%name%': volunteer.name}) %}
 
 {% block content %}
     {{ globalMacro.flashBagMessages('error', true) }}
     {% if not volunteer.confirmed %}
         {{ globalMacro.message('volunteer.supplement.confirmation', 'error', true) }}
     {% endif %}
-    <h1>{{ 'volunteer.supplement.title'|trans({'%name%': volunteer.firstName ~ ' ' ~ volunteer.lastName}) }}</h1>
+    <h1>{{ 'volunteer.supplement.title'|trans({'%name%': volunteer.name}) }}</h1>
     <p>{{ 'volunteer.supplement.incomplete'|trans }}</p>
     {{ form_start(form, {'attr': {'class': 'registration-form registration-form-volunteer'}}) }}
         {% if form.fatherName is defined %}
@@ -36,6 +36,12 @@
             </div>
             {{ macro.formRow(form.serviceMainId, {info: 'form.tip.service_main_id'|trans}) }}
             {{ macro.formRow(form.serviceExtraId, {info: 'form.tip.service_extra_id'|trans}) }}
+        {% endif %}
+        {% if form.datesId is defined %}
+            <div class="form-group" style="margin-bottom:5px">
+                {{ 'volunteer.supplement.dates'|trans({'%dates%': volunteer.datesId|volunteerdate}) }}
+            </div>
+            {{ macro.formRow(form.datesId) }}
         {% endif %}
         <div class="form-group">
             {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}

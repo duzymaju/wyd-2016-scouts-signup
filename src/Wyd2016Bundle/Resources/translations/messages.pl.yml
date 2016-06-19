@@ -82,14 +82,14 @@ form.birth_date:                        Data urodzenia
 form.comments:                          Uwagi
 form.country:                           Państwo
 form.dates:                             Terminy
-form.dates.pilgrim.1:                   "25.07 - 1.08 (cena: 640 PLN od osoby)"
-form.dates.volunteer.1:                 "18.07 - 1.08 (cena: 280 PLN od osoby)"
-form.dates.volunteer.2:                 "23.07 - 1.08 (cena: 180 PLN od osoby)"
-form.dates.volunteer.3:                 "23.07 - 6.08 (cena: 280 PLN od osoby)"
-form.dates.volunteer.4:                 "18.07 - 6.08 (cena: 380 PLN od osoby)"
-form.dates.volunteer.5:                 "23.07 - 1.08 (cena: 50 PLN od osoby bez wyżywienia i zakwaterowania)"
-form.dates.volunteer.6:                 "25.07 - 1.08 (cena: 50 PLN od osoby)"
-form.dates.volunteer.7:                 "29.07 - 31.07 (cena: 50 PLN od osoby)"
+form.dates.pilgrim.1:                   "25.07 - 1.08; cena: 640 PLN od osoby"
+form.dates.volunteer.1:                 "18.07 - 1.08; cena: 280 PLN od osoby"
+form.dates.volunteer.2:                 "23.07 - 1.08; cena: 180 PLN od osoby"
+form.dates.volunteer.3:                 "23.07 - 6.08; cena: 280 PLN od osoby"
+form.dates.volunteer.4:                 "18.07 - 6.08; cena: 380 PLN od osoby"
+form.dates.volunteer.5:                 "23.07 - 1.08; cena: 50 PLN od osoby bez wyżywienia i zakwaterowania"
+form.dates.volunteer.6:                 "25.07 - 1.08; cena: 50 PLN od osoby"
+form.dates.volunteer.7:                 "29.07 - 31.07; cena: 50 PLN od osoby"
 form.district:                          Hufiec
 form.email:                             Adres e-mail
 form.error.age_too_high:                Maksymalny wiek to %age% lat.
@@ -251,6 +251,7 @@ volunteer.form.description:             Minimalny wiek wolontariusza to %age% la
 volunteer.form.title:                   Formularz dla pełnoletnich wolontariuszy
 volunteer.supplement.complete:          Wszystkie niezbędne dane zostały już uzupełnione.
 volunteer.supplement.confirmation:      Zgłoszenie nie zostało jeszcze potwierdzone poprzez kliknięcie w link wysłany na adres pocztowy podany podczas rejestracji. Aby potwierdzić zgłoszenie kliknij w link potwierdzenia lub skontaktuj się z nami.
+volunteer.supplement.dates:             "Wybrany przez Ciebie termin i cena (%dates%) są już nieaktualne. Prosimy o wybór nowych:"
 volunteer.supplement.district:          "W związku z problemami przy wyborze właściwego hufca, jakich doświadczyła niewielka część użytkowników (porównując kilka parametrów stwierdziliśmy, że możesz znajdować się w tej grupie), prosimy o wybór właściwego hufca spośród wszystkich w Twojej chorągwi (%region%):"
 volunteer.supplement.father_name:       "Podanie imienia ojca wolontariusza jest wymagane przez służby bezpieczeństwa:"
 volunteer.supplement.incomplete:        Nie wszystkie niezbędne dane zostały uzupełnione. Prosimy o dodanie danych wyszczególnionych poniżej.

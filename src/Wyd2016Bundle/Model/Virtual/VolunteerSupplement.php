@@ -19,6 +19,9 @@ class VolunteerSupplement
     /** @var boolean */
     protected $askForShirtSize;
 
+    /** @var boolean */
+    protected $askForDates;
+
     /**
      * If ask for district
      *
@@ -116,6 +119,30 @@ class VolunteerSupplement
     }
 
     /**
+     * If ask for dates
+     *
+     * @return boolean
+     */
+    public function ifAskForDates()
+    {
+        return $this->askForDates;
+    }
+
+    /**
+     * Set ask for dates
+     *
+     * @param boolean $askForDates ask for dates
+     *
+     * @return self
+     */
+    public function setAskForDates($askForDates)
+    {
+        $this->askForDates = $askForDates;
+
+        return $this;
+    }
+
+    /**
      * If ask for anything
      *
      * @return boolean
@@ -123,7 +150,7 @@ class VolunteerSupplement
     public function ifAskForAnything()
     {
         $askForAnything = $this->ifAskForDistrict() || $this->ifAskForFatherName() || $this->ifAskForService() ||
-            $this->ifAskForShirtSize();
+            $this->ifAskForShirtSize() || $this->ifAskForDates();
 
         return $askForAnything;
     }

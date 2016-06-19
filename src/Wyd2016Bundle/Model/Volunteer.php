@@ -185,6 +185,32 @@ class Volunteer extends ParticipantAbstract implements PersonInterface
     }
 
     /**
+     * Is troop member
+     *
+     * @return boolean
+     */
+    public function isTroopMember()
+    {
+        $troop = $this->getTroop();
+        $isTroopMember = isset($troop);
+
+        return $isTroopMember;
+    }
+
+    /**
+     * Is troop leader
+     *
+     * @return boolean
+     */
+    public function isTroopLeader()
+    {
+        $troop = $this->getTroop();
+        $isTroopLeader = isset($troop) && $troop->getLeader() == $this;
+
+        return $isTroopLeader;
+    }
+
+    /**
      * Get PESEL
      *
      * @return string|null

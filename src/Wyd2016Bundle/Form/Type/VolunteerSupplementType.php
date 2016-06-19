@@ -71,6 +71,12 @@ class VolunteerSupplementType extends AbstractType
                 'label' => $this->translator->trans('form.shirt_size'),
             )));
         }
+        if ($this->supplement->ifAskForDates()) {
+            $builder->add('datesId', 'choice', $this->mergeOptions('datesId', array(
+                'choices' => $this->registrationLists->getVolunteerDates(),
+                'label' => $this->translator->trans('form.dates'),
+            )));
+        }
         $builder->add('save', 'submit', array(
             'label' => $this->translator->trans('form.save'),
         ));

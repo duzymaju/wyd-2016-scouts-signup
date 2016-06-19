@@ -72,14 +72,14 @@ form.birth_date:                        La fecha del nacimiento
 form.comments:                          Las notas
 form.country:                           El país
 form.dates:                             Las fechas
-form.dates.pilgrim.1:                   "25.07 - 1.08 (el precio: 150 EUR por persona)"
-form.dates.volunteer.1:                 "18.07 - 1.08 (el precio: 100 EUR por persona)"
-form.dates.volunteer.2:                 "23.07 - 1.08 (el precio: 75 EUR por persona)"
-form.dates.volunteer.3:                 "23.07 - 6.08 (el precio: 100 EUR por persona)"
-form.dates.volunteer.4:                 "18.07 - 6.08 (el precio: 125 EUR por persona)"
-form.dates.volunteer.5:                 "23.07 - 1.08 (el precio: 50 PLN por persona sin alojamiento y sin comida)"
-form.dates.volunteer.6:                 "25.07 - 1.08 (el precio: 15 EUR por persona)"
-form.dates.volunteer.7:                 "29.07 - 31.07 (el precio: 15 EUR por persona)"
+form.dates.pilgrim.1:                   "25.07 - 1.08; el precio: 150 EUR por persona"
+form.dates.volunteer.1:                 "18.07 - 1.08; el precio: 100 EUR por persona"
+form.dates.volunteer.2:                 "23.07 - 1.08; el precio: 75 EUR por persona"
+form.dates.volunteer.3:                 "23.07 - 6.08; el precio: 100 EUR por persona"
+form.dates.volunteer.4:                 "18.07 - 6.08; el precio: 125 EUR por persona"
+form.dates.volunteer.5:                 "23.07 - 1.08; el precio: 50 PLN por persona sin alojamiento y sin comida"
+form.dates.volunteer.6:                 "25.07 - 1.08; el precio: 15 EUR por persona"
+form.dates.volunteer.7:                 "29.07 - 31.07; el precio: 15 EUR por persona"
 form.district:                          La Asociación
 form.email:                             El correo electrónico
 form.error.age_too_high:                Edad maxima son %age% años.
@@ -235,6 +235,7 @@ volunteer.form.description:             La edad minima del voluntario son %age% 
 volunteer.form.title:                   La inscripción para los voluntrios mayores de edad
 volunteer.supplement.complete:          All necessary data have been added.
 volunteer.supplement.confirmation:      Your registration wasn't confirmed by clicking confirmation link which you received on your e-mail address given during registration process. To confirm your registration click this link or contact us.
+volunteer.supplement.dates:             "Dates and price you've selected (%dates%) are obsolete. Please select new ones:"
 volunteer.supplement.district:          "Select again district from a list of districts in your region (%region%):"
 volunteer.supplement.father_name:       "Father's name is required by security service:"
 volunteer.supplement.incomplete:        Not all necessary data have been added. Please, add information specified beneath.
