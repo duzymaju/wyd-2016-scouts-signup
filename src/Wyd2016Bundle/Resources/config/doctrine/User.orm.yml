@@ -18,3 +18,10 @@ Wyd2016Bundle\Entity\User:
             options:
                 fixed:                  true
             type:                       string
+
+    oneToMany:
+        actions:
+            cascade:
+                -                       persist
+            mappedBy:                   user
+            targetEntity:               Wyd2016Bundle\Entity\Action

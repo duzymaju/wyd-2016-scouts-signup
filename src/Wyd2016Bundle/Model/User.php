@@ -15,6 +15,18 @@ class User extends BaseUser
     /** @var string */
     protected $apiToken;
 
+    /** @var ArrayCollection */
+    protected $actions;
+
+    /**
+     * Construct
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->initializeCollections();
+    }
+
     /**
      * Get API token
      *
@@ -37,5 +49,71 @@ class User extends BaseUser
         $this->apiToken = $apiToken;
 
         return $this;
+    }
+
+    /**
+     * Get actions
+     *
+     * @return ArrayCollection
+     */
+    public function getActions()
+    {
+        return $this->actions;
+    }
+
+    /**
+     * Add action
+     *
+     * @param Action $action action
+     *
+     * @return self
+     */
+    public function addMember(Action $action)
+    {
+        if (!$this->actions->contains($action)) {
+            $this->actions->add($action);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove action
+     *
+     * @param Volunteer $action action
+     *
+     * @return self
+     */
+    public function removeMember(Action $action)
+    {
+        if ($this->actions->contains($action)) {
+            $this->actions->removeElement($action);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Set actions
+     *
+     * @param ArrayCollection $actions actions
+     *
+     * @return self
+     */
+    public function setActions(ArrayCollection $actions)
+    {
+        $this->actions = $actions;
+
+        return $this;
+    }
+
+    /**
+     * Initialize collections
+     */
+    public function initializeCollections()
+    {
+        if (!($this->actions instanceof Collection)) {
+            $this->actions = new ArrayCollection();
+        }
     }
 }

@@ -2,11 +2,13 @@
 
 namespace Wyd2016Bundle\Controller;
 
+use DateTime;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Wyd2016Bundle\Entity\Action;
 use Wyd2016Bundle\Model\Language;
 use Wyd2016Bundle\Model\User;
 use Wyd2016Bundle\Model\Volunteer;
@@ -83,6 +85,16 @@ class ApiController extends Controller
             'emergencyContactPhone' => $emergencyContact['phone'],
             'emergencyContactRelationship' => $emergencyContact['relationship'],
         );
+
+        $createdAt = new DateTime();
+        $action = new Action();
+        $action->setUser($this->user)
+            ->setType(Action::TYPE_GET_API_VOLUNTEER)
+            ->setObjectId($volunteer->getId())
+            ->setCreatedAt($createdAt)
+            ->setUpdatedAt($createdAt);
+        $this->get('wyd2016bundle.action.repository')
+            ->insert($action, true);
 
         return $this->getJsonResponse(Response::HTTP_OK, array(
             'volunteer' => $volunteerData,
