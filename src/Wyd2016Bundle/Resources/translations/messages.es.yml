@@ -210,15 +210,15 @@ success.title:                          Gracias por su inscripción
 
 supplement.footer:                      |
     <p>Yours in Scouting!</p>
-supplement.title:                       ZHP WYD 2016 - an ask for data completion
+supplement.title:                       ZHP WYD 2016 - an ask for data supplement
 supplement.troop.header:                |
-    <p></p>
-supplement.troop.supplement.description: " "
-supplement.troop.wyd_form.description:  " "
+    <p>Because of urgent need of volunteer data supplement we ask you for very carefully and fast read the following information and add missing data in all forms. Thank you in advance for the efficient conduct of the process. If you have any questions, please call or email (<a href="mailto:sdm@zhp.pl">sdm@zhp.pl</a>).</p>
+supplement.troop.supplement.description: "This is a list of people from your troop, which data should be supplemented - please click on each link and complement data:"
+supplement.troop.wyd_form.description:  "Because organizers of World Youth Day need to add all adult volunteers to their own registration system, we already added owned data of your troop members. Please use the following e-mail addresses (addresses are aliases for troop members' addresses given at registration) and password (strings next to addresses, separated by a slash) to login to form on the WYD webpage (link below) and complete the required troop members data - primarily photos, scans and data from identity cards:"
 supplement.volunteer.header:            |
-    <p></p>
-supplement.volunteer.supplement.description: " "
-supplement.volunteer.wyd_form.description: " "
+    <p>Because of urgent need of volunteer data supplement we ask you for very carefully and fast read the following information and add missing data. Thank you in advance for the efficient conduct of the process. If you have any questions, please call or email (<a href="mailto:sdm@zhp.pl">sdm@zhp.pl</a>).</p>
+supplement.volunteer.supplement.description: "This is a link to additional data form - please click on it and complement data:"
+supplement.volunteer.wyd_form.description: "Because organizers of World Youth Day need to add all adult volunteers to their own registration system, we already added your data owned by us. Please use the following e-mail address (address is an alias for your address given at registration) and password (string next to address, separated by a slash) to login to form on the WYD webpage (link below) and complete the required data - primarily photo, scan and data from identity cards:"
 supplement.wyd_form.link:               "link to a form:"
 
 troop.closed.message:                   Registration of volunteer troops is finished.
