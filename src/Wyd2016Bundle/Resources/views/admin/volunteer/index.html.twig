@@ -87,5 +87,5 @@
             {% endfor %}
         </tbody>
     </table>
-    {{ macro.pagination(volunteers, criteria) }}
+    {{ macro.pagination(volunteers, criteria|changekeys({serviceMainId: 'serviceId'})) }}
 {% endblock %}

@@ -57,6 +57,7 @@ class WydExtension extends Twig_Extension
     {
         $filters = array(
             new Twig_SimpleFilter('ageatlimit', array($this, 'ageAtLimitFilter')),
+            new Twig_SimpleFilter('changekeys', array($this, 'changeKeysFilter')),
             new Twig_SimpleFilter('districtname', array($this, 'districtNameFilter')),
             new Twig_SimpleFilter('gradename', array($this, 'gradeNameFilter')),
             new Twig_SimpleFilter('languagename', array($this, 'languageNameFilter')),
@@ -88,6 +89,26 @@ class WydExtension extends Twig_Extension
             ->format('%y');
 
         return $ageAtLimit;
+    }
+
+    /**
+     * Change keys filter
+     *
+     * @param array $array      array
+     * @param array $keysMapper keys mapper
+     *
+     * @return array
+     */
+    public function changeKeysFilter(array $array, array $keysMapper)
+    {
+        foreach ($keysMapper as $oldKey => $newKey) {
+            if (array_key_exists($oldKey, $array)) {
+                $array[$newKey] = $array[$oldKey];
+                unset($array[$oldKey]);
+            }
+        }
+
+        return $array;
     }
 
     /**
