@@ -146,6 +146,7 @@ class RegistrationLists
             PersonInterface::SHIRT_SIZE_L => $this->translator->trans('form.shirt_size.l'),
             PersonInterface::SHIRT_SIZE_XL => $this->translator->trans('form.shirt_size.xl'),
             PersonInterface::SHIRT_SIZE_XXL => $this->translator->trans('form.shirt_size.xxl'),
+            PersonInterface::SHIRT_SIZE_XXXL => $this->translator->trans('form.shirt_size.xxxl'),
         );
 
         return $sexes;

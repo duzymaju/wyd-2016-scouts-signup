@@ -159,6 +159,7 @@ form.shirt_size.m:                      M
 form.shirt_size.l:                      L
 form.shirt_size.xl:                     XL
 form.shirt_size.xxl:                    XXL
+form.shirt_size.xxxl:                   XXXL
 form.status:                            Status
 form.status.confirmed:                  Potwierdzony
 form.status.not_confirmed:              Niepotwierdzony

@@ -33,6 +33,9 @@ interface PersonInterface
     /** @const integer */
     const SHIRT_SIZE_XXL = 6;
 
+    /** @const integer */
+    const SHIRT_SIZE_XXXL = 7;
+
     /**
      * Get first name
      *
