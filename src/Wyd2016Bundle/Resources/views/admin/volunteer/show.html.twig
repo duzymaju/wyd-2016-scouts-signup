@@ -65,10 +65,18 @@
         <dt>{{ 'form.shirt_size'|trans }}:</dt>
         <dd>{{ volunteer.shirtSize ? volunteer.shirtSize|shirtsizename : '-' }}</dd>
         <dt>{{ 'form.service_main'|trans }}:</dt>
-        <dd>{{ volunteer.serviceMainId|servicename }}</dd>
+        <dd>
+            <a href="{{ path('admin_volunteer_index', {serviceId: volunteer.serviceMainId}) }}">
+                {{ volunteer.serviceMainId|servicename }}
+            </a>
+        </dd>
         {% if volunteer.serviceExtraId %}
             <dt>{{ 'form.service_extra'|trans }}:</dt>
-            <dd>{{ volunteer.serviceExtraId|servicename }}</dd>
+            <dd>
+                <a href="{{ path('admin_volunteer_index', {serviceId: volunteer.serviceExtraId}) }}">
+                    {{ volunteer.serviceExtraId|servicename }}
+                </a>
+            </dd>
         {% endif %}
         <dt>{{ 'form.languages'|trans }}:</dt>
         <dd>{{ macro.languagesList(volunteer) }}</dd>

@@ -55,6 +55,16 @@ class VolunteerController extends AbstractController
             }
         }
 
+        $serviceId = null;
+        if (!isset($regionId) && !isset($districtId)) {
+            $serviceId = (integer) $request->query->get('serviceId');
+            if ($serviceId > 0 && $registrationLists->getService($serviceId)) {
+                $criteria['serviceMainId'] = $serviceId;
+            } else {
+                $serviceId = null;
+            }
+        }
+
         /** @var Paginator $volunteers */
         $volunteers = $this->getRepository()
             ->getPackOrException($pageNo, $this->getParameter('wyd2016.admin.pack_size'), $criteria, $orderBy, array(

@@ -34,8 +34,14 @@
                 <tbody>
                     {% for service, counters in stats.services %}
                         <tr>
-                            <td>{{ service|servicename }}</td>
-                            <td>{{ 'admin.stats.services_counters'|trans({'%all%': counters.main + counters.extra, '%main%': counters.main}) }}</td>
+                            <td>
+                                <a href="{{ path('admin_volunteer_index', {serviceId: service}) }}">
+                                    {{ service|servicename }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ 'admin.stats.services_counters'|trans({'%all%': counters.main + counters.extra, '%main%': counters.main}) }}
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>

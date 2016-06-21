@@ -5,7 +5,9 @@
     <a href="{{ path('admin_volunteer_list') }}" class="btn btn-primary btn-small">{{ 'admin.get_list'|trans }}</a>
     <h1>
         <a href="{{ path('admin_volunteer_index') }}">{{ 'admin.volunteers'|trans }}</a>
-        {% if criteria.regionId is defined %}
+        {% if criteria.serviceMainId is defined %}
+            ({{ 'admin.service'|trans|lower }} {{ criteria.serviceMainId|servicename }})
+        {% elseif criteria.regionId is defined %}
             ({{ 'admin.region'|trans }} {{ criteria.regionId|regionname }})
         {% elseif criteria.districtId is defined %}
             ({{ 'admin.district'|trans }} {{ criteria.districtId|districtname }})
@@ -17,7 +19,9 @@
             <tr>
                 <th>{{ 'admin.name'|trans }}</th>
                 <th>{{ 'admin.country'|trans }}</th>
-                {% if criteria.regionId is defined %}
+                {% if criteria.serviceMainId is defined %}
+                    <th>{{ 'admin.service'|trans }}</th>
+                {% elseif criteria.regionId is defined %}
                     <th>{{ 'admin.district'|trans }}</th>
                 {% elseif criteria.districtId is not defined %}
                     <th>{{ 'admin.region'|trans }}</th>
@@ -39,7 +43,18 @@
                         {% endif %}
                     </td>
                     <td>{{ volunteer.country|localizedcountry }}</td>
-                    {% if criteria.regionId is defined %}
+                    {% if criteria.serviceMainId is defined %}
+                        <td>
+                            <a href="{{ path('admin_volunteer_index', {serviceId: volunteer.serviceMainId}) }}">
+                                {{ volunteer.serviceMainId|servicename }}
+                            </a>
+                            {% if volunteer.serviceExtraId %}/
+                                <a href="{{ path('admin_volunteer_index', {serviceId: volunteer.serviceExtraId}) }}">
+                                    {{ volunteer.serviceExtraId|servicename }}
+                                </a>
+                            {% endif %}
+                        </td>
+                    {% elseif criteria.regionId is defined %}
                         <td>
                             <a href="{{ path('admin_volunteer_index', {districtId: volunteer.districtId}) }}">
                                 {{ volunteer.districtId|districtname }}
@@ -65,7 +80,7 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="{{ criteria.regionId is defined or criteria.districtId is not defined ? 6 : 5 }}">
+                    <td colspan="{{ criteria.serviceMainId is defined or criteria.regionId is defined or criteria.districtId is not defined ? 6 : 5 }}">
                         {{ 'admin.list.empty'|trans }}
                     </td>
                 </tr>
