@@ -125,7 +125,8 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
                 continue;
             }
 
-            $output->write(sprintf('Sending e-mail to volunteer %s...', $volunteer->getName()));
+            $output->write(sprintf('Sending e-mail to volunteer %d - %s...', $volunteer->getId(),
+                $volunteer->getName()));
             if ($this->isTest) {
                 $output->writeln(' [TEST - OK]');
                 continue;
@@ -182,7 +183,7 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
                 continue;
             }
 
-            $output->write(sprintf('Sending e-mail to troop %s...', $troop->getName()));
+            $output->write(sprintf('Sending e-mail to troop %d - %s...', $troop->getId(), $troop->getName()));
             if ($this->isTest) {
                 $output->writeln(' [TEST - OK]');
                 continue;
