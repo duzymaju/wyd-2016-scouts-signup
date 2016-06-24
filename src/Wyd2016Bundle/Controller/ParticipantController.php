@@ -14,6 +14,7 @@ use Wyd2016Bundle\Entity\Volunteer;
 use Wyd2016Bundle\Exception\ExceptionInterface;
 use Wyd2016Bundle\Form\RegistrationLists;
 use Wyd2016Bundle\Form\Type\VolunteerSupplementType;
+use Wyd2016Bundle\Model\Action;
 
 /**
  * Controller
@@ -71,6 +72,7 @@ class ParticipantController extends Controller
                     $now = new DateTime();
                     $volunteer->setUpdatedAt($now);
                     $volunteerRepository->update($volunteer, true);
+                    $actionManager = $this->get('wyd2016bundle.manager.action');
                     if (($supplement->ifAskForDistrict() || $supplement->ifAskForService() ||
                         $supplement->ifAskForDates()) && $volunteer->isTroopLeader())
                     {
@@ -99,7 +101,9 @@ class ParticipantController extends Controller
                             $volunteerRepository->update($member);
                         }
                         $volunteerRepository->flush();
+                        $actionManager->log(Action::TYPE_UPDATE_TROOP_DATA, $troop->getId());
                     }
+                    $actionManager->log(Action::TYPE_UPDATE_VOLUNTEER_DATA, $volunteer->getId());
                     $this->addMessage($translator->trans('success.supplement.message'), 'success');
                     $response = $this->redirect($this->generateUrl('registration_success'));
                 } catch (ExceptionInterface $e) {

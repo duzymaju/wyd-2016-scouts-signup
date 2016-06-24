@@ -7,6 +7,11 @@ services:
             -                           [setVolunteerRepository, [@wyd2016bundle.volunteer.repository]]
         class:                          Wyd2016Bundle\Form\RegistrationLists
 
+    wyd2016bundle.manager.action:
+        calls:
+            -                           [setActionRepository, [@wyd2016bundle.action.repository]]
+        class:                          Wyd2016Bundle\Manager\ActionManager
+
     wyd2016bundle.manager.supplement:
         calls:
             -                           [setRegistrationLists, [@wyd2016bundle.registration.lists]]

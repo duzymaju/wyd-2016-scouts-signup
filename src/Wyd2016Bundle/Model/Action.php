@@ -12,6 +12,12 @@ class Action
     /** @const string */
     const TYPE_GET_API_VOLUNTEER = 'gat_api_volunteer';
 
+    /** @const string */
+    const TYPE_UPDATE_TROOP_DATA = 'update_troop_data';
+
+    /** @const string */
+    const TYPE_UPDATE_VOLUNTEER_DATA = 'update_volunteer_data';
+
     /** @var User */
     protected $user;
 
