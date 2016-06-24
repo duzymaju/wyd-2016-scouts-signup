@@ -10,7 +10,7 @@ class Action
     use RecordTrait;
 
     /** @const string */
-    const TYPE_GET_API_VOLUNTEER = 'gat_api_volunteer';
+    const TYPE_GET_API_VOLUNTEER = 'get_api_volunteer';
 
     /** @const string */
     const TYPE_UPDATE_TROOP_DATA = 'update_troop_data';
