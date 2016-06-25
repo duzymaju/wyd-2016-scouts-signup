@@ -31,6 +31,9 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
     /** @var array */
     protected $loginPage;
 
+    /** @var array|null */
+    protected $ids;
+
     /** @var boolean */
     protected $isTest;
 
@@ -52,6 +55,7 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
             ->setDescription('Notify region headquarters about new volunteers from their regions.')
             ->addArgument('type', InputArgument::REQUIRED, 'Type of supplement.')
             ->addArgument('set', InputArgument::REQUIRED, 'Set of elements to work with.')
+            ->addOption('ids', 'i', InputOption::VALUE_REQUIRED, 'A list of IDs (divided by comma) to use.', null)
             ->addOption('test', 't', InputOption::VALUE_REQUIRED, 'Testing (without sending e-mails).', false)
             ->addOption('receiver', 'r', InputOption::VALUE_REQUIRED, 'Test receiver.')
             ->addOption('page', 'p', InputOption::VALUE_REQUIRED, 'Page number.', 1)
@@ -69,6 +73,20 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
         $type = $input->getArgument('type');
         $set = $input->getArgument('set');
         $output->writeln(sprintf('Sending %s type supplement links to %s.', $type, $set));
+
+        $idsList = $input->getOption('ids');
+        if (empty($idsList)) {
+            $this->ids = null;
+        } else {
+            $ids = array();
+            foreach (explode(',', $idsList) as $id) {
+                if (is_numeric($id)) {
+                    $ids[] = (integer) $id;
+                }
+            }
+            $this->ids = array_unique($ids);
+            sort($this->ids, SORT_NUMERIC);
+        }
 
         $this->isTest = $input->getOption('test');
         $this->receiver = $input->getOption('receiver');
@@ -105,15 +123,10 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
      */
     protected function executeAdultVolunteers(OutputInterface $output)
     {
-        $container = $this->getContainer();
-        $volunteers = $container->get('wyd2016bundle.volunteer.repository')
-            ->findBy(array(
-                'troop' => null,
-            ), array(
-                'id' => 'ASC',
-            ), $this->limit, $this->offset);
-
         $count = 0;
+        $volunteers = $this->findInBy('wyd2016bundle.volunteer.repository', array(
+            'troop' => null,
+        ));
         /** @var Volunteer $volunteer */
         foreach ($volunteers as $volunteer) {
             $list = array(
@@ -132,7 +145,8 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
                 continue;
             }
 
-            $translator = $container->get('translator');
+            $translator = $this->getContainer()
+                ->get('translator');
             $locale = $this->getLocale($volunteer->getCountry());
             $email = empty($this->receiver) ? $volunteer->getEmail() : $this->receiver;
             $translator->setLocale($locale);
@@ -160,13 +174,8 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
      */
     protected function executeTroops(OutputInterface $output)
     {
-        $container = $this->getContainer();
-        $troops = $container->get('wyd2016bundle.troop.repository')
-            ->findBy(array(), array(
-                'id' => 'ASC',
-            ), $this->limit, $this->offset);
-
         $count = 0;
+        $troops = $this->findInBy('wyd2016bundle.troop.repository');
         /** @var Troop $troop */
         foreach ($troops as $troop) {
             $members = $troop->getMembers()
@@ -189,7 +198,8 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
                 continue;
             }
 
-            $translator = $container->get('translator');
+            $translator = $this->getContainer()
+                ->get('translator');
             $locale = $this->getLocale($leader->getCountry());
             $email = empty($this->receiver) ? $leader->getEmail() : $this->receiver;
             $translator->setLocale($locale);
@@ -301,5 +311,28 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
         }
 
         return $locale;
+    }
+
+    /**
+     * Find in by
+     *
+     * @param string $repositoryServiceName repository service name
+     * @param array  $criteria              criteria
+     *
+     * @return array
+     */
+    protected function findInBy($repositoryServiceName, array $criteria = array())
+    {
+        if ($this->ids) {
+            $criteria['id'] = $this->ids;
+        }
+
+        $items = $this->getContainer()
+            ->get($repositoryServiceName)
+            ->findBy($criteria, array(
+                'id' => 'ASC',
+            ), $this->limit, $this->offset);
+
+        return $items;
     }
 }

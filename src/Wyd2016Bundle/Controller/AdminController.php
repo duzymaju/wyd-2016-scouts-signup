@@ -151,6 +151,10 @@ class AdminController extends Controller
             'test' => $request->query->getBoolean('test', false),
         );
 
+        $ids = $request->query->get('ids');
+        if (!empty($ids)) {
+            $options['ids'] = $ids;
+        }
         $receiver = $request->query->get('receiver');
         if (!empty($receiver)) {
             $options['receiver'] = $receiver;
