@@ -28,53 +28,23 @@ class VolunteerController extends AbstractController
      */
     public function indexAction(Request $request, $pageNo)
     {
-        $criteria = array();
+        $criteriaSettings = array(
+            'regionId' => 'getRegion',
+            'districtId' => 'getDistrict',
+            'serviceMainId' => array(
+                'getter' => 'getService',
+                'queryId' => 'serviceId',
+            ),
+            'status' => array(
+                'getter' => 'getStatus',
+                'lowestValue' => 0,
+            ),
+        );
+        $criteria = $this->getCriteria($request->query, $criteriaSettings);
+
         $orderBy = array(
             'createdAt' => 'DESC',
         );
-
-        $registrationLists = $this->get('wyd2016bundle.registration.lists');
-
-        $regionId = null;
-        if (count($criteria) == 0) {
-            $regionId = $request->query->getInt('regionId');
-            if ($regionId > 0 && $registrationLists->getRegion($regionId)) {
-                $criteria['regionId'] = $regionId;
-            } else {
-                $regionId = null;
-            }
-        }
-
-        $districtId = null;
-        if (count($criteria) == 0) {
-            $districtId = $request->query->getInt('districtId');
-            if ($districtId > 0 && $registrationLists->getDistrict($districtId)) {
-                $criteria['districtId'] = $districtId;
-            } else {
-                $districtId = null;
-            }
-        }
-
-        $serviceId = null;
-        if (count($criteria) == 0) {
-            $serviceId = $request->query->getInt('serviceId');
-            if ($serviceId > 0 && $registrationLists->getService($serviceId)) {
-                $criteria['serviceMainId'] = $serviceId;
-            } else {
-                $serviceId = null;
-            }
-        }
-
-        $status = null;
-        if (count($criteria) == 0) {
-            $status = $request->query->getInt('status', -1);
-            if ($status > -1 && $registrationLists->getStatus($status)) {
-                $criteria['status'] = $status;
-            } else {
-                $status = null;
-            }
-        }
-
         if (array_key_exists('regionId', $criteria)) {
             $orderBy = array_merge(array(
                 'districtId' => 'ASC',

@@ -5,6 +5,7 @@ namespace Wyd2016Bundle\Controller\Admin;
 use DateTime;
 use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
@@ -167,5 +168,38 @@ abstract class AbstractController extends Controller
             'Expires' => '0',
             'Pragma' => 'no-cache',
         ));
+    }
+
+    /**
+     * Get criteria
+     *
+     * @param ParameterBag $query            query
+     * @param array        $criteriaSettings criteria settings
+     *
+     * @return array
+     */
+    protected function getCriteria(ParameterBag $query, array $criteriaSettings)
+    {
+        $registrationLists = $this->get('wyd2016bundle.registration.lists');
+        $criteria = array();
+
+        foreach ($criteriaSettings as $criteriaId => $options) {
+            if (!is_array($options)) {
+                $options = array(
+                    'getter' => $options,
+                );
+            }
+            $getter = $options['getter'];
+            $queryId = array_key_exists('queryId', $options) ? $options['queryId'] : $criteriaId;
+            $lowestValue = array_key_exists('lowestValue', $options) ? $options['lowestValue'] : 1;
+
+            $item = $query->getInt($queryId, $lowestValue - 1);
+            if ($item >= $lowestValue && $registrationLists->$getter($item)) {
+                $criteria[$criteriaId] = $item;
+                break;
+            }
+        }
+
+        return $criteria;
     }
 }

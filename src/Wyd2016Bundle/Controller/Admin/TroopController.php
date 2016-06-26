@@ -23,19 +23,13 @@ class TroopController extends AbstractController
      */
     public function indexAction(Request $request, $pageNo)
     {
-        $criteria = array();
-
-        $registrationLists = $this->get('wyd2016bundle.registration.lists');
-
-        $status = null;
-        if (count($criteria) == 0) {
-            $status = $request->query->getInt('status', -1);
-            if ($status > -1 && $registrationLists->getStatus($status)) {
-                $criteria['status'] = $status;
-            } else {
-                $status = null;
-            }
-        }
+        $criteriaSettings = array(
+            'status' => array(
+                'getter' => 'getStatus',
+                'lowestValue' => 0,
+            ),
+        );
+        $criteria = $this->getCriteria($request->query, $criteriaSettings);
 
         /** @var Paginator $troops */
         $troops = $this->getRepository()
