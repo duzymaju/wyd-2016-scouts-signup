@@ -7,7 +7,7 @@ use Doctrine\ORM\EntityRepository;
 /**
  * Repository
  */
-class TroopRepository extends EntityRepository implements BaseRepositoryInterface
+class TroopRepository extends EntityRepository implements BaseRepositoryInterface, SearchRepositoryInterface
 {
     use BaseRepositoryTrait;
 
@@ -27,5 +27,26 @@ class TroopRepository extends EntityRepository implements BaseRepositoryInterfac
             ->getSingleScalarResult();
 
         return $count;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function searchBy(array $queries)
+    {
+        /** @var QueryBuilder $qb */
+        $qb = $this->createQueryBuilder('t');
+
+        $i = 1;
+        foreach ($queries as $query) {
+            $qb->orWhere('t.name LIKE :name_' .$i)
+                ->setParameter('name_' .$i, '%' . $query . '%');
+
+            $i++;
+        }
+        $results = $qb->getQuery()
+            ->getResult();
+
+        return $results;
     }
 }

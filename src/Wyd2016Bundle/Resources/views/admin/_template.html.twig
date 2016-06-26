@@ -60,6 +60,11 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{ path('admin_search_index') }}" class="navbar-link">
+                                    {{ 'admin.search'|trans }}
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ path('fos_user_security_logout') }}" class="navbar-link">
                                     {{ 'admin.logout.link'|trans({'%login%': app.user.username})|raw }}
                                 </a>

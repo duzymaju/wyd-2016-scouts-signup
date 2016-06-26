@@ -7,7 +7,7 @@ use Doctrine\ORM\EntityRepository;
 /**
  * Repository
  */
-class PilgrimRepository extends EntityRepository implements BaseRepositoryInterface
+class PilgrimRepository extends EntityRepository implements BaseRepositoryInterface, SearchRepositoryInterface
 {
     use BaseRepositoryTrait;
 
@@ -49,5 +49,40 @@ class PilgrimRepository extends EntityRepository implements BaseRepositoryInterf
             ->getSingleScalarResult();
 
         return $count;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function searchBy(array $queries)
+    {
+        /** @var QueryBuilder $qb */
+        $qb = $this->createQueryBuilder('p');
+
+        $i = 1;
+        foreach ($queries as $query) {
+            if (!is_numeric($query)) {
+                $qb->orWhere('p.firstName LIKE :firstName_' .$i)
+                    ->setParameter('firstName_' .$i, '%' . $query . '%');
+
+                $qb->orWhere('p.lastName LIKE :lastName_' .$i)
+                    ->setParameter('lastName_' .$i, '%' . $query . '%');
+            }
+
+            $qb->orWhere('p.address LIKE :address_' .$i)
+                ->setParameter('address_' .$i, '%' . $query . '%');
+
+            $qb->orWhere('p.phone LIKE :phone_' .$i)
+                ->setParameter('phone_' .$i, '%' . $query . '%');
+
+            $qb->orWhere('p.email LIKE :email_' .$i)
+                ->setParameter('email_' .$i, $query);
+
+            $i++;
+        }
+        $results = $qb->getQuery()
+            ->getResult();
+
+        return $results;
     }
 }

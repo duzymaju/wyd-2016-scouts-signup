@@ -22,6 +22,12 @@ admin_pilgrim_list: /admin/pilgrims/list
 # Desc: /admin/pilgrim/{id}
 admin_pilgrim_show: '/admin/pilgrim/{id}'
 
+# Desc: /admin/search
+admin_search_index: /admin/search
+
+# Desc: /admin/supplement-link-send/{set}
+admin_supplement_link_send: '/admin/supplement-link-send/{set}'
+
 # Desc: /admin/troops/{pageNo}
 admin_troop_index: '/admin/troops/{pageNo}'
 

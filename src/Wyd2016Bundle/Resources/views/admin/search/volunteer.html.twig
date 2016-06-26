@@ -1,0 +1,42 @@
+{% extends 'Wyd2016Bundle:admin:search/_template.html.twig' %}
+
+{% block search_header_title %}
+    <a href="{{ path('admin_volunteer_index') }}">{{ 'admin.volunteers'|trans }}</a>
+{% endblock %}
+
+{% block search_header_length %}
+    - {{ 'admin.people_number'|transchoice(results|length) }}
+{% endblock %}
+
+{% block search_results_list %}
+    {% for volunteer in results %}
+        <tr>
+            <td>
+                <a href="{{ path('admin_volunteer_show', {id: volunteer.id}) }}">{{ volunteer.name }}</a>
+                {% if volunteer.troop %}
+                    (<a href="{{ path('admin_troop_show', {id: volunteer.troop.id}) }}">
+                        {{- volunteer.troop.name -}}
+                    </a>)
+                {% endif %}
+            </td>
+            <td>
+                <a href="{{ path('admin_volunteer_index', {status: volunteer.status}) }}">
+                    {{ volunteer.status|statusname }}
+                </a>
+            </td>
+            <td>{{ volunteer.createdAt|date('Y-m-d') }}</td>
+            <td>
+                <a href="{{ path('admin_volunteer_show', {id: volunteer.id}) }}" class="btn btn-default btn-xs"
+                    title="{{ 'admin.show'|trans }}">
+                    <i class="glyphicon glyphicon-file"></i>
+                </a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="4">
+                {{ 'admin.list.empty'|trans }}
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}

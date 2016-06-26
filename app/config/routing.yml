@@ -32,6 +32,9 @@ _admin_volunteer_list:
 _admin_volunteer_index:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Volunteer/index.yml"
 
+_admin_search_index:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/Search/index.yml"
+
 _admin_format_data:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/format_data.yml"
 

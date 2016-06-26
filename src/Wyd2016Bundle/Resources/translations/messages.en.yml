@@ -27,6 +27,11 @@ admin.reminder.button:                  Send reminder
 admin.reminder.error:                   An error occures during reminder e-mail sending.
 admin.reminder.sent_date:               Last reminder was sent at %date%.
 admin.reminder.success:                 Reminder e-mail was sent successfully.
+admin.search:                           Search
+admin.search.no_query:                  You have to set a query to search.
+admin.search.query:                     "Query:"
+admin.search.submit:                    Search
+admin.search.type:                      "Type:"
 admin.service:                          Service
 admin.stats.countries:                  Volunteers by country
 admin.stats.languages:                  Volunteers by languages

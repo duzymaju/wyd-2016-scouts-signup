@@ -9,7 +9,7 @@ use Wyd2016Bundle\Form\RegistrationLists;
 /**
  * Repository
  */
-class VolunteerRepository extends EntityRepository implements BaseRepositoryInterface
+class VolunteerRepository extends EntityRepository implements BaseRepositoryInterface, SearchRepositoryInterface
 {
     use BaseRepositoryTrait;
 
@@ -194,5 +194,46 @@ class VolunteerRepository extends EntityRepository implements BaseRepositoryInte
         }
 
         return $services;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function searchBy(array $queries)
+    {
+        /** @var QueryBuilder $qb */
+        $qb = $this->createQueryBuilder('v');
+
+        $i = 1;
+        foreach ($queries as $query) {
+            if (!is_numeric($query)) {
+                $qb->orWhere('v.firstName LIKE :firstName_' .$i)
+                    ->setParameter('firstName_' .$i, '%' . $query . '%');
+
+                $qb->orWhere('v.lastName LIKE :lastName_' .$i)
+                    ->setParameter('lastName_' .$i, '%' . $query . '%');
+            } else {
+                $queryInteger = (integer) $query;
+                if ($queryInteger > 0) {
+                    $qb->orWhere('v.pesel LIKE :pesel_' .$i)
+                        ->setParameter('pesel_' .$i, (integer) $query);
+                }
+            }
+
+            $qb->orWhere('v.address LIKE :address_' .$i)
+                ->setParameter('address_' .$i, '%' . $query . '%');
+
+            $qb->orWhere('v.phone LIKE :phone_' .$i)
+                ->setParameter('phone_' .$i, '%' . $query . '%');
+
+            $qb->orWhere('v.email LIKE :email_' .$i)
+                ->setParameter('email_' .$i, $query);
+
+            $i++;
+        }
+        $results = $qb->getQuery()
+            ->getResult();
+
+        return $results;
     }
 }

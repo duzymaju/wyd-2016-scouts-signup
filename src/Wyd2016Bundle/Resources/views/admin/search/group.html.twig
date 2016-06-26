@@ -1,0 +1,33 @@
+{% extends 'Wyd2016Bundle:admin:search/_template.html.twig' %}
+
+{% block search_header_title %}
+    <a href="{{ path('admin_group_index') }}">{{ 'admin.groups'|trans }}</a>
+{% endblock %}
+
+{% block search_results_list %}
+    {% for group in results %}
+        <tr>
+            <td>
+                <a href="{{ path('admin_group_show', {id: group.id}) }}">{{ group.name }}</a>
+            </td>
+            <td>
+                <a href="{{ path('admin_group_index', {status: group.status}) }}">
+                    {{ group.status|statusname }}
+                </a>
+            </td>
+            <td>{{ group.createdAt|date('Y-m-d') }}</td>
+            <td>
+                <a href="{{ path('admin_group_show', {id: group.id}) }}" class="btn btn-default btn-xs"
+                    title="{{ 'admin.show'|trans }}">
+                    <i class="glyphicon glyphicon-file"></i>
+                </a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="4">
+                {{ 'admin.list.empty'|trans }}
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}
