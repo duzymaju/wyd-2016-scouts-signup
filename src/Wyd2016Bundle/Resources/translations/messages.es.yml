@@ -103,6 +103,7 @@ form.grade.no:                          no
 form.grade.scoutmaster:                 scoutmaster
 form.grade.sub_scoutmaster:             sub-scoutmaster
 form.group_name:                        El nombre del grupo
+form.id:                                ID
 form.languages:                         La lengua (en el nivel comunicativo)
 form.languages.de:                      alemán
 form.languages.en:                      inglés

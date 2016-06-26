@@ -113,6 +113,7 @@ form.grade.no:                          brak
 form.grade.scoutmaster:                 harcmistrz
 form.grade.sub_scoutmaster:             podharcmistrz
 form.group_name:                        Nazwa grupy
+form.id:                                ID
 form.languages:                         Języki (komunikatywnie)
 form.languages.de:                      niemiecki
 form.languages.en:                      angielski

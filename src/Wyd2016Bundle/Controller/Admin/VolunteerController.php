@@ -145,6 +145,7 @@ class VolunteerController extends AbstractController
 
         $data = array();
         $data[] = array(
+            $translator->trans('form.id'),
             $translator->trans('form.status'),
             $translator->trans('form.first_name'),
             $translator->trans('form.last_name'),
@@ -178,6 +179,7 @@ class VolunteerController extends AbstractController
         foreach ($volunteers as $volunteer) {
             /** @var Volunteer $volunteer */
             $data[] = array(
+                $volunteer->getId(),
                 $filters->statusNameFilter($volunteer->getStatus()),
                 $volunteer->getFirstName(),
                 $volunteer->getLastName(),
