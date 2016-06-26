@@ -40,6 +40,12 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
     /** @var string|null */
     protected $receiver;
 
+    /** @var boolean */
+    protected $supplementOnly;
+
+    /** @var boolean */
+    protected $wydFormOnly;
+
     /** @var integer */
     protected $limit;
 
@@ -58,6 +64,8 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
             ->addOption('ids', 'i', InputOption::VALUE_REQUIRED, 'A list of IDs (divided by comma) to use.', null)
             ->addOption('test', 't', InputOption::VALUE_REQUIRED, 'Testing (without sending e-mails).', false)
             ->addOption('receiver', 'r', InputOption::VALUE_REQUIRED, 'Test receiver.')
+            ->addOption('supplement', 'u', InputOption::VALUE_REQUIRED, 'Send supplement data only.', false)
+            ->addOption('wydform', 'w', InputOption::VALUE_REQUIRED, 'Send WYD form data only.')
             ->addOption('page', 'p', InputOption::VALUE_REQUIRED, 'Page number.', 1)
             ->addOption('pack', 'k', InputOption::VALUE_REQUIRED, 'Pack size.', 20);
     }
@@ -70,10 +78,6 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $type = $input->getArgument('type');
-        $set = $input->getArgument('set');
-        $output->writeln(sprintf('Sending %s type supplement links to %s.', $type, $set));
-
         $idsList = $input->getOption('ids');
         if (empty($idsList)) {
             $this->ids = null;
@@ -90,15 +94,27 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
 
         $this->isTest = $input->getOption('test');
         $this->receiver = $input->getOption('receiver');
+        $this->supplementOnly = $input->getOption('supplement');
+        $this->wydFormOnly = $input->getOption('wydform');
         $this->limit = +$input->getOption('pack');
         $this->offset = $this->limit * ($input->getOption('page') - 1);
 
+        $type = $input->getArgument('type');
+        $set = $input->getArgument('set');
         $container = $this->getContainer();
         $emailAliases = $container->getParameter('wyd2016.email_alias');
         $this->emailAlias = $emailAliases[$type];
         $wydPage = $container->getParameter('wyd2016.wyd_page');
         $this->loginPage = $wydPage['login'];
 
+        $data = [];
+        if (!$this->wydFormOnly) {
+            $data[] = 'supplement';
+        }
+        if (!$this->supplementOnly) {
+            $data[] = 'WYD form';
+        }
+        $output->writeln(sprintf('Sending %s type %s data to %s.', $type, implode(' and ', $data), $set));
         if ($type == self::TYPE_VOLUNTEER) {
             if ($set == self::SET_VOLUNTEERS) {
                 $countVolunteers = $this->executeAdultVolunteers($output);
@@ -132,8 +148,8 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
             $list = array(
                 $volunteer,
             );
-            $supplementVolunteers = $this->getSupplementVolunteers($list);
-            $wydFormVolunteers = $this->getWydFormVolunteers($list);
+            $supplementVolunteers = $this->wydFormOnly ? [] : $this->getSupplementVolunteers($list);
+            $wydFormVolunteers = $this->supplementOnly ? [] : $this->getWydFormVolunteers($list);
             if (count($supplementVolunteers) < 1 && count($wydFormVolunteers) < 1) {
                 continue;
             }
@@ -180,8 +196,8 @@ class SupplementLinkSendCommand extends ContainerAwareCommand
         foreach ($troops as $troop) {
             $members = $troop->getMembers()
                 ->toArray();
-            $supplementVolunteers = $this->getSupplementVolunteers($members);
-            $wydFormVolunteers = $this->getWydFormVolunteers($members);
+            $supplementVolunteers = $this->wydFormOnly ? [] : $this->getSupplementVolunteers($members);
+            $wydFormVolunteers = $this->supplementOnly ? [] : $this->getWydFormVolunteers($members);
             if (count($supplementVolunteers) < 1 && count($wydFormVolunteers) < 1) {
                 continue;
             }

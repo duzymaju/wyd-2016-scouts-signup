@@ -149,6 +149,8 @@ class AdminController extends Controller
             'pack' => $set == SupplementLinkSendCommand::SET_TROOPS ? 10 : 20,
             'page' => $page,
             'test' => $request->query->getBoolean('test', false),
+            'supplement' => $request->query->getBoolean('supplement', false),
+            'wydform' => $request->query->getBoolean('wydform', false),
         );
 
         $ids = $request->query->get('ids');
