@@ -34,6 +34,7 @@ admin.stats.permissions:                Volunteers by permissions
 admin.stats.regions:                    Volunteers by region
 admin.stats.services:                   Volunteers by service
 admin.stats.services_counters:          %main% as main / %all% all
+admin.status:                           status
 admin.title:                            Administration ZHP WYD Krakow 2016
 admin.troop:                            Troop
 admin.troop_leader:                     troop leader

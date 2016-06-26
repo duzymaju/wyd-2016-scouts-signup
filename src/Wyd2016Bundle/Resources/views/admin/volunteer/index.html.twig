@@ -11,6 +11,8 @@
             ({{ 'admin.region'|trans }} {{ criteria.regionId|regionname }})
         {% elseif criteria.districtId is defined %}
             ({{ 'admin.district'|trans }} {{ criteria.districtId|districtname }})
+        {% elseif criteria.status is defined %}
+            ({{ 'admin.status'|trans }} {{ criteria.status|statusname|lower }})
         {% endif %}
         - {{ 'admin.people_number'|transchoice(volunteers.count) }}
     </h1>
@@ -69,7 +71,11 @@
                             {% endif %}
                         </td>
                     {% endif %}
-                    <td>{{ volunteer.status|statusname }}</td>
+                    <td>
+                        <a href="{{ path('admin_volunteer_index', {status: volunteer.status}) }}">
+                            {{ volunteer.status|statusname }}
+                        </a>
+                    </td>
                     <td>{{ volunteer.createdAt|date('Y-m-d') }}</td>
                     <td>
                         <a href="{{ path('admin_volunteer_show', {id: volunteer.id}) }}" class="btn btn-default btn-xs"

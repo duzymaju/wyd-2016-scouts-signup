@@ -35,19 +35,19 @@ class VolunteerController extends AbstractController
 
         $registrationLists = $this->get('wyd2016bundle.registration.lists');
 
-        $regionId = (integer) $request->query->get('regionId');
-        if ($regionId > 0 && $registrationLists->getRegion($regionId)) {
-            $criteria['regionId'] = $regionId;
-            $orderBy = array_merge(array(
-                'districtId' => 'ASC',
-            ), $orderBy);
-        } else {
-            $regionId = null;
+        $regionId = null;
+        if (count($criteria) == 0) {
+            $regionId = $request->query->getInt('regionId');
+            if ($regionId > 0 && $registrationLists->getRegion($regionId)) {
+                $criteria['regionId'] = $regionId;
+            } else {
+                $regionId = null;
+            }
         }
 
         $districtId = null;
-        if (!isset($regionId)) {
-            $districtId = (integer) $request->query->get('districtId');
+        if (count($criteria) == 0) {
+            $districtId = $request->query->getInt('districtId');
             if ($districtId > 0 && $registrationLists->getDistrict($districtId)) {
                 $criteria['districtId'] = $districtId;
             } else {
@@ -56,13 +56,29 @@ class VolunteerController extends AbstractController
         }
 
         $serviceId = null;
-        if (!isset($regionId) && !isset($districtId)) {
-            $serviceId = (integer) $request->query->get('serviceId');
+        if (count($criteria) == 0) {
+            $serviceId = $request->query->getInt('serviceId');
             if ($serviceId > 0 && $registrationLists->getService($serviceId)) {
                 $criteria['serviceMainId'] = $serviceId;
             } else {
                 $serviceId = null;
             }
+        }
+
+        $status = null;
+        if (count($criteria) == 0) {
+            $status = $request->query->getInt('status', -1);
+            if ($status > -1 && $registrationLists->getStatus($status)) {
+                $criteria['status'] = $status;
+            } else {
+                $status = null;
+            }
+        }
+
+        if (array_key_exists('regionId', $criteria)) {
+            $orderBy = array_merge(array(
+                'districtId' => 'ASC',
+            ), $orderBy);
         }
 
         /** @var Paginator $volunteers */

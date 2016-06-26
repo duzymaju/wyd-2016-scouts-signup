@@ -13,7 +13,11 @@
     <h1>{{ 'admin.troop'|trans }}</h1>
     <dl class="list">
         <dt>{{ 'form.status'|trans }}:</dt>
-        <dd>{{ troop.status|statusname }}</dd>
+        <dd>
+            <a href="{{ path('admin_troop_index', {status: troop.status}) }}">
+                {{ troop.status|statusname }}
+            </a>
+        </dd>
         <dt>{{ 'form.troop_name'|trans }}:</dt>
         <dd>{{ troop.name }}</dd>
         <dt>{{ 'form.country'|trans }}:</dt>

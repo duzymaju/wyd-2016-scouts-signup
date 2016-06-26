@@ -16,19 +16,35 @@ class TroopController extends AbstractController
     /**
      * Index action
      *
-     * @param integer $pageNo page no
+     * @param Request $request request
+     * @param integer $pageNo  page no
      *
      * @return Response
      */
-    public function indexAction($pageNo)
+    public function indexAction(Request $request, $pageNo)
     {
+        $criteria = array();
+
+        $registrationLists = $this->get('wyd2016bundle.registration.lists');
+
+        $status = null;
+        if (count($criteria) == 0) {
+            $status = $request->query->getInt('status', -1);
+            if ($status > -1 && $registrationLists->getStatus($status)) {
+                $criteria['status'] = $status;
+            } else {
+                $status = null;
+            }
+        }
+
         /** @var Paginator $troops */
         $troops = $this->getRepository()
-            ->getPackOrException($pageNo, $this->getParameter('wyd2016.admin.pack_size'), array(), array(
+            ->getPackOrException($pageNo, $this->getParameter('wyd2016.admin.pack_size'), $criteria, array(
                 'createdAt' => 'DESC',
             ));
 
         return $this->render('Wyd2016Bundle::admin/troop/index.html.twig', array(
+            'criteria' => $criteria,
             'troops' => $troops->setRouteName('admin_troop_index'),
         ));
     }

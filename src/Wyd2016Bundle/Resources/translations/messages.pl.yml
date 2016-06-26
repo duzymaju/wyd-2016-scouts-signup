@@ -34,6 +34,7 @@ admin.stats.permissions:                Wolontariusze po uprawnieniach
 admin.stats.regions:                    Wolontariusze po chorągwi
 admin.stats.services:                   Wolontariusze po służbie
 admin.stats.services_counters:          %main% jako główna / ogółem %all%
+admin.status:                           status
 admin.title:                            Administracja ZHP ŚDM Kraków 2016
 admin.troop:                            Patrol
 admin.troop_leader:                     patrolowy
