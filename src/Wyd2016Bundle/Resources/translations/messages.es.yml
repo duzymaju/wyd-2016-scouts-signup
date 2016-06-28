@@ -168,12 +168,15 @@ form.tip.service_extra_id:              Tiene que ser diferente
 form.tip.service_main_id:               La decisón pertenece a los organizadores
 form.troop_name:                        El nombre del grupo
 
+group.closed.message:                   Registration of pilgrim groups is finished.
+group.closed.title:                     Registration finished
 group.form.add_member:                  Para añadir el miembro del grupo siguiente
 group.form.description:                 La edad minima del miembro del grupo son %age% años cumplidos antes de %date%. El grupo se contiene de al menos %min_size% miembros, pero no mas que %max_size% miembros, el lider mayor de edad incluido.
 group.form.title:                       La inscripción para los peregrinos
 group.form.leader:                      El lider (mayor de edad)
 group.form.member:                      %no% miembro del grupo
 
+index.closed.message:                   Registration is finished.
 index.group:                            el lider del grupo de los peregrinos
 index.pilgrim:                          el peregrino mayor de edad
 index.title:                            Eres
@@ -192,8 +195,10 @@ next_steps.register_volunteer:          La inscripción para el siguiente volunt
 next_steps.title:                       Los proximos pasos
 next_steps.volunteers_page:             La página de los preparaciónes de JMJ Cracovia 2016 por La Asociación de los Scouts de Polonia (ZHP) para JMJ Cracovia 2016
 
-pilgrims.form.description:              La edad minima del peregrino son %age% años cumplidos antes de %date%
-pilgrims.form.title:                    La inscripción para los peregrinos mayores de edad
+pilgrim.closed.message:                 Registration of adult pilgrims is finished.
+pilgrim.closed.title:                   Registration finished
+pilgrim.form.description:               La edad minima del peregrino son %age% años cumplidos antes de %date%
+pilgrim.form.title:                     La inscripción para los peregrinos mayores de edad
 
 region_email.content.commander_title:   |
     <p>Applications summary %date%:</p>

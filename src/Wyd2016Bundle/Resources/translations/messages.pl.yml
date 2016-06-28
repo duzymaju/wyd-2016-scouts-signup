@@ -178,12 +178,15 @@ form.tip.service_extra_id:              Musi być inna niż poprzednio wybrana.
 form.tip.service_main_id:               Ostateczną decyzję o przydziale służby podejmują organizatorzy.
 form.troop_name:                        Nazwa patrolu
 
+group.closed.message:                   Rejestracja grup pielgrzymów została zakończona.
+group.closed.title:                     Rejestracja zakończona
 group.form.add_member:                  Dodaj kolejnego członka grupy
 group.form.description:                 Minimalny wiek członka grupy to %age% lat ukończone przed %date%. W skład grupy musi wchodzić od %min_size% do %max_size% członków, w tym pełnoletni opiekun.
 group.form.title:                       Formularz dla grup pielgrzymów
 group.form.leader:                      Opiekun (pełnoletni)
 group.form.member:                      %no%. członek grupy
 
+index.closed.message:                   Rejestracja została zakończona.
 index.group:                            opiekunem grupy pielgrzymów
 index.pilgrim:                          pełnoletnim pielgrzymem
 index.title:                            Jesteś
@@ -202,8 +205,10 @@ next_steps.register_volunteer:          Zarejestruj kolejnego pełnoletniego wol
 next_steps.title:                       Kolejne kroki
 next_steps.volunteers_page:             Strona przygotowań do ŚDM Kraków 2016 przez Związek Harcerstwa Polskiego
 
-pilgrims.form.description:              Minimalny wiek pielgrzyma to %age% lat ukończone przed %date%.
-pilgrims.form.title:                    Formularz dla pełnoletnich pielgrzymów
+pilgrim.closed.message:                 Rejestracja pełnoletnich pielgrzymów została zakończona.
+pilgrim.closed.title:                   Rejestracja zakończona
+pilgrim.form.description:               Minimalny wiek pielgrzyma to %age% lat ukończone przed %date%.
+pilgrim.form.title:                     Formularz dla pełnoletnich pielgrzymów
 
 region_email.content.commander_title:   |
     <p>Druhny i Druhowie<br>

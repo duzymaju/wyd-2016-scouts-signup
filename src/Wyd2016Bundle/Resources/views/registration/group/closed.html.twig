@@ -2,9 +2,9 @@
 {% import 'Wyd2016Bundle:registration:_macro.html.twig' as macro %}
 {% import 'Wyd2016Bundle::_macro.html.twig' as globalMacro %}
 
-{% set pageTitle = 'volunteer.closed.title'|trans %}
+{% set pageTitle = 'group.closed.title'|trans %}
 
 {% block content %}
-    {{ globalMacro.message('volunteer.closed.message', 'message', true) }}
+    {{ globalMacro.message('group.closed.message', 'message', true) }}
     {{ macro.nextStepsBox(pilgrimsLimitsExceeded, volunteersLimitsExceeded) }}
 {% endblock %}

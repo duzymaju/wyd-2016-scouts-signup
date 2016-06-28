@@ -6,5 +6,5 @@
 
 {% block content %}
     {{ globalMacro.message('troop.closed.message', 'message', true) }}
-    {{ macro.nextStepsBox(true) }}
+    {{ macro.nextStepsBox(pilgrimsLimitsExceeded, volunteersLimitsExceeded) }}
 {% endblock %}

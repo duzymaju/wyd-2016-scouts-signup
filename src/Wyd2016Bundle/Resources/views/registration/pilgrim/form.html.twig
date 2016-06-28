@@ -2,12 +2,12 @@
 {% import 'Wyd2016Bundle:registration:_macro.html.twig' as macro %}
 {% import 'Wyd2016Bundle::_macro.html.twig' as globalMacro %}
 
-{% set pageTitle = 'pilgrims.form.title'|trans %}
+{% set pageTitle = 'pilgrim.form.title'|trans %}
 
 {% block content %}
     {{ globalMacro.flashBagMessages('error', true) }}
-    <h1>{{ 'pilgrims.form.title'|trans }}</h1>
-    <p>{{ 'pilgrims.form.description'|trans({'%age%': min_age_adult, '%date%': age_limit}) }}</p>
+    <h1>{{ 'pilgrim.form.title'|trans }}</h1>
+    <p>{{ 'pilgrim.form.description'|trans({'%age%': min_age_adult, '%date%': age_limit}) }}</p>
     {{ form_start(form, {'attr': {'class': 'registration-form registration-form-pilgrim'}}) }}
         {{ macro.formRow(form.firstName) }}
         {{ macro.formRow(form.lastName) }}

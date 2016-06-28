@@ -61,7 +61,8 @@ parameters:
     wyd2016.size.max_troop:             6
     wyd2016.size.min_group:             2
     wyd2016.size.min_troop:             2
-    wyd2016.time.limit:                 "2016-06-27 00:00:00"
+    wyd2016.time.limit.pilgrims:        "2016-06-27 00:00:00"
+    wyd2016.time.limit.volunteers:      "2016-06-27 00:00:00"
     wyd2016.wyd_page:
         login:
             en:                         https://register.wyd.va/vol/login?lang=en

@@ -1,13 +1,28 @@
 {% extends 'Wyd2016Bundle:registration:_template.html.twig' %}
+{% import 'Wyd2016Bundle::_macro.html.twig' as globalMacro %}
 
 {% block content %}
-    <h1>{{ 'index.title'|trans }}:</h1>
-    <div class="btn-group-vertical btn-group-lg">
-        {% if not limitsExceeded %}
-            <a href="{{ path('registration_volunteer_form') }}" class="btn btn-default">{{ 'index.volunteer'|trans }}</a>
-            <a href="{{ path('registration_troop_form') }}" class="btn btn-default">{{ 'index.troop'|trans }}</a>
-        {% endif %}
-        <a href="{{ path('registration_pilgrim_form') }}" class="btn btn-default">{{ 'index.pilgrim'|trans }}</a>
-        <a href="{{ path('registration_group_form') }}" class="btn btn-default">{{ 'index.group'|trans }}</a>
-    </div>
+    {% if pilgrimsLimitsExceeded and volunteersLimitsExceeded %}
+        {{ globalMacro.message('index.closed.message', 'message', true) }}
+    {% else %}
+        <h1>{{ 'index.title'|trans }}:</h1>
+        <div class="btn-group-vertical btn-group-lg">
+            {% if not volunteersLimitsExceeded %}
+                <a href="{{ path('registration_volunteer_form') }}" class="btn btn-default">
+                    {{ 'index.volunteer'|trans }}
+                </a>
+                <a href="{{ path('registration_troop_form') }}" class="btn btn-default">
+                    {{ 'index.troop'|trans }}
+                </a>
+            {% endif %}
+            {% if not pilgrimsLimitsExceeded %}
+                <a href="{{ path('registration_pilgrim_form') }}" class="btn btn-default">
+                    {{ 'index.pilgrim'|trans }}
+                </a>
+                <a href="{{ path('registration_group_form') }}" class="btn btn-default">
+                    {{ 'index.group'|trans }}
+                </a>
+            {% endif %}
+        </div>
+    {% endif %}
 {% endblock %}

@@ -168,12 +168,15 @@ form.tip.service_extra_id:              It have to be different than previously 
 form.tip.service_main_id:               Organizers take final decission on the allocation of services.
 form.troop_name:                        Troop name
 
+group.closed.message:                   Registration of pilgrim groups is finished.
+group.closed.title:                     Registration finished
 group.form.add_member:                  Add another group member
 group.form.description:                 Group member must be over %age% years before %date%. Group has to contain from %min_size% to %max_size% members including adult leader.
 group.form.title:                       Form for groups of pilgrims
 group.form.leader:                      Group leader (adult)
 group.form.member:                      "#%no% group member"
 
+index.closed.message:                   Registration is finished.
 index.group:                            leader of a group of pilgrims
 index.pilgrim:                          adult pilgrim
 index.title:                            You are
@@ -192,8 +195,10 @@ next_steps.register_volunteer:          Register another adult volunteer
 next_steps.title:                       Next steps
 next_steps.volunteers_page:             Page of preparation to WYD Krakow 2016 make by Polish Scouting and Guiding Association
 
-pilgrims.form.description:              Pligrim must be over %age% years before %date%.
-pilgrims.form.title:                    Form for adult pilgrims
+pilgrim.closed.message:                 Registration of adult pilgrims is finished.
+pilgrim.closed.title:                   Registration finished
+pilgrim.form.description:               Pligrim must be over %age% years before %date%.
+pilgrim.form.title:                     Form for adult pilgrims
 
 region_email.content.commander_title:   |
     <p>Applications summary %date%:</p>

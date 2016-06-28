@@ -42,7 +42,8 @@ class RegistrationController extends Controller
     public function indexAction()
     {
         return $this->render('Wyd2016Bundle::registration/index.html.twig', array(
-            'limitsExceeded' => $this->limitsExceeded(),
+            'pilgrimsLimitsExceeded' => $this->pilgrimsLimitsExceeded(),
+            'volunteersLimitsExceeded' => $this->volunteersLimitsExceeded(),
         ));
     }
 
@@ -55,6 +56,13 @@ class RegistrationController extends Controller
      */
     public function groupFormAction(Request $request)
     {
+        if ($this->pilgrimsLimitsExceeded()) {
+            return $this->render('Wyd2016Bundle::registration/group/closed.html.twig', array(
+                'pilgrimsLimitsExceeded' => $this->pilgrimsLimitsExceeded(),
+                'volunteersLimitsExceeded' => $this->volunteersLimitsExceeded(),
+            ));
+        }
+
         /** @var TranslatorInterface $translator */
         $translator = $this->get('translator');
         /** @var RegistrationLists $registrationLists */
@@ -154,6 +162,13 @@ class RegistrationController extends Controller
      */
     public function pilgrimFormAction(Request $request)
     {
+        if ($this->pilgrimsLimitsExceeded()) {
+            return $this->render('Wyd2016Bundle::registration/pilgrim/closed.html.twig', array(
+                'pilgrimsLimitsExceeded' => $this->pilgrimsLimitsExceeded(),
+                'volunteersLimitsExceeded' => $this->volunteersLimitsExceeded(),
+            ));
+        }
+
         /** @var TranslatorInterface $translator */
         $translator = $this->get('translator');
         $formType = new PilgrimType($this->get('translator'), $this->get('wyd2016bundle.registration.lists'));
@@ -217,8 +232,11 @@ class RegistrationController extends Controller
      */
     public function troopFormAction(Request $request)
     {
-        if ($this->limitsExceeded()) {
-            return $this->render('Wyd2016Bundle::registration/troop/closed.html.twig');
+        if ($this->volunteersLimitsExceeded()) {
+            return $this->render('Wyd2016Bundle::registration/troop/closed.html.twig', array(
+                'pilgrimsLimitsExceeded' => $this->pilgrimsLimitsExceeded(),
+                'volunteersLimitsExceeded' => $this->volunteersLimitsExceeded(),
+            ));
         }
 
         /** @var TranslatorInterface $translator */
@@ -392,8 +410,11 @@ class RegistrationController extends Controller
      */
     public function volunteerFormAction(Request $request)
     {
-        if ($this->limitsExceeded()) {
-            return $this->render('Wyd2016Bundle::registration/volunteer/closed.html.twig');
+        if ($this->volunteersLimitsExceeded()) {
+            return $this->render('Wyd2016Bundle::registration/volunteer/closed.html.twig', array(
+                'pilgrimsLimitsExceeded' => $this->pilgrimsLimitsExceeded(),
+                'volunteersLimitsExceeded' => $this->volunteersLimitsExceeded(),
+            ));
         }
 
         /** @var TranslatorInterface $translator */
@@ -507,7 +528,8 @@ class RegistrationController extends Controller
     public function successAction()
     {
         return $this->render('Wyd2016Bundle::registration/success.html.twig', array(
-            'limitsExceeded' => $this->limitsExceeded(),
+            'pilgrimsLimitsExceeded' => $this->pilgrimsLimitsExceeded(),
+            'volunteersLimitsExceeded' => $this->volunteersLimitsExceeded(),
         ));
     }
 
@@ -630,7 +652,8 @@ class RegistrationController extends Controller
         }
 
         return $this->render('Wyd2016Bundle::registration/confirmation.html.twig', array(
-            'limitsExceeded' => $this->limitsExceeded(),
+            'pilgrimsLimitsExceeded' => $this->pilgrimsLimitsExceeded(),
+            'volunteersLimitsExceeded' => $this->volunteersLimitsExceeded(),
         ));
     }
 
@@ -670,7 +693,8 @@ class RegistrationController extends Controller
         }
 
         return $this->render('Wyd2016Bundle::registration/confirmation.html.twig', array(
-            'limitsExceeded' => $this->limitsExceeded(),
+            'pilgrimsLimitsExceeded' => $this->pilgrimsLimitsExceeded(),
+            'volunteersLimitsExceeded' => $this->volunteersLimitsExceeded(),
         ));
     }
 
@@ -788,13 +812,13 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Limits exceeded
+     * Volunteers limits exceeded
      *
      * @return boolean
      */
-    protected function limitsExceeded()
+    protected function volunteersLimitsExceeded()
     {
-        $timeLimit = new DateTime($this->getParameter('wyd2016.time.limit'));
+        $timeLimit = new DateTime($this->getParameter('wyd2016.time.limit.volunteers'));
         if (new DateTime('now') > $timeLimit) {
             return true;
         }
@@ -802,6 +826,21 @@ class RegistrationController extends Controller
         $numberTotalLimit = $this->getParameter('wyd2016.number.total_limit');
         $volunteerRepository = $this->get('wyd2016bundle.volunteer.repository');
         if ($volunteerRepository->getTotalNumber() >= $numberTotalLimit) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Pilgrims limits exceeded
+     *
+     * @return boolean
+     */
+    protected function pilgrimsLimitsExceeded()
+    {
+        $timeLimit = new DateTime($this->getParameter('wyd2016.time.limit.pilgrims'));
+        if (new DateTime('now') > $timeLimit) {
             return true;
         }
 

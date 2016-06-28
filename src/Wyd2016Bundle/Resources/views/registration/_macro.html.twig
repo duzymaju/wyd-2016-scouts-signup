@@ -1,7 +1,7 @@
-{% macro nextStepsBox(limitsExceeded) %}
+{% macro nextStepsBox(pilgrimsLimitsExceeded, volunteersLimitsExceeded) %}
     <h1>{{ 'next_steps.title'|trans }}:</h1>
     <div class="btn-group-vertical btn-group-lg">
-        {% if not limitsExceeded %}
+        {% if not volunteersLimitsExceeded %}
             <a href="{{ path('registration_volunteer_form') }}" class="btn btn-default">
                 {{ 'next_steps.register_volunteer'|trans }}
             </a>
@@ -9,12 +9,14 @@
                 {{ 'next_steps.register_troop'|trans }}
             </a>
         {% endif %}
-        <a href="{{ path('registration_pilgrim_form') }}" class="btn btn-default">
-            {{ 'next_steps.register_pilgrim'|trans }}
-        </a>
-        <a href="{{ path('registration_group_form') }}" class="btn btn-default">
-            {{ 'next_steps.register_group'|trans }}
-        </a>
+        {% if not pilgrimsLimitsExceeded %}
+            <a href="{{ path('registration_pilgrim_form') }}" class="btn btn-default">
+                {{ 'next_steps.register_pilgrim'|trans }}
+            </a>
+            <a href="{{ path('registration_group_form') }}" class="btn btn-default">
+                {{ 'next_steps.register_group'|trans }}
+            </a>
+        {% endif %}
         <a href="{{ _self.mainPage() }}" target="_blank" class="btn btn-default">
             {{ 'next_steps.volunteers_page'|trans }}
         </a>
