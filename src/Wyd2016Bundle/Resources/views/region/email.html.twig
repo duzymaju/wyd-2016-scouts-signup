@@ -4,7 +4,14 @@
     <ul>
         {% for volunteer in volunteers %}
             <li>
-                {{ volunteer.firstName }} {{ volunteer.lastName }} -
+                {{ volunteer.name }} (<a href="mailto:{{ volunteer.email }}">{{ volunteer.email }}</a>),
+                {% if volunteer.isTroopMember %}
+                    {% if volunteer.isTroopLeader %}
+                        {{ 'region_email.troop_leader'|trans({'%name%': volunteer.troop.name}) }},
+                    {% else %}
+                        {{ 'region_email.troop_member'|trans({'%name%': volunteer.troop.name}) }},
+                    {% endif %}
+                {% endif %}
                 {{ 'region_email.service'|trans }} {{ volunteer.serviceMainId|servicename }}
                 {% if volunteer.serviceExtraId %}/ {{ volunteer.serviceExtraId|servicename }}{% endif %}
             </li>

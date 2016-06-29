@@ -217,6 +217,8 @@ region_email.title.custom:              ŚDM 2016 - summary of last applications
 region_email.title.day:                 WYD 2016 - summary of yesterdays applications from region
 region_email.title.month:               WYD 2016 - summary of applications from region last month
 region_email.title.week:                WYD 2016 - summary of applications from region last week
+region_email.troop_leader:              '"%name%" troop leader'
+region_email.troop_member:              'troop "%name%"'
 
 success.registration.message:           Tus datos son ya guardados, para terminar la inscripción hay que confirmar con el link que te hemos enviado por el correo electrónico.
 success.supplement.message:             Your data was save successfully - thank you for adding necessary information.

@@ -232,6 +232,8 @@ region_email.title.custom:              ŚDM 2016 - podsumowanie ostatnich zgło
 region_email.title.day:                 ŚDM 2016 - podsumowanie wczorajszych zgłoszeń z chorągwi
 region_email.title.month:               ŚDM 2016 - podsumowanie zgłoszeń z chorągwi w zeszłym miesiącu
 region_email.title.week:                ŚDM 2016 - podsumowanie zgłoszeń z chorągwi w zeszłym tygodniu
+region_email.troop_leader:              'patrolowy patrolu "%name%"'
+region_email.troop_member:              'patrol "%name%"'
 
 success.registration.message:           Twoje dane zostały pomyślnie zapisane. Aby dokończyć rejestrację odbierz wiadomość e-mail, którą wysłaliśmy Ci na adres %email% i kliknij w link potwierdzenia. Jeśli podany adres e-mail jest niepoprawny, skontaktuj się z nami w celu skorygowania błędu.
 success.supplement.message:             Twoje dane zostały pomyślnie zapisane - dziękujemy za uzupełnienie niezbędnych informacji.
