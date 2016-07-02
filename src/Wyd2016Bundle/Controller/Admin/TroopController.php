@@ -8,10 +8,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Translation\TranslatorInterface;
 use Wyd2016Bundle\Entity\Repository\TroopRepository;
+use Wyd2016Bundle\Entity\Repository\VolunteerRepository;
 use Wyd2016Bundle\Entity\Troop;
+use Wyd2016Bundle\Exception\EditFormException;
 use Wyd2016Bundle\Exception\ExceptionInterface;
 use Wyd2016Bundle\Form\RegistrationLists;
 use Wyd2016Bundle\Form\Type\TroopEditType;
+use Wyd2016Bundle\Manager\ActionManager;
 use Wyd2016Bundle\Model\Action;
 
 /**
@@ -95,6 +98,7 @@ class TroopController extends AbstractController
         $troop = $troopRepository->findOneByOrException(array(
             'id' => $id,
         ));
+        $originalStatus = $troop->getStatus();
 
         /** @var TranslatorInterface $translator */
         $translator = $this->get('translator');
@@ -111,15 +115,24 @@ class TroopController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $troop->setUpdatedAt(new DateTime());
             try {
+                $this->prepareBandToUpdate($troop, $this->get('wyd2016bundle.volunteer.repository'), $originalStatus,
+                    'admin.edit.troop.member_status_error');
                 $troopRepository->update($troop, true);
-                $this->get('wyd2016bundle.manager.action')
-                    ->log(Action::TYPE_UPDATE_TROOP_DATA, $troop->getId(), $this->getUser());
+
+                /** @var ActionManager $actionManager */
+                $actionManager = $this->get('wyd2016bundle.manager.action');
+                foreach ($troop->getMembers() as $volunteer) {
+                    $actionManager->log(Action::TYPE_UPDATE_VOLUNTEER_DATA, $volunteer->getId(), $this->getUser());
+                }
+                $actionManager->log(Action::TYPE_UPDATE_TROOP_DATA, $troop->getId(), $this->getUser());
+
                 $this->addMessage('admin.edit.success', 'success');
                 $response = $this->softRedirect($this->generateUrl('admin_troop_show', array(
                     'id' => $id,
                 )));
+            } catch (EditFormException $e) {
+                $this->addMessage($e->getMessage(), 'error');
             } catch (ExceptionInterface $e) {
                 unset($e);
                 $this->addMessage('form.exception.database', 'error');

@@ -4,9 +4,11 @@ admin.country:                          Państwo
 admin.created_at:                       Czas utworzenia
 admin.district:                         Hufiec
 admin.edit.close:                       Zamknij
+admin.edit.group.member_status_error:   Nie możesz zmienić statusu grupy, ponieważ status co najmniej jednego z jej członków jest inny.
 admin.edit.group.title:                 Edycja grupy
 admin.edit.pilgrim.title:               Edycja pielgrzyma
 admin.edit.success:                     Dane zostały pomyślnie zapisane.
+admin.edit.troop.member_status_error:   Nie możesz zmienić statusu patrolu, ponieważ status co najmniej jednego z jego członków jest inny.
 admin.edit.troop.title:                 Edycja patrolu
 admin.edit.volunteer.title:             Edycja wolontariusza
 admin.get_list:                         Pobierz listę (CSV)

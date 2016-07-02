@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 use Wyd2016Bundle\Entity\Repository\BaseRepositoryInterface;
+use Wyd2016Bundle\Exception\EditFormException;
 use Wyd2016Bundle\Model\BandInterface;
 use Wyd2016Bundle\Model\ParticipantAbstract;
 
@@ -248,5 +249,38 @@ abstract class AbstractController extends Controller
         ));
 
         return $response;
+    }
+
+    /**
+     * Prepare band to update
+     *
+     * @param BandInterface           $band             band
+     * @param BaseRepositoryInterface $personRepository person repository
+     * @param integer                 $oldStatus        old status
+     * @param string                  $statusErrorLabel status error label
+     * 
+     * @throws EditFormException
+     */
+    protected function prepareBandToUpdate(BandInterface $band, BaseRepositoryInterface $personRepository, $oldStatus,
+        $statusErrorLabel)
+    {
+        $updateTime = new DateTime();
+        $band->setUpdatedAt($updateTime);
+
+        $memberStatuses = array();
+        foreach ($band->getMembers() as $member) {
+            $memberStatuses[] = $member->getStatus();
+            if ($member->getStatus() != $band->getStatus()) {
+                $member->setStatus($band->getStatus())
+                    ->setUpdatedAt($updateTime);
+                $personRepository->update($member);
+            }
+        }
+
+        $memberStatusList = array_unique($memberStatuses);
+        $memberStatus = reset($memberStatusList);
+        if (count($memberStatusList) != 1 || ($memberStatus != $oldStatus && $memberStatus != $band->getStatus())) {
+            throw new EditFormException($statusErrorLabel);
+        }
     }
 }

@@ -95,11 +95,13 @@ class PilgrimController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $pilgrim->setUpdatedAt(new DateTime());
             try {
+                $pilgrim->setUpdatedAt(new DateTime());
                 $pilgrimRepository->update($pilgrim, true);
+
                 $this->get('wyd2016bundle.manager.action')
                     ->log(Action::TYPE_UPDATE_PILGRIM_DATA, $pilgrim->getId(), $this->getUser());
+
                 $this->addMessage('admin.edit.success', 'success');
                 $response = $this->softRedirect($this->generateUrl('admin_pilgrim_show', array(
                     'id' => $id,

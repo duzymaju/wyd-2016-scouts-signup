@@ -130,11 +130,13 @@ class VolunteerController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $volunteer->setUpdatedAt(new DateTime());
             try {
+                $volunteer->setUpdatedAt(new DateTime());
                 $volunteerRepository->update($volunteer, true);
+
                 $this->get('wyd2016bundle.manager.action')
                     ->log(Action::TYPE_UPDATE_VOLUNTEER_DATA, $volunteer->getId(), $this->getUser());
+
                 $this->addMessage('admin.edit.success', 'success');
                 $response = $this->softRedirect($this->generateUrl('admin_volunteer_show', array(
                     'id' => $id,

@@ -4,9 +4,11 @@ admin.country:                          Country
 admin.created_at:                       Created time
 admin.district:                         District
 admin.edit.close:                       Close
+admin.edit.group.member_status_error:   You can't change group status because at least one of its members has different one.
 admin.edit.group.title:                 Group edit
 admin.edit.pilgrim.title:               Pilgrim edit
 admin.edit.success:                     Data was successfuly saved.
+admin.edit.troop.member_status_error:   You can't change troop status because at least one of its members has different one.
 admin.edit.troop.title:                 Troop edit
 admin.edit.volunteer.title:             Volunteer edit
 admin.get_list:                         Get list (CSV)
