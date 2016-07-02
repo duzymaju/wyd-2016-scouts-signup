@@ -10,7 +10,7 @@
     {% elseif not troop.confirmed and troop.createdAt != troop.updatedAt %}
         {{ globalMacro.message('admin.reminder.sent_date'|trans({'%date%': troop.updatedAt|date('Y-m-d')}), 'message') }}
     {% endif %}
-    <h1>{{ 'admin.troop'|trans }}</h1>
+    {{ macro.showHeader('admin.troop'|trans, path('admin_troop_edit', {id: troop.id})) }}
     <dl class="list">
         <dt>{{ 'form.status'|trans }}:</dt>
         <dd>
@@ -79,4 +79,5 @@
         <dt>{{ 'admin.created_at'|trans }}:</dt>
         <dd>{{ troop.createdAt|date('Y-m-d') }}</dd>
     </dl>
+    {{ macro.editFormModal() }}
 {% endblock %}

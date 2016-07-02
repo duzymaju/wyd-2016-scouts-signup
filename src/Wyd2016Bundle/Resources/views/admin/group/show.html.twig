@@ -1,7 +1,8 @@
 {% extends 'Wyd2016Bundle:admin:_template.html.twig' %}
+{% import 'Wyd2016Bundle:admin:_macro.html.twig' as macro %}
 
 {% block content %}
-    <h1>{{ 'admin.group'|trans }}</h1>
+    {{ macro.showHeader('admin.group'|trans, path('admin_group_edit', {id: group.id})) }}
     <dl class="list">
         <dt>{{ 'form.status'|trans }}:</dt>
         <dd>{{ group.status|statusname }}</dd>
@@ -24,4 +25,5 @@
         <dt>{{ 'admin.created_at'|trans }}:</dt>
         <dd>{{ group.createdAt|date('Y-m-d') }}</dd>
     </dl>
+    {{ macro.editFormModal() }}
 {% endblock %}

@@ -2,10 +2,17 @@
 
 namespace Wyd2016Bundle\Controller\Admin;
 
+use DateTime;
 use Doctrine\ORM\Tools\Pagination\Paginator;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Wyd2016Bundle\Entity\Repository\PilgrimRepository;
+use Symfony\Component\Translation\TranslatorInterface;
 use Wyd2016Bundle\Entity\Pilgrim;
+use Wyd2016Bundle\Entity\Repository\PilgrimRepository;
+use Wyd2016Bundle\Exception\ExceptionInterface;
+use Wyd2016Bundle\Form\RegistrationLists;
+use Wyd2016Bundle\Form\Type\PilgrimEditType;
+use Wyd2016Bundle\Model\Action;
 use Wyd2016Bundle\Twig\WydExtension;
 
 /**
@@ -54,6 +61,62 @@ class PilgrimController extends AbstractController
             'ageLimit' => $this->getParameter('wyd2016.age.limit'),
             'pilgrim' => $pilgrim,
         ));
+    }
+
+    /**
+     * Edit action
+     *
+     * @param Request $request request
+     * @param integer $id      ID
+     *
+     * @return Response
+     */
+    public function editAction(Request $request, $id)
+    {
+        /** @var PilgrimRepository $pilgrimRepository */
+        $pilgrimRepository = $this->get('wyd2016bundle.pilgrim.repository');
+        /** @var Pilgrim $pilgrim */
+        $pilgrim = $pilgrimRepository->findOneByOrException(array(
+            'id' => $id,
+        ));
+
+        /** @var TranslatorInterface $translator */
+        $translator = $this->get('translator');
+        /** @var RegistrationLists $registrationLists */
+        $registrationLists = $this->get('wyd2016bundle.registration.lists');
+        $formType = new PilgrimEditType($translator, $registrationLists);
+
+        $form = $this->createForm($formType, $pilgrim, array(
+            'action' => $this->generateUrl('admin_pilgrim_edit', array(
+                'id' => $id,
+            )),
+            'method' => 'POST',
+        ));
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $pilgrim->setUpdatedAt(new DateTime());
+            try {
+                $pilgrimRepository->update($pilgrim, true);
+                $this->get('wyd2016bundle.manager.action')
+                    ->log(Action::TYPE_UPDATE_PILGRIM_DATA, $pilgrim->getId(), $this->getUser());
+                $this->addMessage('admin.edit.success', 'success');
+                $response = $this->softRedirect($this->generateUrl('admin_pilgrim_show', array(
+                    'id' => $id,
+                )));
+            } catch (ExceptionInterface $e) {
+                unset($e);
+                $this->addMessage('form.exception.database', 'error');
+            }
+        }
+        if (!isset($response)) {
+            $this->addErrorMessage($form);
+            $response = $this->render('Wyd2016Bundle::admin/pilgrim/edit.html.twig', array(
+                'form' => $form->createView(),
+            ));
+        }
+
+        return $response;
     }
 
     /**

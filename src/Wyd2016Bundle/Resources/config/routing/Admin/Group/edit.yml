@@ -1,0 +1,7 @@
+admin_group_edit:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin/Group:edit
+    methods:                            [GET|POST]
+    path:                               /admin/group/{id}/edit
+    requirements:
+        id:                             \d+

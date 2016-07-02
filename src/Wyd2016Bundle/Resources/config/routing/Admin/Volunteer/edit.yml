@@ -1,0 +1,7 @@
+admin_volunteer_edit:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin/Volunteer:edit
+    methods:                            [GET|POST]
+    path:                               /admin/volunteer/{id}/edit
+    requirements:
+        id:                             \d+

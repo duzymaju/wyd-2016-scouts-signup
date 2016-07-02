@@ -81,3 +81,27 @@
         -
     {% endif %}
 {% endmacro %}
+
+{% macro showHeader(title, editFormPath, id = 'edit-button', modalId = 'edit-form') %}
+    <header class="show-header">
+        <h1>{{ title }}</h1>
+        <span id="{{ id }}" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#{{ modalId }}"
+            data-edit-path="{{ editFormPath }}">
+            <i class="glyphicon glyphicon-pencil"></i>
+        </span>
+    </header>
+{% endmacro %}
+
+{% macro editFormModal(id = 'edit-form') %}
+    <div class="modal fade" id="{{ id }}" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" data-waiting="{{ _self.modalWaiting()|e }}"></div>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro modalWaiting() %}
+    <div class="waiting">
+        <i class="glyphicon glyphicon-cog"></i>
+    </div>
+{% endmacro %}

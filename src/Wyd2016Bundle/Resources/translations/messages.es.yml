@@ -3,7 +3,12 @@ admin.command:                          %name% command
 admin.country:                          Country
 admin.created_at:                       Created time
 admin.district:                         District
-admin.show:                             Show
+admin.edit.close:                       Close
+admin.edit.group.title:                 Group edit
+admin.edit.pilgrim.title:               Pilgrim edit
+admin.edit.success:                     Data was successfuly saved.
+admin.edit.troop.title:                 Troop edit
+admin.edit.volunteer.title:             Volunteer edit
 admin.get_list:                         Get list (CSV)
 admin.group:                            Group
 admin.group_leader:                     troop leader
@@ -33,6 +38,7 @@ admin.search.query:                     "Query:"
 admin.search.submit:                    Search
 admin.search.type:                      "Type:"
 admin.service:                          Service
+admin.show:                             Show
 admin.stats.countries:                  Volunteers by country
 admin.stats.languages:                  Volunteers by languages
 admin.stats.permissions:                Volunteers by permissions
@@ -221,7 +227,7 @@ region_email.troop_leader:              '"%name%" troop leader'
 region_email.troop_member:              'troop "%name%"'
 
 success.registration.message:           Tus datos son ya guardados, para terminar la inscripción hay que confirmar con el link que te hemos enviado por el correo electrónico.
-success.supplement.message:             Your data was save successfully - thank you for adding necessary information.
+success.supplement.message:             Your data was successfuly saved - thank you for adding necessary information.
 success.title:                          Gracias por su inscripción
 
 supplement.footer:                      |

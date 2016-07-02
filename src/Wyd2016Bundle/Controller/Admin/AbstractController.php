@@ -5,6 +5,7 @@ namespace Wyd2016Bundle\Controller\Admin;
 use DateTime;
 use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -201,5 +202,51 @@ abstract class AbstractController extends Controller
         }
 
         return $criteria;
+    }
+
+    /**
+     * Add error message
+     *
+     * @param FormInterface $form
+     */
+    protected function addErrorMessage(FormInterface $form)
+    {
+        if ($form->isSubmitted() && !$form->isValid()) {
+            $this->addMessage('form.errors', 'error');
+        }
+    }
+
+    /**
+     * Add message
+     *
+     * @param string $message message
+     * @param string $type    type
+     *
+     * @return self
+     */
+    protected function addMessage($message, $type = 'message')
+    {
+        $this->get('session')
+            ->getFlashBag()
+            ->add($type, $message);
+
+        return $this;
+    }
+
+    /**
+     * Soft redirect
+     *
+     * @param string $url URL
+     *
+     * @return Response
+     */
+    protected function softRedirect($url)
+    {
+        $response = new Response('', Response::HTTP_OK, array(
+            'Access-Control-Allow-Headers' => 'X-Location',
+            'X-Location' => $url,
+        ));
+
+        return $response;
     }
 }

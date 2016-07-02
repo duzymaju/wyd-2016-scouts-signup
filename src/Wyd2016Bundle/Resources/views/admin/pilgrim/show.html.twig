@@ -1,7 +1,8 @@
 {% extends 'Wyd2016Bundle:admin:_template.html.twig' %}
+{% import 'Wyd2016Bundle:admin:_macro.html.twig' as macro %}
 
 {% block content %}
-    <h1>{{ 'admin.pilgrim'|trans }}</h1>
+    {{ macro.showHeader('admin.pilgrim'|trans, path('admin_pilgrim_edit', {id: pilgrim.id})) }}
     <dl class="list">
         <dt>{{ 'form.status'|trans }}:</dt>
         <dd>{{ pilgrim.status|statusname }}</dd>
@@ -39,4 +40,5 @@
         <dt>{{ 'admin.created_at'|trans }}:</dt>
         <dd>{{ pilgrim.createdAt|date('Y-m-d') }}</dd>
     </dl>
+    {{ macro.editFormModal() }}
 {% endblock %}

@@ -10,7 +10,7 @@
     {% elseif not volunteer.confirmed and volunteer.createdAt != volunteer.updatedAt %}
         {{ globalMacro.message('admin.reminder.sent_date'|trans({'%date%': volunteer.updatedAt|date('Y-m-d')}), 'message') }}
     {% endif %}
-    <h1>{{ 'admin.volunteer'|trans }}</h1>
+    {{ macro.showHeader('admin.volunteer'|trans, path('admin_volunteer_edit', {id: volunteer.id})) }}
     <dl class="list">
         <dt>{{ 'form.status'|trans }}:</dt>
         <dd>
@@ -104,4 +104,5 @@
         <dt>{{ 'admin.created_at'|trans }}:</dt>
         <dd>{{ volunteer.createdAt|date('Y-m-d') }}</dd>
     </dl>
+    {{ macro.editFormModal() }}
 {% endblock %}

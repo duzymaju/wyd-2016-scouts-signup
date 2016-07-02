@@ -30,3 +30,39 @@ dl.list ul li {
     padding-top: 10px;
     text-align: right;
 }
+
+.show-header {
+    overflow: hidden;
+}
+.show-header h1,
+.show-header .btn {
+    float: left;
+}
+.show-header .btn {
+    margin: 30px 20px 0;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+.modal .waiting {
+    -webkit-animation: rotate 1s infinite linear;
+    animation: rotate 2s infinite linear;
+    color: #ccc;
+    font-size: 50px;
+    height: 60px;
+    line-height: 50px;
+    margin: 60px auto;
+    text-align: center;
+    width: 60px;
+}
+.modal .waiting .glyphicon {
+    top: 5px;
+}

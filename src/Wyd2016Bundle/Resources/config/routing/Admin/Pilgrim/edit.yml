@@ -1,0 +1,7 @@
+admin_pilgrim_edit:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin/Pilgrim:edit
+    methods:                            [GET|POST]
+    path:                               /admin/pilgrim/{id}/edit
+    requirements:
+        id:                             \d+

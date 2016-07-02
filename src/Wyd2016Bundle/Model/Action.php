@@ -13,6 +13,12 @@ class Action
     const TYPE_GET_API_VOLUNTEER = 'get_api_volunteer';
 
     /** @const string */
+    const TYPE_UPDATE_GROUP_DATA = 'update_group_data';
+
+    /** @const string */
+    const TYPE_UPDATE_PILGRIM_DATA = 'update_pilgrim_data';
+
+    /** @const string */
     const TYPE_UPDATE_TROOP_DATA = 'update_troop_data';
 
     /** @const string */

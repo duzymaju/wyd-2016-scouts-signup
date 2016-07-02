@@ -3,7 +3,12 @@ admin.command:                          Komenda %name%
 admin.country:                          Państwo
 admin.created_at:                       Czas utworzenia
 admin.district:                         Hufiec
-admin.show:                             Pokaż
+admin.edit.close:                       Zamknij
+admin.edit.group.title:                 Edycja grupy
+admin.edit.pilgrim.title:               Edycja pielgrzyma
+admin.edit.success:                     Dane zostały pomyślnie zapisane.
+admin.edit.troop.title:                 Edycja patrolu
+admin.edit.volunteer.title:             Edycja wolontariusza
 admin.get_list:                         Pobierz listę (CSV)
 admin.group:                            Grupa
 admin.group_leader:                     opiekun grupy
@@ -33,6 +38,7 @@ admin.search.query:                     "Zapytanie:"
 admin.search.submit:                    Szukaj
 admin.search.type:                      "Typ:"
 admin.service:                          Służba
+admin.show:                             Pokaż
 admin.stats.countries:                  Wolontariusze po państwie
 admin.stats.languages:                  Wolontariusze po języku
 admin.stats.permissions:                Wolontariusze po uprawnieniach
