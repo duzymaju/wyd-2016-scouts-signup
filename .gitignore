@@ -10,6 +10,5 @@
 /nbproject/
 /vendor/
 /public_html/bundles/
-/public_html/css/x-admin.min.css
-/public_html/css/x-registration.min.css
-/public_html/js/x-registration.min.js
+/public_html/css/x-*.css
+/public_html/js/x-*.js

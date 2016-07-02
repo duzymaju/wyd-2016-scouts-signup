@@ -1,6 +1,9 @@
 # Desc: /admin/format-data
 admin_format_data: /admin/format-data
 
+# Desc: /admin/group/{id}/edit
+admin_group_edit: '/admin/group/{id}/edit'
+
 # Desc: /admin/groups/{pageNo}
 admin_group_index: '/admin/groups/{pageNo}'
 
@@ -12,6 +15,9 @@ admin_index: /admin
 
 # Desc: /admin/notify-regions/{period}
 admin_notify_regions: '/admin/notify-regions/{period}'
+
+# Desc: /admin/pilgrim/{id}/edit
+admin_pilgrim_edit: '/admin/pilgrim/{id}/edit'
 
 # Desc: /admin/pilgrims/{pageNo}
 admin_pilgrim_index: '/admin/pilgrims/{pageNo}'
@@ -28,11 +34,17 @@ admin_search_index: /admin/search
 # Desc: /admin/supplement-link-send/{set}
 admin_supplement_link_send: '/admin/supplement-link-send/{set}'
 
+# Desc: /admin/troop/{id}/edit
+admin_troop_edit: '/admin/troop/{id}/edit'
+
 # Desc: /admin/troops/{pageNo}
 admin_troop_index: '/admin/troops/{pageNo}'
 
 # Desc: /admin/troop/{id}
 admin_troop_show: '/admin/troop/{id}'
+
+# Desc: /admin/volunteer/{id}/edit
+admin_volunteer_edit: '/admin/volunteer/{id}/edit'
 
 # Desc: /admin/volunteers/{pageNo}
 admin_volunteer_index: '/admin/volunteers/{pageNo}'
