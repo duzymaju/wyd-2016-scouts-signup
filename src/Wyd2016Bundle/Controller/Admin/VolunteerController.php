@@ -237,7 +237,7 @@ class VolunteerController extends AbstractController
                 $this->getPermissionsList($volunteer->getPermissions(), $filters),
                 $volunteer->getOtherPermissions(),
                 $volunteer->getProfession(),
-                $filters->pilgrimDateFilter($volunteer->getDatesId()),
+                $filters->volunteerDateFilter($volunteer->getDatesId()),
                 empty($volunteer->getComments()) ? '-' : $volunteer->getComments(),
                 $volunteer->getTroop() ? $volunteer->getTroop()
                     ->getName() : '-',
