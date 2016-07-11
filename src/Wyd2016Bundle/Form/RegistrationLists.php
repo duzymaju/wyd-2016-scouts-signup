@@ -82,6 +82,7 @@ class RegistrationLists
             ParticipantAbstract::STATUS_NOT_CONFIRMED => $this->translator->trans('form.status.not_confirmed'),
             ParticipantAbstract::STATUS_CONFIRMED => $this->translator->trans('form.status.confirmed'),
             ParticipantAbstract::STATUS_PAYED => $this->translator->trans('form.status.payed'),
+            ParticipantAbstract::STATUS_RESIGNED => $this->translator->trans('form.status.resigned'),
         );
 
         return $statuses;

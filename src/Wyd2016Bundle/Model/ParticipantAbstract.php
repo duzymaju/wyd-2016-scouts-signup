@@ -16,6 +16,9 @@ abstract class ParticipantAbstract
     const STATUS_PAYED = 2;
 
     /** @const integer */
+    const STATUS_RESIGNED = 6;
+
+    /** @const integer */
     const STATUS_NOT_CONFIRMED = 0;
     
     /** @var integer */
@@ -72,6 +75,16 @@ abstract class ParticipantAbstract
     public function isPayed()
     {
         return $this->status >= self::STATUS_PAYED;
+    }
+
+    /**
+     * Is resigned
+     *
+     * @return boolean
+     */
+    public function isResigned()
+    {
+        return $this->status >= self::STATUS_RESIGNED;
     }
 
     /**

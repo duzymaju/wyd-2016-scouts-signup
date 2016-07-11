@@ -170,6 +170,7 @@ form.status:                            Status
 form.status.confirmed:                  Confirmed
 form.status.not_confirmed:              Not confirmed
 form.status.payed:                      Payed
+form.status.resigned:                   Resigned
 form.tip.email:                         We will use this e-mail address to send you confirmation link - make sure that this address is correct.
 form.tip.other_permissions:             E.g. first aid course, security service course etc.
 form.tip.service_extra_id:              It have to be different than previously selected one.
