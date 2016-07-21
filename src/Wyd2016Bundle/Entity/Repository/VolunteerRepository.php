@@ -34,13 +34,14 @@ class VolunteerRepository extends EntityRepository implements BaseRepositoryInte
     }
 
     /**
-     * Get all ordered by
+     * Get full info by
      *
-     * @param array|null $orderBy order by
+     * @param array $criteria criteria
+     * @param array $orderBy  order by
      *
      * @return array
      */
-    public function getAllOrderedBy(array $orderBy = null)
+    public function getFullInfoBy(array $criteria = array(), array $orderBy = array())
     {
         /** @var QueryBuilder $qb */
         $qb = $this->createQueryBuilder('v')
@@ -48,11 +49,45 @@ class VolunteerRepository extends EntityRepository implements BaseRepositoryInte
             ->leftJoin('v.troop', 't')
             ->leftJoin('v.languages', 'l')
             ->leftJoin('v.permissions', 'p');
+        foreach ($criteria as $column => $value) {
+            $columnParts = explode('.', $column);
+            $sign = count($columnParts) == 2 ? array_pop($columnParts) : null;
+            $column = array_shift($columnParts);
+            if (is_array($value)) {
+                $condition = 'v.' . $column . ($sign == 'not' ? ' NOT' : '') . ' IN (:' . $column . ')';
+            } elseif ($sign == 'lt') {
+                $condition = 'v.' . $column . ' < :' . $column;
+            } elseif ($sign == 'gt') {
+                $condition = 'v.' . $column . ' > :' . $column;
+            } elseif ($sign == 'lte') {
+                $condition = 'v.' . $column . ' <= :' . $column;
+            } elseif ($sign == 'gte') {
+                $condition = 'v.' . $column . ' >= :' . $column;
+            } else {
+                $condition = 'v.' . $column . ' = :' . $column;
+            }
+            $qb->andWhere($condition)
+                ->setParameter($column, $value);
+        }
         foreach ($orderBy as $column => $direction) {
             $qb->addOrderBy('v.' . $column, $direction);
         }
         $results = $qb->getQuery()
             ->getResult();
+
+        return $results;
+    }
+
+    /**
+     * Get all ordered by
+     *
+     * @param array $orderBy order by
+     *
+     * @return array
+     */
+    public function getAllOrderedBy(array $orderBy = array())
+    {
+        $results = $this->getFullInfoBy(array(), $orderBy);
 
         return $results;
     }

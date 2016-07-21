@@ -23,6 +23,9 @@ use Wyd2016Bundle\Twig\WydExtension;
  */
 class VolunteerController extends AbstractController
 {
+    /** @var integer[] */
+    protected $adultsIndividual = [2, 7, 8, 13, 14, 15, 16, 17, 18, 20, 21, 22, 30, 31, 33, 35, 36, 37, 38, 40, 41, 42, 44, 46, 47, 48, 49, 52, 53, 55, 56, 57, 58, 60, 61, 62, 63, 69, 72, 77, 78, 81, 82, 83, 85, 87, 88, 89, 90, 91, 92, 93, 97, 102, 103, 107, 108, 111, 112, 113, 114, 115, 118, 120, 122, 123, 124, 127, 129, 130, 131, 133, 136, 139, 140, 141, 143, 149, 151, 152, 155, 156, 157, 159, 160, 164, 169, 170, 171, 172, 173, 174, 175, 177, 179, 180, 181, 182, 183, 184, 186, 187, 188, 189, 190, 191, 192, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 210, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 237, 238, 240, 241, 242, 243, 247, 248, 250, 251, 252, 253, 256, 259, 265, 266, 267, 268, 269, 272, 276, 277, 278, 280, 284, 285, 286, 289, 290, 291, 293, 294, 295, 296, 300, 302, 303, 305, 306, 310, 313, 315, 321, 322, 326, 327, 328, 329, 330, 333, 334, 335, 336, 337, 338, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 359, 361, 362, 363, 364, 365, 366, 371, 372, 373, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 401, 402, 403, 404, 405, 406, 409, 410, 412, 413, 424, 426, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 461, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 479, 482, 488, 489, 490, 491, 493, 498, 499, 506, 507, 511, 520, 526, 527, 532, 533, 537, 538, 540, 541, 542, 543, 544, 545, 547, 550, 552, 562, 563, 564, 565, 566, 567, 568, 569, 570, 575, 576, 577, 578, 579, 580, 581, 584, 585, 586, 587, 590, 593, 594, 596, 597, 601, 602, 603, 606, 607, 608, 611, 613, 616, 622, 627, 631, 632, 633, 634, 635, 645, 647, 651, 654, 658, 665, 666, 667, 684, 689, 691, 692, 694, 695, 696, 697, 698, 699, 700, 701, 702, 703, 704, 717, 718, 735, 737, 738, 744, 745, 746, 748, 752, 753, 755, 757, 759, 760, 763, 764, 765, 766, 767, 768, 777, 781, 785, 788, 790, 793, 795, 797, 798, 806, 807, 808, 809, 810, 811, 816, 822, 823, 824, 825, 826, 828];
+
     /**
      * Index action
      *
@@ -169,10 +172,43 @@ class VolunteerController extends AbstractController
         $translator = $this->get('translator');
         /** @var WydExtension $filters */
         $filters = $this->get('wyd2016bundle.twig_extension.wyd');
-        $volunteers = $this->getRepository()
-            ->getAllOrderedBy(array(
-                'createdAt' => 'DESC',
-            ));
+        $volunteersRepository = $this->getRepository();
+
+        $type = $request->query->get('type');
+        $wydAdult = $this->getParameter('wyd2016.wyd_adult');
+        $orderBy = array(
+            'createdAt' => 'DESC',
+        );
+        switch ($type) {
+            case 'adultsIndividual':
+            case 'adults':
+                $volunteers = $volunteersRepository->getFullInfoBy(array(
+                    'id' => $this->adultsIndividual,
+                    'birthDate.lt' => $wydAdult,
+                ), $orderBy);
+                $type = 'adultsIndividual';
+                break;
+
+            case 'adultsAsGroup':
+                $volunteers = $volunteersRepository->getFullInfoBy(array(
+                    'id.not' => $this->adultsIndividual,
+                    'birthDate.lt' => $wydAdult,
+                ), $orderBy);
+                break;
+
+            case 'childrenAsGroup':
+            case 'children':
+                $volunteers = $volunteersRepository->getFullInfoBy(array(
+                    'birthDate.gte' => $wydAdult,
+                ), $orderBy);
+                $type = 'children';
+                break;
+
+            case 'all':
+            default:
+                $volunteers = $volunteersRepository->getAllOrderedBy($orderBy);
+                $type = null;
+        }
 
         $showPesel = (boolean) $request->query->get('showPesel');
 
@@ -246,7 +282,7 @@ class VolunteerController extends AbstractController
             );
         }
 
-        return $this->getCsvResponse($data, 'volunteer_list');
+        return $this->getCsvResponse($data, 'volunteer_list' . (empty($type) ? '' : '_' . $type));
     }
 
     /**
