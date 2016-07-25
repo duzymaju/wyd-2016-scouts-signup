@@ -1,0 +1,230 @@
+{% extends 'Wyd2016Bundle:admin:_template.html.twig' %}
+
+{% block content %}
+    <h1>{{ 'admin.search'|trans }}</h1>
+    {{ form_start(form, {attr: {id: 'search-form', class: 'row'}}) }}
+        <div class="search-form-cell col-sm-3">
+            {{ form_row(form.type) }}
+        </div>
+        <div class="search-form-cell col-sm-9">
+            {{ form_row(form.query) }}
+        </div>
+        <div class="search-form-submit col-xs-12">
+            {{ form_row(form.search) }}
+        </div>
+    {{ form_end(form) }}
+    {% if results.volunteer is defined %}
+        <h2>
+            {% block search_header %}
+                {% if results.volunteer is iterable %}
+                    <a href="{{ path('admin_volunteer_index') }}">{{ 'admin.volunteers'|trans }}</a>
+                    ({{ 'admin.search.query'|trans|lower }} "{{ query }}")
+                    - {{ 'admin.people_number'|transchoice(results.volunteer|length) }}
+                {% endif %}
+            {% endblock %}
+        </h2>
+        {% if results.volunteer is iterable %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>{{ 'admin.name'|trans }}</th>
+                        <th>{{ 'form.status'|trans }}</th>
+                        <th>{{ 'admin.created_at'|trans }}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for volunteer in results.volunteer %}
+                        <tr>
+                            <td>
+                                <a href="{{ path('admin_volunteer_show', {id: volunteer.id}) }}">{{ volunteer.name }}</a>
+                                {% if volunteer.troop %}
+                                    (<a href="{{ path('admin_troop_show', {id: volunteer.troop.id}) }}">
+                                        {{- volunteer.troop.name -}}
+                                    </a>)
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{{ path('admin_volunteer_index', {status: volunteer.status}) }}">
+                                    {{ volunteer.status|statusname }}
+                                </a>
+                            </td>
+                            <td>{{ volunteer.createdAt|date('Y-m-d') }}</td>
+                            <td>
+                                <a href="{{ path('admin_volunteer_show', {id: volunteer.id}) }}" class="btn btn-default btn-xs"
+                                    title="{{ 'admin.show'|trans }}">
+                                    <i class="glyphicon glyphicon-file"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">
+                                {{ 'admin.list.empty'|trans }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>{{ 'admin.search.no_query'|trans }}</p>
+        {% endif %}
+    {% endif %}
+    {% if results.pilgrim is defined %}
+        <h2>
+            {% if results.pilgrim is iterable %}
+                <a href="{{ path('admin_pilgrim_index') }}">{{ 'admin.pilgrims'|trans }}</a>
+                ({{ 'admin.search.query'|trans|lower }} "{{ query }}")
+                - {{ 'admin.people_number'|transchoice(results.pilgrim|length) }}
+            {% endif %}
+        </h2>
+        {% if results.pilgrim is iterable %}
+            <table class="table table-striped">
+                <thead>
+                    {% block search_results_header %}
+                        <tr>
+                            <th>{{ 'admin.name'|trans }}</th>
+                            <th>{{ 'form.status'|trans }}</th>
+                            <th>{{ 'admin.created_at'|trans }}</th>
+                            <th></th>
+                        </tr>
+                    {% endblock %}
+                </thead>
+                <tbody>
+                    {% for pilgrim in results.pilgrim %}
+                        <tr>
+                            <td>
+                                <a href="{{ path('admin_pilgrim_show', {id: pilgrim.id}) }}">{{ pilgrim.name }}</a>
+                                {% if pilgrim.group %}
+                                    (<a href="{{ path('admin_group_show', {id: pilgrim.group.id}) }}">
+                                        {{- pilgrim.group.name -}}
+                                    </a>)
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{{ path('admin_pilgrim_index', {status: pilgrim.status}) }}">
+                                    {{ pilgrim.status|statusname }}
+                                </a>
+                            </td>
+                            <td>{{ pilgrim.createdAt|date('Y-m-d') }}</td>
+                            <td>
+                                <a href="{{ path('admin_pilgrim_show', {id: pilgrim.id}) }}" class="btn btn-default btn-xs"
+                                    title="{{ 'admin.show'|trans }}">
+                                    <i class="glyphicon glyphicon-file"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">
+                                {{ 'admin.list.empty'|trans }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>{{ 'admin.search.no_query'|trans }}</p>
+        {% endif %}
+    {% endif %}
+    {% if results.troop is defined %}
+        <h2>
+            {% if results.troop is iterable %}
+                <a href="{{ path('admin_troop_index') }}">{{ 'admin.troops'|trans }}</a>
+                ({{ 'admin.search.query'|trans|lower }} "{{ query }}")
+                - {{ results.troop|length }}
+            {% endif %}
+        </h2>
+        {% if results.troop is iterable %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>{{ 'admin.name'|trans }}</th>
+                        <th>{{ 'form.status'|trans }}</th>
+                        <th>{{ 'admin.created_at'|trans }}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for troop in results.troop %}
+                        <tr>
+                            <td>
+                                <a href="{{ path('admin_troop_show', {id: troop.id}) }}">{{ troop.name }}</a>
+                            </td>
+                            <td>
+                                <a href="{{ path('admin_troop_index', {status: troop.status}) }}">
+                                    {{ troop.status|statusname }}
+                                </a>
+                            </td>
+                            <td>{{ troop.createdAt|date('Y-m-d') }}</td>
+                            <td>
+                                <a href="{{ path('admin_troop_show', {id: troop.id}) }}" class="btn btn-default btn-xs"
+                                    title="{{ 'admin.show'|trans }}">
+                                    <i class="glyphicon glyphicon-file"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">
+                                {{ 'admin.list.empty'|trans }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>{{ 'admin.search.no_query'|trans }}</p>
+        {% endif %}
+    {% endif %}
+    {% if results.group is defined %}
+        <h2>
+            {% if results.group is iterable %}
+                <a href="{{ path('admin_group_index') }}">{{ 'admin.groups'|trans }}</a>
+                ({{ 'admin.search.query'|trans|lower }} "{{ query }}")
+                - {{ results.group|length }}
+            {% endif %}
+        </h2>
+        {% if results.group is iterable %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>{{ 'admin.name'|trans }}</th>
+                        <th>{{ 'form.status'|trans }}</th>
+                        <th>{{ 'admin.created_at'|trans }}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for group in results.group %}
+                        <tr>
+                            <td>
+                                <a href="{{ path('admin_group_show', {id: group.id}) }}">{{ group.name }}</a>
+                            </td>
+                            <td>
+                                <a href="{{ path('admin_group_index', {status: group.status}) }}">
+                                    {{ group.status|statusname }}
+                                </a>
+                            </td>
+                            <td>{{ group.createdAt|date('Y-m-d') }}</td>
+                            <td>
+                                <a href="{{ path('admin_group_show', {id: group.id}) }}" class="btn btn-default btn-xs"
+                                    title="{{ 'admin.show'|trans }}">
+                                    <i class="glyphicon glyphicon-file"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4">
+                                {{ 'admin.list.empty'|trans }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>{{ 'admin.search.no_query'|trans }}</p>
+        {% endif %}
+    {% endif %}
+{% endblock %}

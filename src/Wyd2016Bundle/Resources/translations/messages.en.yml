@@ -1,4 +1,5 @@
 admin.age_at_limit:                     Age at %date%
+admin.all:                              All
 admin.command:                          %name% command
 admin.country:                          Country
 admin.created_at:                       Created time

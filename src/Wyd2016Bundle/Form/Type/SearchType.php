@@ -9,6 +9,21 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 class SearchType extends AbstractType
 {
+    /** @const string */
+    const CHOICE_ALL = 'all';
+
+    /** @const string */
+    const CHOICE_GROUP = 'group';
+
+    /** @const string */
+    const CHOICE_PILGRIM = 'pilgrim';
+
+    /** @const string */
+    const CHOICE_TROOP = 'troop';
+
+    /** @const string */
+    const CHOICE_VOLUNTEER = 'volunteer';
+
     /**
      * {@inheritdoc}
      */
@@ -21,10 +36,11 @@ class SearchType extends AbstractType
                 'class' => 'form-control',
             ),
             'choices' => array(
-                'volunteer' => $this->translator->trans('admin.volunteer'),
-                'pilgrim' => $this->translator->trans('admin.pilgrim'),
-                'troop' => $this->translator->trans('admin.troop'),
-                'group' => $this->translator->trans('admin.group'),
+                self::CHOICE_ALL => $this->translator->trans('admin.all'),
+                self::CHOICE_VOLUNTEER => $this->translator->trans('admin.volunteer'),
+                self::CHOICE_PILGRIM => $this->translator->trans('admin.pilgrim'),
+                self::CHOICE_TROOP => $this->translator->trans('admin.troop'),
+                self::CHOICE_GROUP => $this->translator->trans('admin.group'),
             ),
             'label' => $this->translator->trans('admin.search.type'),
         ))->add('query', 'text', array(

@@ -36,7 +36,7 @@ class SearchController extends AbstractController
         ));
         $form->handleRequest($request);
 
-        $type = 'volunteer';
+        $type = SearchType::CHOICE_ALL;
         if ($form->isValid()) {
             $type = $form->get('type')
                 ->getData();
@@ -50,14 +50,29 @@ class SearchController extends AbstractController
                 }
             }
 
-            $results = $this->getRepository($type)
-                ->searchBy($queries);
+            if ($type == SearchType::CHOICE_ALL) {
+                $results = array(
+                    SearchType::CHOICE_VOLUNTEER => $this->getRepository(SearchType::CHOICE_VOLUNTEER)
+                        ->searchBy($queries),
+                    SearchType::CHOICE_PILGRIM => $this->getRepository(SearchType::CHOICE_PILGRIM)
+                        ->searchBy($queries),
+                    SearchType::CHOICE_TROOP => $this->getRepository(SearchType::CHOICE_TROOP)
+                        ->searchBy($queries),
+                    SearchType::CHOICE_GROUP => $this->getRepository(SearchType::CHOICE_GROUP)
+                        ->searchBy($queries),
+                );
+            } else {
+                $results = array(
+                    $type => $this->getRepository($type)
+                        ->searchBy($queries),
+                );
+            }
         } else {
             $query = null;
             $results = null;
         }
 
-        return $this->render('Wyd2016Bundle::admin/search/' . $type . '.html.twig', array(
+        return $this->render('Wyd2016Bundle::admin/search.html.twig', array(
             'form' => $form->createView(),
             'query' => $query,
             'results' => $results,
@@ -76,19 +91,19 @@ class SearchController extends AbstractController
     protected function getRepository($type)
     {
         switch ($type) {
-            case 'group':
+            case SearchType::CHOICE_GROUP:
                 $serviceName = 'wyd2016bundle.group.repository';
                 break;
 
-            case 'pilgrim':
+            case SearchType::CHOICE_PILGRIM:
                 $serviceName = 'wyd2016bundle.pilgrim.repository';
                 break;
 
-            case 'troop':
+            case SearchType::CHOICE_TROOP:
                 $serviceName = 'wyd2016bundle.troop.repository';
                 break;
 
-            case 'volunteer':
+            case SearchType::CHOICE_VOLUNTEER:
                 $serviceName = 'wyd2016bundle.volunteer.repository';
                 break;
 
