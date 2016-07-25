@@ -18,8 +18,8 @@ class Version20160725123335 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE pilgrim ADD emergency_info VARCHAR(100) DEFAULT NULL, ADD emergency_phone VARCHAR(15) DEFAULT NULL');
-        $this->addSql('ALTER TABLE volunteer ADD emergency_info VARCHAR(100) DEFAULT NULL, ADD emergency_phone VARCHAR(15) DEFAULT NULL');
+        $this->addSql('ALTER TABLE pilgrim ADD emergency_info VARCHAR(100) DEFAULT NULL AFTER comments, ADD emergency_phone VARCHAR(15) DEFAULT NULL AFTER emergency_info');
+        $this->addSql('ALTER TABLE volunteer ADD emergency_info VARCHAR(100) DEFAULT NULL AFTER comments, ADD emergency_phone VARCHAR(15) DEFAULT NULL AFTER emergency_info');
     }
 
     /**
