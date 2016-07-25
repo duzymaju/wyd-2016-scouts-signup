@@ -107,6 +107,8 @@ form.dates.volunteer.6:                 "25.07 - 1.08; cena: 50 PLN od osoby"
 form.dates.volunteer.7:                 "29.07 - 31.07; cena: 50 PLN od osoby"
 form.district:                          Hufiec
 form.email:                             Adres e-mail
+form.emergency_info:                    Dane alarmowe
+form.emergency_phone:                   Alarmowy nr telefonu
 form.error.age_too_high:                Maksymalny wiek to %age% lat.
 form.error.age_too_low:                 Minimalny wiek to %age% lat.
 form.error.association_name_empty:      Pole z nazwą organizacji skautowej nie może być puste.

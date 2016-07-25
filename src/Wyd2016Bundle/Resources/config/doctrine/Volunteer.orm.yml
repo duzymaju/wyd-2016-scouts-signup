@@ -104,6 +104,16 @@ Wyd2016Bundle\Entity\Volunteer:
             length:                     255
             nullable:                   true
             type:                       string
+        emergencyInfo:
+            length:                     100
+            name:                       emergency_info
+            nullable:                   true
+            type:                       string
+        emergencyPhone:
+            length:                     15
+            name:                       emergency_phone
+            nullable:                   true
+            type:                       string
         wydFormPassword:
             length:                     20
             name:                       wyd_form_password

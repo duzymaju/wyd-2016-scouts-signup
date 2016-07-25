@@ -36,6 +36,12 @@ trait PersonTrait
     /** @var integer */
     protected $shirtSize;
 
+    /** @var string */
+    protected $emergencyInfo;
+
+    /** @var string */
+    protected $emergencyPhone;
+
     /**
      * Get first name
      *
@@ -260,6 +266,54 @@ trait PersonTrait
     public function setShirtSize($shirtSize = null)
     {
         $this->shirtSize = $shirtSize;
+
+        return $this;
+    }
+
+    /**
+     * Get emergency info
+     *
+     * @return string|null
+     */
+    public function getEmergencyInfo()
+    {
+        return $this->emergencyInfo;
+    }
+
+    /**
+     * Set emergency info
+     *
+     * @param string|null $emergencyInfo emergency info
+     *
+     * @return self
+     */
+    public function setEmergencyInfo($emergencyInfo = null)
+    {
+        $this->emergencyInfo = $emergencyInfo;
+
+        return $this;
+    }
+
+    /**
+     * Get emergency phone
+     *
+     * @return string|null
+     */
+    public function getEmergencyPhone()
+    {
+        return $this->emergencyPhone;
+    }
+
+    /**
+     * Set emergency phone
+     *
+     * @param string|null $emergencyPhone emergency phone
+     *
+     * @return self
+     */
+    public function setEmergencyPhone($emergencyPhone = null)
+    {
+        $this->emergencyPhone = $emergencyPhone;
 
         return $this;
     }

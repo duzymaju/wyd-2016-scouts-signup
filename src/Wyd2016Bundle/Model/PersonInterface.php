@@ -186,4 +186,36 @@ interface PersonInterface
      * @return self
      */
     public function setShirtSize($shirtSize = null);
+
+    /**
+     * Get emergency info
+     *
+     * @return string|null
+     */
+    public function getEmergencyInfo();
+
+    /**
+     * Set emergency info
+     *
+     * @param string|null $emergencyInfo emergency info
+     *
+     * @return self
+     */
+    public function setEmergencyInfo($emergencyInfo = null);
+
+    /**
+     * Get emergency phone
+     *
+     * @return string|null
+     */
+    public function getEmergencyPhone();
+
+    /**
+     * Set emergency phone
+     *
+     * @param string|null $emergencyPhone emergency phone
+     *
+     * @return self
+     */
+    public function setEmergencyPhone($emergencyPhone = null);
 }

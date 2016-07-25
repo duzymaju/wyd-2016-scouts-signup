@@ -97,6 +97,8 @@ form.dates.volunteer.6:                 "Jul 25 - Aug 1; price: 15 EUR per perso
 form.dates.volunteer.7:                 "Jul 29 - Jul 31; price: 15 EUR per person"
 form.district:                          District
 form.email:                             E-mail address
+form.emergency_info:                    Emergency info
+form.emergency_phone:                   Emergency phone
 form.error.age_too_high:                Maximum age is %age%.
 form.error.age_too_low:                 Minimum age is %age%.
 form.error.association_name_empty:      Name of scout/guide association field can't be empty.

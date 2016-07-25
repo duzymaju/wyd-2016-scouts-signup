@@ -30,6 +30,10 @@
         <dd>{{ pilgrim.datesId|pilgrimdate }}</dd>
         <dt>{{ 'form.comments'|trans }}:</dt>
         <dd>{{ pilgrim.comments is empty ? '-' : pilgrim.comments }}</dd>
+        <dt>{{ 'form.emergency_info'|trans }}:</dt>
+        <dd>{{ pilgrim.emergencyInfo is empty ? '-' : pilgrim.emergencyInfo }}</dd>
+        <dt>{{ 'form.emergency_phone'|trans }}:</dt>
+        <dd>{{ pilgrim.emergencyPhone is empty ? '-' : pilgrim.emergencyPhone }}</dd>
         {% if pilgrim.group %}
             <dt>{{ 'form.group_name'|trans }}:</dt>
             <dd>

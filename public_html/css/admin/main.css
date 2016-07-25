@@ -66,3 +66,9 @@ dl.list ul li {
 .modal .waiting .glyphicon {
     top: 5px;
 }
+#edit-form.modal .form-group {
+    margin-bottom: 0;
+}
+#edit-form.modal .form-group > div {
+    padding-bottom: 10px;
+}

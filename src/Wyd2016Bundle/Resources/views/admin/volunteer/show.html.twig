@@ -94,6 +94,10 @@
         <dd>{{ volunteer.datesId|volunteerdate }}</dd>
         <dt>{{ 'form.comments'|trans }}:</dt>
         <dd>{{ volunteer.comments is empty ? '-' : volunteer.comments }}</dd>
+        <dt>{{ 'form.emergency_info'|trans }}:</dt>
+        <dd>{{ volunteer.emergencyInfo is empty ? '-' : volunteer.emergencyInfo }}</dd>
+        <dt>{{ 'form.emergency_phone'|trans }}:</dt>
+        <dd>{{ volunteer.emergencyPhone is empty ? '-' : volunteer.emergencyPhone }}</dd>
         {% if volunteer.troop %}
             <dt>{{ 'form.troop_name'|trans }}:</dt>
             <dd>
