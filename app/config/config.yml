@@ -31,6 +31,7 @@ parameters:
     wyd2016.age.min_adult:              18
     wyd2016.age.min_group_member:       14
     wyd2016.age.min_troop_member:       15
+    wyd2016.certificate_file_pattern:   "%kernel.root_dir%/Resources/Certificates/certificate_%%d.pdf"
     wyd2016.default_prefix:             "+48"
     wyd2016.email.reply_to:             sdm@zhp.net.pl
     wyd2016.email_alias:

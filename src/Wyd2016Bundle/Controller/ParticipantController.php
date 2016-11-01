@@ -141,7 +141,7 @@ class ParticipantController extends Controller
             'activationHash' => $hash,
         ));
 
-        $filePath = '../app/resources/Certificates/certificate_' . $volunteer->getId() . '.pdf';
+        $filePath = sprintf($this->getParameter('wyd2016.certificate_file_pattern'), $volunteer->getId());
         if (!file_exists($filePath)) {
             throw new NotFoundHttpException('File doesn\'t exist.');
         }
