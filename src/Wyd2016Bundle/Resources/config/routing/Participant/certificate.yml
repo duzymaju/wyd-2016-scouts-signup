@@ -1,0 +1,7 @@
+participant_certificate:
+    defaults:
+        _controller:                    Wyd2016Bundle:Participant:certificate
+    methods:                            [GET]
+    path:                               /volunteer/{hash}/certificate
+    requirements:
+        hash:                           "[0-9a-f]{32}$"

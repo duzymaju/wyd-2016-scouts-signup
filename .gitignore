@@ -5,6 +5,8 @@
 /app/logs/*
 !app/logs/.gitkeep
 /app/phpunit.xml
+/app/Resources/Certificates/*
+!app/Resources/Certificates/.gitkeep
 /bin/
 /composer.phar
 /nbproject/

@@ -64,6 +64,9 @@ fos_user_security_login: /admin/login
 # Desc: /admin/logout
 fos_user_security_logout: /admin/logout
 
+# Desc: /volunteer/{hash}/certificate
+participant_certificate: '/volunteer/{hash}/certificate'
+
 # Desc: /volunteer/{hash}/supplement
 participant_volunteer_supplement: '/volunteer/{hash}/supplement'
 

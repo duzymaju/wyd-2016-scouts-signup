@@ -69,6 +69,9 @@ _api_volunteer:
     options:
         i18n:                           false
 
+_participant_certificate:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Participant/certificate.yml"
+
 _participant_volunteer_supplement:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Participant/volunteer_supplement.yml"
 

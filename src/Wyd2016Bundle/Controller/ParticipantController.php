@@ -6,8 +6,10 @@ use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Translation\TranslatorInterface;
 use Wyd2016Bundle\Entity\Repository\VolunteerRepository;
 use Wyd2016Bundle\Entity\Volunteer;
@@ -22,7 +24,7 @@ use Wyd2016Bundle\Model\Action;
 class ParticipantController extends Controller
 {
     /**
-     * Index action
+     * Volunteer supplement action
      *
      * @param Request $request request
      * @param string  $hash    hash
@@ -119,6 +121,32 @@ class ParticipantController extends Controller
                 'volunteer' => $volunteer,
             ));
         }
+
+        return $response;
+    }
+
+    /**
+     * Certificate action
+     *
+     * @param string $hash hash
+     *
+     * @return Response
+     */
+    public function certificateAction($hash)
+    {
+        /** @var VolunteerRepository $volunteerRepository */
+        $volunteerRepository = $this->get('wyd2016bundle.volunteer.repository');
+        /** @var Volunteer $volunteer */
+        $volunteer = $volunteerRepository->findOneByOrException(array(
+            'activationHash' => $hash,
+        ));
+
+        $filePath = '../app/resources/Certificates/certificate_' . $volunteer->getId() . '.pdf';
+        if (!file_exists($filePath)) {
+            throw new NotFoundHttpException('File doesn\'t exist.');
+        }
+
+        $response = new BinaryFileResponse($filePath);
 
         return $response;
     }
