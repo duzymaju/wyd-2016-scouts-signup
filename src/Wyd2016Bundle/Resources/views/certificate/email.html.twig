@@ -1,0 +1,5 @@
+{{ 'certificate.header'|trans|raw }}
+<p>{{ 'certificate.description'|trans }}</p>
+{% set link = url('participant_certificate', {_locale: locale, hash: volunteer.activationHash}) %}
+<p><a href="{{ link }}" target="_blank">{{ link }}</a></p>
+{{ 'certificate.footer'|trans|raw }}

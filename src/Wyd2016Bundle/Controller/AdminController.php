@@ -166,6 +166,41 @@ class AdminController extends Controller
     }
 
     /**
+     * Certificate send action
+     *
+     * @param Request $request request
+     *
+     * @return Response
+     */
+    public function certificateSendAction(Request $request)
+    {
+        $name = 'certificate:send';
+        $page = $request->query->getInt('page');
+        if ($page < 1) {
+            return $this->render('Wyd2016Bundle::admin/command_loop.html.twig', array(
+                'name' => $name,
+            ));
+        }
+
+        $options = array(
+            'pack' => 20,
+            'page' => $page,
+            'test' => $request->query->getBoolean('test', false),
+        );
+
+        $ids = $request->query->get('ids');
+        if (!empty($ids)) {
+            $options['ids'] = $ids;
+        }
+        $receiver = $request->query->get('receiver');
+        if (!empty($receiver)) {
+            $options['receiver'] = $receiver;
+        }
+
+        return $this->executeCommand($name, array(), $options);
+    }
+
+    /**
      * Execute command
      * 
      * @param string  $name      name

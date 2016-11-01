@@ -1,0 +1,5 @@
+admin_certificate_send:
+    defaults:
+        _controller:                    Wyd2016Bundle:Admin:certificateSend
+    methods:                            [GET]
+    path:                               /admin/certificate-send

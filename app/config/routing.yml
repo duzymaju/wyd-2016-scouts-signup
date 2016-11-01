@@ -56,6 +56,9 @@ _admin_notify_regions:
 _admin_supplement_link_send:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/supplement_link_send.yml"
 
+_admin_certificate_send:
+    resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/certificate_send.yml"
+
 _admin_index:
     resource:                           "@Wyd2016Bundle/Resources/config/routing/Admin/index.yml"
 
