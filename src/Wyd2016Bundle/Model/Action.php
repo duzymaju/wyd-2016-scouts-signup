@@ -13,6 +13,9 @@ class Action
     const TYPE_GET_API_VOLUNTEER = 'get_api_volunteer';
 
     /** @const string */
+    const TYPE_GET_CERTIFICATE = 'get_certificate';
+
+    /** @const string */
     const TYPE_UPDATE_GROUP_DATA = 'update_group_data';
 
     /** @const string */

@@ -146,6 +146,8 @@ class ParticipantController extends Controller
             throw new NotFoundHttpException('File doesn\'t exist.');
         }
 
+        $this->get('wyd2016bundle.manager.action')
+            ->log(Action::TYPE_GET_CERTIFICATE, $volunteer->getId());
         $response = new BinaryFileResponse($filePath);
 
         return $response;
