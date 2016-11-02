@@ -109,7 +109,7 @@ class CertificateSendCommand extends ContainerAwareCommand
         $translator->setLocale($locale);
         $title = $translator->trans('certificate.title');
         $template = 'Wyd2016Bundle::certificate/email.html.twig';
-        $count += $this->sendMail($output, $email, $title, $template, array(
+        $count = $this->sendMail($output, $email, $title, $template, array(
             'locale' => $locale,
             'volunteer' => $volunteer,
         ));
