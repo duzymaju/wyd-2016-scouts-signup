@@ -59,6 +59,15 @@ admin.volunteer:                        Wolontariusz
 admin.volunteers:                       Wolontariusze
 admin.volunteers.counter:               (ostatnich %limit% z %totalNumber%)
 
+certificate.description:                "Link do certyfikatu:"
+certificate.footer:                     |
+    <p>Czuwaj!<br>
+    Komenda Zlotu ZHP na Światowe Dni Młodzieży Kraków 2016</p>
+certificate.header:                     |
+    <p>Już są!</p>
+    <p>Przesyłamy Wam, najlepsi Wolontariusze na świecie, otrzymane właśnie certyfikaty. Dokument ten zaświadcza odbycie przez Ciebie służby podczas Światowych Dni Młodzieży Kraków 2016.</p>
+certificate.title:                      ZHP ŚDM Kraków 2016 - certyfikat
+
 confirmation.error:                     Twoja rejestracja została już potwierdzona lub posiadasz nieprawidłowy link potwierdzenia
 confirmation.success:                   Twoja rejestracja została prawidłowo potwierdzona
 confirmation.title:                     Potwierdzenie rejestracji

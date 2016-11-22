@@ -59,6 +59,14 @@ admin.volunteer:                        Volunteer
 admin.volunteers:                       Volunteers
 admin.volunteers.counter:               (last %limit% of %totalNumber%)
 
+certificate.description:                "Link to a certificate:"
+certificate.footer:                     |
+    <p>Yours in Scouting!</p>
+certificate.header:                     |
+    <p>Here they are!</p>
+    <p>We are sending you, best volunteers of the world, certificates we had just received. This document certifies your service during World Youth Day Kraków 2016.</p>
+certificate.title:                      ZHP WYD 2016 - certificate
+
 confirmation.error:                     Your registration is already confirmed or you have wrong confirmation link
 confirmation.success:                   Your registration was successfully confirmed
 confirmation.title:                     Registration confirmation
