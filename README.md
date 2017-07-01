@@ -1,4 +1,4 @@
-# WYD Registration Form
+# Scouts signup form for WYD 2016
 
 ## Deployment:
 * all environments:
@@ -12,5 +12,5 @@
   * make proper database migration (if manual, remember to add new migration versions to `migration_versions` table),
 * stage:
   * copy everything from `public_html` to `private_html`,
-  * uncomment first line in `.htaccess` in public_html` and `private_html`,
+  * uncomment first line in `.htaccess` in `public_html` and `private_html`,
   * optionally remove `.htaccess` and `php.ini` files from main dir.
